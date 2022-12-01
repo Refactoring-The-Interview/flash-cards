@@ -1,11 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
+import Button from 'react-bootstrap/Button';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Example heading <span className="badge bg-secondary">New</span></h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <Button variant="secondary">Secondary</Button>
       </header>
     </div>
   );
