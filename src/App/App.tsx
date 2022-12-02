@@ -1,11 +1,11 @@
 import React from 'react';
-import ArrayMethods from '../Components/ArrayQuestions/arrayMethods';
 
+import FlashCard from '../Components/FashCard/flashCard';
 
 function App() {
   return (
     <div className="App">
-      <ArrayMethods />
+      <FlashCard />
     </div>
   );
 }
