@@ -39,7 +39,7 @@ const arrayMethods = () => {
   ]
 
   const cardQuestion = randomizser(questionBank);
-  const {difficulty, question, answer, a,b,c} = cardQuestion;
+  const {difficulty, question, answer, answers} = cardQuestion;
   return (
     <div className='card__question'>
       <div className='card__description'>
@@ -47,15 +47,15 @@ const arrayMethods = () => {
       </div>
 
       <ul className='card__list'>
-        {/* <li className='card__item'>
-          (A): {a}
-        </li>
-        <li className='card__item'>
-          (B): {b}
-        </li>
-        <li className='card__item'>
-          (C): {c}
-        </li> */}
+        {
+           answers.map((item:any, index:any)=> {
+            return (
+              <li className='card__item' key={index}>
+                {item}
+              </li>
+            )
+           })
+        }
       </ul>
 
     </div>
