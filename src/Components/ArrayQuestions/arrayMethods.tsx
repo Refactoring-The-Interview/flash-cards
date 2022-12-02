@@ -1,7 +1,7 @@
 import randomizser from '../QuestionRandomizer/randomizer';
 
 
-const ArrayMethods = () => {
+const arrayMethods = () => {
   const questionBank = [
 
     {
@@ -56,4 +56,4 @@ const ArrayMethods = () => {
   )
 }
 
-export default ArrayMethods;
+export default arrayMethods;
