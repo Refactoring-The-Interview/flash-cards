@@ -4,6 +4,7 @@ const randomizer = (array) => {
 
 
 
+  console.log(result, 'randomizer');
   return result;
 }
 
