@@ -1,10 +1,9 @@
 const randomizer = (array) => {
-  let result = {}
+  const randomElement = Math.floor(Math.random() * array.length)
+  const result = array[randomElement];
 
 
 
-
-  console.log(result, 'randomizer');
   return result;
 }
 
