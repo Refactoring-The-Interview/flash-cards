@@ -47,8 +47,8 @@ const arrayMethods = () => {
 
   ]
 
-  const question = randomizser(questionBank);
-
+  const cardQuestion = randomizser(questionBank);
+  const {difficulty, question, answer, a,b,c} = cardQuestion;
   return (
     <div>
 
