@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrayMethods from '../Components/ArrayQuestions/ArrayMethods';
+import ArrayMethods from '../Components/ArrayQuestions/arrayMethods';
 
 
 function App() {
