@@ -24,6 +24,22 @@ const arrayMethods = () => {
       a: 'Array.map()',
       b: 'Array.forEach()',
       c: 'Array.every()',
+    },
+    {
+      difficulty: 'Medium',
+      question: " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+      answer: 'a',
+      a:'Array.some()',
+      b:'Array.filter',
+      c:'Array.forEach()'
+    },
+    {
+      difficulty: 'Medium',
+      question: "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
+      answer: 'a',
+      a:'Array.flat()',
+      b:'Array.flatMap()',
+      c:'Array.concat()'
     }
 
 
