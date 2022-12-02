@@ -7,7 +7,7 @@ const arrayMethods = () => {
     {
       difficulty: 'Medium',
       question: 'What method is used to method create a new array populated with the results of calling a provided function on every element in the calling array.',
-      answer: 'a',
+      answer: 'Array.map()',
       answers: ['Array.map()','Array.forEach()','Array.every()']
     },
     {
