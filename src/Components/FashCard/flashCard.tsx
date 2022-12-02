@@ -23,9 +23,9 @@ const flashCard = () => {
       </div>
 
 
-      <div className="card__question">
+
         <ArrayMethods />
-      </div>
+
 
 
     </main>

@@ -39,7 +39,7 @@ const arrayMethods = () => {
     {
       difficulty: 'Medium',
       question: "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
-      answer: 'a',
+      answer: 'Array.flat()',
       a:'Array.flat()',
       b:'Array.flatMap()',
       c:'Array.concat()'
@@ -50,7 +50,16 @@ const arrayMethods = () => {
   const cardQuestion = randomizser(questionBank);
   const {difficulty, question, answer, a,b,c} = cardQuestion;
   return (
-    <div>
+    <div className='card__question'>
+      <div className='card__description'>
+          {question}
+      </div>
+
+      <ul className='card__list'>
+        <li className='card__item'>
+
+        </li>
+      </ul>
 
     </div>
   )
