@@ -5,4 +5,26 @@
   align-items: center;
   font-size: 1.75rem;
   font-weight: 300;
+
+
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+
+  &__question{
+
+  }
+
+  &__list{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+
 }
