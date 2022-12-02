@@ -57,7 +57,13 @@ const arrayMethods = () => {
 
       <ul className='card__list'>
         <li className='card__item'>
-
+          (A): {a}
+        </li>
+        <li className='card__item'>
+          (B): {b}
+        </li>
+        <li className='card__item'>
+          (C): {c}
         </li>
       </ul>
 
