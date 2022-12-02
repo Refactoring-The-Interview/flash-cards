@@ -3,11 +3,11 @@ const arrayMethods = () => {
 
     {
       difficulty: 'Medium',
-    question: 'What method is used to method create a new array populated with the results of calling a provided function on every element in the calling array.',
-    answer: 'a',
-    a: 'Array.map()',
-    b: 'Array.forEach()',
-    c: 'Array.every()',
+      question: 'What method is used to method create a new array populated with the results of calling a provided function on every element in the calling array.',
+      answer: 'a',
+      a: 'Array.map()',
+      b: 'Array.forEach()',
+      c: 'Array.every()',
     },
     {
       difficulty: 'Medium',
@@ -16,8 +16,28 @@ const arrayMethods = () => {
       a:'Array.findIndex()',
       b:'Array.findLast()',
       c:"Array.find()"
+    },
+    {
+      difficulty: 'Medium',
+      question: 'what method executes a provided function once for each array element.',
+      answer: 'b',
+      a: 'Array.map()',
+      b: 'Array.forEach()',
+      c: 'Array.every()',
     }
+
+
+
+
+
   ]
+
+
+
+
+
+
+
 
   return (
     <div>
