@@ -42,18 +42,7 @@ const arrayMethods = () => {
       c:'Array.concat()'
     }
 
-
-
-
-
   ]
-
-
-
-
-
-
-
 
   return (
     <div>
