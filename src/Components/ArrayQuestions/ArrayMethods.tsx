@@ -38,7 +38,8 @@ const ArrayMethods = (props: any) => {
     }
 
   ]
-  questionBank.push(props.question)
+  if (props.question.question.length !==0) questionBank.push(props.question)
+
 
   const cardQuestion = randomizser(questionBank);
   const {difficulty, question, answer, answers} = cardQuestion;
