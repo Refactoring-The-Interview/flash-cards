@@ -9,9 +9,12 @@ const FlashCard = () => {
     question: '',
     answer: '',
     answers: []
-  });
+  }) as any
   const [addQuestion, setAddQuestion] = useState(false);
-
+  const [difficulty, setDifficulty] = useState('');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [answers, setAnswers] = useState('') as any
 
   return (
     <main className="card">
@@ -38,46 +41,66 @@ const FlashCard = () => {
           addQuestion && (
             <form className="form" onSubmit={(e) => {
               e.preventDefault()
-              console.log(e.target)
+              setNewQuestion({
+                difficulty: difficulty,
+                question: question,
+                answer: answer,
+                answers: answers.split(' ')
+              })
 
               }}>
               <div className="form__difficulty">
-              <label htmlFor="difficulty-options">difficulty select: </label>
-              <select
-                className="form__difficulty-options"
-                id="difficulty-options"
-                value={newQuestion.difficulty}
-              >
-                <option>Easy</option>
-                <option>Medium</option>
-                <option>Hard</option>
-              </select>
+             <label htmlFor="difficultyTextArea"
+
+             >Difficulty</label>
+              <textarea
+                onChange = {(e) => {
+                  setDifficulty(e.target.value)
+                }}
+               className="form__question__descriptor form-control"
+               id="difficultyTextArea"
+               value={difficulty}
+               ></textarea>
             </div>
 
             <div className="form__question">
-             <label htmlFor="questionTextArea">Question</label>
+             <label htmlFor="questionTextArea"
+
+             >Question</label>
               <textarea
+                onChange = {(e) => {
+                  setQuestion(e.target.value)
+                }}
                className="form__question__descriptor form-control"
                id="questionTextArea"
-               value={newQuestion.question}
+               value={question}
                ></textarea>
             </div>
 
             <div className="form__answers">
-             <label htmlFor="answersTextArea">Answers</label>
+             <label htmlFor="answersTextArea"
+
+             >Answers</label>
               <textarea
                className="form__answers__descriptor form-control"
                id="answersTextArea"
-               value={newQuestion.answers}
+               onChange = {(e) => {
+                let questionArray = e.target.value
+                setAnswers(questionArray)
+              }}
+               value={answers}
                ></textarea>
             </div>
 
             <div className="form__answer">
              <label htmlFor="answerTextArea">Correct Answer</label>
               <textarea
+                onChange={(e) => {
+                  setAnswer(e.target.value)
+                }}
                className="form__answer__descriptor form-control"
                id="answerTextArea"
-               value={newQuestion.answers}
+               value={answer}
                ></textarea>
             </div>
 
