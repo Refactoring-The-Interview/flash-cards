@@ -11,7 +11,6 @@ function App() {
     <div className="App">
       {
         !loggedIn && (<Login loggedIn={(e: any) => {
-          e.preventDefault();
           setLoggedIn(!loggedIn)
         }}/>)
       }
