@@ -3,9 +3,11 @@ import './LoginS.scss';
 
 const Login = (props:any) => {
 
-  console.log(props)
   return (
-    <form className="Login-form">
+    <form className="Login-form" onSubmit={(e) => {
+      e.preventDefault();
+      props.loggedIn()
+    }}>
     <div className="form-group" >
       <label htmlFor="email">Email address</label>
       <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
@@ -16,7 +18,6 @@ const Login = (props:any) => {
       <input type="password" className="form-control" id="password" placeholder="Password"/>
     </div>
     <button type="submit" className="btn btn-primary"
-      onClick={() => props.loggedIn()}
     >Submit</button>
   </form>
   )
