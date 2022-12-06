@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useTimer } from 'react-timer-hook';
-
+import './TimerS.scss';
+import iconSprite from '../../Assets/icons/sprite.svg';
 
 const Timer = (expiryTimestamp: any) => {
   const time = new Date();
@@ -17,13 +18,16 @@ const Timer = (expiryTimestamp: any) => {
 
   return (
     <div className="timer">
+      <svg className="timer__icon-stopwatch">
+        <use xlinkHref={`${iconSprite}#icon-stopwatch`}> </use>
+      </svg>
       <div className="timer__display" >
        <span>{minutes}</span>:<span>{seconds}</span>
       </div>
       {
         !isPause && (
           <button
-          type="button" className="btn btn-outline-danger"
+          type="button" className="btn timer__btn btn-outline-danger"
           onClick={() => {
             pause()
             setIsPause(true)
@@ -33,7 +37,7 @@ const Timer = (expiryTimestamp: any) => {
       {
         isPause && (
           <button
-          type="button" className="btn btn-outline-success"
+          type="button" className="btn timer__btn btn-outline-success"
             onClick={() => {
               start();
               setIsPause(false)
