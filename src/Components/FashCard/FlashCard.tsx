@@ -26,7 +26,7 @@ const FlashCard = () => {
           1/5
         </div>
 
-        <button> Submit </button>
+      <button type="button" className="btn btn-info">Submit</button>
 
       </div>
 
