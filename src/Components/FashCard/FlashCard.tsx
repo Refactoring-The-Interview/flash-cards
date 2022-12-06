@@ -33,10 +33,12 @@ const FlashCard = () => {
       </div>
 
         < ArrayMethods question = {newQuestion} />
+        <button type="button" className="btn btn-primary">Next Question</button>
         <button
           type="button"
           className="btn btn-success"
           onClick={(e)=> {setAddQuestion(!addQuestion)}}>Add</button>
+
         {
           addQuestion && (
             <form className="form" onSubmit={(e) => {
