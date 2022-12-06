@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from "react";
 import ArrayMethods from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
-
+import Timer from "../Timer/Timer";
 
 const FlashCard = () => {
 
@@ -19,7 +19,7 @@ const FlashCard = () => {
 
       <div className="card__header">
         <div className="card__header-timer">
-          timer
+          <Timer />
         </div>
 
         <div className="card__header-count">
