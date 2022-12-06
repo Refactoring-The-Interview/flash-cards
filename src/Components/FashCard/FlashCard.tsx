@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useCallback} from "react";
 import ArrayMethods from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 
@@ -11,6 +11,8 @@ const FlashCard = () => {
     answer: '',
     answers: []
   }) as any
+  const [, updateState] = useState({});
+  const update = useCallback(() => updateState({}), [])
 
   return (
     <main className="card">
@@ -29,6 +31,13 @@ const FlashCard = () => {
       </div>
 
         < ArrayMethods question = {newQuestion} />
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={(e)=> {
+            update()
+          }}
+          > Next Question </button>
         <AddQuestionForm newQuestionState={setNewQuestion} />
 
     </main>
