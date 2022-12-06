@@ -1,6 +1,6 @@
 
 import React,{useState} from "react";
-import { deflate } from "zlib";
+import './AddQuestionFormS.scss';
 
 const AddQuestionForm = (props: any) => {
 
@@ -14,7 +14,7 @@ const AddQuestionForm = (props: any) => {
     <div>
          <button
           type="button"
-          className="btn btn-success"
+          className="btn"
           onClick={(e)=> {setAddQuestion(!addQuestion)}}>Add</button>
         {
           addQuestion && (
