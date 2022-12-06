@@ -4,8 +4,10 @@ $prefix: "mo-";
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import './Abstracts/variables';
 
 @import './Base/base';
 @import './Layout/Layout';
-@import './Components/FlashCards.scss';
+@import './Components/liquidBtn';
+@import './Components/btn';
 

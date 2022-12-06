@@ -2,6 +2,7 @@ import React, {useState, useCallback} from "react";
 import ArrayMethods from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
+import './FlashCardS.scss';
 
 const FlashCard = () => {
 
@@ -16,7 +17,6 @@ const FlashCard = () => {
 
   return (
     <main className="card">
-
       <div className="card__header">
         <div className="card__header-timer">
           <Timer />
@@ -26,14 +26,14 @@ const FlashCard = () => {
           1/5
         </div>
 
-        <button> Submit </button>
+      <button type="button" className="btn btn-info">Submit</button>
 
       </div>
 
         < ArrayMethods question = {newQuestion} />
         <button
           type="button"
-          className="btn btn-primary"
+          className="card__btn-next btn btn-info"
           onClick={(e)=> {
             update()
           }}

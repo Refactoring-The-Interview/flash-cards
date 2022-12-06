@@ -1,5 +1,5 @@
 import randomizser from '../QuestionRandomizer/randomizer';
-
+import './ArrayMethodsS.scss';
 
 const ArrayMethods = (props: any) => {
 
@@ -53,9 +53,9 @@ const ArrayMethods = (props: any) => {
         {
            answers.map((item:any, index:any)=> {
             return (
-              <li className='card__item' key={index}>
+              <button type="button" className="card__btn-item btn btn-outline-info" key={index}>
                 {item}
-              </li>
+              </button>
             )
            })
         }

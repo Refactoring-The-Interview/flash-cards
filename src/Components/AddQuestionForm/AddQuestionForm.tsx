@@ -1,6 +1,6 @@
 
 import React,{useState} from "react";
-import { deflate } from "zlib";
+import './AddQuestionFormS.scss';
 
 const AddQuestionForm = (props: any) => {
 
@@ -11,10 +11,10 @@ const AddQuestionForm = (props: any) => {
   const [answers, setAnswers] = useState('') as any
 
   return (
-    <div>
+    <div className="container">
          <button
           type="button"
-          className="btn btn-success"
+          className="btn"
           onClick={(e)=> {setAddQuestion(!addQuestion)}}>Add</button>
         {
           addQuestion && (
@@ -83,7 +83,7 @@ const AddQuestionForm = (props: any) => {
                ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-danger">Submit</button>
+            <button type="submit" className="btn btn-danger from__submit--btn">Submit</button>
             </form>
           )
         }

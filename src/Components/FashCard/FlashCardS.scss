@@ -1,11 +1,15 @@
+@import '../../Sass/main.scss';
+
 .card {
+
   width: 80vw;
   padding: 5rem;
   display: flex;
   align-items: center;
   font-size: 1.75rem;
   font-weight: 300;
-
+  border: 6px solid $color-primary-grey;
+  background-color: red;
 
   &__header {
     display: flex;
@@ -15,23 +19,21 @@
     margin-bottom: 4rem;
   }
 
-
-  &__question{
-
-  }
-
   &__description {
     text-transform: uppercase;
     font-weight: 500;
-
+    background-color: $color-white-dark;
   }
 
-  &__list{
+  &__btn-next {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 100%;
+    background-color: $color-primary-blue-light;
+    padding: 1.5rem 3rem;
+    border: 2px solid $color-primary-grey;
+    border-radius: 30px;
+    margin-bottom: 1.4rem;
+
   }
 
 }
