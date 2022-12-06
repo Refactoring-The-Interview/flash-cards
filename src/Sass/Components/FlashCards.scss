@@ -1,0 +1,37 @@
+.card {
+  width: 80vw;
+  padding: 5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+  font-weight: 300;
+
+
+  &__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+
+  &__question{
+
+  }
+
+  &__description {
+    text-transform: uppercase;
+    font-weight: 500;
+
+  }
+
+  &__list{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+
+}
