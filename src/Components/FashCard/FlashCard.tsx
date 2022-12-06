@@ -2,6 +2,7 @@ import React, {useState, useCallback} from "react";
 import ArrayMethods from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
+import './FlashCardS.scss';
 
 const FlashCard = () => {
 
