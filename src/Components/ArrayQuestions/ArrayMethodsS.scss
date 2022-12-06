@@ -1,0 +1,26 @@
+@import '../../Sass/main.scss';
+
+
+.card {
+
+  &__question {
+
+  }
+
+  &__description {
+
+    padding: 2rem;
+    border: solid 2px grey;
+    border-radius: 10px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+
+  }
+
+
+}

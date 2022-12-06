@@ -53,7 +53,7 @@ const ArrayMethods = (props: any) => {
         {
            answers.map((item:any, index:any)=> {
             return (
-              <button className='card__item' key={index}>
+              <button type="button" className="btn card__item btn-outline-info" key={index}>
                 {item}
               </button>
             )
