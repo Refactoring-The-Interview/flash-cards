@@ -33,7 +33,7 @@ const FlashCard = () => {
         < ArrayMethods question = {newQuestion} />
         <button
           type="button"
-          className="btn btn-primary"
+          className="card__btn-next btn btn-info"
           onClick={(e)=> {
             update()
           }}

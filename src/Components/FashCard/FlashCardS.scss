@@ -25,5 +25,18 @@
 
   }
 
+  &__btn-next {
+    display: flex;
+    align-items: center;
+    background-color: $color-primary-blue-light;
+    padding: 1.5rem 3rem;
+    border: 2px solid $color-primary-grey;
+    border-radius: 30px;
+    margin-bottom: 1.4rem;
+
+
+
+  }
+
 
 }
