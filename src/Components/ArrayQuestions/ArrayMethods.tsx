@@ -1,8 +1,9 @@
 import randomizser from '../QuestionRandomizer/randomizer';
 
 
-const arrayMethods = () => {
-  const questionBank = [
+const ArrayMethods = (props: any) => {
+
+  let questionBank = [
 
     {
       difficulty: 'Medium',
@@ -37,6 +38,8 @@ const arrayMethods = () => {
     }
 
   ]
+  if (props.question.question.length !==0) questionBank.push(props.question)
+
 
   const cardQuestion = randomizser(questionBank);
   const {difficulty, question, answer, answers} = cardQuestion;
@@ -62,4 +65,4 @@ const arrayMethods = () => {
   )
 }
 
-export default arrayMethods;
+export default ArrayMethods;

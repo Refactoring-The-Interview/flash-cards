@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FlashCard from '../Components/FashCard/flashCard';
+import FlashCard from '../Components/FashCard/FlashCard';
 
 function App() {
   return (
