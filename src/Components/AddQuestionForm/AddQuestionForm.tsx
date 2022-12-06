@@ -11,7 +11,7 @@ const AddQuestionForm = (props: any) => {
   const [answers, setAnswers] = useState('') as any
 
   return (
-    <div>
+    <div className="container">
          <button
           type="button"
           className="btn"
@@ -83,7 +83,7 @@ const AddQuestionForm = (props: any) => {
                ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-danger">Submit</button>
+            <button type="submit" className="btn btn-danger from__submit--btn">Submit</button>
             </form>
           )
         }
