@@ -1,5 +1,6 @@
-import ArrayMethods from "../ArrayQuestions/ArrayMethods";
 import React, {useState} from "react";
+import ArrayMethods from "../ArrayQuestions/ArrayMethods";
+import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 
 
 const FlashCard = () => {
@@ -10,11 +11,11 @@ const FlashCard = () => {
     answer: '',
     answers: []
   }) as any
-  const [addQuestion, setAddQuestion] = useState(false);
-  const [difficulty, setDifficulty] = useState('');
-  const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [answers, setAnswers] = useState('') as any
+  // const [addQuestion, setAddQuestion] = useState(false);
+  // const [difficulty, setDifficulty] = useState('');
+  // const [question, setQuestion] = useState('');
+  // const [answer, setAnswer] = useState('');
+  // const [answers, setAnswers] = useState('') as any
 
   return (
     <main className="card">
@@ -33,7 +34,8 @@ const FlashCard = () => {
       </div>
 
         < ArrayMethods question = {newQuestion} />
-        <button
+        <AddQuestionForm newQuestionState={setNewQuestion}/>
+        {/* <button
           type="button"
           className="btn btn-success"
           onClick={(e)=> {setAddQuestion(!addQuestion)}}>Add</button>
@@ -107,7 +109,7 @@ const FlashCard = () => {
             <button type="submit" className="btn btn-danger">Submit</button>
             </form>
           )
-        }
+        } */}
     </main>
   )
 }
