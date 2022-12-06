@@ -1,12 +1,15 @@
 @import '../../Sass/main.scss';
 
 .card {
+
   width: 80vw;
   padding: 5rem;
   display: flex;
   align-items: center;
   font-size: 1.75rem;
   font-weight: 300;
+  border: 6px solid $color-primary-grey;
+  background-color: red;
 
   &__header {
     display: flex;
@@ -21,5 +24,6 @@
     font-weight: 500;
 
   }
+
 
 }

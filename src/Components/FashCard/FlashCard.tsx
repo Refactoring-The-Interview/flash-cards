@@ -17,7 +17,6 @@ const FlashCard = () => {
 
   return (
     <main className="card">
-
       <div className="card__header">
         <div className="card__header-timer">
           <Timer />
