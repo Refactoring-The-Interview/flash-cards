@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./LoginS.scss";
 import { useLocalStorage } from "../LocalStorage/LocalStorage";
 
-const Login = (props: any) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+interface Props {
+  setLoggedIn(successful: boolean): void;
+}
+
+export const Login = ({ setLoggedIn }: Props) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [userInfo, setUserInfo] = useLocalStorage("userInfo", {
     email: "",
     password: "",
@@ -14,9 +18,12 @@ const Login = (props: any) => {
     <form
       className="Login-form"
       onSubmit={(e) => {
-        setUserInfo({ email: email, password: password });
         e.preventDefault();
-        props.loggedIn();
+
+        // TODO Add check to make sure that the user exists and password is correct
+
+        setUserInfo({ email: email, password: password });
+        setLoggedIn(true);
       }}
     >
       <div className="form-group">
@@ -55,5 +62,3 @@ const Login = (props: any) => {
     </form>
   );
 };
-
-export default Login;
