@@ -12,9 +12,10 @@ export const useLocalStorage = (key: any, defaultValue: any) => {
     return getStorageValue(key, defaultValue);
   });
 
-  useEffect(() => {
+  const setStorage = (value) => {
     localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    setValue(value);
+  };
 
-  return [value, setValue];
+  return [value, setStorage];
 };

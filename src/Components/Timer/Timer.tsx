@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
 import "./TimerS.scss";
-import iconSprite from "../../Assets/icons/sprite.svg";
+// import iconSprite from "../../Assets/icons/sprite.svg";
 
 const Timer = (expiryTimestamp: any) => {
   const time = new Date();
@@ -11,12 +11,20 @@ const Timer = (expiryTimestamp: any) => {
     expiryTimestamp: time,
     autoStart: true,
   });
+
+
+
+
+
+
+
+
   const [isPause, setIsPause] = useState(false);
 
   return (
     <div className="timer">
       <svg className="timer__icon-stopwatch">
-        <use xlinkHref={`${iconSprite}#icon-stopwatch`}> </use>
+        {/* <use xlinkHref={`${iconSprite}#icon-stopwatch`}> </use> */}
       </svg>
       <div className="timer__display">
         <span>{minutes}</span>:<span>{seconds}</span>
