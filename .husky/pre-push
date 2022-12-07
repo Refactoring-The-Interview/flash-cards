@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+set -eu
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+fail() {
+  echo ""
+  echo "🚫 $BRANCH is protected. Please create a branch and make a PR instead"
+  exit 1
+}
+
+# If we are on master we know we can't push so we block right away
+if [[ "$BRANCH" == "master" ]]; then
+  fail
+fi
