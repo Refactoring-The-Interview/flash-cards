@@ -2,12 +2,10 @@ $primary: #900;
 $enable-shadows: true;
 $prefix: "mo-";
 
-
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import './Abstracts/variables';
+@import "./Abstracts/variables";
 
-@import './Base/base';
-@import './Layout/Layout';
-@import './Components/liquidBtn';
-@import './Components/btn';
-
+@import "./Base/base";
+@import "./Layout/Layout";
+@import "./Components/liquidBtn";
+@import "./Components/btn";
