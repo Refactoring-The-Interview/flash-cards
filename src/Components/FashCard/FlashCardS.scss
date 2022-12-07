@@ -1,7 +1,6 @@
-@import '../../Sass/main.scss';
+@import "../../Sass/main.scss";
 
 .card {
-
   width: 80vw;
   padding: 5rem;
   display: flex;
@@ -33,7 +32,5 @@
     border: 2px solid $color-primary-grey;
     border-radius: 30px;
     margin-bottom: 1.4rem;
-
   }
-
 }

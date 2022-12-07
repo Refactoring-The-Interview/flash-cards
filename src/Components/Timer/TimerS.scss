@@ -1,16 +1,15 @@
-@import '../../Sass/main.scss';
+@import "../../Sass/main.scss";
 
 .timer {
   display: flex;
   justify-content: center;
   align-content: center;
-  transition: all .2s;
+  transition: all 0.2s;
 
   &__display {
     font-size: 2rem;
     font-weight: 500;
     cursor: default;
-
   }
   &__icon-stopwatch {
     fill: $color-primary-blue-light;
@@ -30,14 +29,12 @@
 
     &:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 1rem 6rem rgba($color: #000000, $alpha: .4);
+      box-shadow: 0 1rem 6rem rgba($color: #000000, $alpha: 0.4);
     }
 
     &:active {
-      transform: translateY(0) scale(1.0);
+      transform: translateY(0) scale(1);
       box-shadow: 0 1rem 6rem rgba(#000, 0);
     }
   }
-
-
 }
