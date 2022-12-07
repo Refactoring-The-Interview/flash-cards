@@ -1,4 +1,6 @@
-export let questionBank = [
+import { Question } from "./types";
+
+export let questionBank: Question[] = [
   {
     difficulty: "Medium",
     question:

@@ -1,20 +1,23 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
-import { questionBank } from "../Store";
+import { questionBank } from "../store";
 import { randomizer } from "../QuestionRandomizer/randomizer";
+import { Question } from "../store/types";
 
 const FlashCard = () => {
   // TODO Add new question to the localstorage question bank
-  const [newQuestion, setNewQuestion] = useState({
+  const [newQuestion, setNewQuestion] = useState<Question>({
     difficulty: "",
     question: "",
     answer: "",
     answers: [],
-  }) as any;
-  const [cardQuestion, setCardQuestion] = useState(randomizer(questionBank));
+  });
+  const [cardQuestion, setCardQuestion] = useState<Question>(
+    randomizer(questionBank)
+  );
 
   return (
     <main className="card">
