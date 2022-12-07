@@ -3,12 +3,18 @@ import "./LoginS.scss";
 import { useLocalStorage } from "../LocalStorage/LocalStorage";
 
 const Login = (props: any) => {
-  const [email, setEmail] = useLocalStorage("email", "");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userInfo, setUserInfo] = useLocalStorage("userInfo", {
+    email: "",
+    password: "",
+  });
 
   return (
     <form
       className="Login-form"
       onSubmit={(e) => {
+        setUserInfo({ email: email, password: password });
         e.preventDefault();
         props.loggedIn();
       }}
@@ -37,6 +43,10 @@ const Login = (props: any) => {
           className="form-control"
           id="password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
         />
       </div>
       <button type="submit" className="login__btn btn btn-primary">
