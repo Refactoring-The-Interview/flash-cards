@@ -3,10 +3,10 @@ import "./LoginS.scss";
 import { useLocalStorage } from "../LocalStorage/LocalStorage";
 
 interface Props {
-  tryLogin(): void;
+  setLoggedIn(successful: boolean): void;
 }
 
-export const Login = ({ tryLogin }: Props) => {
+export const Login = ({ setLoggedIn }: Props) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [userInfo, setUserInfo] = useLocalStorage("userInfo", {
@@ -18,9 +18,12 @@ export const Login = ({ tryLogin }: Props) => {
     <form
       className="Login-form"
       onSubmit={(e) => {
-        setUserInfo({ email: email, password: password });
         e.preventDefault();
-        tryLogin();
+
+        // TODO Add check to make sure that the user exists and password is correct
+
+        setUserInfo({ email: email, password: password });
+        setLoggedIn(true);
       }}
     >
       <div className="form-group">

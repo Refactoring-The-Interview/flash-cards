@@ -6,13 +6,9 @@ import { Login } from "../Components/Login/Login";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const tryLogin = () => {
-    setLoggedIn(!loggedIn);
-  };
-
   return (
     <div className="App">
-      {!loggedIn && <Login tryLogin={tryLogin} />}
+      {!loggedIn && <Login setLoggedIn={setLoggedIn} />}
       {loggedIn && <FlashCard />}
     </div>
   );
