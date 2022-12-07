@@ -20,7 +20,7 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
       <div className="description">{question}</div>
 
       <ul className="list">
-        {answers.map((item: string, index: string) => {
+        {answers.map((item: string, index: number) => {
           return (
             <button
               type="button"
