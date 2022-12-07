@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./LoginS.scss";
 import { useLocalStorage } from "../LocalStorage/LocalStorage";
+import { FillQuestionBank } from "../store";
 
 interface Props {
   setLoggedIn(successful: boolean): void;
@@ -23,6 +24,7 @@ export const Login = ({ setLoggedIn }: Props) => {
         // TODO Add check to make sure that the user exists and password is correct
 
         setUserInfo({ email: email, password: password });
+        FillQuestionBank();
         setLoggedIn(true);
       }}
     >

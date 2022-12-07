@@ -1,3 +1,4 @@
+import { useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Question } from "./types";
 
 export let questionBank: Question[] = [
@@ -37,3 +38,7 @@ export let questionBank: Question[] = [
     answers: ["Array.flat()", "Array.flatMap()", "Array.concat()"],
   },
 ];
+
+export const FillQuestionBank = () => {
+  localStorage.setItem("question bank", questionBank as any);
+};
