@@ -10,15 +10,13 @@ const Login = (props: any) => {
     password: "",
   });
 
-  console.log();
-
   return (
     <form
       className="Login-form"
       onSubmit={(e) => {
         setUserInfo({ email: email, password: password });
         e.preventDefault();
-        // props.loggedIn();
+        props.loggedIn();
       }}
     >
       <div className="form-group">
