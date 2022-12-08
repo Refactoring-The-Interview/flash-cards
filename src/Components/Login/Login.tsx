@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./LoginS.scss";
-import { useLocalStorage } from "../LocalStorage/LocalStorage";
+import { useLocalStorage, getStorageValue } from "../LocalStorage/LocalStorage";
 import { questionBank } from "../store/index";
 
 interface Props {
@@ -29,7 +29,12 @@ export const Login = ({ setLoggedIn }: Props) => {
 
         setUserInfo({ email: email, password: password });
         setPopulateLocalStorageQuestions(questionBank);
-        setLoggedIn(true);
+        if (
+          getStorageValue("userInfo", {}).email &&
+          getStorageValue("userInfo", {}).password
+        ) {
+          setLoggedIn(true);
+        }
       }}
     >
       <div className="form-group">
