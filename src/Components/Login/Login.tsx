@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./LoginS.scss";
 import { useLocalStorage } from "../LocalStorage/LocalStorage";
-import { FillQuestionBank } from "../store";
+import { questionBank } from "../store/index";
 
 interface Props {
   setLoggedIn(successful: boolean): void;
@@ -10,6 +10,9 @@ interface Props {
 export const Login = ({ setLoggedIn }: Props) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [populateLocalStorageQuestions, setPopulateLocalStorageQuestions] =
+    useLocalStorage("questionBank", []);
+
   const [userInfo, setUserInfo] = useLocalStorage("userInfo", {
     email: "",
     password: "",
@@ -24,7 +27,7 @@ export const Login = ({ setLoggedIn }: Props) => {
         // TODO Add check to make sure that the user exists and password is correct
 
         setUserInfo({ email: email, password: password });
-        FillQuestionBank();
+        setPopulateLocalStorageQuestions(questionBank);
         setLoggedIn(true);
       }}
     >
