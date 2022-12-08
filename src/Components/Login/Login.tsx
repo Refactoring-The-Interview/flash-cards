@@ -10,10 +10,11 @@ interface Props {
 export const Login = ({ setLoggedIn }: Props) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [populateLocalStorageQuestions, setPopulateLocalStorageQuestions] =
-    useLocalStorage("questionBank", []);
-
-  const [userInfo, setUserInfo] = useLocalStorage("userInfo", {
+  const [, setPopulateLocalStorageQuestions] = useLocalStorage(
+    "questionBank",
+    []
+  );
+  const [, setUserInfo] = useLocalStorage("userInfo", {
     email: "",
     password: "",
   });

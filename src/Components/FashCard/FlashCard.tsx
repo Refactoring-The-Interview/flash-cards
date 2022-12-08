@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
@@ -19,7 +19,7 @@ const FlashCard = () => {
   });
 
   const [cardQuestion, setCardQuestion] = useState<Question>(
-    randomizer(questionBank)
+    randomizer(getStorageValue("questionBank", []))
   );
 
   return (

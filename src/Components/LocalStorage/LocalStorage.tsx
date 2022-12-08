@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Question } from "../store/types";
 
 export function getStorageValue(key: string, defaultValue: any) {
   const saved = localStorage.getItem(key) as any;
