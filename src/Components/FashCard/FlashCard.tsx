@@ -11,13 +11,6 @@ import { useLocalStorage, getStorageValue } from "../LocalStorage/LocalStorage";
 const FlashCard = () => {
   // TODO Add new question to the localstorage question bank
 
-  const [newQuestion, setNewQuestion] = useState<Question>({
-    difficulty: "",
-    question: "",
-    answer: "",
-    answers: [],
-  });
-
   const [cardQuestion, setCardQuestion] = useState<Question>(
     randomizer(getStorageValue("questionBank", []))
   );
@@ -48,7 +41,7 @@ const FlashCard = () => {
         {" "}
         Next Question{" "}
       </button>
-      <AddQuestionForm newQuestionState={setNewQuestion} />
+      <AddQuestionForm />
     </main>
   );
 };

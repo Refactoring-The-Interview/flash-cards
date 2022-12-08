@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./LoginS.scss";
 import { useLocalStorage, getStorageValue } from "../LocalStorage/LocalStorage";
 import { questionBank } from "../store/index";
@@ -24,8 +24,6 @@ export const Login = ({ setLoggedIn }: Props) => {
       className="Login-form"
       onSubmit={(e) => {
         e.preventDefault();
-
-        // TODO Add check to make sure that the user exists and password is correct
 
         setUserInfo({ email: email, password: password });
         setPopulateLocalStorageQuestions(questionBank);
