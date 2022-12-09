@@ -65,6 +65,16 @@ export const Login = ({ setLoggedIn }: Props) => {
             <button type="submit" className="login__btn btn btn-primary">
                 Submit
             </button>
+            <button
+                type="submit"
+                className="login__btn btn btn-success"
+                onClick={() => {
+                    setPopulateLocalStorageQuestions(questionBank);
+                    setLoggedIn(true);
+                }}
+            >
+                Continue as Guest
+            </button>
         </form>
     );
 };
