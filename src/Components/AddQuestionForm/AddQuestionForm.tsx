@@ -36,7 +36,7 @@ const AddQuestionForm = (props: any) => {
             </button>
             {addQuestion && (
                 <form
-                    className="form"
+                    className="Form"
                     onSubmit={(e) => {
                         e.preventDefault();
 
@@ -51,23 +51,54 @@ const AddQuestionForm = (props: any) => {
                         setNewQuestionBank(questionBank);
                     }}
                 >
-                    {textAreas.map((area: string, index: number) => {
-                        return (
-                            <div className={area} key={index}>
-                                <label htmlFor={`${area}TextArea`}>
-                                    {area}
-                                </label>
-                                <textarea
-                                    onChange={(e) => {
-                                        setQuestion(e.target.value);
-                                    }}
-                                    className="form-control"
-                                    id={`${area}TextArea`}
-                                    value={question}
-                                ></textarea>
-                            </div>
-                        );
-                    })}
+                    <div className="difficulty">
+                        <label htmlFor="difficultyInput">Difficulty</label>
+                        <input
+                            onChange={(e) => {
+                                setDifficulty(e.target.value);
+                            }}
+                            className="inputArea form-control"
+                            id="difficultyInput"
+                            value={difficulty}
+                        ></input>
+                    </div>
+
+                    <div className="question">
+                        <label htmlFor="questionTextArea">Question</label>
+                        <textarea
+                            onChange={(e) => {
+                                setQuestion(e.target.value);
+                            }}
+                            className="inputArea form-control"
+                            id="questionTextArea"
+                            value={question}
+                        ></textarea>
+                    </div>
+
+                    <div className="answers">
+                        <label htmlFor="answersInput">Answers</label>
+                        <input
+                            className="inputArea form-control"
+                            id="answersInput"
+                            onChange={(e) => {
+                                let questionArray = e.target.value;
+                                setAnswers(questionArray);
+                            }}
+                            value={answers}
+                        ></input>
+                    </div>
+
+                    <div className="answer">
+                        <label htmlFor="answerTextArea">Correct Answer</label>
+                        <input
+                            onChange={(e) => {
+                                setAnswer(e.target.value);
+                            }}
+                            className="inputArea form-control"
+                            id="answerTextArea"
+                            value={answer}
+                        ></input>
+                    </div>
 
                     <button
                         type="submit"
