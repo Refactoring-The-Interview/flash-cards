@@ -6,11 +6,17 @@ interface Props {
 }
 
 export const Logout = ({ setLoggedIn }: Props) => {
+    const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
+        email: "",
+        password: "",
+    });
+
     return (
         <div className="Logout">
             <button
                 className="btn btn-secondary"
                 onClick={() => {
+                    setUserInfo({ email: "", password: "" });
                     setLoggedIn(false);
                 }}
             >
