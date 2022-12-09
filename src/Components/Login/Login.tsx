@@ -15,8 +15,8 @@ export const Login = ({ setLoggedIn }: Props) => {
         []
     );
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
-        email: "",
-        password: "",
+        email: email,
+        password: password,
     });
 
     return (
@@ -26,10 +26,18 @@ export const Login = ({ setLoggedIn }: Props) => {
                 e.preventDefault();
 
                 setUserInfo({ email: email, password: password });
+                console.log(
+                    userInfo,
+                    "after set in log in for email and password",
+                    email,
+                    password
+                );
                 setPopulateLocalStorageQuestions(questionBank);
                 if (userInfo.email && userInfo.password) {
+                    console.log(userInfo, "in the if for setLoggedin");
                     setLoggedIn(true);
                 }
+                console.log(userInfo, "user info after if for log in");
             }}
         >
             <div className="form-group">
@@ -66,7 +74,7 @@ export const Login = ({ setLoggedIn }: Props) => {
                 Submit
             </button>
             <button
-                // type="submit"
+                type="submit"
                 className="login__btn btn btn-success"
                 onClick={() => {
                     setPopulateLocalStorageQuestions(questionBank);

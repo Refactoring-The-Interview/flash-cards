@@ -24,6 +24,7 @@ export const useLocalStorage = (key: StorageKey, defaultValue: any) => {
     };
 
     useEffect(() => {
+        console.log("running", localStorage);
         const interval = setInterval(() => {
             const newValue = getStorageValue(key);
 
