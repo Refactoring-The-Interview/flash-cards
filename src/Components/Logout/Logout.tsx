@@ -16,7 +16,9 @@ export const Logout = ({ setLoggedIn }: Props) => {
             <button
                 className="btn btn-secondary"
                 onClick={() => {
-                    setUserInfo({ email: "", password: "" });
+                    if (userInfo) {
+                        setUserInfo({ email: "", password: "" });
+                    }
                     setLoggedIn(false);
                 }}
             >
