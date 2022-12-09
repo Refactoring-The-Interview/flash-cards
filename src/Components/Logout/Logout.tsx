@@ -1,5 +1,6 @@
 import React from "react";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import "./LogoutS.scss";
 
 interface Props {
     setLoggedIn(successful: boolean): void;
@@ -14,7 +15,7 @@ export const Logout = ({ setLoggedIn }: Props) => {
     return (
         <div className="Logout">
             <button
-                className="btn btn-secondary"
+                className="logout-btn btn btn-secondary"
                 onClick={() => {
                     if (userInfo) {
                         setUserInfo({ email: "", password: "" });
