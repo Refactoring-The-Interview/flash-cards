@@ -3,47 +3,45 @@ import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
-import { questionBank } from "../store";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { Question } from "../store/types";
-import { useLocalStorage, getStorageValue } from "../LocalStorage/LocalStorage";
+import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 
 const FlashCard = () => {
-  // TODO Add new question to the localstorage question bank
+    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+    const [cardQuestion, setCardQuestion] = useState<Question>(
+        randomizer(questions)
+    );
 
-  const [cardQuestion, setCardQuestion] = useState<Question>(
-    randomizer(getStorageValue("questionBank", []))
-  );
+    return (
+        <main className="card">
+            <div className="card__header">
+                <div className="card__header-timer">
+                    <Timer />
+                </div>
 
-  return (
-    <main className="card">
-      <div className="card__header">
-        <div className="card__header-timer">
-          <Timer />
-        </div>
+                <div className="card__header-count">1/5</div>
 
-        <div className="card__header-count">1/5</div>
+                <button type="button" className="btn btn-info">
+                    Submit
+                </button>
+            </div>
 
-        <button type="button" className="btn btn-info">
-          Submit
-        </button>
-      </div>
-
-      {/* TODO Reset ArrayMethods when clicking on next question*/}
-      <ArrayMethods cardQuestion={cardQuestion} />
-      <button
-        type="button"
-        className="card__btn-next btn btn-info"
-        onClick={(e) => {
-          setCardQuestion(randomizer(questionBank));
-        }}
-      >
-        {" "}
-        Next Question{" "}
-      </button>
-      <AddQuestionForm />
-    </main>
-  );
+            {/* TODO Reset ArrayMethods when clicking on next question*/}
+            <ArrayMethods cardQuestion={cardQuestion} />
+            <button
+                type="button"
+                className="card__btn-next btn btn-info"
+                onClick={(e) => {
+                    setCardQuestion(randomizer(questions));
+                }}
+            >
+                {" "}
+                Next Question{" "}
+            </button>
+            <AddQuestionForm />
+        </main>
+    );
 };
 
 export default FlashCard;
