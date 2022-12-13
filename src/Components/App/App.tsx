@@ -25,10 +25,17 @@ function App() {
                 </Routes>
             )}
             {loggedIn && (
-                <div>
-                    <Logout setLoggedIn={setLoggedIn} />
-                    <FlashCard />
-                </div>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <div className="mainDisplay">
+                                <Logout setLoggedIn={setLoggedIn} />
+                                <FlashCard />
+                            </div>
+                        }
+                    />
+                </Routes>
             )}
         </div>
     );
