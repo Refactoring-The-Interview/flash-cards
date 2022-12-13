@@ -1,8 +1,8 @@
 import { useRouteError } from "react-router-dom";
 
 interface Props {
-    statusText: any;
-    message: any;
+    statusText: string;
+    message: string;
     error: void | string;
 }
 

@@ -1,21 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./Components/App/App";
 // import reportWebVitals from './reportWebVitals';
 import "./Sass/main.scss";
-import {
-    BrowserRouter,
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/Errors/ErrorPage";
 
-const router = createBrowserRouter([
+interface Props {
+    path: string;
+    element: Component;
+    errorElement: Component | void;
+    children: [];
+}
+
+const router: Props | any = createBrowserRouter([
     {
         path: "*",
         element: <App />,
         errorElement: <ErrorPage />,
+        children: [],
     },
 ]);
 
