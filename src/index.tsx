@@ -4,14 +4,17 @@ import "./index.scss";
 import App from "./Components/App/App";
 // import reportWebVitals from './reportWebVitals';
 import "./Sass/main.scss";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+    BrowserRouter,
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
 import ErrorPage from "./Components/Errors/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <ErrorPage />,
     },
 ]);
 

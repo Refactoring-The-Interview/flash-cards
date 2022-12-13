@@ -53,6 +53,7 @@
     },
     "devDependencies": {
         "@types/lodash": "^4.14.191",
+        "@types/react-router-dom": "^5.3.3",
         "lint-staged": "^13.1.0"
     }
 }
