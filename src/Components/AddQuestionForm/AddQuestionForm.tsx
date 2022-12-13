@@ -21,8 +21,6 @@ const AddQuestionForm = (props: any) => {
         answers: ["a", "b"],
     });
 
-    const textAreas = ["Difficulty", "Question", "Answers", "Answer"];
-
     return (
         <div className="container">
             <button
@@ -51,16 +49,31 @@ const AddQuestionForm = (props: any) => {
                         setNewQuestionBank(questionBank);
                     }}
                 >
-                    <div className="difficulty">
+                    <div className="difficulty form-group">
                         <label htmlFor="difficultyInput">Difficulty</label>
-                        <input
-                            onChange={(e) => {
-                                setDifficulty(e.target.value);
-                            }}
-                            className="inputArea form-control"
-                            id="difficultyInput"
-                            value={difficulty}
-                        ></input>
+                        <select className="form-control" id="difficultyInput">
+                            <option
+                                onClick={(e) => {
+                                    setDifficulty("Hard");
+                                }}
+                            >
+                                Hard
+                            </option>
+                            <option
+                                onClick={(e) => {
+                                    setDifficulty("Medium");
+                                }}
+                            >
+                                Medium
+                            </option>
+                            <option
+                                onClick={(e) => {
+                                    setDifficulty("Easy");
+                                }}
+                            >
+                                Easy
+                            </option>
+                        </select>
                     </div>
 
                     <div className="question">
