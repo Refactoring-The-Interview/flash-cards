@@ -4,13 +4,21 @@ import "./index.scss";
 import App from "./Components/App/App";
 // import reportWebVitals from './reportWebVitals';
 import "./Sass/main.scss";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+    },
+]);
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <App />
+        <RouterProvider router={router} />
     </React.StrictMode>
 );
 
