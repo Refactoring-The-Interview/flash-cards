@@ -7,7 +7,6 @@ import { Logout } from "../Logout/Logout";
 
 function App() {
     const [loggedIn, setLoggedIn] = useLocalStorage(StorageKey.loggedIn, false);
-
     return (
         <div className="App">
             {!loggedIn && <Login setLoggedIn={setLoggedIn} />}
