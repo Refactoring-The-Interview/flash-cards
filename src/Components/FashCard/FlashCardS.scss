@@ -10,7 +10,7 @@
     border: 6px solid $color-primary-grey;
     background-color: red;
 
-    &__header {
+    .header {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -18,13 +18,13 @@
         margin-bottom: 4rem;
     }
 
-    &__description {
+    .description {
         text-transform: uppercase;
         font-weight: 500;
         background-color: $color-white-dark;
     }
 
-    &__btn-next {
+    .btn-next {
         display: flex;
         align-items: center;
         background-color: $color-primary-blue-light;
@@ -32,5 +32,25 @@
         border: 2px solid $color-primary-grey;
         border-radius: 30px;
         margin-bottom: 1.4rem;
+    }
+
+    .filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .label {
+        font-size: 1.05rem;
+        font-weight: 400;
+        margin-right: 0.5rem;
+    }
+
+    .select {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
     }
 }

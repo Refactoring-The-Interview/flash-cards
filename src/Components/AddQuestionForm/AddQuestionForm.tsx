@@ -9,17 +9,11 @@ const AddQuestionForm = (props: any) => {
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
+    const [tags, setTags] = useState<string>("");
     const [questionBank, setNewQuestionBank] = useLocalStorage(
         StorageKey.questionBank,
         []
     );
-
-    const [newQuestion, setNewQuestion] = useState<Question>({
-        difficulty: "medium",
-        question: "This is a test",
-        answer: "a",
-        answers: ["a", "b"],
-    });
 
     return (
         <div className="container">
@@ -30,49 +24,35 @@ const AddQuestionForm = (props: any) => {
                     setAddQuestion(!addQuestion);
                 }}
             >
-                Add
+                {!addQuestion ? "Add" : "Close"}
             </button>
             {addQuestion && (
                 <form
                     className="Form"
                     onSubmit={(e) => {
                         e.preventDefault();
-
-                        // we don't need a new question sate, put it as a variable
-                        setNewQuestion({
+                        questionBank.push({
                             difficulty: difficulty,
                             question: question,
                             answer: answer,
                             answers: answers.split(" "),
-                        });
-                        questionBank.push(newQuestion);
+                            tags: tags.split(" "),
+                        } as Question);
                         setNewQuestionBank(questionBank);
                     }}
                 >
                     <div className="difficulty form-group">
                         <label htmlFor="difficultyInput">Difficulty</label>
-                        <select className="form-control" id="difficultyInput">
-                            <option
-                                onClick={(e) => {
-                                    setDifficulty("Hard");
-                                }}
-                            >
-                                Hard
-                            </option>
-                            <option
-                                onClick={(e) => {
-                                    setDifficulty("Medium");
-                                }}
-                            >
-                                Medium
-                            </option>
-                            <option
-                                onClick={(e) => {
-                                    setDifficulty("Easy");
-                                }}
-                            >
-                                Easy
-                            </option>
+                        <select
+                            className="form-control"
+                            id="difficultyInput"
+                            onChange={(e) => {
+                                setDifficulty(e.target.value);
+                            }}
+                        >
+                            <option>Hard</option>
+                            <option>Medium</option>
+                            <option>Easy</option>
                         </select>
                     </div>
 
@@ -94,8 +74,7 @@ const AddQuestionForm = (props: any) => {
                             className="inputArea form-control"
                             id="answersInput"
                             onChange={(e) => {
-                                let questionArray = e.target.value;
-                                setAnswers(questionArray);
+                                setAnswers(e.target.value);
                             }}
                             value={answers}
                         ></input>
@@ -110,6 +89,18 @@ const AddQuestionForm = (props: any) => {
                             className="inputArea form-control"
                             id="answerTextArea"
                             value={answer}
+                        ></input>
+                    </div>
+
+                    <div className="tags">
+                        <label htmlFor="tagsInput">Tags</label>
+                        <input
+                            className="inputArea form-control"
+                            id="tagsInput"
+                            onChange={(e) => {
+                                setTags(e.target.value);
+                            }}
+                            value={tags}
                         ></input>
                     </div>
 
