@@ -9,6 +9,21 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 
 const FlashCard = () => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
+    const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
+        StorageKey.filteredQuestionBank,
+        []
+    );
+
+    const [questionType, setQuestionType] = useState<string>("");
+
+    if (questionType.length) {
+        let test = questions.filter((question: any) => {
+            return question.tags.includes(questionType);
+        });
+        console.log(test, "tewst");
+        setFilteredQuestionBank(test);
+    }
+
     const [cardQuestion, setCardQuestion] = useState<Question>(
         randomizer(questions)
     );
@@ -27,7 +42,6 @@ const FlashCard = () => {
                 </button>
             </div>
 
-            {/* TODO Reset ArrayMethods when clicking on next question*/}
             <ArrayMethods cardQuestion={cardQuestion} />
             <button
                 type="button"
@@ -40,6 +54,27 @@ const FlashCard = () => {
                 Next Question{" "}
             </button>
             <AddQuestionForm />
+            <form className="filter form-group">
+                <label htmlFor="filterSelect">Filter By</label>
+                <select id="filterSelect" className="form-control">
+                    <option
+                        onClick={(e) => {
+                            setQuestionType("array");
+                        }}
+                    >
+                        Array Methods
+                    </option>
+
+                    <option
+                        onClick={(e) => {
+                            console.log("hello");
+                            setQuestionType("object");
+                        }}
+                    >
+                        Objects
+                    </option>
+                </select>
+            </form>
         </main>
     );
 };

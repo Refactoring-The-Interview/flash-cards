@@ -45,28 +45,16 @@ const AddQuestionForm = (props: any) => {
                 >
                     <div className="difficulty form-group">
                         <label htmlFor="difficultyInput">Difficulty</label>
-                        <select className="form-control" id="difficultyInput">
-                            <option
-                                onClick={(e) => {
-                                    setDifficulty("Hard");
-                                }}
-                            >
-                                Hard
-                            </option>
-                            <option
-                                onClick={(e) => {
-                                    setDifficulty("Medium");
-                                }}
-                            >
-                                Medium
-                            </option>
-                            <option
-                                onClick={(e) => {
-                                    setDifficulty("Easy");
-                                }}
-                            >
-                                Easy
-                            </option>
+                        <select
+                            className="form-control"
+                            id="difficultyInput"
+                            onChange={(e) => {
+                                setDifficulty(e.target.value);
+                            }}
+                        >
+                            <option>Hard</option>
+                            <option>Medium</option>
+                            <option>Easy</option>
                         </select>
                     </div>
 

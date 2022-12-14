@@ -7,7 +7,7 @@ export let questionBank: Question[] = [
             "What method is used to method create a new array populated with the results of calling a provided function on every element in the calling array.",
         answer: "Array.map()",
         answers: ["Array.map()", "Array.forEach()", "Array.every()"],
-        tags: ["array", "Array.map()"],
+        tags: ["array"],
     },
     {
         difficulty: "Medium",
@@ -40,5 +40,13 @@ export let questionBank: Question[] = [
         answer: "Array.flat()",
         answers: ["Array.flat()", "Array.flatMap()", "Array.concat()"],
         tags: ["array"],
+    },
+
+    {
+        difficulty: "Medium",
+        question: "this is a test obj to see if the filter is working.",
+        answer: "test1",
+        answers: ["test1", "test", "test"],
+        tags: ["object"],
     },
 ];

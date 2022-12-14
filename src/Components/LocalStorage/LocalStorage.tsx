@@ -5,6 +5,7 @@ export enum StorageKey {
     loggedIn = "loggedIn",
     questionBank = "questionBank",
     userInfo = "userInfo",
+    filteredQuestionBank = "filteredQuestionBank",
 }
 
 function getStorageValue(key: StorageKey, defaultValue?: any) {
