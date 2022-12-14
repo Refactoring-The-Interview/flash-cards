@@ -30,12 +30,12 @@ const FlashCard = () => {
 
     return (
         <main className="card">
-            <div className="card__header">
-                <div className="card__header-timer">
+            <div className="header">
+                <div className="header-timer">
                     <Timer />
                 </div>
 
-                <div className="card__header-count">1/5</div>
+                <div className="header-count">1/5</div>
 
                 <button type="button" className="btn btn-info">
                     Submit
@@ -45,7 +45,7 @@ const FlashCard = () => {
             <ArrayMethods cardQuestion={cardQuestion} />
             <button
                 type="button"
-                className="card__btn-next btn btn-info"
+                className="btn-next btn btn-info"
                 onClick={(e) => {
                     setCardQuestion(
                         randomizer(
@@ -61,10 +61,12 @@ const FlashCard = () => {
             </button>
             <AddQuestionForm />
             <form className="filter form-group">
-                <label htmlFor="filterSelect">Filter By</label>
+                <label htmlFor="filterSelect" className="label">
+                    Filter By
+                </label>
                 <select
                     id="filterSelect"
-                    className="form-control"
+                    className=" select form-control"
                     onChange={(e) => {
                         setQuestionType(e.target.value);
                     }}
