@@ -16,16 +16,16 @@ const FlashCard = () => {
 
     const [questionType, setQuestionType] = useState<string>("");
 
-    if (questionType.length) {
-        let test = questions.filter((question: any) => {
+    if (questionType) {
+        let test = questions.filter((question: Question) => {
             return question.tags.includes(questionType);
         });
-        console.log(test, "tewst");
         setFilteredQuestionBank(test);
+        setQuestionType("");
     }
 
     const [cardQuestion, setCardQuestion] = useState<Question>(
-        randomizer(questions)
+        randomizer(filteredQuestionBank ? questions : filteredQuestionBank)
     );
 
     return (
@@ -47,7 +47,13 @@ const FlashCard = () => {
                 type="button"
                 className="card__btn-next btn btn-info"
                 onClick={(e) => {
-                    setCardQuestion(randomizer(questions));
+                    setCardQuestion(
+                        randomizer(
+                            filteredQuestionBank
+                                ? filteredQuestionBank
+                                : questions
+                        )
+                    );
                 }}
             >
                 {" "}
@@ -56,23 +62,15 @@ const FlashCard = () => {
             <AddQuestionForm />
             <form className="filter form-group">
                 <label htmlFor="filterSelect">Filter By</label>
-                <select id="filterSelect" className="form-control">
-                    <option
-                        onClick={(e) => {
-                            setQuestionType("array");
-                        }}
-                    >
-                        Array Methods
-                    </option>
-
-                    <option
-                        onClick={(e) => {
-                            console.log("hello");
-                            setQuestionType("object");
-                        }}
-                    >
-                        Objects
-                    </option>
+                <select
+                    id="filterSelect"
+                    className="form-control"
+                    onChange={(e) => {
+                        setQuestionType(e.target.value);
+                    }}
+                >
+                    <option>array</option>
+                    <option>object</option>
                 </select>
             </form>
         </main>
