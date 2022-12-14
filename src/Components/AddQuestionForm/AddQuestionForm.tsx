@@ -88,8 +88,7 @@ const AddQuestionForm = (props: any) => {
                             className="inputArea form-control"
                             id="answersInput"
                             onChange={(e) => {
-                                let questionArray = e.target.value;
-                                setAnswers(questionArray);
+                                setAnswers(e.target.value);
                             }}
                             value={answers}
                         ></input>
@@ -104,6 +103,18 @@ const AddQuestionForm = (props: any) => {
                             className="inputArea form-control"
                             id="answerTextArea"
                             value={answer}
+                        ></input>
+                    </div>
+
+                    <div className="tags">
+                        <label htmlFor="tagsInput">Tags</label>
+                        <input
+                            className="inputArea form-control"
+                            id="tagsInput"
+                            onChange={(e) => {
+                                setTags(e.target.value);
+                            }}
+                            value={tags}
                         ></input>
                     </div>
 
