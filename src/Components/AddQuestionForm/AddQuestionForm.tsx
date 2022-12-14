@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Question } from "../store/types";
 import "./AddQuestionFormS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { setegid } from "process";
+import { TypeFlags } from "typescript";
 
 const AddQuestionForm = (props: any) => {
     const [addQuestion, setAddQuestion] = useState<boolean>(false);
@@ -9,17 +11,11 @@ const AddQuestionForm = (props: any) => {
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
+    const [tags, setTags] = useState<string>("");
     const [questionBank, setNewQuestionBank] = useLocalStorage(
         StorageKey.questionBank,
         []
     );
-
-    const [newQuestion, setNewQuestion] = useState<Question>({
-        difficulty: "medium",
-        question: "This is a test",
-        answer: "a",
-        answers: ["a", "b"],
-    });
 
     return (
         <div className="container">
@@ -30,22 +26,20 @@ const AddQuestionForm = (props: any) => {
                     setAddQuestion(!addQuestion);
                 }}
             >
-                Add
+                {!addQuestion ? "Add" : "Close"}
             </button>
             {addQuestion && (
                 <form
                     className="Form"
                     onSubmit={(e) => {
                         e.preventDefault();
-
-                        // we don't need a new question sate, put it as a variable
-                        setNewQuestion({
+                        questionBank.push({
                             difficulty: difficulty,
                             question: question,
                             answer: answer,
                             answers: answers.split(" "),
-                        });
-                        questionBank.push(newQuestion);
+                            tags: tags.split(" "),
+                        } as Question);
                         setNewQuestionBank(questionBank);
                     }}
                 >
