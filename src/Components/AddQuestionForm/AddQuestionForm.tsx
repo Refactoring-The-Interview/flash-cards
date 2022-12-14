@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Question } from "../store/types";
 import "./AddQuestionFormS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { setegid } from "process";
-import { TypeFlags } from "typescript";
 
 const AddQuestionForm = (props: any) => {
     const [addQuestion, setAddQuestion] = useState<boolean>(false);
