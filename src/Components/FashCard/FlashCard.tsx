@@ -7,7 +7,11 @@ import { randomizer } from "../QuestionRandomizer/randomizer";
 import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 
-const FlashCard = () => {
+interface Props {
+    setFlipCardToIDE(successful: boolean): void;
+}
+
+const FlashCard = ({ setFlipCardToIDE }: Props) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
@@ -17,15 +21,15 @@ const FlashCard = () => {
     const [questionType, setQuestionType] = useState<string>("");
 
     if (questionType) {
-        let test = questions.filter((question: Question) => {
+        let filter = questions.filter((question: Question) => {
             return question.tags.includes(questionType);
         });
-        setFilteredQuestionBank(test);
+        setFilteredQuestionBank(filter);
         setQuestionType("");
     }
 
     const [cardQuestion, setCardQuestion] = useState<Question>(
-        randomizer(filteredQuestionBank ? questions : filteredQuestionBank)
+        randomizer(questions)
     );
 
     return (
@@ -37,7 +41,13 @@ const FlashCard = () => {
 
                 <div className="header-count">1/5</div>
 
-                <button type="button" className="btn btn-info">
+                <button
+                    type="button"
+                    className="btn btn-info"
+                    onClick={() => {
+                        setFlipCardToIDE(true);
+                    }}
+                >
                     Submit
                 </button>
             </div>
@@ -49,7 +59,7 @@ const FlashCard = () => {
                 onClick={(e) => {
                     setCardQuestion(
                         randomizer(
-                            filteredQuestionBank
+                            filteredQuestionBank.length > 0
                                 ? filteredQuestionBank
                                 : questions
                         )
