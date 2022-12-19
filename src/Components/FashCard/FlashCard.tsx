@@ -43,7 +43,7 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
 
                 <button
                     type="button"
-                    className="btn btn-info"
+                    className=" btn-to-IDE btn btn-info"
                     onClick={() => {
                         setFlipCardToIDE(true);
                     }}
