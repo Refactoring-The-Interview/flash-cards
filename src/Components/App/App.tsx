@@ -3,6 +3,7 @@ import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
 import { Logout } from "../Logout/Logout";
+import { IDE } from "../IDE/IDE";
 import {
     Routes,
     Route,
@@ -13,6 +14,7 @@ import {
 
 function App() {
     const [loggedIn, setLoggedIn] = useLocalStorage(StorageKey.loggedIn, false);
+    const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
 
     return (
         <div className="App">
@@ -26,12 +28,15 @@ function App() {
             )}
             {loggedIn && (
                 <Routes>
+                    {flipCardToIDE && <Route path="/" element={<IDE />} />}
                     <Route
                         path="/"
                         element={
                             <div className="mainDisplay">
                                 <Logout setLoggedIn={setLoggedIn} />
-                                <FlashCard />
+                                <FlashCard
+                                    setFlipCardToIDE={setFlipCardToIDE}
+                                />
                             </div>
                         }
                     />
