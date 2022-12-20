@@ -1,0 +1,18 @@
+@import "../../Sass/main.scss";
+
+.QuestionList {
+    display: flex;
+    width: 25rem;
+    justify-content: center;
+    align-items: center;
+
+    .QuestionList__form {
+        display: flex;
+    }
+
+    .select {
+        width: 11rem;
+        font-size: $font-size-small;
+        font-weight: $font-weight-small;
+    }
+}
