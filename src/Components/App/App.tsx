@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
@@ -32,7 +33,7 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            <div className="mainDisplay">
+                            <div className="mainDisplayFront">
                                 <Logout setLoggedIn={setLoggedIn} />
                                 <FlashCard
                                     setFlipCardToIDE={setFlipCardToIDE}
