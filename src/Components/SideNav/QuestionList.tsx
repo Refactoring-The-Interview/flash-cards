@@ -15,8 +15,10 @@ export const QuestionList = ({ setCardQuestion, Questions }: any) => {
                 <form>
                     <select
                         onChange={(e) => {
-                            console.log(Questions);
-                            // setCardQuestion(e.target.value);
+                            let selectedQuestion = Questions.find(
+                                ({ answer }: any) => answer === e.target.value
+                            );
+                            setCardQuestion(selectedQuestion);
                         }}
                     >
                         {Questions.map((question: Question, index: number) => {
