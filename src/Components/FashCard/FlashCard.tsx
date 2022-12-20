@@ -6,7 +6,7 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { QuestionList } from "../SideNav/QuestionList";
+import { QuestionList } from "../QuestionList/QuestionList";
 
 interface Props {
     setFlipCardToIDE(successful: boolean): void;
@@ -41,7 +41,6 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                 </div>
 
                 <div className="header-Question-list/filter">
-                    Question List:{" "}
                     <QuestionList
                         setCardQuestion={setCardQuestion}
                         Questions={

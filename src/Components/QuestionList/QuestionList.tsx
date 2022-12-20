@@ -12,8 +12,10 @@ export const QuestionList = ({ setCardQuestion, Questions }: any) => {
     return (
         <div className="QuestionList">
             <div>
-                <form>
+                <form className="QuestionList__form">
+                    <label className="label">Question List: </label>
                     <select
+                        className="select"
                         onChange={(e) => {
                             let selectedQuestion = Questions.find(
                                 ({ answer }: any) => answer === e.target.value
