@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
@@ -11,6 +12,7 @@ import {
     Link,
     createBrowserRouter,
 } from "react-router-dom";
+import { SideNav } from "../SideNav/SideNav";
 
 function App() {
     const [loggedIn, setLoggedIn] = useLocalStorage(StorageKey.loggedIn, false);
@@ -32,7 +34,8 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            <div className="mainDisplay">
+                            <div className="mainDisplayFront">
+                                <SideNav />
                                 <Logout setLoggedIn={setLoggedIn} />
                                 <FlashCard
                                     setFlipCardToIDE={setFlipCardToIDE}
