@@ -9,7 +9,7 @@ const AddQuestionForm = (props: any) => {
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
-    const [tags, setTags] = useState<string>("");
+    const [tags, setTags] = useState<Array<string>>([]);
     const [questionBank, setNewQuestionBank] = useLocalStorage(
         StorageKey.questionBank,
         []
@@ -35,8 +35,8 @@ const AddQuestionForm = (props: any) => {
                             difficulty: difficulty,
                             question: question,
                             answer: answer,
-                            answers: answers.split(" "),
-                            tags: tags.split(" "),
+                            answers: answers.split(","),
+                            tags: tags,
                         } as Question);
                         setNewQuestionBank(questionBank);
                     }}
@@ -94,14 +94,18 @@ const AddQuestionForm = (props: any) => {
 
                     <div className="tags">
                         <label htmlFor="tagsInput">Tags</label>
-                        <input
+                        <select
                             className="inputArea form-control"
                             id="tagsInput"
+                            multiple
                             onChange={(e) => {
-                                setTags(e.target.value);
+                                setTags([...tags, e.target.value]);
                             }}
-                            value={tags}
-                        ></input>
+                        >
+                            <option>array</option>
+                            <option>object</option>
+                            <option>method</option>
+                        </select>
                     </div>
 
                     <button
