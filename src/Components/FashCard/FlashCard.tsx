@@ -6,6 +6,7 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { QuestionList } from "../SideNav/QuestionList";
 
 interface Props {
     setFlipCardToIDE(successful: boolean): void;
@@ -39,7 +40,32 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                     <Timer />
                 </div>
 
-                <div className="header-count">1/5</div>
+                <div className="header-Question-list/filter">
+                    Question List:{" "}
+                    <QuestionList
+                        setCardQuestion={setCardQuestion}
+                        Questions={
+                            filteredQuestionBank.length > 0
+                                ? filteredQuestionBank
+                                : questions
+                        }
+                    />
+                    <form className="filter form-group">
+                        <label htmlFor="filterSelect" className="label">
+                            Filter By
+                        </label>
+                        <select
+                            id="filterSelect"
+                            className=" select form-control"
+                            onChange={(e) => {
+                                setQuestionType(e.target.value);
+                            }}
+                        >
+                            <option>array</option>
+                            <option>object</option>
+                        </select>
+                    </form>
+                </div>
 
                 <button
                     type="button"
@@ -70,21 +96,6 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                 Next Question{" "}
             </button>
             <AddQuestionForm />
-            <form className="filter form-group">
-                <label htmlFor="filterSelect" className="label">
-                    Filter By
-                </label>
-                <select
-                    id="filterSelect"
-                    className=" select form-control"
-                    onChange={(e) => {
-                        setQuestionType(e.target.value);
-                    }}
-                >
-                    <option>array</option>
-                    <option>object</option>
-                </select>
-            </form>
         </main>
     );
 };

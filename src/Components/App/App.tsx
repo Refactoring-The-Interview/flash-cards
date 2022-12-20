@@ -12,7 +12,6 @@ import {
     Link,
     createBrowserRouter,
 } from "react-router-dom";
-import { SideNav } from "../SideNav/SideNav";
 
 function App() {
     const [loggedIn, setLoggedIn] = useLocalStorage(StorageKey.loggedIn, false);
@@ -35,7 +34,6 @@ function App() {
                         path="/"
                         element={
                             <div className="mainDisplayFront">
-                                <SideNav />
                                 <Logout setLoggedIn={setLoggedIn} />
                                 <FlashCard
                                     setFlipCardToIDE={setFlipCardToIDE}
