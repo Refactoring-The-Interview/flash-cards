@@ -19,6 +19,14 @@ const AddQuestionForm = (props: any) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const clearForm = () => {
+        setDifficulty("");
+        setQuestion("");
+        setAnswer("");
+        setAnswers("");
+        setTags([]);
+    };
+
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
@@ -96,7 +104,6 @@ const AddQuestionForm = (props: any) => {
                             >
                                 <option>array</option>
                                 <option>object</option>
-                                <option>method</option>
                             </select>
                         </div>
                     </form>
@@ -117,6 +124,7 @@ const AddQuestionForm = (props: any) => {
                             } as Question);
                             setNewQuestionBank(questionBank);
                             handleClose();
+                            clearForm();
                         }}
                     >
                         Save and Close
