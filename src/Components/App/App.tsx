@@ -5,14 +5,7 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
 import { Logout } from "../Logout/Logout";
 import { IDE } from "../IDE/IDE";
-import {
-    Routes,
-    Route,
-    Outlet,
-    Link,
-    createBrowserRouter,
-    useNavigate,
-} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -21,7 +14,7 @@ function App() {
     });
     const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const redirectUser = async () => {
