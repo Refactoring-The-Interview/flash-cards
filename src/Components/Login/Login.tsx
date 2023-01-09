@@ -3,11 +3,7 @@ import "./LoginS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { questionBank } from "../store/index";
 
-interface Props {
-    setLoggedIn(successful: boolean): void;
-}
-
-export const Login = ({ setLoggedIn }: Props) => {
+export const Login = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [, setPopulateLocalStorageQuestions] = useLocalStorage(
@@ -24,20 +20,10 @@ export const Login = ({ setLoggedIn }: Props) => {
             className="Login-form"
             onSubmit={(e) => {
                 e.preventDefault();
-
                 setUserInfo({ email: email, password: password });
-                console.log(
-                    userInfo,
-                    "after set in log in for email and password",
-                    email,
-                    password
-                );
                 setPopulateLocalStorageQuestions(questionBank);
                 if (userInfo.email && userInfo.password) {
-                    console.log(userInfo, "in the if for setLoggedin");
-                    setLoggedIn(true);
                 }
-                console.log(userInfo, "user info after if for log in");
             }}
         >
             <div className="form-group">
@@ -78,7 +64,7 @@ export const Login = ({ setLoggedIn }: Props) => {
                 className="login__btn btn btn-success"
                 onClick={() => {
                     setPopulateLocalStorageQuestions(questionBank);
-                    setLoggedIn(true);
+                    setUserInfo({ email: "guest", password: "guestPassword" });
                 }}
             >
                 Continue as Guest

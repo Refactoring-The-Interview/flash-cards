@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
@@ -11,38 +11,44 @@ import {
     Outlet,
     Link,
     createBrowserRouter,
+    useNavigate,
 } from "react-router-dom";
 
 function App() {
-    const [loggedIn, setLoggedIn] = useLocalStorage(StorageKey.loggedIn, false);
+    const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
+        email: "",
+        password: "",
+    });
     const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        const redirectUser = async () => {
+            if (userInfo.email) {
+                return navigate("/home");
+            } else {
+                return navigate("/login");
+            }
+        };
+        redirectUser();
+    }, [userInfo]);
 
     return (
         <div className="App">
-            {!loggedIn && (
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<Login setLoggedIn={setLoggedIn} />}
-                    />
-                </Routes>
-            )}
-            {loggedIn && (
-                <Routes>
-                    {flipCardToIDE && <Route path="/" element={<IDE />} />}
-                    <Route
-                        path="/"
-                        element={
-                            <div className="mainDisplayFront">
-                                <Logout setLoggedIn={setLoggedIn} />
-                                <FlashCard
-                                    setFlipCardToIDE={setFlipCardToIDE}
-                                />
-                            </div>
-                        }
-                    />
-                </Routes>
-            )}
+            <Routes>
+                <Route path="/login" element={<Login />} />
+
+                <Route
+                    path="/home"
+                    element={
+                        <div className="mainDisplayFront">
+                            <Logout />
+                            <FlashCard setFlipCardToIDE={setFlipCardToIDE} />
+                        </div>
+                    }
+                />
+            </Routes>
         </div>
     );
 }

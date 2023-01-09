@@ -44,7 +44,7 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                     <QuestionList
                         setCardQuestion={setCardQuestion}
                         Questions={
-                            filteredQuestionBank.length > 0
+                            filteredQuestionBank
                                 ? filteredQuestionBank
                                 : questions
                         }
@@ -84,7 +84,7 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                 onClick={(e) => {
                     setCardQuestion(
                         randomizer(
-                            filteredQuestionBank.length > 0
+                            filteredQuestionBank.length
                                 ? filteredQuestionBank
                                 : questions
                         )

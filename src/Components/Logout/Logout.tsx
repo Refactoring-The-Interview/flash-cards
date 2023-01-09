@@ -2,11 +2,7 @@ import React from "react";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import "./LogoutS.scss";
 
-interface Props {
-    setLoggedIn(successful: boolean): void;
-}
-
-export const Logout = ({ setLoggedIn }: Props) => {
+export const Logout = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
@@ -20,7 +16,6 @@ export const Logout = ({ setLoggedIn }: Props) => {
                     if (userInfo) {
                         setUserInfo({ email: "", password: "" });
                     }
-                    setLoggedIn(false);
                 }}
             >
                 Logout
