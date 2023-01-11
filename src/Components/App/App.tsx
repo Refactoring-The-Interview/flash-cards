@@ -4,6 +4,7 @@ import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
 import { Logout } from "../Logout/Logout";
+import { QuestionList } from "../QuestionList/QuestionList";
 import { IDE } from "../IDE/IDE";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -12,7 +13,8 @@ function App() {
         email: "",
         password: "",
     });
-    const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
+    // const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
+    const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
 
     const navigate = useNavigate();
 
@@ -27,6 +29,17 @@ function App() {
         redirectUser();
     }, [userInfo]);
 
+    useEffect(() => {
+        const redirectUser = async () => {
+            if (showQuestionList) {
+                return navigate("/question-list");
+            } else {
+                return navigate("/home");
+            }
+        };
+        redirectUser();
+    }, [showQuestionList]);
+
     return (
         <div className="App">
             <Routes>
@@ -37,10 +50,11 @@ function App() {
                     element={
                         <div className="mainDisplayFront">
                             <Logout />
-                            <FlashCard setFlipCardToIDE={setFlipCardToIDE} />
+                            <FlashCard QuestionList={setShowQuestionList} />
                         </div>
                     }
                 />
+                <Route path="/question-list" element={<QuestionList />} />
             </Routes>
         </div>
     );

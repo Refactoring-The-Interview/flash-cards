@@ -6,13 +6,9 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { QuestionList } from "../QuestionList/QuestionList";
+// import { QuestionList } from "../QuestionList/QuestionList";
 
-interface Props {
-    setFlipCardToIDE(successful: boolean): void;
-}
-
-const FlashCard = ({ setFlipCardToIDE }: Props) => {
+const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
@@ -41,7 +37,7 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                 </div>
 
                 <div className="header-Question-list/filter">
-                    <QuestionList
+                    {/* <QuestionList
                         setCardQuestion={setCardQuestion}
                         Questions={
                             filteredQuestionBank?.length > 0 &&
@@ -49,8 +45,18 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                                 ? filteredQuestionBank
                                 : questions
                         }
-                    />
-                    <form className="filter form-group">
+                    /> */}
+
+                    <button
+                        type="button"
+                        className=" btn btn-info"
+                        onClick={() => {
+                            QuestionList(true);
+                        }}
+                    >
+                        Question List
+                    </button>
+                    {/* <form className="filter form-group">
                         <label htmlFor="filterSelect" className="label">
                             Filter By
                         </label>
@@ -64,14 +70,14 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                             <option>array</option>
                             <option>object</option>
                         </select>
-                    </form>
+                    </form> */}
                 </div>
 
                 <button
                     type="button"
                     className=" btn-to-IDE btn btn-info"
                     onClick={() => {
-                        setFlipCardToIDE(true);
+                        // setFlipCardToIDE(true);
                     }}
                 >
                     Submit
@@ -93,8 +99,7 @@ const FlashCard = ({ setFlipCardToIDE }: Props) => {
                     );
                 }}
             >
-                {" "}
-                Next Question{" "}
+                Next Question
             </button>
             <AddQuestionForm />
         </main>

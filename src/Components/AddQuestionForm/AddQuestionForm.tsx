@@ -27,6 +27,8 @@ const AddQuestionForm = (props: any) => {
         setTags([]);
     };
 
+    //form should be its own component
+
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
