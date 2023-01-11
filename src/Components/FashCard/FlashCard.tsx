@@ -15,16 +15,6 @@ const FlashCard = ({ QuestionList }: any) => {
         []
     );
 
-    const [questionType, setQuestionType] = useState<string>("");
-
-    if (questionType) {
-        let filter = questions.filter((question: Question) => {
-            return question.tags.includes(questionType);
-        });
-        setFilteredQuestionBank(filter);
-        setQuestionType("");
-    }
-
     const [cardQuestion, setCardQuestion] = useState<Question>(
         randomizer(questions)
     );
@@ -37,16 +27,6 @@ const FlashCard = ({ QuestionList }: any) => {
                 </div>
 
                 <div className="header-Question-list/filter">
-                    {/* <QuestionList
-                        setCardQuestion={setCardQuestion}
-                        Questions={
-                            filteredQuestionBank?.length > 0 &&
-                            filteredQuestionBank
-                                ? filteredQuestionBank
-                                : questions
-                        }
-                    /> */}
-
                     <button
                         type="button"
                         className=" btn btn-info"
@@ -56,21 +36,6 @@ const FlashCard = ({ QuestionList }: any) => {
                     >
                         Question List
                     </button>
-                    {/* <form className="filter form-group">
-                        <label htmlFor="filterSelect" className="label">
-                            Filter By
-                        </label>
-                        <select
-                            id="filterSelect"
-                            className=" select form-control"
-                            onChange={(e) => {
-                                setQuestionType(e.target.value);
-                            }}
-                        >
-                            <option>array</option>
-                            <option>object</option>
-                        </select>
-                    </form> */}
                 </div>
 
                 <button
@@ -89,6 +54,7 @@ const FlashCard = ({ QuestionList }: any) => {
                 type="button"
                 className="btn-next btn btn-info"
                 onClick={(e) => {
+                    console.log(questions);
                     setCardQuestion(
                         randomizer(
                             filteredQuestionBank?.length > 0 &&

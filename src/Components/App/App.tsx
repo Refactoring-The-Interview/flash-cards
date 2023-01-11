@@ -15,7 +15,6 @@ function App() {
     });
     // const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
     const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,10 +30,8 @@ function App() {
 
     useEffect(() => {
         const redirectUser = async () => {
-            if (showQuestionList) {
+            if (showQuestionList && userInfo.email) {
                 return navigate("/question-list");
-            } else {
-                return navigate("/home");
             }
         };
         redirectUser();
