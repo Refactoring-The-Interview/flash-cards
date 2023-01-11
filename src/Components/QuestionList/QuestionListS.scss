@@ -10,7 +10,10 @@
     align-items: center;
 
     .card {
+        display: flex;
+        flex: 1 0 1;
         width: 30rem;
+        height: 40rem;
         padding: 15px;
         margin-bottom: 1rem;
     }
@@ -24,5 +27,22 @@
         flex-direction: row;
         justify-content: space-between;
         width: 8rem;
+    }
+
+    .select-bar {
+        margin-bottom: 1rem;
+    }
+    .text {
+        display: flex;
+        overflow: clip;
+        justify-content: flex-end;
+        height: 60%;
+    }
+
+    .title {
+    }
+
+    .card-body {
+        min-height: 20rem;
     }
 }

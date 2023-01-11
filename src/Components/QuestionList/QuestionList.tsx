@@ -39,11 +39,12 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
     }
 
     let currentQuestions =
-        filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
+        filteredQuestionBank?.length > 0 ? questions : filteredQuestionBank;
 
     return (
         <div className="QuestionList">
             <Form.Select
+                className="select-bar"
                 aria-label="Default select example"
                 onChange={(e) => {
                     setQuestionType(e.target.value);
@@ -59,8 +60,10 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
                     <Card className="card" key={index}>
                         <Card.Img variant="top" src={JsImage} className="img" />
                         <Card.Body>
-                            <Card.Title>{q.answer}</Card.Title>
-                            <Card.Text>{q.question}</Card.Text>
+                            <Card.Title className="title">
+                                {q.answer}
+                            </Card.Title>
+                            <Card.Text className="text">{q.question}</Card.Text>
                             <Card.Subtitle className="tags">
                                 Tags:
                                 {q.tags.map((tag: string, index: number) => {

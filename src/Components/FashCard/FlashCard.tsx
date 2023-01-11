@@ -18,7 +18,6 @@ const FlashCard = ({ QuestionList }: any) => {
         randomizer(questions)
     );
 
-    console.log(currentQuestion);
     return (
         <main className="card">
             <div className="header">
