@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import "./QuestionListS.scss";
 import JsImage from "../../Assets/1627664298-javascript.jpg";
 import Form from "react-bootstrap/Form";
+import Badge from "react-bootstrap/Badge";
 
 export const QuestionList = ({ setShowQuestionList }: any) => {
     const [questions, setQuestions] = useLocalStorage(
@@ -63,7 +64,17 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
                             <Card.Subtitle className="tags">
                                 Tags:
                                 {q.tags.map((tag: string, index: number) => {
-                                    return <div key={index}>{tag}</div>;
+                                    return (
+                                        <h6>
+                                            <Badge
+                                                bg="warning"
+                                                text="dark"
+                                                className="tag"
+                                            >
+                                                {tag}
+                                            </Badge>
+                                        </h6>
+                                    );
                                 })}
                             </Card.Subtitle>
                             <Button
