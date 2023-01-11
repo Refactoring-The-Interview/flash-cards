@@ -8,11 +8,6 @@ import "./QuestionListS.scss";
 import JsImage from "../../Assets/1627664298-javascript.jpg";
 import Form from "react-bootstrap/Form";
 
-interface Props {
-    setCardQuestion(Question: Question): void;
-    Questions: Array<Question>;
-}
-
 export const QuestionList = ({ setShowQuestionList }: any) => {
     const [questions, setQuestions] = useLocalStorage(
         StorageKey.questionBank,
@@ -23,23 +18,24 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         []
     );
 
-    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
+    const [_, setCurrentQuestion] = useLocalStorage(
         StorageKey.currentQuestion,
         {}
     );
 
-    const [questionType, setQuestionType] = useState<string>("");
+    const [questionType, setQuestionType] = useState<string>("Js");
 
     if (questionType) {
         let filter = questions.filter((question: Question) => {
             return question.tags.includes(questionType);
         });
+
         setFilteredQuestionBank(filter);
         setQuestionType("");
     }
 
     let currentQuestions =
-        filteredQuestionBank?.length > 0 ? questions : filteredQuestionBank;
+        filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
 
     return (
         <div className="QuestionList">
@@ -50,7 +46,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
                     setQuestionType(e.target.value);
                 }}
             >
-                <option value="all">Default Filter</option>
+                <option value="Js">Default Filter</option>
                 <option value="array">Array</option>
                 <option value="object">Objects</option>
             </Form.Select>
@@ -73,7 +69,6 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
                             <Button
                                 variant="primary"
                                 onClick={(e) => {
-                                    console.log(questions[index], index);
                                     setCurrentQuestion(questions[index]);
                                     setShowQuestionList(false);
                                 }}
