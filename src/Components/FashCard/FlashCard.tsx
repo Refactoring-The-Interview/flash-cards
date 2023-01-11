@@ -6,7 +6,6 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-// import { QuestionList } from "../QuestionList/QuestionList";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -14,11 +13,12 @@ const FlashCard = ({ QuestionList }: any) => {
         StorageKey.filteredQuestionBank,
         []
     );
-
-    const [cardQuestion, setCardQuestion] = useState<Question>(
+    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
+        StorageKey.currentQuestion,
         randomizer(questions)
     );
 
+    console.log(currentQuestion);
     return (
         <main className="card">
             <div className="header">
@@ -49,13 +49,12 @@ const FlashCard = ({ QuestionList }: any) => {
                 </button>
             </div>
 
-            <ArrayMethods cardQuestion={cardQuestion} />
+            <ArrayMethods cardQuestion={currentQuestion} />
             <button
                 type="button"
                 className="btn-next btn btn-info"
                 onClick={(e) => {
-                    console.log(questions);
-                    setCardQuestion(
+                    setCurrentQuestion(
                         randomizer(
                             filteredQuestionBank?.length > 0 &&
                                 filteredQuestionBank

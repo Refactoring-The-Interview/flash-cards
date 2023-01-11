@@ -13,11 +13,19 @@ interface Props {
     Questions: Array<Question>;
 }
 
-export const QuestionList = () => {
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+export const QuestionList = ({ setShowQuestionList }: any) => {
+    const [questions, setQuestions] = useLocalStorage(
+        StorageKey.questionBank,
+        []
+    );
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
+    );
+
+    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
+        StorageKey.currentQuestion,
+        {}
     );
 
     const [questionType, setQuestionType] = useState<string>("");
@@ -53,14 +61,22 @@ export const QuestionList = () => {
                         <Card.Body>
                             <Card.Title>{q.answer}</Card.Title>
                             <Card.Text>{q.question}</Card.Text>
-                            {q.tags.map((tag: string, index: number) => {
-                                return (
-                                    <Card.Subtitle key={index}>
-                                        Tags: {tag}
-                                    </Card.Subtitle>
-                                );
-                            })}
-                            <Button variant="primary">Select Question</Button>
+                            <Card.Subtitle className="tags">
+                                Tags:
+                                {q.tags.map((tag: string, index: number) => {
+                                    return <div key={index}>{tag}</div>;
+                                })}
+                            </Card.Subtitle>
+                            <Button
+                                variant="primary"
+                                onClick={(e) => {
+                                    console.log(questions[index], index);
+                                    setCurrentQuestion(questions[index]);
+                                    setShowQuestionList(false);
+                                }}
+                            >
+                                Select Question
+                            </Button>
                         </Card.Body>
                     </Card>
                 );

@@ -26,16 +26,14 @@ function App() {
             }
         };
         redirectUser();
-    }, [userInfo]);
 
-    useEffect(() => {
-        const redirectUser = async () => {
+        const redirectUserQuestions = async () => {
             if (showQuestionList && userInfo.email) {
                 return navigate("/question-list");
             }
         };
-        redirectUser();
-    }, [showQuestionList]);
+        redirectUserQuestions();
+    }, [userInfo, showQuestionList]);
 
     return (
         <div className="App">
@@ -51,7 +49,14 @@ function App() {
                         </div>
                     }
                 />
-                <Route path="/question-list" element={<QuestionList />} />
+                <Route
+                    path="/question-list"
+                    element={
+                        <QuestionList
+                            setShowQuestionList={setShowQuestionList}
+                        />
+                    }
+                />
             </Routes>
         </div>
     );
