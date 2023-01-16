@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./QuestionListS.scss";
 import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
-import { Question } from "../store/types";
+import { Question, FilterSetting } from "../store/types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./QuestionListS.scss";
@@ -19,22 +19,51 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         StorageKey.filteredQuestionBank,
         []
     );
-
     const [_, setCurrentQuestion] = useLocalStorage(
         StorageKey.currentQuestion,
         {}
     );
 
-    const [questionType, setQuestionType] = useState<string>("Js");
+    const [filterSettings, setFilterSettings] = useState<FilterSetting>({
+        type: "Js",
+        name: "",
+        hideCorrect: false,
+        difficulty: "null",
+    });
 
-    if (questionType) {
-        let filter = questions.filter((question: Question) => {
-            return question.tags.includes(questionType);
-        });
+    useEffect(() => {
+        const { name, type, hideCorrect, difficulty } = filterSettings;
+        let filter = questions;
 
+        if (type) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.tags.includes(type);
+            });
+        }
+
+        if (name) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.answer
+                    .toLowerCase()
+                    .includes(name.toLocaleLowerCase());
+            });
+        }
+
+        if (difficulty) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.difficulty.includes(difficulty);
+            });
+        }
+
+        if (!!hideCorrect) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.correct === hideCorrect;
+            });
+        }
+
+        console.log(filter);
         setFilteredQuestionBank(filter);
-        setQuestionType("");
-    }
+    }, [filterSettings]);
 
     let currentQuestions =
         filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
@@ -42,7 +71,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
     return (
         <div className="QuestionList">
             <div className="filter-container">
-                <QuestionFilters />
+                <QuestionFilters filterSettings={setFilterSettings} />
             </div>
 
             <div className="list">
