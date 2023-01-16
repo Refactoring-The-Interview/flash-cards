@@ -24,12 +24,11 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         {}
     );
 
-    // const [questionType, setQuestionType] = useState<string>("Js");
     const [filterSettings, setFilterSettings] = useState<FilterSetting>({
         type: "Js",
         name: "",
         hideCorrect: false,
-        difficulty: "",
+        difficulty: "null",
     });
 
     useEffect(() => {
@@ -52,10 +51,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
 
         if (difficulty) {
             filter = filter.filter((question: Question, index: number) => {
-                return (
-                    question.difficulty.toLocaleLowerCase() ===
-                    difficulty.toLocaleLowerCase()
-                );
+                return question.difficulty.includes(difficulty);
             });
         }
 

@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 const AddQuestionForm = (props: any) => {
-    const [difficulty, setDifficulty] = useState<string>("");
+    const [difficulty, setDifficulty] = useState<Array<string>>([]);
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
@@ -20,7 +20,7 @@ const AddQuestionForm = (props: any) => {
     const handleShow = () => setShow(true);
 
     const clearForm = () => {
-        setDifficulty("");
+        setDifficulty([]);
         setQuestion("");
         setAnswer("");
         setAnswers("");
@@ -47,7 +47,10 @@ const AddQuestionForm = (props: any) => {
                                 className="form-control"
                                 id="difficultyInput"
                                 onChange={(e) => {
-                                    setDifficulty(e.target.value);
+                                    setDifficulty([
+                                        ...difficulty,
+                                        e.target.value,
+                                    ]);
                                 }}
                             >
                                 <option>Hard</option>

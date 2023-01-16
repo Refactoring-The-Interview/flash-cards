@@ -65,9 +65,9 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                         setDifficulty(e.target.value);
                                     }}
                                 >
-                                    <option value="all">Difficulty</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Hard">Hard</option>
+                                    <option value="null">Difficulty</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
                                 </Form.Select>
                             </Form.Group>
 
