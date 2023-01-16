@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./QuestionListS.scss";
 import JsImage from "../../Assets/1627664298-javascript.jpg";
-import { QuestionFilters } from "./QuestionFilters/QuestionFilters";
+import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 
 import Badge from "react-bootstrap/Badge";
 
@@ -41,45 +41,58 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
 
     return (
         <div className="QuestionList">
-            <QuestionFilters />
-            {currentQuestions.map((q: any, index: number) => {
-                return (
-                    <Card className="card" key={index}>
-                        <Card.Img variant="top" src={JsImage} className="img" />
-                        <Card.Body>
-                            <Card.Title className="title">
-                                {q.answer}
-                            </Card.Title>
-                            <Card.Text className="text">{q.question}</Card.Text>
-                            <Card.Subtitle className="tags">
-                                Tags:
-                                {q.tags.map((tag: string, index: number) => {
-                                    return (
-                                        <h6>
-                                            <Badge
-                                                bg="warning"
-                                                text="dark"
-                                                className="tag"
-                                            >
-                                                {tag}
-                                            </Badge>
-                                        </h6>
-                                    );
-                                })}
-                            </Card.Subtitle>
-                            <Button
-                                variant="primary"
-                                onClick={(e) => {
-                                    setCurrentQuestion(questions[index]);
-                                    setShowQuestionList(false);
-                                }}
-                            >
-                                Select Question
-                            </Button>
-                        </Card.Body>
-                    </Card>
-                );
-            })}
+            <div className="filter-container">
+                <QuestionFilters />
+            </div>
+
+            <div className="list">
+                {currentQuestions.map((q: any, index: number) => {
+                    return (
+                        <Card className="card" key={index}>
+                            <Card.Img
+                                variant="top"
+                                src={JsImage}
+                                className="img"
+                            />
+                            <Card.Body>
+                                <Card.Title className="title">
+                                    {q.answer}
+                                </Card.Title>
+                                <Card.Text className="text">
+                                    {q.question}
+                                </Card.Text>
+                                <Card.Subtitle className="tags">
+                                    Tags:
+                                    {q.tags.map(
+                                        (tag: string, index: number) => {
+                                            return (
+                                                <h6>
+                                                    <Badge
+                                                        bg="warning"
+                                                        text="dark"
+                                                        className="tag"
+                                                    >
+                                                        {tag}
+                                                    </Badge>
+                                                </h6>
+                                            );
+                                        }
+                                    )}
+                                </Card.Subtitle>
+                                <Button
+                                    variant="primary"
+                                    onClick={(e) => {
+                                        setCurrentQuestion(questions[index]);
+                                        setShowQuestionList(false);
+                                    }}
+                                >
+                                    Select Question
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    );
+                })}
+            </div>
         </div>
     );
 };
