@@ -11,4 +11,5 @@ export interface FilterSetting {
     type: string;
     name: string;
     hideCorrect: boolean;
+    difficulty: string;
 }

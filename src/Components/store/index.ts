@@ -48,7 +48,7 @@ export let questionBank: Question[] = [
     },
 
     {
-        difficulty: "Medium",
+        difficulty: "hard",
         question: "this is a test obj to see if the filter is working.",
         answer: "test1",
         answers: ["test1", "test", "test"],

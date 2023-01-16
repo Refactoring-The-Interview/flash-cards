@@ -12,6 +12,7 @@ interface Props {
 export const QuestionFilters = ({ filterSettings }: Props) => {
     const [typeSelect, setTypeSelect] = useState<string>("");
     const [nameSearch, setNameSearch] = useState<string>("");
+    const [difficulty, setDifficulty] = useState<string>("");
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
 
     return (
@@ -27,10 +28,11 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     type: typeSelect,
                                     name: nameSearch,
                                     hideCorrect: hideCorrect,
+                                    difficulty: difficulty,
                                 });
                             }}
                         >
-                            <Form.Group className="mb-3">
+                            <Form.Group className="mb-2">
                                 <Form.Control
                                     onChange={(e) => {
                                         setNameSearch(e.target.value);
@@ -40,17 +42,35 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     value={nameSearch}
                                 />
                             </Form.Group>
-                            <Form.Select
-                                className="select-bar"
-                                aria-label="Default select example"
-                                onChange={(e) => {
-                                    setTypeSelect(e.target.value);
-                                }}
-                            >
-                                <option value="Js">All</option>
-                                <option value="array">Array</option>
-                                <option value="object">Objects</option>
-                            </Form.Select>
+                            <Form.Group className="mb-2">
+                                <Form.Select
+                                    className="select-bar"
+                                    aria-label="Default select example"
+                                    onChange={(e) => {
+                                        setTypeSelect(e.target.value);
+                                    }}
+                                >
+                                    <option value="Js">Type</option>
+                                    <option value="array">Array</option>
+                                    <option value="object">Objects</option>
+                                </Form.Select>
+                            </Form.Group>
+
+                            <Form.Group className="mb-2">
+                                <Form.Select
+                                    className="select-bar"
+                                    aria-label="Default select example"
+                                    placeholder="Difficulty"
+                                    onChange={(e) => {
+                                        setDifficulty(e.target.value);
+                                    }}
+                                >
+                                    <option value="all">Difficulty</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+                                </Form.Select>
+                            </Form.Group>
+
                             <Form.Group
                                 className="mb-3"
                                 controlId="formBasicCheckbox"

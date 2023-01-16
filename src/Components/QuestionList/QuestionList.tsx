@@ -29,10 +29,11 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         type: "Js",
         name: "",
         hideCorrect: false,
+        difficulty: "",
     });
 
     useEffect(() => {
-        const { name, type, hideCorrect } = filterSettings;
+        const { name, type, hideCorrect, difficulty } = filterSettings;
         let filter = questions;
 
         if (type) {
@@ -49,11 +50,21 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
             });
         }
 
+        if (difficulty) {
+            filter = filter.filter((question: Question, index: number) => {
+                return (
+                    question.difficulty.toLocaleLowerCase() ===
+                    difficulty.toLocaleLowerCase()
+                );
+            });
+        }
+
         if (!!hideCorrect) {
             filter = filter.filter((question: Question, index: number) => {
                 return question.correct === hideCorrect;
             });
         }
+
         console.log(filter);
         setFilteredQuestionBank(filter);
     }, [filterSettings]);
