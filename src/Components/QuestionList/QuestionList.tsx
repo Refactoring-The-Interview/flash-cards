@@ -32,18 +32,31 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
     });
 
     useEffect(() => {
-        //on filerSetting change update the filtered questions from the main question bank
-        console.log("there was a change in the filer state", filterSettings);
+        const { name, type, hideCorrect } = filterSettings;
+        let filter = questions;
+
+        if (type) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.tags.includes(type);
+            });
+        }
+
+        if (name) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.answer
+                    .toLowerCase()
+                    .includes(name.toLocaleLowerCase());
+            });
+        }
+
+        if (!!hideCorrect) {
+            filter = filter.filter((question: Question, index: number) => {
+                return question.correct === hideCorrect;
+            });
+        }
+        console.log(filter);
+        setFilteredQuestionBank(filter);
     }, [filterSettings]);
-
-    // if (questionType) {
-    //     let filter = questions.filter((question: Question) => {
-    //         return question.tags.includes(questionType);
-    //     });
-
-    //     setFilteredQuestionBank(filter);
-    //     setQuestionType("");
-    // }
 
     let currentQuestions =
         filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;

@@ -4,6 +4,7 @@ export interface Question {
     answer: string;
     answers: string[];
     tags: string[];
+    correct: boolean;
 }
 
 export interface FilterSetting {
