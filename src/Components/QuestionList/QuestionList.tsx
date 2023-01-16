@@ -33,6 +33,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
 
     useEffect(() => {
         //on filerSetting change update the filtered questions from the main question bank
+        console.log("there was a change in the filer state", filterSettings);
     }, [filterSettings]);
 
     // if (questionType) {
@@ -50,7 +51,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
     return (
         <div className="QuestionList">
             <div className="filter-container">
-                <QuestionFilters setFilterSettings={setFilterSettings} />
+                <QuestionFilters filterSettings={setFilterSettings} />
             </div>
 
             <div className="list">

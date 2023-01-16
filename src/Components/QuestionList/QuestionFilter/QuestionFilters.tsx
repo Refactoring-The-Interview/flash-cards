@@ -3,8 +3,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
+import { FilterSetting } from "../../store/types";
 
-export const QuestionFilters = ({ setFilterSettings }: any) => {
+interface Props {
+    filterSettings(filterSettingObject: FilterSetting): void;
+}
+
+export const QuestionFilters = ({ filterSettings }: Props) => {
     const [typeSelect, setTypeSelect] = useState<string>("");
     return (
         <div className="QuestionFilters">
