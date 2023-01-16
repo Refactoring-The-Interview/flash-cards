@@ -11,6 +11,9 @@ interface Props {
 
 export const QuestionFilters = ({ filterSettings }: Props) => {
     const [typeSelect, setTypeSelect] = useState<string>("");
+    const [nameSearch, setNameSearch] = useState<string>("");
+    const [hideCorrect, setHideCorrect] = useState<boolean>(false);
+
     return (
         <div className="QuestionFilters">
             <Accordion defaultActiveKey="0">
@@ -20,17 +23,21 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                         <Form
                             onSubmit={(e) => {
                                 e.preventDefault();
-                                console.log(e);
-                                // setQuestionType(e.target.value);
+                                filterSettings({
+                                    type: typeSelect,
+                                    name: nameSearch,
+                                    hideCorrect: hideCorrect,
+                                });
                             }}
                         >
                             <Form.Group className="mb-3">
                                 <Form.Control
                                     onChange={(e) => {
-                                        console.log(e.target.value);
+                                        setNameSearch(e.target.value);
                                     }}
-                                    type="s"
+                                    type="search"
                                     placeholder="Search"
+                                    value={nameSearch}
                                 />
                             </Form.Group>
                             <Form.Select
@@ -52,7 +59,7 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     type="checkbox"
                                     label="Hide Answered"
                                     onChange={(e) => {
-                                        console.log(e.target.value === "on");
+                                        setHideCorrect(!hideCorrect);
                                     }}
                                 />
                             </Form.Group>
