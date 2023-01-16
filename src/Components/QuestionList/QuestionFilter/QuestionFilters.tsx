@@ -2,23 +2,37 @@ import Accordion from "react-bootstrap/Accordion";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
+import { useState } from "react";
 
-export const QuestionFilters = () => {
+export const QuestionFilters = ({ setFilterSettings }: any) => {
+    const [typeSelect, setTypeSelect] = useState<string>("");
     return (
         <div className="QuestionFilters">
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Filters</Accordion.Header>
                     <Accordion.Body>
-                        <Form>
+                        <Form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                console.log(e);
+                                // setQuestionType(e.target.value);
+                            }}
+                        >
                             <Form.Group className="mb-3">
-                                <Form.Control type="s" placeholder="Search" />
+                                <Form.Control
+                                    onChange={(e) => {
+                                        console.log(e.target.value);
+                                    }}
+                                    type="s"
+                                    placeholder="Search"
+                                />
                             </Form.Group>
                             <Form.Select
                                 className="select-bar"
                                 aria-label="Default select example"
                                 onChange={(e) => {
-                                    // setQuestionType(e.target.value);
+                                    setTypeSelect(e.target.value);
                                 }}
                             >
                                 <option value="Js">All</option>
@@ -32,9 +46,14 @@ export const QuestionFilters = () => {
                                 <Form.Check
                                     type="checkbox"
                                     label="Hide Answered"
+                                    onChange={(e) => {
+                                        console.log(e.target.value === "on");
+                                    }}
                                 />
                             </Form.Group>
-                            <Button variant="primary">filter</Button>
+                            <Button variant="primary" type="submit">
+                                filter
+                            </Button>
                         </Form>
                     </Accordion.Body>
                 </Accordion.Item>

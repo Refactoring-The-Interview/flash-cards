@@ -5,58 +5,58 @@
     flex-direction: column;
     width: 70vw;
     height: 80vh;
-}
 
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 70vw;
-    height: 90vh;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10rem 0;
-
-    .card {
+    .list {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
-        flex: 1 0 1;
-        width: 30rem;
-        height: 40rem;
-        padding: 15px;
-        margin-bottom: 1rem;
-    }
-    .img {
-        width: 100%;
-        height: 100%;
-    }
+        width: 70vw;
+        height: 90vh;
+        justify-content: space-around;
+        align-items: center;
+        margin: 10rem 0;
 
-    .tags {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
-        width: 10rem;
-        font-size: 1.4rem;
-    }
-    .tag {
-        font-size: 1rem;
-    }
+        .card {
+            display: flex;
+            flex-direction: row;
+            flex: 1 0 1;
+            width: 30rem;
+            height: 40rem;
+            padding: 15px;
+            margin-bottom: 1rem;
+        }
+        .img {
+            width: 100%;
+            height: 100%;
+        }
 
-    .select-bar {
-        margin-bottom: 1rem;
-    }
-    .text {
-        display: flex;
-        overflow: clip;
-        justify-content: flex-end;
-        height: 60%;
-    }
+        .tags {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: center;
+            width: 10rem;
+            font-size: 1.4rem;
+        }
+        .tag {
+            font-size: 1rem;
+        }
 
-    .title {
-    }
+        .select-bar {
+            margin-bottom: 1rem;
+        }
+        .text {
+            display: flex;
+            overflow: clip;
+            justify-content: flex-end;
+            height: 60%;
+        }
 
-    .card-body {
-        min-height: 20rem;
+        .title {
+        }
+
+        .card-body {
+            min-height: 20rem;
+        }
     }
 }

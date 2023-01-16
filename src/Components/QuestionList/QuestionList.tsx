@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./QuestionListS.scss";
 import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
-import { Question } from "../store/types";
+import { Question, FilterSetting } from "../store/types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./QuestionListS.scss";
@@ -19,22 +19,30 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         StorageKey.filteredQuestionBank,
         []
     );
-
     const [_, setCurrentQuestion] = useLocalStorage(
         StorageKey.currentQuestion,
         {}
     );
 
-    const [questionType, setQuestionType] = useState<string>("Js");
+    // const [questionType, setQuestionType] = useState<string>("Js");
+    const [filterSettings, setFilterSettings] = useState<FilterSetting>({
+        type: "Js",
+        name: "",
+        hideCorrect: false,
+    });
 
-    if (questionType) {
-        let filter = questions.filter((question: Question) => {
-            return question.tags.includes(questionType);
-        });
+    useEffect(() => {
+        //on filerSetting change update the filtered questions from the main question bank
+    }, [filterSettings]);
 
-        setFilteredQuestionBank(filter);
-        setQuestionType("");
-    }
+    // if (questionType) {
+    //     let filter = questions.filter((question: Question) => {
+    //         return question.tags.includes(questionType);
+    //     });
+
+    //     setFilteredQuestionBank(filter);
+    //     setQuestionType("");
+    // }
 
     let currentQuestions =
         filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
@@ -42,7 +50,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
     return (
         <div className="QuestionList">
             <div className="filter-container">
-                <QuestionFilters />
+                <QuestionFilters setFilterSettings={setFilterSettings} />
             </div>
 
             <div className="list">

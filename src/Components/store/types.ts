@@ -5,3 +5,9 @@ export interface Question {
     answers: string[];
     tags: string[];
 }
+
+export interface FilterSetting {
+    type: string;
+    name: string;
+    hideCorrect: boolean;
+}
