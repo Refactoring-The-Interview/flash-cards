@@ -3,7 +3,7 @@ import "./AddQuestionFormS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Question } from "../store/types";
+import { Difficulty, Question } from "../store/types";
 
 const AddQuestionForm = (props: any) => {
     const [difficulty, setDifficulty] = useState<string>("");
@@ -45,7 +45,7 @@ const AddQuestionForm = (props: any) => {
                                 className="form-control"
                                 id="difficultyInput"
                                 onChange={(e) => {
-                                    setDifficulty(difficulty);
+                                    setDifficulty(e.target.value);
                                 }}
                             >
                                 <option>Hard</option>

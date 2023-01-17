@@ -2,7 +2,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
-import ListGroup from "react-bootstrap/ListGroup";
 
 export const QuestionCard = ({
     currentQuestions,
@@ -36,9 +35,7 @@ export const QuestionCard = ({
                                     className="difficulty"
                                     style={{
                                         borderTop: `4rem solid ${
-                                            difficultyColor[
-                                                question.difficulty[0]
-                                            ]
+                                            difficultyColor[question.difficulty]
                                         }`,
                                     }}
                                 ></span>

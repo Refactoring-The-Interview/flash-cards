@@ -11,7 +11,7 @@ export interface FilterSetting {
     type: string;
     name: string;
     hideCorrect: boolean;
-    difficulty: string;
+    difficulty?: Difficulty;
 }
 
 export enum Difficulty {
