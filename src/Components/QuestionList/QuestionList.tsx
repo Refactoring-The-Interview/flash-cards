@@ -69,7 +69,11 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
             </div>
 
             <div className="list-container">
-                <QuestionCard currentQuestions={currentQuestions} />
+                <QuestionCard
+                    currentQuestions={currentQuestions}
+                    setCurrentQuestion={setCurrentQuestion}
+                    setShowQuestionList={setShowQuestionList}
+                />
             </div>
         </div>
     );
