@@ -4,16 +4,31 @@ import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
 import { Difficulty, FilterSetting } from "../../store/types";
+import { StorageKey, useLocalStorage } from "../../LocalStorage/LocalStorage";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
 }
 
 export const QuestionFilters = ({ filterSettings }: Props) => {
+    const filterSettingsDefault = {
+        type: "Js",
+        name: "",
+        hideCorrect: false,
+        difficulty: "" as Difficulty,
+    };
     const [typeSelect, setTypeSelect] = useState<string>("");
     const [nameSearch, setNameSearch] = useState<string>("");
     const [difficulty, setDifficulty] = useState<string>("");
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
+
+    const formReset = () => {
+        setTypeSelect("");
+        setNameSearch("");
+        setDifficulty("");
+        setHideCorrect(false);
+        filterSettings(filterSettingsDefault);
+    };
 
     return (
         <div className="QuestionFilters">
@@ -84,9 +99,22 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     }}
                                 />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
-                                filter
-                            </Button>
+
+                            <Form.Group className="buttonGroup">
+                                <Button variant="primary" type="submit">
+                                    filter
+                                </Button>
+
+                                <Button
+                                    variant="primary"
+                                    type="button"
+                                    onClick={() => {
+                                        formReset();
+                                    }}
+                                >
+                                    Reset
+                                </Button>
+                            </Form.Group>
                         </Form>
                     </Accordion.Body>
                 </Accordion.Item>
