@@ -14,20 +14,14 @@ export const QuestionCard = ({ currentQuestions }: any) => {
                         <span className="difficulty"></span>
                     </Card.Header>
                     <Card.Body>
-                        <div>
-                            {q.tags.map((tag: string, index: number) => {
-                                return (
-                                    <Badge bg="warring" key={index}>
-                                        {tag}
-                                    </Badge>
-                                );
-                            })}
-                        </div>
-                        <Button
-                            variant="outline-secondary"
-                            disabled
-                            className="answered"
-                        >
+                        {q.tags.map((tag: string, index: number) => {
+                            return (
+                                <Badge bg="warring" key={index}>
+                                    {tag}
+                                </Badge>
+                            );
+                        })}
+                        <Button variant="outline-secondary" disabled>
                             Answered
                         </Button>
                     </Card.Body>
