@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
-import { FilterSetting } from "../../store/types";
+import { Difficulty, FilterSetting } from "../../store/types";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
@@ -28,7 +28,7 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     type: typeSelect,
                                     name: nameSearch,
                                     hideCorrect: hideCorrect,
-                                    difficulty: difficulty,
+                                    difficulty: difficulty as Difficulty,
                                 });
                             }}
                         >
@@ -65,7 +65,8 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                         setDifficulty(e.target.value);
                                     }}
                                 >
-                                    <option value="null">Difficulty</option>
+                                    <option value="">Difficulty</option>
+                                    <option value="easy">Easy</option>
                                     <option value="medium">Medium</option>
                                     <option value="hard">Hard</option>
                                 </Form.Select>

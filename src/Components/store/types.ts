@@ -1,5 +1,5 @@
 export interface Question {
-    difficulty: string[];
+    difficulty: Difficulty;
     question: string;
     answer: string;
     answers: string[];
@@ -11,5 +11,11 @@ export interface FilterSetting {
     type: string;
     name: string;
     hideCorrect: boolean;
-    difficulty: string;
+    difficulty?: Difficulty;
+}
+
+export enum Difficulty {
+    easy = "easy",
+    medium = "medium",
+    hard = "hard",
 }

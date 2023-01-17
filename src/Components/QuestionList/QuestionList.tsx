@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./QuestionListS.scss";
 import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
-import { Question, FilterSetting } from "../store/types";
+import { Question, FilterSetting, Difficulty } from "../store/types";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCard } from "./QuestionCard/QuestionCard";
+import {
+    isQuestionDifficulty,
+    isQuestionHideCorrect,
+    isQuestionType,
+    isQuestionName,
+} from "../Utils/Utils";
 
 export const QuestionList = ({ setShowQuestionList }: any) => {
     const [questions, setQuestions] = useLocalStorage(
@@ -23,40 +29,24 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         type: "Js",
         name: "",
         hideCorrect: false,
-        difficulty: "null",
+        difficulty: "" as Difficulty,
     });
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
-        let filter = questions;
+        let filteredQuestions = questions;
 
-        if (type) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.tags.includes(type);
-            });
-        }
-
-        if (name) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.answer
-                    .toLowerCase()
-                    .includes(name.toLocaleLowerCase());
-            });
-        }
-
-        if (difficulty) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.difficulty.includes(difficulty);
-            });
-        }
-
-        if (!!hideCorrect) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.correct === hideCorrect;
-            });
-        }
-
-        setFilteredQuestionBank(filter);
+        filteredQuestions = filteredQuestions.filter(
+            (question: Question, index: number) => {
+                return (
+                    isQuestionType(question, type) &&
+                    isQuestionName(question, name) &&
+                    isQuestionDifficulty(question, difficulty as Difficulty) &&
+                    isQuestionHideCorrect(question, !!hideCorrect)
+                );
+            }
+        );
+        setFilteredQuestionBank(filteredQuestions);
     }, [filterSettings]);
 
     let currentQuestions =
