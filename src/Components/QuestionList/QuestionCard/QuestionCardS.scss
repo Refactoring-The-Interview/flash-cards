@@ -2,12 +2,17 @@
 
 .listItem.card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 20rem;
 
     .difficulty {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 1rem;
         height: 1rem;
-        border-top: 2rem solid $warning;
-        border-right: 2rem solid transparent;
+        border-top: 4rem solid $warning;
+        border-right: 4rem solid transparent;
     }
 }
