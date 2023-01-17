@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./QuestionListS.scss";
 import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
 import { Question, FilterSetting } from "../store/types";
-import "./QuestionListS.scss";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCard } from "./QuestionCard/QuestionCard";
 
@@ -57,7 +56,6 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
             });
         }
 
-        console.log(filter);
         setFilteredQuestionBank(filter);
     }, [filterSettings]);
 

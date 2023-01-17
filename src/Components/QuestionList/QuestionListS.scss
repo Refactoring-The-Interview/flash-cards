@@ -3,7 +3,7 @@
 .QuestionList {
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 70vw;
     height: 80vh;
 }
 
@@ -11,8 +11,5 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.filter-container {
+    justify-content: space-evenly;
 }

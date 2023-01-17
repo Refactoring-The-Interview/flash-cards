@@ -2,47 +2,37 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export const QuestionCard = ({ currentQuestions }: any) => {
     return currentQuestions.map((q: any, index: number) => {
         return (
-            <Card className="QuestionCard">
-                <Card.Body>{q.answer}</Card.Body>
-            </Card>
+            <Button variant="primary" size="lg" style={{ color: "black" }}>
+                <Card className="listItem" style={{ width: "18rem" }}>
+                    <Card.Header>
+                        <Card.Text>{q.answer}</Card.Text>
+                        <span className="difficulty"></span>
+                    </Card.Header>
+                    <Card.Body>
+                        <div>
+                            {q.tags.map((tag: string, index: number) => {
+                                return (
+                                    <Badge bg="warring" key={index}>
+                                        {tag}
+                                    </Badge>
+                                );
+                            })}
+                        </div>
+                        <Button
+                            variant="outline-secondary"
+                            disabled
+                            className="answered"
+                        >
+                            Answered
+                        </Button>
+                    </Card.Body>
+                </Card>
+            </Button>
         );
     });
 };
-
-{
-    /* <Card className="card" key={index}>
-<Card.Body>
-    <Card.Title className="title">{q.answer}</Card.Title>
-    <Card.Text className="text">{q.question}</Card.Text>
-    <Card.Subtitle className="tags">
-        Tags:
-        {q.tags.map((tag: string, index: number) => {
-            return (
-                <h6>
-                    <Badge
-                        bg="warning"
-                        text="dark"
-                        className="tag"
-                    >
-                        {tag}
-                    </Badge>
-                </h6>
-            );
-        })}
-    </Card.Subtitle>
-    <Button
-        variant="primary"
-        onClick={(e) => {
-            // setCurrentQuestion(questions[index]);
-            // setShowQuestionList(false);
-        }}
-    >
-        Select Question
-    </Button>
-</Card.Body>
-</Card> */
-}

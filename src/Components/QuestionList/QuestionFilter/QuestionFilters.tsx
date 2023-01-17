@@ -19,7 +19,7 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
         <div className="QuestionFilters">
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header>Filters</Accordion.Header>
+                    <Accordion.Header>FilterSetting</Accordion.Header>
                     <Accordion.Body>
                         <Form
                             onSubmit={(e) => {
