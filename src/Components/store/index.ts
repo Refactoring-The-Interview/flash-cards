@@ -1,8 +1,8 @@
-import { Question } from "./types";
+import { Difficulty, Question } from "./types";
 
 export let questionBank: Question[] = [
     {
-        difficulty: ["easy", "medium", "hard", "null"],
+        difficulty: "easy" as Difficulty,
         question:
             "What method is used to method create a new array populated with the results of calling a provided function on every element in the calling array.",
         answer: "Array.map()",
@@ -11,7 +11,7 @@ export let questionBank: Question[] = [
         correct: false,
     },
     {
-        difficulty: ["medium", "null"],
+        difficulty: "medium" as Difficulty,
         question:
             "What method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.",
         answer: "Array.find()",
@@ -20,7 +20,7 @@ export let questionBank: Question[] = [
         correct: false,
     },
     {
-        difficulty: ["medium", "null"],
+        difficulty: "medium" as Difficulty,
         question:
             "what method executes a provided function once for each array element.",
         answer: "Array.forEach()",
@@ -29,7 +29,7 @@ export let questionBank: Question[] = [
         correct: false,
     },
     {
-        difficulty: ["medium", "null"],
+        difficulty: "medium" as Difficulty,
         question:
             " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
         answer: "Array.some()",
@@ -38,7 +38,7 @@ export let questionBank: Question[] = [
         correct: false,
     },
     {
-        difficulty: ["medium", "null"],
+        difficulty: "medium" as Difficulty,
         question:
             "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
         answer: "Array.flat()",
@@ -48,7 +48,7 @@ export let questionBank: Question[] = [
     },
 
     {
-        difficulty: ["hard", "null"],
+        difficulty: "hard" as Difficulty,
         question: "this is a test obj to see if the filter is working.",
         answer: "test1",
         answers: ["test1", "test", "test"],

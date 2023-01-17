@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Question } from "../store/types";
 import "./AddQuestionFormS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Question } from "../store/types";
 
 const AddQuestionForm = (props: any) => {
-    const [difficulty, setDifficulty] = useState<Array<string>>([]);
+    const [difficulty, setDifficulty] = useState<string>("");
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
@@ -20,14 +20,12 @@ const AddQuestionForm = (props: any) => {
     const handleShow = () => setShow(true);
 
     const clearForm = () => {
-        setDifficulty([]);
+        setDifficulty("");
         setQuestion("");
         setAnswer("");
         setAnswers("");
         setTags([]);
     };
-
-    //form should be its own component
 
     return (
         <>
@@ -47,10 +45,7 @@ const AddQuestionForm = (props: any) => {
                                 className="form-control"
                                 id="difficultyInput"
                                 onChange={(e) => {
-                                    setDifficulty([
-                                        ...difficulty,
-                                        e.target.value,
-                                    ]);
+                                    setDifficulty(difficulty);
                                 }}
                             >
                                 <option>Hard</option>
