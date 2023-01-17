@@ -1,9 +1,21 @@
 @import "../../../Sass/main.scss";
 
+.listBtn {
+    margin: 1rem;
+}
+
 .listItem.card {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     width: 20rem;
+
+    .card-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+    }
 
     .difficulty {
         overflow: hidden;
@@ -14,5 +26,9 @@
         height: 1rem;
         border-top: 4rem solid $warning;
         border-right: 4rem solid transparent;
+    }
+
+    .badge {
+        margin-right: 0.4rem;
     }
 }

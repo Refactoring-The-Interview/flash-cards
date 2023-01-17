@@ -8,9 +8,10 @@ export const QuestionCard = ({ currentQuestions }: any) => {
     return currentQuestions.map((q: any, index: number) => {
         return (
             <Button
-                variant="primary-outline"
+                variant="outline-light"
                 size="lg"
                 style={{ color: "black" }}
+                className="listBtn"
             >
                 <Card className="listItem">
                     <Card.Header>
@@ -18,16 +19,18 @@ export const QuestionCard = ({ currentQuestions }: any) => {
                         <span className="difficulty"></span>
                     </Card.Header>
                     <Card.Body>
-                        <Button variant="outline-secondary" disabled>
+                        <Button variant="outline-danger" disabled>
                             Answered
                         </Button>
-                        {q.tags.map((tag: string, index: number) => {
-                            return (
-                                <Badge bg="warring" key={index}>
-                                    {tag}
-                                </Badge>
-                            );
-                        })}
+                        <div>
+                            {q.tags.map((tag: string, index: number) => {
+                                return (
+                                    <Badge bg="dark" key={index}>
+                                        {tag.toLocaleUpperCase()}
+                                    </Badge>
+                                );
+                            })}
+                        </div>
                     </Card.Body>
                 </Card>
             </Button>
