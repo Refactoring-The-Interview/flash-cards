@@ -28,35 +28,43 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
-        let filter = questions;
+        let filteredQuestions = questions;
 
         if (type) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.tags.includes(type);
-            });
+            filteredQuestions = filteredQuestions.filter(
+                (question: Question, index: number) => {
+                    return question.tags.includes(type);
+                }
+            );
         }
 
         if (name) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.answer
-                    .toLowerCase()
-                    .includes(name.toLocaleLowerCase());
-            });
+            filteredQuestions = filteredQuestions.filter(
+                (question: Question, index: number) => {
+                    return question.answer
+                        .toLowerCase()
+                        .includes(name.toLocaleLowerCase());
+                }
+            );
         }
 
         if (difficulty) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.difficulty.includes(difficulty);
-            });
+            filteredQuestions = filteredQuestions.filter(
+                (question: Question, index: number) => {
+                    return question.difficulty.includes(difficulty);
+                }
+            );
         }
 
         if (!!hideCorrect) {
-            filter = filter.filter((question: Question, index: number) => {
-                return question.correct === hideCorrect;
-            });
+            filteredQuestions = filteredQuestions.filter(
+                (question: Question, index: number) => {
+                    return question.correct === hideCorrect;
+                }
+            );
         }
 
-        setFilteredQuestionBank(filter);
+        setFilteredQuestionBank(filteredQuestions);
     }, [filterSettings]);
 
     let currentQuestions =
