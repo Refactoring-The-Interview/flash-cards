@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
 import { Question } from "../store/types";
 import { Button, Card, ListGroup } from "react-bootstrap";
+import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { updateData } from "../Utils/Utils";
 
 interface Props {
     cardQuestion: Question;
 }
 
 export const ArrayMethods = ({ cardQuestion }: Props) => {
-    const correctCss = "btn btn-success";
-    const incorrectCss = "btn btn-danger";
-    const defaultCss = "btn btn-outline-info";
-    const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+    const [isCorrect, setIsCorrect] = useState<string>("");
+    const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
-    const isCorrect = selectedAnswer === answer;
-    const selectedCss = isCorrect ? correctCss : incorrectCss;
+    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
+        StorageKey.currentQuestion,
+        {}
+    );
+    const [questions, setQuestions] = useLocalStorage(
+        StorageKey.questionBank,
+        []
+    );
+
+    useEffect(() => {
+        setIsDisabled(false);
+        setIsCorrect("");
+    }, [question]);
 
     return (
         <div className="ArrayMethods">
@@ -24,7 +35,10 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                 </Card.Title>
 
                 <Card.Body>
-                    <ListGroup className="ArrayMethods-Answers" horizontal>
+                    <ListGroup
+                        className={`${isCorrect} ArrayMethods-Answers `}
+                        horizontal
+                    >
                         {answers.map((item: string, index: number) => {
                             return (
                                 <ListGroup.Item
@@ -34,10 +48,22 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                 >
                                     <Button
                                         type="button"
-                                        className="primary"
+                                        disabled={isDisabled}
+                                        style={{}}
                                         key={index}
                                         onClick={(e) => {
-                                            setSelectedAnswer(item);
+                                            setIsDisabled(true);
+                                            if (item === answer) {
+                                                currentQuestion.correct = true;
+                                                updateData(
+                                                    currentQuestion,
+                                                    setQuestions,
+                                                    questions
+                                                );
+                                                setIsCorrect("success");
+                                            } else {
+                                                setIsCorrect("danger");
+                                            }
                                         }}
                                     >
                                         {item}
