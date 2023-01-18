@@ -3,6 +3,7 @@ import "./ArrayMethodsS.scss";
 import { Question } from "../store/types";
 import { Button, Card, ListGroup } from "react-bootstrap";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { updateData } from "../Utils/Utils";
 
 interface Props {
     cardQuestion: Question;
@@ -16,9 +17,10 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
         StorageKey.currentQuestion,
         {}
     );
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
-
-    const { correct } = currentQuestion;
+    const [questions, setQuestions] = useLocalStorage(
+        StorageKey.questionBank,
+        []
+    );
 
     useEffect(() => {
         setIsDisabled(false);
@@ -52,6 +54,12 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                         onClick={(e) => {
                                             setIsDisabled(true);
                                             if (item === answer) {
+                                                currentQuestion.correct = true;
+                                                updateData(
+                                                    currentQuestion,
+                                                    setQuestions,
+                                                    questions
+                                                );
                                                 setIsCorrect("success");
                                             } else {
                                                 setIsCorrect("danger");
