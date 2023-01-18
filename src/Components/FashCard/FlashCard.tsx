@@ -4,8 +4,8 @@ import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
-import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { Button, Card } from "react-bootstrap";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -19,53 +19,49 @@ const FlashCard = ({ QuestionList }: any) => {
     );
 
     return (
-        <main className="card">
-            <div className="header">
-                <div className="header-timer">
-                    <Timer />
-                </div>
+        <main>
+            <Card>
+                <Card.Header>
+                    <div className="header-timer">
+                        <Timer />
+                    </div>
 
-                <div className="header-Question-list/filter">
-                    <button
-                        type="button"
-                        className=" btn btn-info"
-                        onClick={() => {
-                            QuestionList(true);
-                        }}
-                    >
-                        Question List
-                    </button>
-                </div>
+                    <div className="header-Question-list/filter">
+                        <Button
+                            type="button"
+                            className="primary"
+                            onClick={() => {
+                                QuestionList(true);
+                            }}
+                        >
+                            Question List
+                        </Button>
+                    </div>
 
-                <button
+                    <Button type="button" className="primary">
+                        Submit
+                    </Button>
+                </Card.Header>
+
+                <ArrayMethods cardQuestion={currentQuestion} />
+                <Button
                     type="button"
-                    className=" btn-to-IDE btn btn-info"
-                    onClick={() => {
-                        // setFlipCardToIDE(true);
+                    className="primary"
+                    onClick={(e) => {
+                        setCurrentQuestion(
+                            randomizer(
+                                filteredQuestionBank?.length > 0 &&
+                                    filteredQuestionBank
+                                    ? filteredQuestionBank
+                                    : questions
+                            )
+                        );
                     }}
                 >
-                    Submit
-                </button>
-            </div>
-
-            <ArrayMethods cardQuestion={currentQuestion} />
-            <button
-                type="button"
-                className="btn-next btn btn-info"
-                onClick={(e) => {
-                    setCurrentQuestion(
-                        randomizer(
-                            filteredQuestionBank?.length > 0 &&
-                                filteredQuestionBank
-                                ? filteredQuestionBank
-                                : questions
-                        )
-                    );
-                }}
-            >
-                Next Question
-            </button>
-            <AddQuestionForm />
+                    Next Question
+                </Button>
+                <AddQuestionForm />
+            </Card>
         </main>
     );
 };

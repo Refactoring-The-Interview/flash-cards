@@ -29,7 +29,7 @@ const AddQuestionForm = (props: any) => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="info" onClick={handleShow}>
                 Add Question
             </Button>
 
