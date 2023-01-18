@@ -31,6 +31,7 @@ const FlashCard = ({ QuestionList }: any) => {
                             <Button
                                 type="button"
                                 variant="secondary"
+                                className="FlashCardHeader-button"
                                 onClick={() => {
                                     QuestionList(true);
                                 }}

@@ -10,6 +10,7 @@
         align-items: center;
 
         .FlashCardHeader-timer {
+            width: 10rem;
         }
 
         .FlashCardHeader-buttons {
@@ -20,19 +21,23 @@
             width: 60rem;
             margin-right: 1.5rem;
         }
+        .FlashCardHeader-button {
+            margin-right: 1rem;
+        }
     }
 }
 
 .FlashCardFooter {
     display: flex;
     justify-content: flex-end;
-    height: 4rem;
+    height: 3rem;
     background-color: $gray-100;
 
     .cardFooter.card-footer {
         background-color: $gray-100;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .footer-button {
