@@ -24,9 +24,18 @@
 }
 
 .FlashCardFooter {
+    display: flex;
+    justify-content: flex-end;
+    height: 4rem;
+    background-color: $gray-100;
+
     .cardFooter.card-footer {
         background-color: $gray-100;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+    }
+
+    .footer-button {
+        margin-right: 1rem;
     }
 }

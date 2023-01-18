@@ -51,6 +51,7 @@ const FlashCard = ({ QuestionList }: any) => {
                         <Button
                             type="button"
                             variant="secondary"
+                            className="footer-button"
                             onClick={(e) => {
                                 setCurrentQuestion(
                                     randomizer(
