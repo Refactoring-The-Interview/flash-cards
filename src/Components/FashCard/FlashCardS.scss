@@ -1,9 +1,12 @@
+@import "../../Sass/main.scss";
+
 .FlashCardHeader {
-    .cardHeader.card-Header {
+    .cardHeader.card-header {
         display: flex;
-        justify-content: space-between;
-        flex-direction: row;
+        justify-content: flex-end;
+        flex-direction: column;
         height: 7rem;
+        width: 60rem;
         align-items: center;
 
         .FlashCardHeader-timer {
@@ -11,17 +14,18 @@
 
         .FlashCardHeader-buttons {
             display: flex;
+            flex-direction: row;
             justify-content: flex-end;
             align-items: center;
-            width: 13rem;
-            height: 3rem;
-            margin-left: 1rem;
+            width: 60rem;
+            margin-right: 1.5rem;
         }
     }
 }
 
 .FlashCardFooter {
     .cardFooter.card-footer {
+        background-color: $gray-100;
         display: flex;
         justify-content: flex-end;
     }

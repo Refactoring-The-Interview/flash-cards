@@ -30,7 +30,7 @@ const FlashCard = ({ QuestionList }: any) => {
                         <CardGroup className="FlashCardHeader-buttons">
                             <Button
                                 type="button"
-                                className="primary"
+                                variant="secondary"
                                 onClick={() => {
                                     QuestionList(true);
                                 }}
@@ -38,7 +38,7 @@ const FlashCard = ({ QuestionList }: any) => {
                                 Question List
                             </Button>
 
-                            <Button type="button" className="primary">
+                            <Button type="button" variant="secondary">
                                 Submit
                             </Button>
                         </CardGroup>
@@ -50,7 +50,7 @@ const FlashCard = ({ QuestionList }: any) => {
                     <Card.Footer className="cardFooter">
                         <Button
                             type="button"
-                            className="primary"
+                            variant="secondary"
                             onClick={(e) => {
                                 setCurrentQuestion(
                                     randomizer(

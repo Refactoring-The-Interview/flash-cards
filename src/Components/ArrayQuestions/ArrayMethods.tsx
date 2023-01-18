@@ -34,6 +34,7 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                 >
                                     <Button
                                         type="button"
+                                        className="primary"
                                         key={index}
                                         onClick={(e) => {
                                             setSelectedAnswer(item);
