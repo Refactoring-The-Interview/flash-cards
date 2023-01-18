@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
 import { Question } from "../store/types";
 import { Button, Card, ListGroup } from "react-bootstrap";
+import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 
 interface Props {
     cardQuestion: Question;
@@ -9,7 +10,17 @@ interface Props {
 
 export const ArrayMethods = ({ cardQuestion }: Props) => {
     const [isCorrect, setIsCorrect] = useState<string>("");
+    const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
+    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
+        StorageKey.currentQuestion,
+        {}
+    );
+
+    useEffect(() => {
+        setIsDisabled(false);
+        setIsCorrect("");
+    }, [question]);
 
     return (
         <div className="ArrayMethods">
@@ -32,9 +43,11 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                 >
                                     <Button
                                         type="button"
+                                        disabled={isDisabled}
                                         style={{}}
                                         key={index}
                                         onClick={(e) => {
+                                            setIsDisabled(true);
                                             if (item === answer) {
                                                 setIsCorrect("success");
                                             } else {
