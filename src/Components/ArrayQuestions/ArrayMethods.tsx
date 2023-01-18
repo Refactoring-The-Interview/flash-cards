@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ArrayMethodsS.scss";
 import { Question } from "../store/types";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, ListGroup } from "react-bootstrap";
 
 interface Props {
     cardQuestion: Question;
@@ -24,26 +24,27 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                 </Card.Title>
 
                 <Card.Body>
-                    <ul className="ArrayMethods-Answers">
+                    <ListGroup
+                        className="ArrayMethods-Answers"
+                        // variant="flush"
+                        horizontal
+                    >
                         {answers.map((item: string, index: number) => {
                             return (
-                                <Button
-                                    type="button"
-                                    className={`primary-outline ${
-                                        selectedAnswer
-                                            ? selectedCss
-                                            : defaultCss
-                                    }`}
-                                    key={index}
-                                    onClick={(e) => {
-                                        setSelectedAnswer(item);
-                                    }}
-                                >
-                                    {item}
-                                </Button>
+                                <ListGroup.Item action variant="light">
+                                    <Button
+                                        type="button"
+                                        key={index}
+                                        onClick={(e) => {
+                                            setSelectedAnswer(item);
+                                        }}
+                                    >
+                                        {item}
+                                    </Button>
+                                </ListGroup.Item>
                             );
                         })}
-                    </ul>
+                    </ListGroup>
                 </Card.Body>
             </Card>
         </div>

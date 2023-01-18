@@ -20,7 +20,7 @@ const FlashCard = ({ QuestionList }: any) => {
 
     return (
         <main>
-            <Card border="primary">
+            <Card>
                 <Card.Header className="FlashCardHeader">
                     <div className="FlashCardHeader-timer">
                         <Timer />
