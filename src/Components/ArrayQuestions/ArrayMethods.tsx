@@ -8,13 +8,8 @@ interface Props {
 }
 
 export const ArrayMethods = ({ cardQuestion }: Props) => {
-    const correctCss = "btn btn-success";
-    const incorrectCss = "btn btn-danger";
-    const defaultCss = "btn btn-outline-info";
-    const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+    const [isCorrect, setIsCorrect] = useState<string>("");
     const { question, answer, answers } = cardQuestion;
-    const isCorrect = selectedAnswer === answer;
-    const selectedCss = isCorrect ? correctCss : incorrectCss;
 
     return (
         <div className="ArrayMethods">
@@ -24,7 +19,10 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                 </Card.Title>
 
                 <Card.Body>
-                    <ListGroup className="ArrayMethods-Answers" horizontal>
+                    <ListGroup
+                        className={`${isCorrect} ArrayMethods-Answers `}
+                        horizontal
+                    >
                         {answers.map((item: string, index: number) => {
                             return (
                                 <ListGroup.Item
@@ -34,10 +32,14 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                 >
                                     <Button
                                         type="button"
-                                        className="primary"
+                                        style={{}}
                                         key={index}
                                         onClick={(e) => {
-                                            setSelectedAnswer(item);
+                                            if (item === answer) {
+                                                setIsCorrect("success");
+                                            } else {
+                                                setIsCorrect("danger");
+                                            }
                                         }}
                                     >
                                         {item}
