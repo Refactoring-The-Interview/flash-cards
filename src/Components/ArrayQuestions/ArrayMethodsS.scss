@@ -4,22 +4,29 @@
     .ArrayMethods-card.card {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         width: 60rem;
+        height: 20rem;
         padding: 2rem 5rem;
-        flex-basis: auto;
+
+        .card-body {
+            display: flex;
+            align-items: flex-end;
+        }
 
         .ArrayMethods-description {
             display: flex;
             flex-wrap: wrap;
+            padding: 1rem;
         }
 
         .ArrayMethods-Answers {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-content: center;
             width: 30rem;
+            height: 3rem;
         }
     }
 }
