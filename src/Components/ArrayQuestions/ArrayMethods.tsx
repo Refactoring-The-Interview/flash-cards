@@ -16,6 +16,9 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
         StorageKey.currentQuestion,
         {}
     );
+    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+
+    const { correct } = currentQuestion;
 
     useEffect(() => {
         setIsDisabled(false);

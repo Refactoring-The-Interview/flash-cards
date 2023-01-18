@@ -8,7 +8,7 @@ export let questionBank: Question[] = [
         answer: "Array.map()",
         answers: ["Array.map()", "Array.forEach()", "Array.every()"],
         tags: ["array", "Js"],
-        correct: false,
+        correct: true,
     },
     {
         difficulty: "medium" as Difficulty,

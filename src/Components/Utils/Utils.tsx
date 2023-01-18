@@ -10,7 +10,6 @@ export const isQuestionDifficulty = (
     question: Question,
     difficulty: string
 ) => {
-    console.log(question);
     return question.difficulty.includes(difficulty as Difficulty);
 };
 export const isQuestionHideCorrect = (
