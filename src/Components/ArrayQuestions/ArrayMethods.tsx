@@ -24,14 +24,14 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                 </Card.Title>
 
                 <Card.Body>
-                    <ListGroup
-                        className="ArrayMethods-Answers"
-                        // variant="flush"
-                        horizontal
-                    >
+                    <ListGroup className="ArrayMethods-Answers" horizontal>
                         {answers.map((item: string, index: number) => {
                             return (
-                                <ListGroup.Item action variant="light">
+                                <ListGroup.Item
+                                    action
+                                    variant="light"
+                                    className="ArrayMethods-list-button"
+                                >
                                     <Button
                                         type="button"
                                         key={index}

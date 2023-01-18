@@ -1,16 +1,28 @@
 .FlashCardHeader {
-    display: flex;
-    justify-content: space-between;
-    height: 7rem;
-    align-items: center;
-
-    .FlashCardHeader-timer {
-    }
-
-    .FlashCardHeader-buttons {
+    .cardHeader.card-Header {
         display: flex;
         justify-content: space-between;
-        width: 13rem;
-        height: 3rem;
+        flex-direction: row;
+        height: 7rem;
+        align-items: center;
+
+        .FlashCardHeader-timer {
+        }
+
+        .FlashCardHeader-buttons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 13rem;
+            height: 3rem;
+            margin-left: 1rem;
+        }
+    }
+}
+
+.FlashCardFooter {
+    .cardFooter.card-footer {
+        display: flex;
+        justify-content: flex-end;
     }
 }

@@ -21,48 +21,52 @@ const FlashCard = ({ QuestionList }: any) => {
     return (
         <main>
             <Card>
-                <Card.Header className="FlashCardHeader">
-                    <div className="FlashCardHeader-timer">
-                        <Timer />
-                    </div>
+                <div className="FlashCardHeader">
+                    <Card.Header className="cardHeader">
+                        <div className="FlashCardHeader-timer">
+                            <Timer />
+                        </div>
 
-                    <CardGroup className="FlashCardHeader-buttons">
+                        <CardGroup className="FlashCardHeader-buttons">
+                            <Button
+                                type="button"
+                                className="primary"
+                                onClick={() => {
+                                    QuestionList(true);
+                                }}
+                            >
+                                Question List
+                            </Button>
+
+                            <Button type="button" className="primary">
+                                Submit
+                            </Button>
+                        </CardGroup>
+                    </Card.Header>
+                </div>
+
+                <ArrayMethods cardQuestion={currentQuestion} />
+                <div className="FlashCardFooter">
+                    <Card.Footer className="cardFooter">
                         <Button
                             type="button"
                             className="primary"
-                            onClick={() => {
-                                QuestionList(true);
+                            onClick={(e) => {
+                                setCurrentQuestion(
+                                    randomizer(
+                                        filteredQuestionBank?.length > 0 &&
+                                            filteredQuestionBank
+                                            ? filteredQuestionBank
+                                            : questions
+                                    )
+                                );
                             }}
                         >
-                            Question List
+                            Next Question
                         </Button>
-
-                        <Button type="button" className="primary">
-                            Submit
-                        </Button>
-                    </CardGroup>
-                </Card.Header>
-
-                <ArrayMethods cardQuestion={currentQuestion} />
-                <Card.Footer>
-                    <Button
-                        type="button"
-                        className="primary"
-                        onClick={(e) => {
-                            setCurrentQuestion(
-                                randomizer(
-                                    filteredQuestionBank?.length > 0 &&
-                                        filteredQuestionBank
-                                        ? filteredQuestionBank
-                                        : questions
-                                )
-                            );
-                        }}
-                    >
-                        Next Question
-                    </Button>
-                    <AddQuestionForm />
-                </Card.Footer>
+                        <AddQuestionForm />
+                    </Card.Footer>
+                </div>
             </Card>
         </main>
     );

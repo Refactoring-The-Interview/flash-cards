@@ -23,9 +23,13 @@
         .ArrayMethods-Answers {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
             align-content: center;
             width: 40rem;
         }
+    }
+    .ArrayMethods-list-button {
+        display: flex;
+        justify-content: center;
     }
 }
