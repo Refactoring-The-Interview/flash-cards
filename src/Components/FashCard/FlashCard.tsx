@@ -49,6 +49,8 @@ const FlashCard = ({ QuestionList }: any) => {
                 <ArrayMethods cardQuestion={currentQuestion} />
                 <div className="FlashCardFooter">
                     <Card.Footer className="cardFooter">
+                        <AddQuestionForm />
+
                         <Button
                             type="button"
                             variant="secondary"
@@ -66,7 +68,6 @@ const FlashCard = ({ QuestionList }: any) => {
                         >
                             Next Question
                         </Button>
-                        <AddQuestionForm />
                     </Card.Footer>
                 </div>
             </Card>
