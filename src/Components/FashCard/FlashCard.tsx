@@ -5,7 +5,7 @@ import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, CardGroup } from "react-bootstrap";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -21,12 +21,12 @@ const FlashCard = ({ QuestionList }: any) => {
     return (
         <main>
             <Card>
-                <Card.Header>
-                    <div className="header-timer">
+                <Card.Header className="FlashCardHeader">
+                    <div className="FlashCardHeader-timer">
                         <Timer />
                     </div>
 
-                    <div className="header-Question-list/filter">
+                    <CardGroup className="FlashCardHeader-buttons">
                         <Button
                             type="button"
                             className="primary"
@@ -36,11 +36,11 @@ const FlashCard = ({ QuestionList }: any) => {
                         >
                             Question List
                         </Button>
-                    </div>
 
-                    <Button type="button" className="primary">
-                        Submit
-                    </Button>
+                        <Button type="button" className="primary">
+                            Submit
+                        </Button>
+                    </CardGroup>
                 </Card.Header>
 
                 <ArrayMethods cardQuestion={currentQuestion} />

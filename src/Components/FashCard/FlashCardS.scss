@@ -1,0 +1,13 @@
+.FlashCardHeader {
+    display: flex;
+    justify-content: space-between;
+
+    .FlashCardHeader-timer {
+    }
+
+    .FlashCardHeader-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 13rem;
+    }
+}
