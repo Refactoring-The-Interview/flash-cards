@@ -19,9 +19,9 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
     return (
         <div className="ArrayMethods">
             <Card className="ArrayMethods-card">
-                <Card.Text className="ArrayMethods-description">
+                <Card.Title className="ArrayMethods-description">
                     {question}
-                </Card.Text>
+                </Card.Title>
 
                 <Card.Body>
                     <ul className="ArrayMethods-Answers">
