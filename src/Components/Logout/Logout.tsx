@@ -1,6 +1,7 @@
 import React from "react";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import "./LogoutS.scss";
+import { Button } from "react-bootstrap";
 
 export const Logout = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -10,8 +11,8 @@ export const Logout = () => {
 
     return (
         <div className="Logout">
-            <button
-                className="logout-btn btn btn-secondary"
+            <Button
+                variant="outline-secondary"
                 onClick={() => {
                     if (userInfo) {
                         setUserInfo({ email: "", password: "" });
@@ -19,7 +20,7 @@ export const Logout = () => {
                 }}
             >
                 Logout
-            </button>
+            </Button>
         </div>
     );
 };
