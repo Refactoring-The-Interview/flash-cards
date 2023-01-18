@@ -44,23 +44,25 @@ const FlashCard = ({ QuestionList }: any) => {
                 </Card.Header>
 
                 <ArrayMethods cardQuestion={currentQuestion} />
-                <Button
-                    type="button"
-                    className="primary"
-                    onClick={(e) => {
-                        setCurrentQuestion(
-                            randomizer(
-                                filteredQuestionBank?.length > 0 &&
-                                    filteredQuestionBank
-                                    ? filteredQuestionBank
-                                    : questions
-                            )
-                        );
-                    }}
-                >
-                    Next Question
-                </Button>
-                <AddQuestionForm />
+                <Card.Footer>
+                    <Button
+                        type="button"
+                        className="primary"
+                        onClick={(e) => {
+                            setCurrentQuestion(
+                                randomizer(
+                                    filteredQuestionBank?.length > 0 &&
+                                        filteredQuestionBank
+                                        ? filteredQuestionBank
+                                        : questions
+                                )
+                            );
+                        }}
+                    >
+                        Next Question
+                    </Button>
+                    <AddQuestionForm />
+                </Card.Footer>
             </Card>
         </main>
     );

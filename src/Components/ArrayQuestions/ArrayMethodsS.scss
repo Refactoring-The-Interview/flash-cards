@@ -1,37 +1,25 @@
 @import "../../Sass/main.scss";
 
 .ArrayMethods {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    .question {
+    .ArrayMethods-card.card {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-    }
+        width: 60rem;
+        padding: 2rem 5rem;
+        flex-basis: auto;
 
-    .description {
-        padding: 2rem;
-        border: solid 2px $color-primary-grey;
-        border-radius: 10px;
-    }
+        .ArrayMethods-description {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        border: 2px solid $color-primary-grey;
-        background-image: linear-gradient(
-            to right bottom,
-            $color-primary-blue,
-            $color-neutral-2
-        );
-        margin-top: 1.5rem;
-        border-radius: 10px;
-        width: 70%;
-        margin-bottom: 2rem;
-        padding: 2rem 0;
+        .ArrayMethods-Answers {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 30rem;
+        }
     }
 }

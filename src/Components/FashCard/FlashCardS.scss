@@ -1,6 +1,8 @@
 .FlashCardHeader {
     display: flex;
     justify-content: space-between;
+    height: 7rem;
+    align-items: center;
 
     .FlashCardHeader-timer {
     }
@@ -9,5 +11,6 @@
         display: flex;
         justify-content: space-between;
         width: 13rem;
+        height: 3rem;
     }
 }

@@ -3,32 +3,36 @@
 .listBtn {
     margin: 1rem;
 }
-
-.listItem.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 20rem;
-
-    .card-body {
+.QuestionCard {
+    .listItem.card {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
-    }
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 20rem;
 
-    .difficulty {
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1rem;
-        height: 1rem;
-        // border-top: 4rem solid $warning;
-        border-right: 4rem solid transparent;
-    }
+        .card-body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: center;
+        }
 
-    .badge {
-        margin-right: 0.4rem;
+        .difficulty {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1rem;
+            height: 1rem;
+            // border-top: 4rem solid $warning;
+            border-right: 4rem solid transparent;
+            &.hard{
+
+            }
+        }
+
+        .badge {
+            margin-right: 0.4rem;
+        }
     }
 }
