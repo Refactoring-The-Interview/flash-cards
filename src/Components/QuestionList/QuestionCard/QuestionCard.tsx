@@ -2,14 +2,14 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
-
+// className="difficulty hard"
 export const QuestionCard = ({
     currentQuestions,
     setCurrentQuestion,
     setShowQuestionList,
 }: any) => {
     return (
-        <>
+        <div className="QuestionCard">
             {currentQuestions.map((question: any, index: number) => {
                 let qnsweredColor = question.correct ? "success" : "danger";
                 const difficultyColor = {
@@ -63,6 +63,6 @@ export const QuestionCard = ({
                     </Button>
                 );
             })}
-        </>
+        </div>
     );
 };

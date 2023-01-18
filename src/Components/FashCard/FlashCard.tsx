@@ -4,8 +4,8 @@ import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
-import { Question } from "../store/types";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { Button, Card, CardGroup } from "react-bootstrap";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -19,53 +19,58 @@ const FlashCard = ({ QuestionList }: any) => {
     );
 
     return (
-        <main className="card">
-            <div className="header">
-                <div className="header-timer">
-                    <Timer />
+        <main>
+            <Card>
+                <div className="FlashCardHeader">
+                    <Card.Header className="cardHeader">
+                        <div className="FlashCardHeader-timer">
+                            <Timer />
+                        </div>
+
+                        <CardGroup className="FlashCardHeader-buttons">
+                            <Button
+                                type="button"
+                                variant="secondary"
+                                className="FlashCardHeader-button"
+                                onClick={() => {
+                                    QuestionList(true);
+                                }}
+                            >
+                                Question List
+                            </Button>
+
+                            <Button type="button" variant="secondary">
+                                Submit
+                            </Button>
+                        </CardGroup>
+                    </Card.Header>
                 </div>
 
-                <div className="header-Question-list/filter">
-                    <button
-                        type="button"
-                        className=" btn btn-info"
-                        onClick={() => {
-                            QuestionList(true);
-                        }}
-                    >
-                        Question List
-                    </button>
+                <ArrayMethods cardQuestion={currentQuestion} />
+                <div className="FlashCardFooter">
+                    <Card.Footer className="cardFooter">
+                        <AddQuestionForm />
+
+                        <Button
+                            type="button"
+                            variant="secondary"
+                            className="footer-button"
+                            onClick={(e) => {
+                                setCurrentQuestion(
+                                    randomizer(
+                                        filteredQuestionBank?.length > 0 &&
+                                            filteredQuestionBank
+                                            ? filteredQuestionBank
+                                            : questions
+                                    )
+                                );
+                            }}
+                        >
+                            Next Question
+                        </Button>
+                    </Card.Footer>
                 </div>
-
-                <button
-                    type="button"
-                    className=" btn-to-IDE btn btn-info"
-                    onClick={() => {
-                        // setFlipCardToIDE(true);
-                    }}
-                >
-                    Submit
-                </button>
-            </div>
-
-            <ArrayMethods cardQuestion={currentQuestion} />
-            <button
-                type="button"
-                className="btn-next btn btn-info"
-                onClick={(e) => {
-                    setCurrentQuestion(
-                        randomizer(
-                            filteredQuestionBank?.length > 0 &&
-                                filteredQuestionBank
-                                ? filteredQuestionBank
-                                : questions
-                        )
-                    );
-                }}
-            >
-                Next Question
-            </button>
-            <AddQuestionForm />
+            </Card>
         </main>
     );
 };

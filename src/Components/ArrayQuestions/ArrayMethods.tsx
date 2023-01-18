@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ArrayMethodsS.scss";
 import { Question } from "../store/types";
+import { Button, Card, ListGroup } from "react-bootstrap";
 
 interface Props {
     cardQuestion: Question;
@@ -17,26 +18,36 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
 
     return (
         <div className="ArrayMethods">
-            <div className="description">{question}</div>
+            <Card className="ArrayMethods-card">
+                <Card.Title className="ArrayMethods-description">
+                    {question}
+                </Card.Title>
 
-            <ul className="list">
-                {answers.map((item: string, index: number) => {
-                    return (
-                        <button
-                            type="button"
-                            className={`btn-item ${
-                                selectedAnswer ? selectedCss : defaultCss
-                            }`}
-                            key={index}
-                            onClick={(e) => {
-                                setSelectedAnswer(item);
-                            }}
-                        >
-                            {item}
-                        </button>
-                    );
-                })}
-            </ul>
+                <Card.Body>
+                    <ListGroup className="ArrayMethods-Answers" horizontal>
+                        {answers.map((item: string, index: number) => {
+                            return (
+                                <ListGroup.Item
+                                    action
+                                    variant="light"
+                                    className="ArrayMethods-list-button"
+                                >
+                                    <Button
+                                        type="button"
+                                        className="primary"
+                                        key={index}
+                                        onClick={(e) => {
+                                            setSelectedAnswer(item);
+                                        }}
+                                    >
+                                        {item}
+                                    </Button>
+                                </ListGroup.Item>
+                            );
+                        })}
+                    </ListGroup>
+                </Card.Body>
+            </Card>
         </div>
     );
 };
