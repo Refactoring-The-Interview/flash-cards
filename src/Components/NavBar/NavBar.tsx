@@ -28,27 +28,38 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                             </Nav.Link>
 
                             <NavDropdown
-                                title={userInfo.email}
+                                title={
+                                    userInfo.email.length > 0
+                                        ? userInfo.email
+                                        : "Sign Up"
+                                }
                                 id="basic-nav-dropdown"
                             >
-                                <NavDropdown.Item href="#action/3.1">
-                                    Profile
-                                </NavDropdown.Item>
+                                {userInfo.email.length > 0 && (
+                                    <NavDropdown.Item href="#action/3.1">
+                                        Profile
+                                    </NavDropdown.Item>
+                                )}
                                 <NavDropdown.Item href="#action/3.2">
                                     Contact
                                 </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item
-                                    href="#action/3.4"
-                                    onClick={() => {
-                                        setUserInfo({
-                                            email: "",
-                                            password: "",
-                                        });
-                                    }}
-                                >
-                                    Logout
-                                </NavDropdown.Item>
+
+                                {userInfo.email.length > 0 && (
+                                    <>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item
+                                            href="#action/3.4"
+                                            onClick={() => {
+                                                setUserInfo({
+                                                    email: "",
+                                                    password: "",
+                                                });
+                                            }}
+                                        >
+                                            Logout
+                                        </NavDropdown.Item>
+                                    </>
+                                )}
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
