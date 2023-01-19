@@ -29,7 +29,7 @@ export const QuestionList = ({ setShowQuestionList }: any) => {
         type: "Js",
         name: "",
         hideCorrect: false,
-        difficulty: "" as Difficulty,
+        difficulty: Difficulty.none,
     });
 
     useEffect(() => {
