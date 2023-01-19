@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
 import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
-import { Question } from "../../store/types";
+import { Paths, Question } from "../../store/types";
 
 interface Props {
     currentQuestions: Question[];
@@ -28,9 +28,9 @@ export const QuestionCard = ({
                         size="lg"
                         className="listBtn"
                         key={index}
+                        href={Paths.flashCard}
                         onClick={(e) => {
                             setCurrentQuestion(question);
-                            setShowQuestionList(false);
                         }}
                     >
                         <Card className="listItem">

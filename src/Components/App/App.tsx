@@ -8,6 +8,7 @@ import { QuestionList } from "../QuestionList/QuestionList";
 import { IDE } from "../IDE/IDE";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
+import { Paths } from "../store/types";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -23,37 +24,31 @@ function App() {
         {}
     );
 
-    const redirectUserQuestions = async () => {
-        if (showQuestionList && userInfo.email) {
-            return navigate("/question-list");
-        }
-    };
+    // useEffect(() => {
+    //     const redirectUserQuestions = async () => {
+    //         if (showQuestionList && userInfo.email) {
+    //             return navigate("/question-list");
+    //         }
+    //     };
 
-    const redirectUserFlashCard = async () => {
-        if (userInfo.email) {
-            return navigate("/flash-card");
-        } else {
-            return navigate("/login");
-        }
-    };
-
-    useEffect(() => {
-        redirectUserFlashCard();
-        redirectUserQuestions();
-    }, [userInfo, showQuestionList]);
+    //     const redirectUserFlashCard = async () => {
+    //         if (userInfo.email.length === 0) {
+    //             // return navigate("/flash-card");
+    //             return navigate("/login");
+    //         }
+    //     };
+    //     redirectUserFlashCard();
+    //     redirectUserQuestions();
+    // }, [userInfo, showQuestionList]);
 
     return (
         <div className="App">
-            <NavBar
-                setShowQuestionList={setShowQuestionList}
-                redirectUserQuestions={redirectUserQuestions}
-                redirectUserFlashCard={redirectUserFlashCard}
-            />
+            <NavBar />
             <Routes>
-                <Route path="/login" element={<Login />} />
+                <Route path={Paths.login} element={<Login />} />
 
                 <Route
-                    path="/flash-card"
+                    path={Paths.flashCard}
                     element={
                         <div className="mainDisplayFront">
                             <Logout />
@@ -62,10 +57,11 @@ function App() {
                     }
                 />
                 <Route
-                    path="/question-list"
+                    path={Paths.questionList}
                     element={
                         <QuestionList
                             setShowQuestionList={setShowQuestionList}
+                            showQuestionList={showQuestionList}
                         />
                     }
                 />

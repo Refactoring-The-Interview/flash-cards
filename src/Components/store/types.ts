@@ -20,3 +20,9 @@ export enum Difficulty {
     hard = "hard",
     none = "",
 }
+
+export enum Paths {
+    flashCard = "/flash-card",
+    questionList = "/question-list",
+    login = "/login",
+}
