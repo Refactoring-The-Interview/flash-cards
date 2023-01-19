@@ -1,0 +1,14 @@
+@import "../../Sass/main.scss";
+
+.Home {
+    display: flex;
+    align-items: flex-start;
+
+    .card-footer {
+        flex-grow: 1;
+    }
+
+    .Home-card {
+        display: flex;
+    }
+}
