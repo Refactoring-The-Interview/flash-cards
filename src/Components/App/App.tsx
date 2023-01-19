@@ -46,7 +46,7 @@ function App() {
             <NavBar />
             <Routes>
                 <Route path={Paths.login} element={<Login />} />
-
+                <Route path={Paths.home} />
                 <Route
                     path={Paths.flashCard}
                     element={
