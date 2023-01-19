@@ -9,6 +9,7 @@ import { IDE } from "../IDE/IDE";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import { Paths } from "../store/types";
+import { Home } from "../Home/Home";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -46,7 +47,7 @@ function App() {
             <NavBar />
             <Routes>
                 <Route path={Paths.login} element={<Login />} />
-                <Route path={Paths.home} />
+                <Route path={Paths.home} element={<Home />} />
                 <Route
                     path={Paths.flashCard}
                     element={
