@@ -5,15 +5,23 @@ import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
 import { Question } from "../../store/types";
 
+interface Props {
+    currentQuestions: Question[];
+    setCurrentQuestion(question: Question): void;
+    setShowQuestionList(success: boolean): void;
+}
+
 export const QuestionCard = ({
     currentQuestions,
     setCurrentQuestion,
     setShowQuestionList,
-}: any) => {
+}: Props) => {
     return (
         <div className="QuestionCard">
             {currentQuestions.map((question: Question, index: number) => {
-                let answeredColor = question.correct ? "success" : "danger";
+                let answeredColor = question.correct
+                    ? "outline-success"
+                    : "outline-danger";
                 return (
                     <Button
                         variant="outline-light"
@@ -35,14 +43,10 @@ export const QuestionCard = ({
                                 ></span>
                             </Card.Header>
                             <Card.Body>
-                                <QuestionTags tags={question.tags} />
-
-                                <Button
-                                    variant={`outline-${answeredColor}`}
-                                    disabled
-                                >
+                                <Button variant={`${answeredColor}`} disabled>
                                     Answered
                                 </Button>
+                                <QuestionTags tags={question.tags} />
                             </Card.Body>
                         </Card>
                     </Button>
