@@ -8,7 +8,7 @@ export const Home = () => {
         <div className="Home">
             <Card className="Home-card">
                 <Card.Body className="Home-body">
-                    <CardGroup>
+                    <CardGroup className="about">
                         <Card.Title>Refactoring The Interview</Card.Title>
                         <Card.Subtitle>
                             Tools to refactor the code for engineering
@@ -39,7 +39,7 @@ export const Home = () => {
                         </Card.Text>
                     </CardGroup>
 
-                    <Card>
+                    <Card className="Home-join">
                         <Card.Img variant="top" src="/" alt="Logo-refactor" />
                         <Card.Body>
                             <Card.Title>Refactoring The Interview</Card.Title>
@@ -54,18 +54,16 @@ export const Home = () => {
                     </Card>
                 </Card.Body>
 
-                <CardGroup className="Home-footer">
-                    <Card.Footer>
-                        <Card.Link href="/">Alex</Card.Link>
-                        <Card.Link href="https://github.com/SBrandon0432">
-                            Sam
-                        </Card.Link>
-                        <Card.Link href="https://github.com/Refactoring-The-Interview/flash-cards">
-                            github
-                        </Card.Link>
-                        <Card.Link>Contact</Card.Link>
-                    </Card.Footer>
-                </CardGroup>
+                <Card.Footer>
+                    <Card.Link href="/">Alex</Card.Link>
+                    <Card.Link href="https://github.com/SBrandon0432">
+                        Sam
+                    </Card.Link>
+                    <Card.Link href="https://github.com/Refactoring-The-Interview/flash-cards">
+                        github
+                    </Card.Link>
+                    <Card.Link>Contact</Card.Link>
+                </Card.Footer>
             </Card>
         </div>
     );
