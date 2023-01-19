@@ -100,7 +100,7 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                 />
                             </Form.Group>
 
-                            <Form.Group className="buttonGroup">
+                            <Form.Group className="buttons">
                                 <Button variant="primary" type="submit">
                                     filter
                                 </Button>
@@ -108,9 +108,7 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                 <Button
                                     variant="primary"
                                     type="button"
-                                    onClick={() => {
-                                        formReset();
-                                    }}
+                                    onClick={formReset}
                                 >
                                     Reset
                                 </Button>

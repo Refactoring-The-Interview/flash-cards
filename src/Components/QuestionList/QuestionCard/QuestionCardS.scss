@@ -10,6 +10,10 @@
         justify-content: flex-start;
         width: 20rem;
 
+        .listItem-text {
+            color: black;
+        }
+
         .card-body {
             display: flex;
             flex-direction: row;
@@ -24,10 +28,17 @@
             left: 0;
             width: 1rem;
             height: 1rem;
-            // border-top: 4rem solid $warning;
             border-right: 4rem solid transparent;
-            &.hard{
 
+            &.easy {
+                border-top: 4rem solid $success;
+            }
+            &.medium {
+                border-top: 4rem solid $warning;
+            }
+
+            &.hard {
+                border-top: 4rem solid $danger;
             }
         }
 
