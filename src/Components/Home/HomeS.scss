@@ -1,13 +1,11 @@
 @import "../../Sass/main.scss";
 
 .Home {
-    display: flex;
-    align-items: flex-start;
-
     .about {
         display: flex;
         flex-direction: column;
     }
+
     .card-footer {
         display: flex;
         flex-direction: row;
