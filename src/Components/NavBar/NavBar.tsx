@@ -5,13 +5,17 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { randomizer } from "../QuestionRandomizer/randomizer";
 
-export const NavBar = ({ setShowQuestionList }: any) => {
+export const NavBar = ({
+    redirectUserQuestions,
+    redirectUserFlashCard,
+    setShowQuestionList,
+}: any) => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
-        email: "",
+        email: "Sign Up",
         password: "",
     });
-    const navigate = useNavigate();
 
     return (
         <div className="NavBar">
@@ -25,26 +29,33 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                             <Nav.Link
                                 onClick={() => {
                                     setShowQuestionList(true);
+                                    redirectUserQuestions();
                                 }}
                             >
                                 Question List
                             </Nav.Link>
+                            <Nav.Link
+                                onClick={() => {
+                                    setShowQuestionList(false);
+                                    redirectUserFlashCard();
+                                }}
+                            >
+                                Random Question
+                            </Nav.Link>
+
                             <NavDropdown
                                 title={userInfo.email}
                                 id="basic-nav-dropdown"
                             >
                                 <NavDropdown.Item href="#action/3.1">
-                                    Action
+                                    Profile
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">
-                                    Something
+                                    Contact
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">
-                                    Separated link
+                                    Logout
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
