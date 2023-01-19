@@ -3,15 +3,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Routes, Route, useNavigate } from "react-router-dom";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { randomizer } from "../QuestionRandomizer/randomizer";
 
-export const NavBar = ({
-    redirectUserQuestions,
-    redirectUserFlashCard,
-    setShowQuestionList,
-}: any) => {
+export const NavBar = ({ setShowQuestionList }: any) => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
@@ -26,20 +20,10 @@ export const NavBar = ({
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/flash-card">Home</Nav.Link>
-                            <Nav.Link
-                                onClick={() => {
-                                    setShowQuestionList(true);
-                                    redirectUserQuestions();
-                                }}
-                            >
+                            <Nav.Link href="/question-list">
                                 Question List
                             </Nav.Link>
-                            <Nav.Link
-                                onClick={() => {
-                                    setShowQuestionList(false);
-                                    redirectUserFlashCard();
-                                }}
-                            >
+                            <Nav.Link href="/flash-card">
                                 Random Question
                             </Nav.Link>
 

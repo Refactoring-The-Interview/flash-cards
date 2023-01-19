@@ -23,32 +23,27 @@ function App() {
         {}
     );
 
-    const redirectUserQuestions = async () => {
-        if (showQuestionList && userInfo.email) {
-            return navigate("/question-list");
-        }
-    };
-
-    const redirectUserFlashCard = async () => {
-        if (userInfo.email) {
-            return navigate("/flash-card");
-        } else {
-            return navigate("/login");
-        }
-    };
-
     useEffect(() => {
+        const redirectUserQuestions = async () => {
+            if (showQuestionList && userInfo.email) {
+                return navigate("/question-list");
+            }
+        };
+
+        const redirectUserFlashCard = async () => {
+            if (userInfo.email.length !== 0) {
+                return navigate("/flash-card");
+            } else {
+                return navigate("/login");
+            }
+        };
         redirectUserFlashCard();
         redirectUserQuestions();
     }, [userInfo, showQuestionList]);
 
     return (
         <div className="App">
-            <NavBar
-                setShowQuestionList={setShowQuestionList}
-                redirectUserQuestions={redirectUserQuestions}
-                redirectUserFlashCard={redirectUserFlashCard}
-            />
+            <NavBar />
             <Routes>
                 <Route path="/login" element={<Login />} />
 
