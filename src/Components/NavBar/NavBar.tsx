@@ -13,7 +13,7 @@ export const NavBar = ({
     setShowQuestionList,
 }: any) => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
-        email: "Sign Up",
+        email: "",
         password: "",
     });
 
@@ -25,7 +25,7 @@ export const NavBar = ({
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="/flash-card">Home</Nav.Link>
                             <Nav.Link
                                 onClick={() => {
                                     setShowQuestionList(true);
@@ -54,7 +54,15 @@ export const NavBar = ({
                                     Contact
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
+                                <NavDropdown.Item
+                                    href="#action/3.4"
+                                    onClick={() => {
+                                        setUserInfo({
+                                            email: "",
+                                            password: "",
+                                        });
+                                    }}
+                                >
                                     Logout
                                 </NavDropdown.Item>
                             </NavDropdown>
