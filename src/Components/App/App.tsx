@@ -41,6 +41,7 @@ function App() {
         redirectUserQuestions();
     }, [userInfo, showQuestionList]);
 
+    let randomGen = () => Math.random();
     return (
         <div className="App">
             <NavBar />
@@ -50,9 +51,12 @@ function App() {
                 <Route
                     path="/flash-card"
                     element={
-                        <div className="mainDisplayFront">
+                        <div className="mainDisplayFront" key={randomGen()}>
                             <Logout />
-                            <FlashCard QuestionList={setShowQuestionList} />
+                            <FlashCard
+                                QuestionList={setShowQuestionList}
+                                key={randomGen()}
+                            />
                         </div>
                     }
                 />

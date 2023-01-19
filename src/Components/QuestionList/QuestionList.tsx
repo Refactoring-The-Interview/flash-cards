@@ -12,6 +12,7 @@ import {
 } from "../Utils/Utils";
 
 export const QuestionList = ({ setShowQuestionList }: any) => {
+    setShowQuestionList(true);
     const [questions, setQuestions] = useLocalStorage(
         StorageKey.questionBank,
         []
