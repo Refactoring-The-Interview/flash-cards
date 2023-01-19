@@ -8,12 +8,14 @@ export const Home = () => {
         <div className="Home">
             <Card className="Home-card">
                 <Card.Body className="Home-body">
-                    <CardGroup>
+                    <CardGroup className="title">
                         <Card.Title>Refactoring The Interview</Card.Title>
                         <Card.Subtitle>
                             Tools to refactor the code for engineering
                             interviews - Alex & Sam
                         </Card.Subtitle>
+                    </CardGroup>
+                    <CardGroup className="about">
                         <Card.Text>
                             The Goal of Refactoring The Interview is to assist
                             Engineers in the Interview process, by providing
@@ -37,34 +39,38 @@ export const Home = () => {
                             prep, but also how you look to solve a problem and
                             broaden your tools to solve the problem.
                         </Card.Text>
+                        <Card className="Home-join">
+                            <Card.Img
+                                variant="top"
+                                src="/"
+                                alt="Logo-refactor"
+                            />
+                            <Card.Body>
+                                <Card.Title>
+                                    Refactoring The Interview
+                                </Card.Title>
+                                <Card.Text>
+                                    Tools to refactor the code for engineering
+                                    interviews
+                                </Card.Text>
+                                <Button variant="primary" href={Paths.login}>
+                                    Join Now!
+                                </Button>
+                            </Card.Body>
+                        </Card>
                     </CardGroup>
-
-                    <Card>
-                        <Card.Img variant="top" src="/" alt="Logo-refactor" />
-                        <Card.Body>
-                            <Card.Title>Refactoring The Interview</Card.Title>
-                            <Card.Text>
-                                Tools to refactor the code for engineering
-                                interviews
-                            </Card.Text>
-                            <Button variant="primary" href={Paths.login}>
-                                Join Now!
-                            </Button>
-                        </Card.Body>
-                    </Card>
                 </Card.Body>
 
-                <CardGroup className="Home-footer">
-                    <Card.Footer>
-                        <Card.Link href="/">Alex</Card.Link>
-                        <Card.Link href="https://github.com/SBrandon0432">
-                            Sam
-                        </Card.Link>
-                        <Card.Link href="https://github.com/Refactoring-The-Interview/flash-cards">
-                            github
-                        </Card.Link>
-                    </Card.Footer>
-                </CardGroup>
+                <Card.Footer>
+                    <Card.Link href="/">Alex</Card.Link>
+                    <Card.Link href="https://github.com/SBrandon0432">
+                        Sam
+                    </Card.Link>
+                    <Card.Link href="https://github.com/Refactoring-The-Interview/flash-cards">
+                        github
+                    </Card.Link>
+                    <Card.Link>Contact</Card.Link>
+                </Card.Footer>
             </Card>
         </div>
     );
