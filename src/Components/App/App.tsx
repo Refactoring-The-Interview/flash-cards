@@ -14,7 +14,6 @@ function App() {
         email: "",
         password: "",
     });
-    // const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
     const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
     const navigate = useNavigate();
 
@@ -38,7 +37,7 @@ function App() {
 
     return (
         <div className="App">
-            <NavBar />
+            <NavBar setShowQuestionList={setShowQuestionList} />
             <Routes>
                 <Route path="/login" element={<Login />} />
 
