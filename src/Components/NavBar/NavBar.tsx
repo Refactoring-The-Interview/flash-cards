@@ -41,7 +41,7 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                                         Profile
                                     </NavDropdown.Item>
                                 )}
-                                <NavDropdown.Item href="#action/3.2">
+                                <NavDropdown.Item href={Paths.contact}>
                                     Contact
                                 </NavDropdown.Item>
 
@@ -49,7 +49,7 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                                     <>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item
-                                            href="#action/3.4"
+                                            href={Paths.login}
                                             onClick={() => {
                                                 setUserInfo({
                                                     email: "",

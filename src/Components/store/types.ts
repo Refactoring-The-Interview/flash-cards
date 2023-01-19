@@ -26,4 +26,5 @@ export enum Paths {
     questionList = "/question-list",
     login = "/login",
     home = "/home",
+    contact = "/contact",
 }

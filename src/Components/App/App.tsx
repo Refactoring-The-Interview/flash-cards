@@ -10,6 +10,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import { Paths } from "../store/types";
 import { Home } from "../Home/Home";
+import { Contact } from "../Contact/Contact";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -48,6 +49,7 @@ function App() {
             <Routes>
                 <Route path={Paths.login} element={<Login />} />
                 <Route path={Paths.home} element={<Home />} />
+                <Route path={Paths.contact} element={<Contact />} />
                 <Route
                     path={Paths.flashCard}
                     element={
