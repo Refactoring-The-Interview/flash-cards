@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { Paths } from "../store/types";
 
 export const NavBar = ({ setShowQuestionList }: any) => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -19,11 +20,11 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/flash-card">Home</Nav.Link>
-                            <Nav.Link href="/question-list">
+                            <Nav.Link href={Paths.home}>Home</Nav.Link>
+                            <Nav.Link href={Paths.questionList}>
                                 Question List
                             </Nav.Link>
-                            <Nav.Link href="/flash-card">
+                            <Nav.Link href={Paths.flashCard}>
                                 Random Question
                             </Nav.Link>
 

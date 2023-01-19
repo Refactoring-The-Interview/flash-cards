@@ -25,4 +25,5 @@ export enum Paths {
     flashCard = "/flash-card",
     questionList = "/question-list",
     login = "/login",
+    home = "/home",
 }
