@@ -6,6 +6,7 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
+import { Paths } from "../store/types";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -32,9 +33,7 @@ const FlashCard = ({ QuestionList }: any) => {
                                 type="button"
                                 variant="secondary"
                                 className="FlashCardHeader-button"
-                                onClick={() => {
-                                    QuestionList(true);
-                                }}
+                                href={Paths.questionList}
                             >
                                 Question List
                             </Button>
