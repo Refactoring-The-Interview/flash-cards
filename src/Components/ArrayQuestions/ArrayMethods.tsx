@@ -45,11 +45,11 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                     action
                                     variant="light"
                                     className="ArrayMethods-list-button"
+                                    key={index}
                                 >
                                     <Button
                                         type="button"
                                         disabled={isDisabled}
-                                        style={{}}
                                         key={index}
                                         onClick={(e) => {
                                             setIsDisabled(true);

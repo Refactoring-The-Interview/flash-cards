@@ -1,8 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { QuestionTags } from "../QuestionTags/QuestionTags";
 import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
-// className="difficulty hard"
+import { Question } from "../../store/types";
+
 export const QuestionCard = ({
     currentQuestions,
     setCurrentQuestion,
@@ -10,19 +12,14 @@ export const QuestionCard = ({
 }: any) => {
     return (
         <div className="QuestionCard">
-            {currentQuestions.map((question: any, index: number) => {
-                let qnsweredColor = question.correct ? "success" : "danger";
-                const difficultyColor = {
-                    easy: "#198754", //success
-                    medium: "#ffc107", // warning
-                    hard: "#dc3545", // danger
-                } as any;
+            {currentQuestions.map((question: Question, index: number) => {
+                let answeredColor = question.correct ? "success" : "danger";
                 return (
                     <Button
                         variant="outline-light"
                         size="lg"
-                        style={{ color: "black" }}
                         className="listBtn"
+                        key={index}
                         onClick={(e) => {
                             setCurrentQuestion(question);
                             setShowQuestionList(false);
@@ -30,34 +27,22 @@ export const QuestionCard = ({
                     >
                         <Card className="listItem">
                             <Card.Header>
-                                <Card.Text>{question.answer}</Card.Text>
+                                <Card.Text className="listItem-text">
+                                    {question.answer}
+                                </Card.Text>
                                 <span
-                                    className="difficulty"
-                                    style={{
-                                        borderTop: `4rem solid ${
-                                            difficultyColor[question.difficulty]
-                                        }`,
-                                    }}
+                                    className={`difficulty ${question.difficulty}`}
                                 ></span>
                             </Card.Header>
                             <Card.Body>
+                                <QuestionTags tags={question.tags} />
+
                                 <Button
-                                    variant={`outline-${qnsweredColor}`}
+                                    variant={`outline-${answeredColor}`}
                                     disabled
                                 >
                                     Answered
                                 </Button>
-                                <div>
-                                    {question.tags.map(
-                                        (tag: string, index: number) => {
-                                            return (
-                                                <Badge bg="dark" key={index}>
-                                                    {tag.toLocaleUpperCase()}
-                                                </Badge>
-                                            );
-                                        }
-                                    )}
-                                </div>
                             </Card.Body>
                         </Card>
                     </Button>
