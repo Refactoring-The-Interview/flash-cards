@@ -3,34 +3,67 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { randomizer } from "../QuestionRandomizer/randomizer";
 
-export const NavBar = () => {
+export const NavBar = ({
+    redirectUserQuestions,
+    redirectUserFlashCard,
+    setShowQuestionList,
+}: any) => {
+    const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
+        email: "",
+        password: "",
+    });
+
     return (
         <div className="NavBar">
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" fixed="top">
                 <Container>
                     <Navbar.Brand href="#home">R.T.I.</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Question List</Nav.Link>
+                            <Nav.Link href="/flash-card">Home</Nav.Link>
+                            <Nav.Link
+                                onClick={() => {
+                                    setShowQuestionList(true);
+                                    redirectUserQuestions();
+                                }}
+                            >
+                                Question List
+                            </Nav.Link>
+                            <Nav.Link
+                                onClick={() => {
+                                    setShowQuestionList(false);
+                                    redirectUserFlashCard();
+                                }}
+                            >
+                                Random Question
+                            </Nav.Link>
+
                             <NavDropdown
-                                title="Dropdown"
+                                title={userInfo.email}
                                 id="basic-nav-dropdown"
                             >
                                 <NavDropdown.Item href="#action/3.1">
-                                    Action
+                                    Profile
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">
-                                    Something
+                                    Contact
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    Separated link
+                                <NavDropdown.Item
+                                    href="#action/3.4"
+                                    onClick={() => {
+                                        setUserInfo({
+                                            email: "",
+                                            password: "",
+                                        });
+                                    }}
+                                >
+                                    Logout
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>

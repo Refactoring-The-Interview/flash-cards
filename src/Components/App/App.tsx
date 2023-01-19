@@ -14,36 +14,46 @@ function App() {
         email: "",
         password: "",
     });
-    // const [flipCardToIDE, setFlipCardToIDE] = useState<boolean>(false);
     const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
     const navigate = useNavigate();
+    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+
+    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
+        StorageKey.currentQuestion,
+        {}
+    );
+
+    const redirectUserQuestions = async () => {
+        if (showQuestionList && userInfo.email) {
+            return navigate("/question-list");
+        }
+    };
+
+    const redirectUserFlashCard = async () => {
+        if (userInfo.email) {
+            return navigate("/flash-card");
+        } else {
+            return navigate("/login");
+        }
+    };
 
     useEffect(() => {
-        const redirectUser = async () => {
-            if (userInfo.email) {
-                return navigate("/home");
-            } else {
-                return navigate("/login");
-            }
-        };
-        redirectUser();
-
-        const redirectUserQuestions = async () => {
-            if (showQuestionList && userInfo.email) {
-                return navigate("/question-list");
-            }
-        };
+        redirectUserFlashCard();
         redirectUserQuestions();
     }, [userInfo, showQuestionList]);
 
     return (
         <div className="App">
-            <NavBar />
+            <NavBar
+                setShowQuestionList={setShowQuestionList}
+                redirectUserQuestions={redirectUserQuestions}
+                redirectUserFlashCard={redirectUserFlashCard}
+            />
             <Routes>
                 <Route path="/login" element={<Login />} />
 
                 <Route
-                    path="/home"
+                    path="/flash-card"
                     element={
                         <div className="mainDisplayFront">
                             <Logout />
