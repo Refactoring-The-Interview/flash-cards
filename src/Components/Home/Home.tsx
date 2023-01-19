@@ -63,6 +63,7 @@ export const Home = () => {
                         <Card.Link href="https://github.com/Refactoring-The-Interview/flash-cards">
                             github
                         </Card.Link>
+                        <Card.Link>Contact</Card.Link>
                     </Card.Footer>
                 </CardGroup>
             </Card>
