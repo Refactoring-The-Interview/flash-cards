@@ -7,6 +7,7 @@ import { Logout } from "../Logout/Logout";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { IDE } from "../IDE/IDE";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { NavBar } from "../NavBar/NavBar";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -37,6 +38,7 @@ function App() {
 
     return (
         <div className="App">
+            <NavBar />
             <Routes>
                 <Route path="/login" element={<Login />} />
 

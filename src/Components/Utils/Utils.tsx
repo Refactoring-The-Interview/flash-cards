@@ -17,7 +17,11 @@ export const isQuestionHideCorrect = (
     question: Question,
     hideCorrect: boolean
 ) => {
-    return question.correct === hideCorrect;
+    if (hideCorrect) {
+        return question.correct !== hideCorrect;
+    } else {
+        return true;
+    }
 };
 
 export const updateData = (
