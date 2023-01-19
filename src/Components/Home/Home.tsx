@@ -1,6 +1,7 @@
-import { CardGroup } from "react-bootstrap";
+import { Button, CardGroup } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import "./HomeS.scss";
+import { Paths } from "../store/types";
 
 export const Home = () => {
     return (
@@ -37,6 +38,20 @@ export const Home = () => {
                             broaden your tools to solve the problem.
                         </Card.Text>
                     </CardGroup>
+
+                    <Card>
+                        <Card.Img variant="top" src="/" alt="Logo-refactor" />
+                        <Card.Body>
+                            <Card.Title>Refactoring The Interview</Card.Title>
+                            <Card.Text>
+                                Tools to refactor the code for engineering
+                                interviews
+                            </Card.Text>
+                            <Button variant="primary" href={Paths.login}>
+                                Join Now!
+                            </Button>
+                        </Card.Body>
+                    </Card>
                 </Card.Body>
 
                 <CardGroup className="Home-footer">
