@@ -36,8 +36,9 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "prepare": "husky install",
-        "server": "nodemon -Watch Server/index.js"
+        "env": "cd public && yarn && yarn start && node Server/index.js"
     },
+    "proxy": "http://localhost:3000/",
     "eslintConfig": {
         "extends": [
             "react-app",
