@@ -8,15 +8,9 @@ import { useNavigate, useParams } from "react-router-dom";
 
 interface Props {
     currentQuestions: Question[];
-    setCurrentQuestion(question: Question): void;
-    setShowQuestionList(success: boolean): void;
 }
 
-export const QuestionCard = ({
-    currentQuestions,
-    setCurrentQuestion,
-    setShowQuestionList,
-}: Props) => {
+export const QuestionCard = ({ currentQuestions }: Props) => {
     const navigate = useNavigate();
     let { questionId } = useParams();
 
@@ -33,7 +27,6 @@ export const QuestionCard = ({
                         className="listBtn"
                         key={index}
                         onClick={(e) => {
-                            setCurrentQuestion(question);
                             navigate(
                                 pathGenerator[Paths.question](question.id)
                             );
