@@ -34,7 +34,9 @@ export const QuestionCard = ({
                         key={index}
                         onClick={(e) => {
                             setCurrentQuestion(question);
-                            pathGenerator[Paths.question](question.id);
+                            navigate(
+                                pathGenerator[Paths.question](question.id)
+                            );
                         }}
                     >
                         <Card className="listItem">

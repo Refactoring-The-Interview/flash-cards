@@ -11,10 +11,7 @@ import {
     isQuestionName,
 } from "../Utils/Utils";
 
-export const QuestionList = ({
-    setShowQuestionList,
-    showQuestionList,
-}: any) => {
+export const QuestionList = ({ setShowQuestionList }: any) => {
     const [questions, setQuestions] = useLocalStorage(
         StorageKey.questionBank,
         []

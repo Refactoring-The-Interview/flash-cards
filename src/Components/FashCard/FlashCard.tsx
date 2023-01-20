@@ -17,7 +17,6 @@ const FlashCard = ({ QuestionList }: any) => {
     const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );
-    console.log(currentQuestion);
 
     if (!currentQuestion) return <h2>Oops, couldn't find questions!</h2>;
 
