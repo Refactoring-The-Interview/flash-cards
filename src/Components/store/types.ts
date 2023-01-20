@@ -22,9 +22,15 @@ export enum Difficulty {
 }
 
 export enum Paths {
-    flashCard = "/flash-card",
-    questionList = "/question-list",
+    question = "/question/:questionId",
+    questionList = "/question-list/:lastQuestionId",
     login = "/login",
     home = "/home",
     contact = "/contact",
 }
+
+export const pathGenerator = {
+    [Paths.question]: (questionId: string) => `/question/${questionId}`,
+    [Paths.questionList]: (lastQuestionId: string) =>
+        `/question-list/${lastQuestionId}`,
+};

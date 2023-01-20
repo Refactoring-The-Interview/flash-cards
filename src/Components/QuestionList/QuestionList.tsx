@@ -23,10 +23,6 @@ export const QuestionList = ({
         StorageKey.filteredQuestionBank,
         []
     );
-    const [_, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        {}
-    );
 
     const [filterSettings, setFilterSettings] = useState<FilterSetting>({
         type: "Js",
@@ -64,7 +60,6 @@ export const QuestionList = ({
             <div className="list-container">
                 <QuestionCard
                     currentQuestions={currentQuestions}
-                    setCurrentQuestion={setCurrentQuestion}
                     setShowQuestionList={setShowQuestionList}
                 />
             </div>

@@ -7,17 +7,16 @@ import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Paths } from "../store/types";
+import {useParams} from "react-router-dom";
 
 const FlashCard = ({ QuestionList }: any) => {
+    const { questionId } = useParams();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
     );
-    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        randomizer(questions)
-    );
+    const [currentQuestion, setCurrentQuestion] = useState(questions.find(({id}) => id === questionId);
 
     useEffect(() => {
         setCurrentQuestion(randomizer(questions));

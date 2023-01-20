@@ -3,19 +3,19 @@ import Card from "react-bootstrap/Card";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
 import Badge from "react-bootstrap/Badge";
 import "./QuestionCardS.scss";
-import { Paths, Question } from "../../store/types";
+import { pathGenerator, Paths, Question } from "../../store/types";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     currentQuestions: Question[];
-    setCurrentQuestion(question: Question): void;
     setShowQuestionList(success: boolean): void;
 }
 
 export const QuestionCard = ({
     currentQuestions,
-    setCurrentQuestion,
     setShowQuestionList,
 }: Props) => {
+    const navigate = useNavigate();
     return (
         <div className="QuestionCard">
             {currentQuestions.map((question: Question, index: number) => {
@@ -28,9 +28,13 @@ export const QuestionCard = ({
                         size="lg"
                         className="listBtn"
                         key={index}
-                        href={Paths.flashCard}
+                        href={Paths.question}
                         onClick={(e) => {
-                            setCurrentQuestion(question);
+                            navigate(
+                                pathGenerator[Paths.question](
+                                    currentQuestions.id
+                                )
+                            );
                         }}
                     >
                         <Card className="listItem">
