@@ -10,12 +10,14 @@ import { Paths, Question } from "../store/types";
 import { useNavigate, useParams } from "react-router-dom";
 
 const FlashCard = ({ QuestionList }: any) => {
+    const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
     );
-    const { questionId, test } = useParams();
+    let { questionId } = useParams();
+    questionId = "1";
     console.log(
         questions.find(({ id }: string | any) => id === questionId),
         "hello"
@@ -25,8 +27,7 @@ const FlashCard = ({ QuestionList }: any) => {
         questions.find(({ id }: string | any) => id === questionId)
     );
 
-    const navigate = useNavigate();
-    console.log(currentQuestion);
+    console.log(currentQuestion, "current");
 
     return (
         <Card>
@@ -65,14 +66,14 @@ const FlashCard = ({ QuestionList }: any) => {
                         variant="secondary"
                         className="footer-button"
                         onClick={(e) => {
-                            setCurrentQuestion(
-                                randomizer(
-                                    filteredQuestionBank?.length > 0 &&
-                                        filteredQuestionBank
-                                        ? filteredQuestionBank
-                                        : questions
-                                )
-                            );
+                            // setCurrentQuestion(
+                            //     randomizer(
+                            //         filteredQuestionBank?.length > 0 &&
+                            //             filteredQuestionBank
+                            //             ? filteredQuestionBank
+                            //             : questions
+                            //     )
+                            // );
                         }}
                     >
                         Next Question
