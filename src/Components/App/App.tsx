@@ -44,7 +44,7 @@ function App() {
                 <Route path={Paths.home} element={<Home />} />
                 <Route path={Paths.contact} element={<Contact />} />
                 <Route
-                    path={Paths.question}
+                    path={`${Paths.question}:1`}
                     element={
                         <div className="mainDisplayFront">
                             <Logout />

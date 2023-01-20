@@ -6,8 +6,8 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Paths } from "../store/types";
-import { useNavigate } from "react-router-dom";
+import { Paths, Question } from "../store/types";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -15,15 +15,17 @@ const FlashCard = ({ QuestionList }: any) => {
         StorageKey.filteredQuestionBank,
         []
     );
-    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        randomizer(questions)
+    const { questionId } = useParams();
+    console.log(questionId);
+    const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
+        questions.find(({ id }: string | any) => id === questionId)
     );
 
     useEffect(() => {
         setCurrentQuestion(randomizer(questions));
     }, []);
     const navigate = useNavigate();
+    console.log(currentQuestion);
 
     return (
         <Card>
@@ -52,7 +54,7 @@ const FlashCard = ({ QuestionList }: any) => {
                 </Card.Header>
             </div>
 
-            <ArrayMethods cardQuestion={currentQuestion} />
+            {/* <ArrayMethods cardQuestion={currentQuestion} /> */}
             <div className="FlashCardFooter">
                 <Card.Footer className="cardFooter">
                     <AddQuestionForm />

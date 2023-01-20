@@ -21,7 +21,6 @@ export const useLocalStorage = (key: StorageKey, defaultValue: any) => {
     });
 
     const setStorage = (value: any) => {
-        console.log(key, value, "set");
         localStorage.setItem(key, JSON.stringify(value));
         setValue(value);
     };
