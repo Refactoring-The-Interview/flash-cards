@@ -19,58 +19,60 @@ const FlashCard = ({ QuestionList }: any) => {
         randomizer(questions)
     );
 
+    useEffect(() => {
+        setCurrentQuestion(randomizer(questions));
+    }, []);
+
     return (
-        <main>
-            <Card>
-                <div className="FlashCardHeader">
-                    <Card.Header className="cardHeader">
-                        <div className="FlashCardHeader-timer">
-                            <Timer />
-                        </div>
+        <Card>
+            <div className="FlashCardHeader">
+                <Card.Header className="cardHeader">
+                    <div className="FlashCardHeader-timer">
+                        <Timer />
+                    </div>
 
-                        <CardGroup className="FlashCardHeader-buttons">
-                            <Button
-                                type="button"
-                                variant="secondary"
-                                className="FlashCardHeader-button"
-                                href={Paths.questionList}
-                            >
-                                Question List
-                            </Button>
-
-                            <Button type="button" variant="secondary">
-                                Submit
-                            </Button>
-                        </CardGroup>
-                    </Card.Header>
-                </div>
-
-                <ArrayMethods cardQuestion={currentQuestion} />
-                <div className="FlashCardFooter">
-                    <Card.Footer className="cardFooter">
-                        <AddQuestionForm />
-
+                    <CardGroup className="FlashCardHeader-buttons">
                         <Button
                             type="button"
                             variant="secondary"
-                            className="footer-button"
-                            onClick={(e) => {
-                                setCurrentQuestion(
-                                    randomizer(
-                                        filteredQuestionBank?.length > 0 &&
-                                            filteredQuestionBank
-                                            ? filteredQuestionBank
-                                            : questions
-                                    )
-                                );
-                            }}
+                            className="FlashCardHeader-button"
+                            href={Paths.questionList}
                         >
-                            Next Question
+                            Question List
                         </Button>
-                    </Card.Footer>
-                </div>
-            </Card>
-        </main>
+
+                        <Button type="button" variant="secondary">
+                            Submit
+                        </Button>
+                    </CardGroup>
+                </Card.Header>
+            </div>
+
+            <ArrayMethods cardQuestion={currentQuestion} />
+            <div className="FlashCardFooter">
+                <Card.Footer className="cardFooter">
+                    <AddQuestionForm />
+
+                    <Button
+                        type="button"
+                        variant="secondary"
+                        className="footer-button"
+                        onClick={(e) => {
+                            setCurrentQuestion(
+                                randomizer(
+                                    filteredQuestionBank?.length > 0 &&
+                                        filteredQuestionBank
+                                        ? filteredQuestionBank
+                                        : questions
+                                )
+                            );
+                        }}
+                    >
+                        Next Question
+                    </Button>
+                </Card.Footer>
+            </div>
+        </Card>
     );
 };
 
