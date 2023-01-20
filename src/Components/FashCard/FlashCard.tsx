@@ -56,7 +56,7 @@ const FlashCard = ({ QuestionList }: any) => {
                 </Card.Header>
             </div>
 
-            {/* <ArrayMethods cardQuestion={currentQuestion} /> */}
+            <ArrayMethods cardQuestion={currentQuestion} />
             <div className="FlashCardFooter">
                 <Card.Footer className="cardFooter">
                     <AddQuestionForm />
