@@ -1,4 +1,5 @@
 import { ListGroup } from "react-bootstrap";
+import resume from "../../Assets/SamBrandonResume.pdf";
 
 export const Contact = () => {
     return (
@@ -7,6 +8,10 @@ export const Contact = () => {
             <ListGroup.Item>Email: SamBranodn0432@yahoo.com</ListGroup.Item>
             <ListGroup.Item>Phone: +1(510)-856-6441</ListGroup.Item>
             <ListGroup.Item>Location: Knoxville, TN</ListGroup.Item>
+
+            <ListGroup.Item>
+                <iframe src={resume}></iframe>
+            </ListGroup.Item>
         </ListGroup>
     );
 };
