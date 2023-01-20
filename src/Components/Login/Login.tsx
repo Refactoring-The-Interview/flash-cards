@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./LoginS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { questionBank } from "../store/index";
+import { Paths } from "../store/types";
+import { Button } from "react-bootstrap";
 
 export const Login = () => {
     const [email, setEmail] = useState<string>("");
@@ -22,8 +24,6 @@ export const Login = () => {
                 e.preventDefault();
                 setUserInfo({ email: email, password: password });
                 setPopulateLocalStorageQuestions(questionBank);
-                if (userInfo.email && userInfo.password) {
-                }
             }}
         >
             <div className="form-group">
@@ -56,9 +56,13 @@ export const Login = () => {
                     }}
                 />
             </div>
-            <button type="submit" className="login__btn btn btn-primary">
+            <Button
+                type="submit"
+                className="login__btn btn btn-primary"
+                href={userInfo.email.length > 0 ? Paths.home : Paths.login}
+            >
                 Submit
-            </button>
+            </Button>
             <button
                 type="submit"
                 className="login__btn btn btn-success"

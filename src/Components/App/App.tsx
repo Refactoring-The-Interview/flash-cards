@@ -26,22 +26,14 @@ function App() {
         {}
     );
 
-    // useEffect(() => {
-    //     const redirectUserQuestions = async () => {
-    //         if (showQuestionList && userInfo.email) {
-    //             return navigate("/question-list");
-    //         }
-    //     };
-
-    //     const redirectUserFlashCard = async () => {
-    //         if (userInfo.email.length === 0) {
-    //             // return navigate("/flash-card");
-    //             return navigate("/login");
-    //         }
-    //     };
-    //     redirectUserFlashCard();
-    //     redirectUserQuestions();
-    // }, [userInfo, showQuestionList]);
+    useEffect(() => {
+        const redirectUserFlashCard = async () => {
+            if (userInfo.email.length === 0) {
+                return navigate("/login");
+            }
+        };
+        redirectUserFlashCard();
+    }, [userInfo]);
 
     return (
         <div className="App">
