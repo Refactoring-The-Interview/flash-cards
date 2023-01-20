@@ -28,7 +28,7 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                                     <Nav.Link href={Paths.questionList}>
                                         Question List
                                     </Nav.Link>
-                                    <Nav.Link href={Paths.flashCard}>
+                                    <Nav.Link href={Paths.question}>
                                         Random Question
                                     </Nav.Link>
                                 </>

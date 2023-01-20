@@ -9,6 +9,7 @@ export let questionBank: Question[] = [
         answers: ["Array.map()", "Array.forEach()", "Array.every()"],
         tags: ["array", "Js"],
         correct: true,
+        id: "1",
     },
     {
         difficulty: Difficulty.medium,
@@ -18,6 +19,7 @@ export let questionBank: Question[] = [
         answers: ["Array.findIndex()", "Array.findLast()", "Array.find()"],
         tags: ["array", "Js"],
         correct: false,
+        id: "2",
     },
     {
         difficulty: Difficulty.medium,
@@ -27,6 +29,7 @@ export let questionBank: Question[] = [
         answers: ["Array.map()", "Array.forEach()", "Array.every()"],
         tags: ["array", "Js"],
         correct: false,
+        id: "3",
     },
     {
         difficulty: Difficulty.medium,
@@ -36,6 +39,7 @@ export let questionBank: Question[] = [
         answers: ["Array.some()", "Array.filter", "Array.forEach()"],
         tags: ["array", "Js"],
         correct: false,
+        id: "4",
     },
     {
         difficulty: Difficulty.medium,
@@ -45,6 +49,7 @@ export let questionBank: Question[] = [
         answers: ["Array.flat()", "Array.flatMap()", "Array.concat()"],
         tags: ["array", "Js"],
         correct: false,
+        id: "5",
     },
 
     {
@@ -54,5 +59,6 @@ export let questionBank: Question[] = [
         answers: ["test1", "test", "test"],
         tags: ["object", "Js"],
         correct: false,
+        id: "6",
     },
 ];

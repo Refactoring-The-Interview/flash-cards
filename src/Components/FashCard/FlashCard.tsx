@@ -6,22 +6,28 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Paths } from "../store/types";
+import { Paths, Question } from "../store/types";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FlashCard = ({ QuestionList }: any) => {
+    const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
     );
-    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        randomizer(questions)
+    let { questionId } = useParams();
+    questionId = "1";
+    console.log(
+        questions.find(({ id }: string | any) => id === questionId),
+        "hello"
     );
 
-    useEffect(() => {
-        setCurrentQuestion(randomizer(questions));
-    }, []);
+    const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
+        questions.find(({ id }: string | any) => id === questionId)
+    );
+
+    console.log(currentQuestion, "current");
 
     return (
         <Card>
@@ -36,7 +42,9 @@ const FlashCard = ({ QuestionList }: any) => {
                             type="button"
                             variant="secondary"
                             className="FlashCardHeader-button"
-                            href={Paths.questionList}
+                            onClick={() => {
+                                navigate(Paths.questionList);
+                            }}
                         >
                             Question List
                         </Button>
@@ -58,14 +66,14 @@ const FlashCard = ({ QuestionList }: any) => {
                         variant="secondary"
                         className="footer-button"
                         onClick={(e) => {
-                            setCurrentQuestion(
-                                randomizer(
-                                    filteredQuestionBank?.length > 0 &&
-                                        filteredQuestionBank
-                                        ? filteredQuestionBank
-                                        : questions
-                                )
-                            );
+                            // setCurrentQuestion(
+                            //     randomizer(
+                            //         filteredQuestionBank?.length > 0 &&
+                            //             filteredQuestionBank
+                            //             ? filteredQuestionBank
+                            //             : questions
+                            //     )
+                            // );
                         }}
                     >
                         Next Question

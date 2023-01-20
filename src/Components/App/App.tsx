@@ -29,8 +29,8 @@ function App() {
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
-            if (userInfo.email.length > 1) {
-                return navigate("/login");
+            if (userInfo.email.length < 1) {
+                return navigate(Paths.login);
             }
         };
         redirectUserFlashCard();
@@ -44,7 +44,7 @@ function App() {
                 <Route path={Paths.home} element={<Home />} />
                 <Route path={Paths.contact} element={<Contact />} />
                 <Route
-                    path={Paths.flashCard}
+                    path={`${Paths.question}`}
                     element={
                         <div className="mainDisplayFront">
                             <Logout />
