@@ -15,15 +15,16 @@ const FlashCard = ({ QuestionList }: any) => {
         StorageKey.filteredQuestionBank,
         []
     );
-    const { questionId } = useParams();
-    console.log(questionId);
+    const { questionId, test } = useParams();
+    console.log(
+        questions.find(({ id }: string | any) => id === questionId),
+        "hello"
+    );
+
     const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );
 
-    useEffect(() => {
-        setCurrentQuestion(randomizer(questions));
-    }, []);
     const navigate = useNavigate();
     console.log(currentQuestion);
 
