@@ -12,16 +12,16 @@ import { useNavigate, useParams } from "react-router-dom";
 const FlashCard = ({ QuestionList }: any) => {
     const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
-    const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
-        StorageKey.filteredQuestionBank,
-        []
-    );
-    let { questionId } = useParams();
-    questionId = (Math.floor(Math.random() * 6) + 1).toString();
-    console.log(
-        questions.find(({ id }: string | any) => id === questionId),
-        "hello"
-    );
+
+    const { questionId } = useParams();
+    // console.log(questionId);
+    // questionId = (Math.floor(Math.random() * 6) + 1).toString();
+    // console.log(questionId);
+
+    // console.log(
+    //     questions.find(({ id }: string | any) => id === questionId),
+    //     "hello"
+    // );
 
     const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
