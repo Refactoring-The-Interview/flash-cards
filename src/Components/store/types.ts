@@ -5,6 +5,7 @@ export interface Question {
     answers: string[];
     tags: string[];
     correct: boolean;
+    id: string;
 }
 
 export interface FilterSetting {
@@ -22,9 +23,13 @@ export enum Difficulty {
 }
 
 export enum Paths {
-    flashCard = "/flash-card",
+    question = "/question/:questionId",
     questionList = "/question-list",
     login = "/login",
     home = "/home",
     contact = "/contact",
 }
+
+export const pathGenerator = {
+    [Paths.question]: (questionId: string) => `/question/${questionId}`,
+};

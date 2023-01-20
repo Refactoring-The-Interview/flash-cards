@@ -7,6 +7,7 @@ import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Paths } from "../store/types";
+import { useNavigate } from "react-router-dom";
 
 const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -22,6 +23,7 @@ const FlashCard = ({ QuestionList }: any) => {
     useEffect(() => {
         setCurrentQuestion(randomizer(questions));
     }, []);
+    const navigate = useNavigate();
 
     return (
         <Card>
@@ -36,7 +38,9 @@ const FlashCard = ({ QuestionList }: any) => {
                             type="button"
                             variant="secondary"
                             className="FlashCardHeader-button"
-                            href={Paths.questionList}
+                            onClick={() => {
+                                navigate(Paths.questionList);
+                            }}
                         >
                             Question List
                         </Button>
