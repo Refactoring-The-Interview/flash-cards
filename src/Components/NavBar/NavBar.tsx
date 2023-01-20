@@ -11,6 +11,7 @@ export const NavBar = ({ setShowQuestionList }: any) => {
         email: "",
         password: "",
     });
+    const isEmail = userInfo.email.length > 1;
 
     return (
         <div className="NavBar">
@@ -29,14 +30,10 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                             </Nav.Link>
 
                             <NavDropdown
-                                title={
-                                    userInfo.email.length > 0
-                                        ? userInfo.email
-                                        : "Sign Up"
-                                }
+                                title={isEmail ? userInfo.email : "Sign Up"}
                                 id="basic-nav-dropdown"
                             >
-                                {userInfo.email.length > 0 && (
+                                {isEmail && (
                                     <NavDropdown.Item href="#action/3.1">
                                         Profile
                                     </NavDropdown.Item>
@@ -45,7 +42,7 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                                     Contact
                                 </NavDropdown.Item>
 
-                                {userInfo.email.length > 0 && (
+                                {isEmail && (
                                     <>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item
