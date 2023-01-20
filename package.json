@@ -38,7 +38,10 @@
         "prepare": "husky install",
         "env": "cd public && yarn && yarn start && node Server/index.js"
     },
-    "proxy": "http://localhost:3000/",
+    "proxy": "http://localhost:3001/",
+    "engines": {
+        "node": "v18.6.0"
+    },
     "eslintConfig": {
         "extends": [
             "react-app",
