@@ -17,7 +17,7 @@ const FlashCard = ({ QuestionList }: any) => {
         []
     );
     let { questionId } = useParams();
-    questionId = "1";
+    questionId = (Math.floor(Math.random() * 6) + 1).toString();
     console.log(
         questions.find(({ id }: string | any) => id === questionId),
         "hello"
@@ -26,8 +26,6 @@ const FlashCard = ({ QuestionList }: any) => {
     const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );
-
-    console.log(currentQuestion, "current");
 
     return (
         <Card>
