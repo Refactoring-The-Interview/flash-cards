@@ -13,6 +13,15 @@ import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
 function App() {
+    useEffect(() => {
+        async function test() {
+            const response = await fetch("/server");
+            // const json = await response.json();
+            console.log(response);
+        }
+        test();
+    }, []);
+
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "a",
         password: "",
