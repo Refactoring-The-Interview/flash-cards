@@ -14,9 +14,10 @@ import { Contact } from "../Contact/Contact";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
-        email: "",
+        email: "a",
         password: "",
     });
+
     const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
     const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -28,7 +29,7 @@ function App() {
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
-            if (userInfo.email.length === 0) {
+            if (userInfo.email.length > 1) {
                 return navigate("/login");
             }
         };
