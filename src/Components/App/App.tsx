@@ -14,9 +14,10 @@ import { Contact } from "../Contact/Contact";
 
 function App() {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
-        email: "",
+        email: "a",
         password: "",
     });
+
     const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
     const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
@@ -26,22 +27,14 @@ function App() {
         {}
     );
 
-    // useEffect(() => {
-    //     const redirectUserQuestions = async () => {
-    //         if (showQuestionList && userInfo.email) {
-    //             return navigate("/question-list");
-    //         }
-    //     };
-
-    //     const redirectUserFlashCard = async () => {
-    //         if (userInfo.email.length === 0) {
-    //             // return navigate("/flash-card");
-    //             return navigate("/login");
-    //         }
-    //     };
-    //     redirectUserFlashCard();
-    //     redirectUserQuestions();
-    // }, [userInfo, showQuestionList]);
+    useEffect(() => {
+        const redirectUserFlashCard = async () => {
+            if (userInfo.email.length > 1) {
+                return navigate("/login");
+            }
+        };
+        redirectUserFlashCard();
+    }, [userInfo]);
 
     return (
         <div className="App">
