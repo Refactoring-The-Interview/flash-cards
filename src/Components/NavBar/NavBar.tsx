@@ -22,12 +22,17 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href={Paths.home}>Home</Nav.Link>
-                            <Nav.Link href={Paths.questionList}>
-                                Question List
-                            </Nav.Link>
-                            <Nav.Link href={Paths.flashCard}>
-                                Random Question
-                            </Nav.Link>
+
+                            {isEmail && (
+                                <>
+                                    <Nav.Link href={Paths.questionList}>
+                                        Question List
+                                    </Nav.Link>
+                                    <Nav.Link href={Paths.flashCard}>
+                                        Random Question
+                                    </Nav.Link>
+                                </>
+                            )}
 
                             <NavDropdown
                                 title={isEmail ? userInfo.email : "Sign Up"}
@@ -41,6 +46,15 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                                 <NavDropdown.Item href={Paths.contact}>
                                     Contact
                                 </NavDropdown.Item>
+
+                                {!isEmail && (
+                                    <>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href={Paths.login}>
+                                            Sign Up
+                                        </NavDropdown.Item>
+                                    </>
+                                )}
 
                                 {isEmail && (
                                     <>
