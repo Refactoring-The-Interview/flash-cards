@@ -3,7 +3,7 @@ import "./LoginS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { questionBank } from "../store/index";
 import { Paths } from "../store/types";
-import { Button } from "react-bootstrap";
+import { Button, Form, FormGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -21,7 +21,7 @@ export const Login = () => {
 
     return (
         <>
-            <form
+            <Form
                 className="Login-form"
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -33,8 +33,8 @@ export const Login = () => {
                     }
                 }}
             >
-                <div className="form-group">
-                    <label htmlFor="email">Email address</label>
+                <FormGroup>
+                    <Form.Label htmlFor="email">Email address</Form.Label>
                     <input
                         value={email}
                         onChange={(e) => {
@@ -43,15 +43,14 @@ export const Login = () => {
                         type="email"
                         className="form-control"
                         id="email"
-                        aria-describedby="emailHelp"
                         placeholder="Enter email"
                     />
-                    <small id="emailHelp" className="form-text text-muted">
+                    <Form.Text className="form-text text-muted">
                         We'll never share your email with anyone else.
-                    </small>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    </Form.Text>
+                </FormGroup>
+                <FormGroup>
+                    <Form.Label htmlFor="password">Password</Form.Label>
                     <input
                         type="password"
                         className="form-control"
@@ -62,21 +61,22 @@ export const Login = () => {
                             setPassword(e.target.value);
                         }}
                     />
-                </div>
-                <button type="submit" className="login__btn btn btn-primary">
-                    Submit
-                </button>
-            </form>
-            <button
-                type="submit"
-                className="login__btn btn btn-success"
+                </FormGroup>
+                <Button type="submit" variant="primary">
+                    Login
+                </Button>
+            </Form>
+
+            <Button
+                type="button"
+                variant="success"
                 onClick={() => {
                     setPopulateLocalStorageQuestions(questionBank);
                     setUserInfo({ email: "guest", password: "guestPassword" });
                 }}
             >
                 Continue as Guest
-            </button>
+            </Button>
         </>
     );
 };
