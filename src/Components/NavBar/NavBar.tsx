@@ -4,13 +4,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { Paths } from "../store/types";
+import { Paths, pathGenerator } from "../store/types";
+import { useRandomQuestion } from "../Utils/useRandomQuestion";
 
 export const NavBar = ({ setShowQuestionList }: any) => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
+    const randomId = useRandomQuestion().id;
+    const randomQuestionPath = pathGenerator[Paths.question](randomId);
+
     const isEmail = userInfo.email.length > 1;
 
     return (
@@ -28,7 +32,7 @@ export const NavBar = ({ setShowQuestionList }: any) => {
                                     <Nav.Link href={Paths.questionList}>
                                         Question List
                                     </Nav.Link>
-                                    <Nav.Link href={Paths.question}>
+                                    <Nav.Link href={randomQuestionPath}>
                                         Random Question
                                     </Nav.Link>
                                 </>

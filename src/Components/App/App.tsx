@@ -18,7 +18,6 @@ function App() {
         password: "",
     });
 
-    const [showQuestionList, setShowQuestionList] = useState<boolean>(false);
     const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
 
@@ -44,23 +43,15 @@ function App() {
                 <Route path={Paths.home} element={<Home />} />
                 <Route path={Paths.contact} element={<Contact />} />
                 <Route
-                    path={`${Paths.question}`}
+                    path={Paths.question}
                     element={
                         <div className="mainDisplayFront">
                             <Logout />
-                            <FlashCard QuestionList={setShowQuestionList} />
+                            <FlashCard />
                         </div>
                     }
                 />
-                <Route
-                    path={Paths.questionList}
-                    element={
-                        <QuestionList
-                            setShowQuestionList={setShowQuestionList}
-                            showQuestionList={showQuestionList}
-                        />
-                    }
-                />
+                <Route path={Paths.questionList} element={<QuestionList />} />
             </Routes>
         </div>
     );
