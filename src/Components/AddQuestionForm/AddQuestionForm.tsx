@@ -68,6 +68,7 @@ const AddQuestionForm = (props: any) => {
                                 className="inputArea form-control"
                                 id="questionTextArea"
                                 value={question}
+                                placeholder="Question"
                             ></textarea>
                         </FormGroup>
 
@@ -82,6 +83,7 @@ const AddQuestionForm = (props: any) => {
                                     setAnswers(e.target.value);
                                 }}
                                 value={answers}
+                                placeholder="Answers"
                             ></input>
                         </FormGroup>
 
@@ -96,6 +98,7 @@ const AddQuestionForm = (props: any) => {
                                 className="inputArea form-control"
                                 id="answerTextArea"
                                 value={answer}
+                                placeholder="Correct Answer"
                             ></input>
                         </FormGroup>
 
