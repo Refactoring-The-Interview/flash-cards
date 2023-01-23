@@ -12,15 +12,19 @@ import { Paths } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
-function App() {
+function useHelper() {
     useEffect(() => {
-        async function test() {
-            const response = await fetch("/server");
-            // const json = await response.json();
+        async function usetest() {
+            const response = await fetch("/api");
+            const json = await response.json();
             console.log(response);
         }
-        test();
+        usetest();
     }, []);
+}
+
+function App() {
+    let server = useHelper();
 
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "a",

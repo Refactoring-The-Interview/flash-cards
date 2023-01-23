@@ -7,7 +7,7 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Paths, pathGenerator } from "../store/types";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 
-export const NavBar = ({ setShowQuestionList }: any) => {
+export const NavBar = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
