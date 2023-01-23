@@ -15,8 +15,8 @@ import { Contact } from "../Contact/Contact";
 function useHelper() {
     useEffect(() => {
         async function usetest() {
-            const response = await fetch("/server");
-            // const json = await response.json();
+            const response = await fetch("/api");
+            const json = await response.json();
             console.log(response);
         }
         usetest();
