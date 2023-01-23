@@ -6,14 +6,15 @@ import "./FlashCardS.scss";
 import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Paths, Question } from "../store/types";
+import { Paths, Question, pathGenerator } from "../store/types";
 import { useNavigate, useParams } from "react-router-dom";
+import { useRandomQuestion } from "../Utils/useRandomQuestion";
 
 const FlashCard = ({ QuestionList }: any) => {
+    const { questionId } = useParams();
+    const randomQuestion = useRandomQuestion();
     const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
-    const { questionId } = useParams();
-
     const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );
@@ -42,16 +43,8 @@ const FlashCard = ({ QuestionList }: any) => {
                     <Button
                         type="button"
                         variant="secondary"
-                        className="footer-button"
                         onClick={(e) => {
-                            // setCurrentQuestion(
-                            //     randomizer(
-                            //         filteredQuestionBank?.length > 0 &&
-                            //             filteredQuestionBank
-                            //             ? filteredQuestionBank
-                            //             : questions
-                            //     )
-                            // );
+                            setCurrentQuestion(randomQuestion);
                         }}
                     >
                         Next Question
