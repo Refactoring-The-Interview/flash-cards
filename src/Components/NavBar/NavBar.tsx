@@ -64,13 +64,13 @@ export const NavBar = () => {
                                     <>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item
-                                            href={Paths.login}
                                             onClick={() => {
                                                 setUserInfo({
                                                     email: "",
                                                     password: "",
                                                 });
                                             }}
+                                            href={Paths.login}
                                         >
                                             Logout
                                         </NavDropdown.Item>
