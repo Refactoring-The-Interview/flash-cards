@@ -77,7 +77,6 @@ export const Home = () => {
                             navigate(Paths.contact);
                         }}
                     >
-                        {" "}
                         Contact
                     </Card.Link>
                 </Card.Footer>

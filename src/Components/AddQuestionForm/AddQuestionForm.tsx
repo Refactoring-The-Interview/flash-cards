@@ -4,6 +4,7 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Difficulty, Question } from "../store/types";
+import { Form, FormGroup } from "react-bootstrap";
 
 const AddQuestionForm = (props: any) => {
     const [difficulty, setDifficulty] = useState<string>("");
@@ -38,10 +39,12 @@ const AddQuestionForm = (props: any) => {
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form className="Form">
-                        <div className="difficulty form-group">
-                            <label htmlFor="difficultyInput">Difficulty</label>
-                            <select
+                    <Form className="Form">
+                        <FormGroup className="difficulty form-group">
+                            <Form.Label htmlFor="difficultyInput">
+                                Difficulty
+                            </Form.Label>
+                            <Form.Select
                                 className="form-control"
                                 id="difficultyInput"
                                 onChange={(e) => {
@@ -51,11 +54,13 @@ const AddQuestionForm = (props: any) => {
                                 <option>Hard</option>
                                 <option>Medium</option>
                                 <option>Easy</option>
-                            </select>
-                        </div>
+                            </Form.Select>
+                        </FormGroup>
 
-                        <div className="question">
-                            <label htmlFor="questionTextArea">Question</label>
+                        <FormGroup className="question">
+                            <Form.Label htmlFor="questionTextArea">
+                                Question
+                            </Form.Label>
                             <textarea
                                 onChange={(e) => {
                                     setQuestion(e.target.value);
@@ -64,10 +69,12 @@ const AddQuestionForm = (props: any) => {
                                 id="questionTextArea"
                                 value={question}
                             ></textarea>
-                        </div>
+                        </FormGroup>
 
-                        <div className="answers">
-                            <label htmlFor="answersInput">Answers</label>
+                        <FormGroup className="answers">
+                            <Form.Label htmlFor="answersInput">
+                                Answers
+                            </Form.Label>
                             <input
                                 className="inputArea form-control"
                                 id="answersInput"
@@ -76,12 +83,12 @@ const AddQuestionForm = (props: any) => {
                                 }}
                                 value={answers}
                             ></input>
-                        </div>
+                        </FormGroup>
 
-                        <div className="answer">
-                            <label htmlFor="answerTextArea">
+                        <FormGroup className="answer">
+                            <Form.Label htmlFor="answerTextArea">
                                 Correct Answer
-                            </label>
+                            </Form.Label>
                             <input
                                 onChange={(e) => {
                                     setAnswer(e.target.value);
@@ -90,11 +97,11 @@ const AddQuestionForm = (props: any) => {
                                 id="answerTextArea"
                                 value={answer}
                             ></input>
-                        </div>
+                        </FormGroup>
 
-                        <div className="tags">
-                            <label htmlFor="tagsInput">Tags</label>
-                            <select
+                        <FormGroup className="tags">
+                            <Form.Label htmlFor="tagsInput">Tags</Form.Label>
+                            <Form.Select
                                 className="inputArea form-control"
                                 id="tagsInput"
                                 multiple
@@ -104,9 +111,9 @@ const AddQuestionForm = (props: any) => {
                             >
                                 <option>array</option>
                                 <option>object</option>
-                            </select>
-                        </div>
-                    </form>
+                            </Form.Select>
+                        </FormGroup>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
