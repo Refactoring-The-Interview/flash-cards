@@ -29,7 +29,7 @@ const FlashCard = ({ QuestionList }: any) => {
                     </div>
 
                     <CardGroup className="FlashCardHeader-buttons">
-                        <Button
+                        {/* <Button
                             type="button"
                             variant="secondary"
                             className="FlashCardHeader-button"
@@ -38,7 +38,7 @@ const FlashCard = ({ QuestionList }: any) => {
                             }}
                         >
                             Question List
-                        </Button>
+                        </Button> */}
 
                         <Button type="button" variant="secondary">
                             Submit
@@ -50,8 +50,6 @@ const FlashCard = ({ QuestionList }: any) => {
             <ArrayMethods cardQuestion={currentQuestion} />
             <div className="FlashCardFooter">
                 <Card.Footer className="cardFooter">
-                    <AddQuestionForm />
-
                     <Button
                         type="button"
                         variant="secondary"

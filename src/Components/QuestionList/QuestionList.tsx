@@ -10,6 +10,7 @@ import {
     isQuestionType,
     isQuestionName,
 } from "../Utils/Utils";
+import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 
 export const QuestionList = () => {
     const [questions, setQuestions] = useLocalStorage(
@@ -54,6 +55,7 @@ export const QuestionList = () => {
 
     return (
         <div className="QuestionList">
+            <AddQuestionForm />
             <div className="filter-container">
                 <QuestionFilters filterSettings={setFilterSettings} />
             </div>

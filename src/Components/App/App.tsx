@@ -17,7 +17,7 @@ function useHelper() {
         async function usetest() {
             const response = await fetch("/api");
             // const json = await response.json();
-            console.log(response);
+            // console.log(response);
         }
         usetest();
     }, []);
