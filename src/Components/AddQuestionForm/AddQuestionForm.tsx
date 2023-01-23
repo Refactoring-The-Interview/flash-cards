@@ -36,7 +36,7 @@ const AddQuestionForm = (props: any) => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Question Addition From</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form className="Form">
