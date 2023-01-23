@@ -36,9 +36,10 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "prepare": "husky install",
-        "env": "cd public && yarn && yarn start && node Server/index.js"
+        "env": "cd public && yarn && yarn start",
+        "server": "nodemon --watch Server/index.js"
     },
-    "proxy": "http://localhost:3001/",
+    "proxy": "http://localhost:3000/",
     "engines": {
         "node": "v18.6.0"
     },
