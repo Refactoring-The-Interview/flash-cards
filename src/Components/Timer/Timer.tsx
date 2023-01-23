@@ -16,9 +16,6 @@ const Timer = (expiryTimestamp: any) => {
 
     return (
         <div className="timer">
-            <svg className="timer__icon-stopwatch">
-                <use xlinkHref={`${iconSprite}#icon-stopwatch`}> </use>
-            </svg>
             <div className="timer__display">
                 <span>{minutes}</span>:<span>{seconds}</span>
             </div>
