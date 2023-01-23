@@ -1,11 +1,13 @@
+const { dbGet } = require("./DataBase");
+
 const express = require("express");
-
 const PORT = process.env.PORT || 3001;
-
 const app = express();
 
 app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
+    dbGet("1", (data, error) => {
+        res.status(200).send(data || error);
+    });
 });
 
 app.listen(PORT, () => {
