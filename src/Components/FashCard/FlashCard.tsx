@@ -29,17 +29,6 @@ const FlashCard = ({ QuestionList }: any) => {
                     </div>
 
                     <CardGroup className="FlashCardHeader-buttons">
-                        {/* <Button
-                            type="button"
-                            variant="secondary"
-                            className="FlashCardHeader-button"
-                            onClick={() => {
-                                navigate(Paths.questionList);
-                            }}
-                        >
-                            Question List
-                        </Button> */}
-
                         <Button type="button" variant="secondary">
                             Submit
                         </Button>
