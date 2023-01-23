@@ -16,7 +16,7 @@ function useHelper() {
     useEffect(() => {
         async function usetest() {
             const response = await fetch("/api");
-            const json = await response.json();
+            // const json = await response.json();
             console.log(response);
         }
         usetest();
