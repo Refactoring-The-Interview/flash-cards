@@ -4,7 +4,7 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Difficulty, Question } from "../store/types";
-import { Form, FormGroup } from "react-bootstrap";
+import { Form, FormGroup, InputGroup } from "react-bootstrap";
 
 const AddQuestionForm = (props: any) => {
     const [difficulty, setDifficulty] = useState<string>("");
@@ -61,6 +61,7 @@ const AddQuestionForm = (props: any) => {
                             <Form.Label htmlFor="questionTextArea">
                                 Question
                             </Form.Label>
+
                             <textarea
                                 onChange={(e) => {
                                     setQuestion(e.target.value);
