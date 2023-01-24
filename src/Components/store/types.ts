@@ -31,8 +31,10 @@ export enum Paths {
 }
 
 export enum API {
+    //  todo create question post for specific questions
     question = "/question",
     user = "/user",
+    addQuestion = "/addQuestion",
 }
 
 export const pathGenerator = {

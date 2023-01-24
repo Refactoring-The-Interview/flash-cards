@@ -11,25 +11,28 @@ import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
 function useHelper() {
-    const newQueston = {
-        difficulty: Difficulty.medium,
-        question:
-            "what method executes a provided function once for each array element.",
-        answer: "Array.forEach()",
-        answers: ["Array.map()", "Array.forEach()", "Array.every()"],
-        tags: ["array", "Js"],
-        correct: false,
-        id: "3",
-    } as Question;
-
     useEffect(() => {
+        const newQuestion = {
+            difficulty: Difficulty.medium,
+            question:
+                "what method executes a provided function once for each array element.",
+            answer: "Array.forEach()",
+            answers: ["Array.map()", "Array.forEach()", "Array.every()"],
+            tags: ["array", "Js"],
+            correct: false,
+            id: "3",
+        } as Question;
+
         const requestOptions = {
             method: "post",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: newQueston.id, newQueston }),
+            body: JSON.stringify({
+                id: newQuestion.id,
+                newQuestion: newQuestion,
+            }),
         };
 
-        fetch("/setQuestion", requestOptions).then((res) =>
+        fetch(API.addQuestion, requestOptions).then((res) =>
             console.log("server put responded with:", res.status)
         );
     }, []);

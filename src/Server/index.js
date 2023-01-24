@@ -3,11 +3,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// const { API } = require("../Components/store/types");
 
-app.post("/setQuestion", (req, res) => {
+app.post("/addQuestion", (req, res) => {
     dbSet(req.body, (data, error) => {
         if (error) {
             res.status(400).send(error);
