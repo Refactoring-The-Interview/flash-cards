@@ -7,7 +7,7 @@ const dbGet = (key, callback) => {
 };
 
 const dbSet = (key, callback) => {
-    console.log(key, "in dbSet");
+    callback(db.set(key.id, key.testobj));
 };
 
 const dbDelete = (key, value, callback) => {
