@@ -30,6 +30,13 @@ export enum Paths {
     contact = "/contact",
 }
 
+export enum API {
+    //  todo create question post for specific questions
+    question = "/question",
+    user = "/user",
+    addQuestion = "/addQuestion",
+}
+
 export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
 };

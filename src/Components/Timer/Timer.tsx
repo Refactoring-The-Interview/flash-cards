@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
 import "./TimerS.scss";
-import iconSprite from "../../Assets/icons/sprite.svg";
 
 const Timer = (expiryTimestamp: any) => {
     const time = new Date();
