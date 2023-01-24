@@ -11,13 +11,26 @@ import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
 function useHelper() {
+    // useEffect(() => {
+    //     async function usetest() {
+    //         fetch(API.question)
+    //             .then((res) => res.json())
+    //             .then((data) => console.log(data));
+    //     }
+    //     usetest();
+    // }, []);
+
     useEffect(() => {
-        async function usetest() {
-            fetch(API.question)
-                .then((res) => res.json())
+        const requestOptions = {
+            method: "post",
+            body: JSON.stringify({ title: "React Hooks PUT Request Example" }),
+        };
+        async function set() {
+            fetch("/setQuestion", requestOptions)
+                .then((res) => console.log(res.json()))
                 .then((data) => console.log(data));
         }
-        usetest();
+        set();
     }, []);
 }
 
