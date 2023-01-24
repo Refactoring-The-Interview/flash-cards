@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
-import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Paths, Question } from "../store/types";
@@ -14,7 +13,7 @@ const FlashCard = ({ QuestionList }: any) => {
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const { questionId } = useParams();
 
-    const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
+    const [currentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );
 
@@ -56,16 +55,7 @@ const FlashCard = ({ QuestionList }: any) => {
                         type="button"
                         variant="secondary"
                         className="footer-button"
-                        onClick={(e) => {
-                            // setCurrentQuestion(
-                            //     randomizer(
-                            //         filteredQuestionBank?.length > 0 &&
-                            //             filteredQuestionBank
-                            //             ? filteredQuestionBank
-                            //             : questions
-                            //     )
-                            // );
-                        }}
+                        onClick={(e) => {}}
                     >
                         Next Question
                     </Button>

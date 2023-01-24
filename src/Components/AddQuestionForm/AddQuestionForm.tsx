@@ -3,7 +3,7 @@ import "./AddQuestionFormS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Difficulty, Question } from "../store/types";
+import { Question } from "../store/types";
 
 const AddQuestionForm = (props: any) => {
     const [difficulty, setDifficulty] = useState<string>("");

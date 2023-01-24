@@ -1,18 +1,16 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
-import Badge from "react-bootstrap/Badge";
-import "./QuestionCardS.scss";
+import "./QuestionCardsS.scss";
 import { Paths, Question, pathGenerator } from "../../store/types";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     currentQuestions: Question[];
 }
 
-export const QuestionCard = ({ currentQuestions }: Props) => {
+export const QuestionCards = ({ currentQuestions }: Props) => {
     const navigate = useNavigate();
-    let { questionId } = useParams();
 
     return (
         <div className="QuestionCard">

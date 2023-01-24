@@ -13,10 +13,7 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
-    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        {}
-    );
+    const [currentQuestion] = useLocalStorage(StorageKey.currentQuestion, {});
     const [questions, setQuestions] = useLocalStorage(
         StorageKey.questionBank,
         []

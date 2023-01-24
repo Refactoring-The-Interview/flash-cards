@@ -1,5 +1,4 @@
 import { Badge } from "react-bootstrap";
-import { Question } from "../../store/types";
 
 export const QuestionTags = ({ tags }: any) => {
     return (

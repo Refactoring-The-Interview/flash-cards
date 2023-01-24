@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
 import { Logout } from "../Logout/Logout";
 import { QuestionList } from "../QuestionList/QuestionList";
-import { IDE } from "../IDE/IDE";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import { Paths } from "../store/types";
@@ -15,29 +14,23 @@ import { Contact } from "../Contact/Contact";
 function useHelper() {
     useEffect(() => {
         async function usetest() {
-            const response = await fetch("/api");
-            // const json = await response.json();
-            console.log(response);
+            fetch("/api")
+                .then((res) => res.json())
+                .then((data) => console.log(data));
         }
         usetest();
     }, []);
 }
 
 function App() {
-    let server = useHelper();
+    useHelper();
 
-    const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
+    const [userInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "a",
         password: "",
     });
 
     const navigate = useNavigate();
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
-
-    const [currentQuestion, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        {}
-    );
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
@@ -46,7 +39,7 @@ function App() {
             }
         };
         redirectUserFlashCard();
-    }, [userInfo]);
+    }, [navigate, userInfo]);
 
     return (
         <div className="App">
