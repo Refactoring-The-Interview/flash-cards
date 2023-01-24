@@ -7,10 +7,10 @@ import "./Sass/main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/Errors/ErrorPage";
 
-import "@aws-amplify/ui-react/styles.css"; // Ensure React UI libraries are styled correctly
-import { Amplify } from "aws-amplify";
-import awsconfig from "./aws-exports";
-Amplify.configure(awsconfig); // Configures the Amplify libraries with the cloud backend set up via the Amplify CLI
+// import "@aws-amplify/ui-react/styles.css"; // Ensure React UI libraries are styled correctly
+// import { Amplify } from "aws-amplify";
+// import awsconfig from "./aws-exports.js";
+// Amplify.configure(awsconfig); // Configures the Amplify libraries with the cloud backend set up via the Amplify CLI
 
 interface Props {
     path: string;
