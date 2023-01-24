@@ -1,15 +1,15 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-flashcards-dev-170222-authRole",
-      "UnauthRoleArn": "arn:aws:iam::722921029415:role/amplify-flashcards-dev-170222-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::722921029415:role/amplify-flashcards-dev-170222-authRole",
+      "AuthRoleName": "amplify-flashcards-dev-180050-authRole",
+      "UnauthRoleArn": "arn:aws:iam::722921029415:role/amplify-flashcards-dev-180050-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::722921029415:role/amplify-flashcards-dev-180050-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-flashcards-dev-170222-deployment",
-      "UnauthRoleName": "amplify-flashcards-dev-170222-unauthRole",
-      "StackName": "amplify-flashcards-dev-170222",
-      "StackId": "arn:aws:cloudformation:us-east-1:722921029415:stack/amplify-flashcards-dev-170222/c872ad90-9c32-11ed-8435-0a0fee2a77e3",
-      "AmplifyAppId": "d1gj1l8lg4rav"
+      "DeploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+      "UnauthRoleName": "amplify-flashcards-dev-180050-unauthRole",
+      "StackName": "amplify-flashcards-dev-180050",
+      "StackId": "arn:aws:cloudformation:us-east-1:722921029415:stack/amplify-flashcards-dev-180050/f3696400-9c3a-11ed-9d3a-12fb4cecdd85",
+      "AmplifyAppId": "d233xv0ggmf7w6"
     }
   }
 }
