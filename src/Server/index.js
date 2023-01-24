@@ -1,4 +1,4 @@
-const { dbGet, dbSet } = require("./DataBase");
+const { dbGet, dbSet, dbDelete } = require("./DataBase");
 const express = require("express");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
@@ -16,8 +16,8 @@ app.post("/addQuestion", (req, res) => {
     });
 });
 
-app.get("/question", (req, res) => {
-    dbGet("1", (data, error) => {
+app.post("/delete", (req, res) => {
+    dbDelete(req.body, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {
@@ -26,8 +26,18 @@ app.get("/question", (req, res) => {
     });
 });
 
-app.get("/user", (req, res) => {
-    dbGet(req.query, (data, error) => {
+app.post("/question", (req, res) => {
+    dbGet(req.body, (data, error) => {
+        if (error) {
+            res.status(400).send(error);
+        } else {
+            res.status(200).json(data);
+        }
+    });
+});
+
+app.post("/user", (req, res) => {
+    dbGet(req.body, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {
