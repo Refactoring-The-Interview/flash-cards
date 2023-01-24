@@ -6,12 +6,12 @@ import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import { Paths, API, Difficulty } from "../store/types";
+import { Paths, API, Difficulty, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
 function useHelper() {
-    const testobj = {
+    const newQueston = {
         difficulty: Difficulty.medium,
         question:
             "what method executes a provided function once for each array element.",
@@ -20,18 +20,18 @@ function useHelper() {
         tags: ["array", "Js"],
         correct: false,
         id: "3",
-    };
+    } as Question;
 
     useEffect(() => {
         const requestOptions = {
             method: "post",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: testobj.id, testobj }),
+            body: JSON.stringify({ id: newQueston.id, newQueston }),
         };
 
-        fetch("/setQuestion", requestOptions);
-        // .then((res) => console.log(res.json()))
-        // .then((data) => console.log(data));
+        fetch("/setQuestion", requestOptions).then((res) =>
+            console.log("server put responded with:", res.status)
+        );
     }, []);
 }
 
