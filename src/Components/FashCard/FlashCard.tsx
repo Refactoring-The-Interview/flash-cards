@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
-import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
-import { randomizer } from "../QuestionRandomizer/randomizer";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Paths, Question, pathGenerator } from "../store/types";
-import { useNavigate, useParams } from "react-router-dom";
+import { Question } from "../store/types";
+import { useParams } from "react-router-dom";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 
 const FlashCard = ({ QuestionList }: any) => {
     const { questionId } = useParams();
     const randomQuestion = useRandomQuestion();
-    const navigate = useNavigate();
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
+
     const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );

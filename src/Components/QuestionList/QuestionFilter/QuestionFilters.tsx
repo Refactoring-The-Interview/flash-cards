@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
 import { Difficulty, FilterSetting } from "../../store/types";
-import { StorageKey, useLocalStorage } from "../../LocalStorage/LocalStorage";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;

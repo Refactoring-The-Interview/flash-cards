@@ -1,4 +1,3 @@
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Difficulty, Question } from "../store/types";
 
 export const isQuestionType = (question: Question, type: string) => {
@@ -29,7 +28,7 @@ export const updateData = (
     setQuestions: any,
     questions: Question[]
 ) => {
-    questions.map((currentQuestion: Question, index: number) => {
+    questions.forEach((currentQuestion: Question, index: number) => {
         const { answer, question } = currentQuestion;
 
         if (

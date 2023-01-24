@@ -7,7 +7,7 @@ const Timer = (expiryTimestamp: any) => {
     const time = new Date();
     time.setSeconds(time.getSeconds() + 300);
 
-    const { seconds, minutes, start, pause, restart } = useTimer({
+    const { seconds, minutes, start, pause } = useTimer({
         expiryTimestamp: time,
         autoStart: true,
     });

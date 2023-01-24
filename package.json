@@ -39,6 +39,7 @@
         "env": " yarn && yarn start",
         "server": "cd src && nodemon Server/index.js"
     },
+    "proxy": "http://localhost:3001",
     "engines": {
         "node": "v18.6.0"
     },

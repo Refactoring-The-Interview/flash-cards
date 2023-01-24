@@ -10,7 +10,7 @@ export const Contact = () => {
             <ListGroup.Item>Location: Knoxville, TN</ListGroup.Item>
 
             <ListGroup.Item>
-                <iframe src={resume}></iframe>
+                <iframe src={resume} title="resume"></iframe>
             </ListGroup.Item>
         </ListGroup>
     );

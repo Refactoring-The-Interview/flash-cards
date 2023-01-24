@@ -3,7 +3,7 @@ import "./QuestionListS.scss";
 import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
 import { Question, FilterSetting, Difficulty } from "../store/types";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
-import { QuestionCard } from "./QuestionCard/QuestionCard";
+import { QuestionCards } from "./QuestionCards/QuestionCards";
 import {
     isQuestionDifficulty,
     isQuestionHideCorrect,
@@ -13,17 +13,10 @@ import {
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 
 export const QuestionList = () => {
-    const [questions, setQuestions] = useLocalStorage(
-        StorageKey.questionBank,
-        []
-    );
+    const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
-    );
-    const [_, setCurrentQuestion] = useLocalStorage(
-        StorageKey.currentQuestion,
-        {}
     );
 
     const [filterSettings, setFilterSettings] = useState<FilterSetting>({
@@ -48,7 +41,7 @@ export const QuestionList = () => {
             }
         );
         setFilteredQuestionBank(filteredQuestions);
-    }, [filterSettings]);
+    }, [filterSettings, questions, setFilteredQuestionBank]);
 
     let currentQuestions =
         filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
@@ -61,7 +54,7 @@ export const QuestionList = () => {
             </div>
 
             <div className="list-container">
-                <QuestionCard currentQuestions={currentQuestions} />
+                <QuestionCards currentQuestions={currentQuestions} />
             </div>
         </div>
     );
