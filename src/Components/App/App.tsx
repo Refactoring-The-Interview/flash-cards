@@ -6,24 +6,27 @@ import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import { Paths, API } from "../store/types";
+import { Paths, API, Difficulty } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
 function useHelper() {
-    // useEffect(() => {
-    //     async function usetest() {
-    //         fetch(API.question)
-    //             .then((res) => res.json())
-    //             .then((data) => console.log(data));
-    //     }
-    //     usetest();
-    // }, []);
+    const testobj = {
+        difficulty: Difficulty.medium,
+        question:
+            "what method executes a provided function once for each array element.",
+        answer: "Array.forEach()",
+        answers: ["Array.map()", "Array.forEach()", "Array.every()"],
+        tags: ["array", "Js"],
+        correct: false,
+        id: "3",
+    };
 
     useEffect(() => {
         const requestOptions = {
-            method: "post",
-            body: JSON.stringify({ title: "React Hooks PUT Request Example" }),
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ testobj }),
         };
         async function set() {
             fetch("/setQuestion", requestOptions)

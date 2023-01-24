@@ -8,13 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/setQuestion", (req, res) => {
-    dbSet(req.body, (data, error) => {
-        if (error) {
-            res.status(400).send(error);
-        } else {
-            res.status(200).json("set complete");
-        }
-    });
+    console.log(req.body);
+    dbSet("1");
 });
 
 app.get("/question", (req, res) => {
