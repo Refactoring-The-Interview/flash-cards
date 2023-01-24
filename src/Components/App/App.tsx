@@ -3,7 +3,6 @@ import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
-import { Logout } from "../Logout/Logout";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
