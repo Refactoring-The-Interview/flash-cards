@@ -23,6 +23,7 @@ function useHelper() {
 }
 
 function App() {
+    // TODO: implement server functions
     useHelper();
 
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
