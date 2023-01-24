@@ -4,7 +4,7 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Question } from "../store/types";
-import { Form, FormGroup, InputGroup } from "react-bootstrap";
+import { Form, FormGroup } from "react-bootstrap";
 
 const AddQuestionForm = (props: any) => {
     const [difficulty, setDifficulty] = useState<string>("");
