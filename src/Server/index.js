@@ -9,7 +9,6 @@ app.use(bodyParser.json());
 
 app.post("/setQuestion", (req, res) => {
     console.log(req.body);
-    dbSet("1");
 });
 
 app.get("/question", (req, res) => {

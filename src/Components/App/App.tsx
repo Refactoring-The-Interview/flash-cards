@@ -24,16 +24,14 @@ function useHelper() {
 
     useEffect(() => {
         const requestOptions = {
-            method: "PUT",
+            method: "post",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ testobj }),
+            body: JSON.stringify({ id: testobj.id, testobj }),
         };
-        async function set() {
-            fetch("/setQuestion", requestOptions)
-                .then((res) => console.log(res.json()))
-                .then((data) => console.log(data));
-        }
-        set();
+
+        fetch("/setQuestion", requestOptions);
+        // .then((res) => console.log(res.json()))
+        // .then((data) => console.log(data));
     }, []);
 }
 
