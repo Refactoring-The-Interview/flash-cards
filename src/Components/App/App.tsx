@@ -52,7 +52,6 @@ function App() {
                     path={Paths.question}
                     element={
                         <div className="mainDisplayFront">
-                            <Logout />
                             <FlashCard />
                         </div>
                     }

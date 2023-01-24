@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
-import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Paths, Question } from "../store/types";
-import { useNavigate, useParams } from "react-router-dom";
+import { Question } from "../store/types";
+import { useParams } from "react-router-dom";
+import { useRandomQuestion } from "../Utils/useRandomQuestion";
 
 const FlashCard = ({ QuestionList }: any) => {
-    const navigate = useNavigate();
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const { questionId } = useParams();
+    const randomQuestion = useRandomQuestion();
+    const [questions] = useLocalStorage(StorageKey.questionBank, []);
 
-    const [currentQuestion] = useState<Array<Question>>(
+    const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
         questions.find(({ id }: string | any) => id === questionId)
     );
 
@@ -28,17 +28,6 @@ const FlashCard = ({ QuestionList }: any) => {
                     </div>
 
                     <CardGroup className="FlashCardHeader-buttons">
-                        <Button
-                            type="button"
-                            variant="secondary"
-                            className="FlashCardHeader-button"
-                            onClick={() => {
-                                navigate(Paths.questionList);
-                            }}
-                        >
-                            Question List
-                        </Button>
-
                         <Button type="button" variant="secondary">
                             Submit
                         </Button>
@@ -49,13 +38,12 @@ const FlashCard = ({ QuestionList }: any) => {
             <ArrayMethods cardQuestion={currentQuestion} />
             <div className="FlashCardFooter">
                 <Card.Footer className="cardFooter">
-                    <AddQuestionForm />
-
                     <Button
                         type="button"
                         variant="secondary"
-                        className="footer-button"
-                        onClick={(e) => {}}
+                        onClick={(e) => {
+                            setCurrentQuestion(randomQuestion);
+                        }}
                     >
                         Next Question
                     </Button>
