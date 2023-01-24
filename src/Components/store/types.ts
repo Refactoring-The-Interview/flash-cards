@@ -30,6 +30,11 @@ export enum Paths {
     contact = "/contact",
 }
 
+export enum API {
+    question = "/question",
+    user = "/user",
+}
+
 export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
 };
