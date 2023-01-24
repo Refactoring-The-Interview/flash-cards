@@ -2549,6 +2549,11 @@ ajv@^8.0.0, ajv@^8.6.0, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+amplify@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/amplify/-/amplify-0.0.11.tgz#fd81c7068c862823f2508b8f3c650eb76753f58c"
+  integrity sha512-RkVzlUUUczGhjRWTX3QXEPzgPScdUXvmthgvcNpCQHfxshvxLPTdiLP6kLaUb/eo8IpnjLpKqUWxTIT97c8xew==
+
 ansi-escapes@^4.2.1, ansi-escapes@^4.3.0, ansi-escapes@^4.3.1:
   version "4.3.2"
   resolved "https://registry.npmjs.org/ansi-escapes/-/ansi-escapes-4.3.2.tgz"
