@@ -5,7 +5,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// const { API } = require("../Components/store/types");
 
 app.post("/addQuestion", (req, res) => {
     dbSet(req.body, (data, error) => {
