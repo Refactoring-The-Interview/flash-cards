@@ -11,10 +11,9 @@ import {
     isQuestionName,
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
-import { MyQuestionContext } from "../App/App";
 
 export const QuestionList = () => {
-    const question = useContext(MyQuestionContext);
+    const [question] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []

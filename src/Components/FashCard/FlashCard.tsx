@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
@@ -7,15 +7,20 @@ import { Button, Card, CardGroup } from "react-bootstrap";
 import { Question } from "../store/types";
 import { useParams } from "react-router-dom";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+
+const getQuestions = (
+    questions: Question[],
+    questionId: string | undefined
+): Question | undefined => {
+    return questions?.find(({ id }) => id === questionId);
+};
 
 const FlashCard = ({ QuestionList }: any) => {
     const { questionId } = useParams();
     const randomQuestion = useRandomQuestion();
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
-
-    const [currentQuestion, setCurrentQuestion] = useState<Array<Question>>(
-        questions.find(({ id }: string | any) => id === questionId)
-    );
+    const { questions } = useContext(MyQuestionContext);
+    const currentQuestion = getQuestions(questions, questionId);
 
     if (!currentQuestion) return <h2>Oops, couldn't find questions!</h2>;
 
@@ -41,9 +46,7 @@ const FlashCard = ({ QuestionList }: any) => {
                     <Button
                         type="button"
                         variant="secondary"
-                        onClick={(e) => {
-                            setCurrentQuestion(randomQuestion);
-                        }}
+                        onClick={(e) => {}}
                     >
                         Next Question
                     </Button>

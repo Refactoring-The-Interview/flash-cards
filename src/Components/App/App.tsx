@@ -9,9 +9,10 @@ import { NavBar } from "../NavBar/NavBar";
 import { Paths, API, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
-const useInitQuestions = () => {
-    const [, setQuestions] = useState<Array<Question>>([]);
+const useQuestions = () => {
+    const [questions, setQuestions] = useState<Array<Question>>([]);
 
     useEffect(() => {
         const requestOptions = {
@@ -26,12 +27,12 @@ const useInitQuestions = () => {
             .then((res) => res.json())
             .then((data) => setQuestions(data));
     }, []);
+
+    return questions;
 };
 
-export const MyQuestionContext = createContext<Array<Question>>([]);
-
 function App() {
-    const [questions] = useState<Array<Question> | any>(useInitQuestions());
+    const questions = useQuestions();
 
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -50,7 +51,7 @@ function App() {
 
     return (
         <div className="App">
-            <MyQuestionContext.Provider value={questions}>
+            <MyQuestionContext.Provider value={{ questions }}>
                 <NavBar />
                 <Routes>
                     <Route path={Paths.login} element={<Login />} />
