@@ -12,7 +12,9 @@ export const NavBar = () => {
         email: "",
         password: "",
     });
-    const randomId = useRandomQuestion().id;
+    const idGenerator = useRandomQuestion();
+    console.log(idGenerator);
+    const randomId = idGenerator ? idGenerator.id : "3";
     const randomQuestionPath = pathGenerator[Paths.question](randomId);
 
     const isEmail = userInfo.email.length > 1;
