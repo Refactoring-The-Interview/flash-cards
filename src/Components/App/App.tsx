@@ -23,21 +23,6 @@ function App() {
         []
     );
 
-    // useEffect(() => {
-    //     const requestOptions = {
-    //         method: "post",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({
-    //             id: "questions",
-    //             questionsBank: questionBank,
-    //         }),
-    //     };
-
-    //     fetch(API.addQuestion, requestOptions).then((res) =>
-    //         console.log("server setFunction responded with:", res.status)
-    //     );
-    // }, []);
-
     useEffect(() => {
         const redirectUserFlashCard = async () => {
             if (userInfo.email.length < 1) {
