@@ -11,47 +11,17 @@ import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 import { questionBank } from "../store";
 
-function useHelper() {
-    useEffect(() => {
-        const newQuestion = {
-            difficulty: Difficulty.medium,
-            question:
-                "what method executes a provided function once for each array element.",
-            answer: "Array.forEach()",
-            answers: ["Array.map()", "Array.forEach()", "Array.every()"],
-            tags: ["array", "Js"],
-            correct: false,
-            id: "3",
-        } as Question;
-
-        const requestOptions = {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: newQuestion.id,
-                newQuestion: newQuestion,
-            }),
-        };
-
-        fetch(API.addQuestion, requestOptions).then((res) =>
-            console.log("server put responded with:", res.status)
-        );
-    }, []);
-}
-
 function App() {
     // TODO: implement server functions
-    useHelper();
-    const [userInfo, setInfo] = useLocalStorage(StorageKey.userInfo, {
+    const navigate = useNavigate();
+    const [userInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
-    const [, setPopulateLocalStorageQuestions] = useLocalStorage(
+    const [questions, setPopulateLocalStorageQuestions] = useLocalStorage(
         StorageKey.questionBank,
         []
     );
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
@@ -60,9 +30,6 @@ function App() {
             }
         };
         redirectUserFlashCard();
-        //temperary fix to see if this solves aws error with initial load
-        setPopulateLocalStorageQuestions(questionBank);
-        setInfo({ email: "tets@123", password: "123" });
     }, [navigate, userInfo]);
 
     return (

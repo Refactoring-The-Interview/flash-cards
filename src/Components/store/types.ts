@@ -34,7 +34,7 @@ export enum API {
     //  todo create question post for specific questions
     question = "/question",
     user = "/user",
-    addQuestion = "/addQuestion",
+    addQuestion = "/addToDataBase",
 }
 
 export const pathGenerator = {

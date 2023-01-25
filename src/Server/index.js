@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post("/addQuestion", (req, res) => {
+app.post("/addToDataBase", (req, res) => {
     dbSet(req.body, (data, error) => {
         if (error) {
             res.status(400).send(error);

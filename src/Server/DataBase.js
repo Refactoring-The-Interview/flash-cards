@@ -5,8 +5,8 @@ const dbGet = (key, callback) => {
     callback(db.get(key));
 };
 
-const dbSet = (key, callback) => {
-    callback(db.set(key.id, key.newQuestion));
+const dbSet = (key, value, callback) => {
+    callback(db.set(key, value));
 };
 
 const dbDelete = (key, callback) => {
