@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
@@ -10,10 +10,9 @@ import { Paths, API, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 
-export const MyQuestionContext = createContext<Array<Question>>([]);
+const useInitQuestions = () => {
+    const [, setQuestions] = useState<Array<Question>>([]);
 
-function App() {
-    const [questions, setQuestions] = useState<Array<Question>>([]);
     useEffect(() => {
         const requestOptions = {
             method: "post",
@@ -26,7 +25,13 @@ function App() {
         fetch(API.question, requestOptions)
             .then((res) => res.json())
             .then((data) => setQuestions(data));
-    }, [questions, setQuestions]);
+    }, []);
+};
+
+export const MyQuestionContext = createContext<Array<Question>>([]);
+
+function App() {
+    const [questions] = useState<Array<Question> | any>(useInitQuestions());
 
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {

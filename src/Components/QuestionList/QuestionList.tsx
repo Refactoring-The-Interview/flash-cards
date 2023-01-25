@@ -15,8 +15,6 @@ import { MyQuestionContext } from "../App/App";
 
 export const QuestionList = () => {
     const question = useContext(MyQuestionContext);
-
-    // const [question] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
@@ -28,26 +26,24 @@ export const QuestionList = () => {
         hideCorrect: false,
         difficulty: Difficulty.none,
     });
-    // issue here with multiple rerendering ToDo: {
 
-    // useEffect(() => {
-    //     const { name, type, hideCorrect, difficulty } = filterSettings;
-    //     let filteredQuestions = question;
+    useEffect(() => {
+        const { name, type, hideCorrect, difficulty } = filterSettings;
+        let filteredQuestions = question;
 
-    //     filteredQuestions = filteredQuestions.filter(
-    //         (question: Question, index: number) => {
-    //             return (
-    //                 isQuestionType(question, type) &&
-    //                 isQuestionName(question, name) &&
-    //                 isQuestionDifficulty(question, difficulty as Difficulty) &&
-    //                 isQuestionHideCorrect(question, !!hideCorrect)
-    //             );
-    //         }
-    //     );
-    //     setFilteredQuestionBank(filteredQuestions);
-    // }, [filterSettings, question, setFilteredQuestionBank]);
+        filteredQuestions = filteredQuestions.filter(
+            (question: Question, index: number) => {
+                return (
+                    isQuestionType(question, type) &&
+                    isQuestionName(question, name) &&
+                    isQuestionDifficulty(question, difficulty as Difficulty) &&
+                    isQuestionHideCorrect(question, !!hideCorrect)
+                );
+            }
+        );
+        setFilteredQuestionBank(filteredQuestions);
+    }, [filterSettings, question, setFilteredQuestionBank]);
 
-    //}
     let currentquestions =
         filteredQuestionBank?.length < 0 ? question : filteredQuestionBank;
 
