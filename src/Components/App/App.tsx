@@ -42,10 +42,11 @@ function App() {
     // TODO: implement server functions
     useHelper();
 
-    const [userInfo] = useLocalStorage(StorageKey.userInfo, {
+    const [userInfo, setInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "a",
         password: "",
     });
+    const [questions] = useLocalStorage(StorageKey.questionBank, []);
 
     const navigate = useNavigate();
 
