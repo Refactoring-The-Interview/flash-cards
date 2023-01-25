@@ -16,9 +16,7 @@ import { MyQuestionContext } from "../App/App";
 export const QuestionList = () => {
     const question = useContext(MyQuestionContext);
 
-    console.log(question, "questions from context");
-
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+    // const [question] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
@@ -30,26 +28,28 @@ export const QuestionList = () => {
         hideCorrect: false,
         difficulty: Difficulty.none,
     });
+    // issue here with multiple rerendering ToDo: {
 
-    useEffect(() => {
-        const { name, type, hideCorrect, difficulty } = filterSettings;
-        let filteredQuestions = questions;
+    // useEffect(() => {
+    //     const { name, type, hideCorrect, difficulty } = filterSettings;
+    //     let filteredQuestions = question;
 
-        filteredQuestions = filteredQuestions.filter(
-            (question: Question, index: number) => {
-                return (
-                    isQuestionType(question, type) &&
-                    isQuestionName(question, name) &&
-                    isQuestionDifficulty(question, difficulty as Difficulty) &&
-                    isQuestionHideCorrect(question, !!hideCorrect)
-                );
-            }
-        );
-        setFilteredQuestionBank(filteredQuestions);
-    }, [filterSettings, questions, setFilteredQuestionBank]);
+    //     filteredQuestions = filteredQuestions.filter(
+    //         (question: Question, index: number) => {
+    //             return (
+    //                 isQuestionType(question, type) &&
+    //                 isQuestionName(question, name) &&
+    //                 isQuestionDifficulty(question, difficulty as Difficulty) &&
+    //                 isQuestionHideCorrect(question, !!hideCorrect)
+    //             );
+    //         }
+    //     );
+    //     setFilteredQuestionBank(filteredQuestions);
+    // }, [filterSettings, question, setFilteredQuestionBank]);
 
-    let currentQuestions =
-        filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
+    //}
+    let currentquestions =
+        filteredQuestionBank?.length < 0 ? question : filteredQuestionBank;
 
     return (
         <div className="QuestionList">
@@ -59,7 +59,7 @@ export const QuestionList = () => {
             </div>
 
             <div className="list-container">
-                <QuestionCards currentQuestions={currentQuestions} />
+                <QuestionCards currentQuestions={currentquestions} />
             </div>
         </div>
     );
