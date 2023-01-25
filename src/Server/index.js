@@ -17,7 +17,7 @@ app.post("/addToDataBase", (req, res) => {
 });
 
 app.post("/delete", (req, res) => {
-    dbDelete(req.body, (data, error) => {
+    dbDelete(req.body.id, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {
@@ -27,7 +27,7 @@ app.post("/delete", (req, res) => {
 });
 
 app.post("/question", (req, res) => {
-    dbGet(req.body, (data, error) => {
+    dbGet(req.body.id, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./QuestionListS.scss";
 import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
 import { Question, FilterSetting, Difficulty } from "../store/types";
@@ -11,8 +11,13 @@ import {
     isQuestionName,
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
+import { MyQuestionContext } from "../App/App";
 
 export const QuestionList = () => {
+    const question = useContext(MyQuestionContext);
+
+    console.log(question, "questions from context");
+
     const [questions] = useLocalStorage(StorageKey.questionBank, []);
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
