@@ -9,6 +9,7 @@ import { NavBar } from "../NavBar/NavBar";
 import { Paths, API, Difficulty, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
+import { questionBank } from "../store";
 
 function useHelper() {
     useEffect(() => {
@@ -41,12 +42,14 @@ function useHelper() {
 function App() {
     // TODO: implement server functions
     useHelper();
-
     const [userInfo, setInfo] = useLocalStorage(StorageKey.userInfo, {
-        email: "a",
+        email: "",
         password: "",
     });
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+    const [, setPopulateLocalStorageQuestions] = useLocalStorage(
+        StorageKey.questionBank,
+        []
+    );
 
     const navigate = useNavigate();
 
@@ -57,6 +60,9 @@ function App() {
             }
         };
         redirectUserFlashCard();
+        //temperary fix to see if this solves aws error with initial load
+        setPopulateLocalStorageQuestions(questionBank);
+        setInfo({ email: "tets@123", password: "123" });
     }, [navigate, userInfo]);
 
     return (
