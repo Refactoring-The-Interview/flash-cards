@@ -43,9 +43,7 @@
         "server": "cd src && nodemon Server/index.js"
     },
     "proxy": "http://localhost:3001",
-    "engines": {
-        "node": "v18.6.0"
-    },
+    "engines": {},
     "eslintConfig": {
         "extends": [
             "react-app",
