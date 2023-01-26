@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./QuestionListS.scss";
-import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
 import { Question, FilterSetting, Difficulty } from "../store/types";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCards } from "./QuestionCards/QuestionCards";
@@ -23,7 +22,7 @@ export const QuestionList = () => {
     });
 
     const [currentquestions, setCurrentQuestions] =
-        useState<Array<Question>>(questions);
+        useState<Question[]>(questions);
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
