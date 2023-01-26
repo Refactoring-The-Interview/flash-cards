@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "./AddQuestionFormS.scss";
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Difficulty, Question } from "../store/types";

@@ -9,7 +9,10 @@ import { NavBar } from "../NavBar/NavBar";
 import { Paths, API, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import {
+    MyQuestionContext,
+    QuestionContext,
+} from "../QuestionContext/QuestionContext";
 
 const useQuestions = () => {
     const [questions, setQuestions] = useState<Array<Question>>([]);
@@ -32,7 +35,14 @@ const useQuestions = () => {
 };
 
 function App() {
-    const questions = useQuestions();
+    const questionsToPass = useQuestions();
+    const [questions, setQuestions] =
+        useState<QuestionContext>(questionsToPass);
+
+    useEffect(() => {
+        setQuestions(questionsToPass);
+    }, [questionsToPass]);
+    console.log(questions, "questions in app");
 
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
