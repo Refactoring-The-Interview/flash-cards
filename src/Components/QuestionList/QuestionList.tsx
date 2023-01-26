@@ -11,9 +11,12 @@ import {
     isQuestionName,
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 export const QuestionList = () => {
-    const [question] = useLocalStorage(StorageKey.questionBank, []);
+    // const [question] = useLocalStorage(StorageKey.questionBank, []);
+    const { questions } = useContext(MyQuestionContext);
+
     const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
         StorageKey.filteredQuestionBank,
         []
@@ -28,7 +31,7 @@ export const QuestionList = () => {
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
-        let filteredQuestions = question;
+        let filteredQuestions = questions;
 
         filteredQuestions = filteredQuestions.filter(
             (question: Question, index: number) => {
@@ -41,10 +44,10 @@ export const QuestionList = () => {
             }
         );
         setFilteredQuestionBank(filteredQuestions);
-    }, [filterSettings, question, setFilteredQuestionBank]);
+    }, [filterSettings, questions, setFilteredQuestionBank]);
 
     let currentquestions =
-        filteredQuestionBank?.length < 0 ? question : filteredQuestionBank;
+        filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
 
     return (
         <div className="QuestionList">

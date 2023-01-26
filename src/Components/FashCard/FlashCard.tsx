@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import { Question } from "../store/types";
 import { useParams } from "react-router-dom";
@@ -16,7 +15,7 @@ const getQuestions = (
     return questions?.find(({ id }) => id === questionId);
 };
 
-const FlashCard = ({ QuestionList }: any) => {
+const FlashCard = () => {
     const { questionId } = useParams();
     const randomQuestion = useRandomQuestion();
     const { questions } = useContext(MyQuestionContext);
