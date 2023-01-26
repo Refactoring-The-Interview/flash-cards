@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./AddQuestionFormS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Question } from "../store/types";
 import { Form, FormGroup } from "react-bootstrap";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 const AddQuestionForm = (props: any) => {
     const [difficulty, setDifficulty] = useState<string>("");
@@ -14,13 +15,12 @@ const AddQuestionForm = (props: any) => {
     const [tags, setTags] = useState<Array<string>>([]);
 
     // Todo convert to context
-    const [questionBank, setNewQuestionBank] = useLocalStorage(
-        StorageKey.questionBank,
-        []
-    );
+    let { questions } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    console.log(questions);
 
     const clearForm = () => {
         setDifficulty("");
@@ -128,14 +128,13 @@ const AddQuestionForm = (props: any) => {
                     <Button
                         variant="primary"
                         onClick={(e) => {
-                            questionBank.push({
+                            questions.push({
                                 difficulty: difficulty,
                                 question: question,
                                 answer: answer,
                                 answers: answers.split(","),
                                 tags: tags,
                             } as Question);
-                            setNewQuestionBank(questionBank);
                             handleClose();
                             clearForm();
                         }}
