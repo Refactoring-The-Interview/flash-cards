@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
-import { Question } from "../store/types";
+import { API, Question } from "../store/types";
 import { Button, Card, ListGroup } from "react-bootstrap";
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { updateData } from "../Utils/Utils";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 interface Props {
     cardQuestion: Question;
@@ -13,16 +12,27 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
-    const [currentQuestion] = useLocalStorage(StorageKey.currentQuestion, {});
-    const [questions, setQuestions] = useLocalStorage(
-        StorageKey.questionBank,
-        []
-    );
+    const { questions } = useContext(MyQuestionContext);
 
     useEffect(() => {
         setIsDisabled(false);
         setIsCorrect("");
     }, [question]);
+
+    useEffect(() => {
+        const requestOptions = {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id: "questions",
+                questions: questions,
+            }),
+        };
+
+        fetch(API.addQuestion, requestOptions).then((res) =>
+            console.log(res.status)
+        );
+    }, [questions]);
 
     return (
         <div className="ArrayMethods">
@@ -51,12 +61,7 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
                                         onClick={(e) => {
                                             setIsDisabled(true);
                                             if (item === answer) {
-                                                currentQuestion.correct = true;
-                                                updateData(
-                                                    currentQuestion,
-                                                    setQuestions,
-                                                    questions
-                                                );
+                                                cardQuestion.correct = true;
                                                 setIsCorrect("success");
                                             } else {
                                                 setIsCorrect("danger");
