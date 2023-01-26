@@ -18,7 +18,7 @@ export const QuestionList = () => {
         type: Tags.js,
         name: "",
         hideCorrect: false,
-        difficulty: Difficulty.none,
+        difficulty: "" as Difficulty,
     });
 
     const [currentQuestions, setCurrentQuestions] =
@@ -26,7 +26,7 @@ export const QuestionList = () => {
 
     useEffect(() => {
         setCurrentQuestions(questions);
-    }, [questions, setQuestions]);
+    }, [questions, questions.length, setQuestions]);
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
@@ -46,20 +46,20 @@ export const QuestionList = () => {
         setCurrentQuestions(filteredQuestions);
     }, [filterSettings, questions]);
 
-    return (
-        <div className="QuestionList">
-            <AddQuestionForm />
-            <div className="filter-container">
-                <QuestionFilters filterSettings={setFilterSettings} />
-            </div>
+    if (questions.length === 0) {
+        return <h1>loading Questions...</h1>;
+    }
 
-            <MyQuestionContext.Consumer>
-                {(questions) => {
-                    return (
-                        <QuestionCards currentQuestions={currentQuestions} />
-                    );
-                }}
-            </MyQuestionContext.Consumer>
-        </div>
+    return (
+        <MyQuestionContext.Provider value={{ questions, setQuestions }}>
+            <div className="QuestionList">
+                <AddQuestionForm />
+                <div className="filter-container">
+                    <QuestionFilters filterSettings={setFilterSettings} />
+                </div>
+
+                <QuestionCards currentQuestions={currentQuestions} />
+            </div>
+        </MyQuestionContext.Provider>
     );
 };

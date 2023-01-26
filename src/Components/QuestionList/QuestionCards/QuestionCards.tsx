@@ -4,6 +4,7 @@ import { QuestionTags } from "../QuestionTags/QuestionTags";
 import "./QuestionCardsS.scss";
 import { Paths, Question, pathGenerator } from "../../store/types";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 interface Props {
     currentQuestions: Question[];
@@ -11,7 +12,6 @@ interface Props {
 
 export const QuestionCards = ({ currentQuestions }: Props) => {
     const navigate = useNavigate();
-
     return (
         <div className="QuestionCard">
             {currentQuestions.map((question: Question, index: number) => {

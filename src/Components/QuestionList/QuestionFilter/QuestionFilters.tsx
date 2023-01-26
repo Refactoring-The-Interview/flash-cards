@@ -18,13 +18,15 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
     };
     const [typeSelect, setTypeSelect] = useState<string>("");
     const [nameSearch, setNameSearch] = useState<string>("");
-    const [difficulty, setDifficulty] = useState<string>("");
+    const [difficulty, setDifficulty] = useState<Difficulty | string>(
+        Difficulty.none
+    );
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
 
     const formReset = () => {
         setTypeSelect("");
         setNameSearch("");
-        setDifficulty("");
+        setDifficulty(Difficulty.none);
         setHideCorrect(false);
         filterSettings(filterSettingsDefault);
     };
