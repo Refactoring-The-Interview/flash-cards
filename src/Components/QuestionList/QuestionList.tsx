@@ -23,6 +23,9 @@ export const QuestionList = () => {
 
     const [currentQuestions, setCurrentQuestions] =
         useState<Question[]>(questions);
+    useEffect(() => {
+        setCurrentQuestions(questions);
+    }, [questions]);
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
