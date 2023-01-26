@@ -8,10 +8,5 @@ export interface QuestionContext {
 
 export const MyQuestionContext = createContext<QuestionContext>({
     questions: [],
-    setQuestions: (newQuestions: Question[]) => {},
+    setQuestions: () => {},
 });
-
-const QuestionDidUpdate = () => {
-    const { questions } = useContext(MyQuestionContext);
-    console.log(questions, "context");
-};

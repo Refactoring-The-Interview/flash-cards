@@ -9,13 +9,10 @@ import { NavBar } from "../NavBar/NavBar";
 import { Paths, API, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
-import {
-    MyQuestionContext,
-    QuestionContext,
-} from "../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 const useQuestions = () => {
-    const [questions, setQuestions] = useState<Array<Question>>([]);
+    const [questions, setQuestions] = useState<Question[]>([]);
 
     useEffect(() => {
         const requestOptions = {
@@ -36,8 +33,7 @@ const useQuestions = () => {
 
 function App() {
     const questionsToPass = useQuestions();
-    const [questions, setQuestions] =
-        useState<QuestionContext>(questionsToPass);
+    const [questions, setQuestions] = useState<Question[]>(questionsToPass);
 
     useEffect(() => {
         setQuestions(questionsToPass);
@@ -61,9 +57,7 @@ function App() {
 
     return (
         <div className="App">
-            <MyQuestionContext.Provider
-                value={{ questions, setQuestions(newQuestions) {} }}
-            >
+            <MyQuestionContext.Provider value={{ questions, setQuestions }}>
                 <NavBar />
                 <Routes>
                     <Route path={Paths.login} element={<Login />} />

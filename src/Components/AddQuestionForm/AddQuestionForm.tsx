@@ -21,6 +21,7 @@ const AddQuestionForm = (props: any) => {
     const [tags, setTags] = useState<Array<string>>([]);
 
     const { questions, setQuestions } = useContext(MyQuestionContext);
+    console.log(questions, "in form");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
