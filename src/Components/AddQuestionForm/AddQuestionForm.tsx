@@ -57,11 +57,13 @@ const AddQuestionForm = (props: any) => {
                                     setDifficulty(e.target.value);
                                 }}
                             >
-                                <option value={Difficulty.hard}>Hard</option>
+                                <option value={Difficulty.none}>None</option>
+
+                                <option value={Difficulty.easy}>Easy</option>
                                 <option value={Difficulty.medium}>
                                     Medium
                                 </option>
-                                <option value={Difficulty.easy}>Easy</option>
+                                <option value={Difficulty.hard}>Hard</option>
                             </Form.Select>
                         </FormGroup>
 

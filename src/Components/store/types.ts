@@ -19,7 +19,7 @@ export enum Difficulty {
     easy = "easy",
     medium = "medium",
     hard = "hard",
-    none = "",
+    none = "none",
 }
 
 export enum Tags {
