@@ -112,21 +112,6 @@
             ],
             "correct": false,
             "id": "6"
-        },
-        {
-            "difficulty": "none",
-            "question": "1111",
-            "answer": "goodbye",
-            "answers": [
-                "goodbye",
-                " stop",
-                " poop"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "id": "5"
         }
     ]
 }

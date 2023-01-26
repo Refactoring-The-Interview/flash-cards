@@ -135,7 +135,7 @@ const AddQuestionForm = (props: any) => {
                                 id="tagsInput"
                                 multiple
                                 onChange={(e) => {
-                                    setTags([...tags, e.target.value, Tags.js]);
+                                    setTags([...tags, e.target.value]);
                                 }}
                             >
                                 <option value={Tags.array}>array</option>
@@ -158,8 +158,8 @@ const AddQuestionForm = (props: any) => {
                                     question: question,
                                     answer: answer,
                                     answers: answers.split(","),
-                                    tags: tags,
-                                    id: (question.length + 1).toString(),
+                                    tags: [...tags, Tags.js],
+                                    id: question.length.toString(),
                                 } as Question,
                             ]);
                             setDidUpdate(!didUpdate);
