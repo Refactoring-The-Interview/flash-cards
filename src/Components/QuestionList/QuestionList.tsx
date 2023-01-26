@@ -21,7 +21,7 @@ export const QuestionList = () => {
         difficulty: Difficulty.none,
     });
 
-    const [currentquestions, setCurrentQuestions] =
+    const [currentQuestions, setCurrentQuestions] =
         useState<Question[]>(questions);
 
     useEffect(() => {
@@ -49,9 +49,13 @@ export const QuestionList = () => {
                 <QuestionFilters filterSettings={setFilterSettings} />
             </div>
 
-            <div className="list-container">
-                <QuestionCards currentQuestions={currentquestions} />
-            </div>
+            <MyQuestionContext.Consumer>
+                {(questions) => {
+                    return (
+                        <QuestionCards currentQuestions={currentQuestions} />
+                    );
+                }}
+            </MyQuestionContext.Consumer>
         </div>
     );
 };
