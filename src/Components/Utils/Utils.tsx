@@ -1,7 +1,7 @@
-import { Difficulty, Question } from "../store/types";
+import { Difficulty, Question, Tags } from "../store/types";
 
 export const isQuestionType = (question: Question, type: string) => {
-    return question.tags.includes(type);
+    return question.tags.includes(type as Tags);
 };
 export const isQuestionName = (question: Question, name: string) => {
     return question.answer.toLowerCase().includes(name.toLocaleLowerCase());

@@ -30,6 +30,10 @@
             height: 1rem;
             border-right: 4rem solid transparent;
 
+            &.none {
+                border-top: 4rem solid $purple;
+            }
+
             &.easy {
                 border-top: 4rem solid $success;
             }

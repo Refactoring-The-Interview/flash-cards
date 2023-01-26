@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
@@ -17,6 +17,7 @@ const getQuestions = (
 
 const FlashCard = () => {
     const { questionId } = useParams();
+    // TODO add next question functionality
     const randomQuestion = useRandomQuestion();
     const { questions } = useContext(MyQuestionContext);
 

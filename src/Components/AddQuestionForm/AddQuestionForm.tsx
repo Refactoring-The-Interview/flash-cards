@@ -1,29 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./AddQuestionFormS.scss";
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Question } from "../store/types";
+import { Difficulty, Question, Tags } from "../store/types";
 import { Form, FormGroup } from "react-bootstrap";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+
+interface Props {
+    difficulty: Difficulty;
+    setDifficulty(newDifficulty: Difficulty): void;
+}
 
 const AddQuestionForm = (props: any) => {
-    const [difficulty, setDifficulty] = useState<string>("");
+    const [difficulty, setDifficulty] = useState<Difficulty | Props | string>(
+        Difficulty.none
+    );
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
     const [tags, setTags] = useState<Array<string>>([]);
 
-    // Todo convert to context
-    const [questionBank, setNewQuestionBank] = useLocalStorage(
-        StorageKey.questionBank,
-        []
-    );
+    const { questions, setQuestions } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const clearForm = () => {
-        setDifficulty("");
+        setDifficulty(Difficulty.none);
         setQuestion("");
         setAnswer("");
         setAnswers("");
@@ -53,9 +56,13 @@ const AddQuestionForm = (props: any) => {
                                     setDifficulty(e.target.value);
                                 }}
                             >
-                                <option>Hard</option>
-                                <option>Medium</option>
-                                <option>Easy</option>
+                                <option value={Difficulty.none}>None</option>
+
+                                <option value={Difficulty.easy}>Easy</option>
+                                <option value={Difficulty.medium}>
+                                    Medium
+                                </option>
+                                <option value={Difficulty.hard}>Hard</option>
                             </Form.Select>
                         </FormGroup>
 
@@ -112,11 +119,11 @@ const AddQuestionForm = (props: any) => {
                                 id="tagsInput"
                                 multiple
                                 onChange={(e) => {
-                                    setTags([...tags, e.target.value]);
+                                    setTags([...tags, e.target.value, Tags.js]);
                                 }}
                             >
-                                <option>array</option>
-                                <option>object</option>
+                                <option value={Tags.array}>array</option>
+                                <option value={Tags.obj}>object</option>
                             </Form.Select>
                         </FormGroup>
                     </Form>
@@ -128,14 +135,16 @@ const AddQuestionForm = (props: any) => {
                     <Button
                         variant="primary"
                         onClick={(e) => {
-                            questionBank.push({
-                                difficulty: difficulty,
-                                question: question,
-                                answer: answer,
-                                answers: answers.split(","),
-                                tags: tags,
-                            } as Question);
-                            setNewQuestionBank(questionBank);
+                            setQuestions([
+                                ...questions,
+                                {
+                                    difficulty: difficulty,
+                                    question: question,
+                                    answer: answer,
+                                    answers: answers.split(","),
+                                    tags: tags,
+                                } as Question,
+                            ]);
                             handleClose();
                             clearForm();
                         }}

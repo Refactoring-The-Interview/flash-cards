@@ -3,7 +3,7 @@ export interface Question {
     question: string;
     answer: string;
     answers: string[];
-    tags: string[];
+    tags: Tags[];
     correct: boolean;
     id: string;
 }
@@ -19,7 +19,13 @@ export enum Difficulty {
     easy = "easy",
     medium = "medium",
     hard = "hard",
-    none = "",
+    none = "none",
+}
+
+export enum Tags {
+    js = "Js",
+    obj = "object",
+    array = "array",
 }
 
 export enum Paths {

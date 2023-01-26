@@ -12,7 +12,7 @@ import { Contact } from "../Contact/Contact";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 const useQuestions = () => {
-    const [questions, setQuestions] = useState<Array<Question>>([]);
+    const [questions, setQuestions] = useState<Question[]>([]);
 
     useEffect(() => {
         const requestOptions = {
@@ -32,7 +32,12 @@ const useQuestions = () => {
 };
 
 function App() {
-    const questions = useQuestions();
+    const questionsToPass = useQuestions();
+    const [questions, setQuestions] = useState<Question[]>(questionsToPass);
+
+    useEffect(() => {
+        setQuestions(questionsToPass);
+    }, [questionsToPass]);
 
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -51,7 +56,7 @@ function App() {
 
     return (
         <div className="App">
-            <MyQuestionContext.Provider value={{ questions }}>
+            <MyQuestionContext.Provider value={{ questions, setQuestions }}>
                 <NavBar />
                 <Routes>
                     <Route path={Paths.login} element={<Login />} />
