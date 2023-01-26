@@ -19,7 +19,7 @@ const FlashCard = () => {
     const { questionId } = useParams();
     const randomQuestion = useRandomQuestion();
     const { questions } = useContext(MyQuestionContext);
-    const currentQuestion = getQuestions(questions, questionId);
+    let currentQuestion = getQuestions(questions, questionId);
 
     if (!currentQuestion) return <h2>Oops, couldn't find questions!</h2>;
 
