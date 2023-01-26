@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
 import { API, Question } from "../store/types";
 import { Button, Card, ListGroup } from "react-bootstrap";
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { updateData } from "../Utils/Utils";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 interface Props {
@@ -14,9 +12,7 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
-    // TODO change to state in app and pass down with context
-    // const [currentQuestion] = useLocalStorage(StorageKey.currentQuestion, {});
-    const { questions, setQuestions } = useContext(MyQuestionContext);
+    const { questions } = useContext(MyQuestionContext);
 
     useEffect(() => {
         setIsDisabled(false);
