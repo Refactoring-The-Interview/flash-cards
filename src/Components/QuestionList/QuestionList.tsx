@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./QuestionListS.scss";
-import { useLocalStorage, StorageKey } from "../LocalStorage/LocalStorage";
 import { Question, FilterSetting, Difficulty } from "../store/types";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCards } from "./QuestionCards/QuestionCards";
@@ -11,20 +10,19 @@ import {
     isQuestionName,
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 export const QuestionList = () => {
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
-    const [filteredQuestionBank, setFilteredQuestionBank] = useLocalStorage(
-        StorageKey.filteredQuestionBank,
-        []
-    );
-
+    const { questions } = useContext(MyQuestionContext);
     const [filterSettings, setFilterSettings] = useState<FilterSetting>({
         type: "Js",
         name: "",
         hideCorrect: false,
         difficulty: Difficulty.none,
     });
+
+    const [currentquestions, setCurrentQuestions] =
+        useState<Question[]>(questions);
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
@@ -40,11 +38,9 @@ export const QuestionList = () => {
                 );
             }
         );
-        setFilteredQuestionBank(filteredQuestions);
-    }, [filterSettings, questions, setFilteredQuestionBank]);
 
-    let currentQuestions =
-        filteredQuestionBank?.length < 0 ? questions : filteredQuestionBank;
+        setCurrentQuestions(filteredQuestions);
+    }, [filterSettings, questions]);
 
     return (
         <div className="QuestionList">
@@ -54,7 +50,7 @@ export const QuestionList = () => {
             </div>
 
             <div className="list-container">
-                <QuestionCards currentQuestions={currentQuestions} />
+                <QuestionCards currentQuestions={currentquestions} />
             </div>
         </div>
     );

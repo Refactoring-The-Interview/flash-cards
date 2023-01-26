@@ -1,7 +1,8 @@
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { useContext } from "react";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 export const useRandomQuestion = () => {
-    const [questions] = useLocalStorage(StorageKey.questionBank, []);
+    const { questions } = useContext(MyQuestionContext);
 
     let randomIndex = Math.floor(Math.random() * questions.length);
     const question = questions[randomIndex];

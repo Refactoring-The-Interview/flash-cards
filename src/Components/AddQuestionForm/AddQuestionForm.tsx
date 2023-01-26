@@ -12,6 +12,8 @@ const AddQuestionForm = (props: any) => {
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
     const [tags, setTags] = useState<Array<string>>([]);
+
+    // Todo convert to context
     const [questionBank, setNewQuestionBank] = useLocalStorage(
         StorageKey.questionBank,
         []

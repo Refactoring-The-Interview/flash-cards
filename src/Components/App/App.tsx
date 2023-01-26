@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
@@ -6,22 +6,39 @@ import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import { Paths, API, Difficulty, Question } from "../store/types";
+import { Paths, API, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
-import { questionBank } from "../store";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+
+const useQuestions = () => {
+    const [questions, setQuestions] = useState<Array<Question>>([]);
+
+    useEffect(() => {
+        const requestOptions = {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id: "questions",
+            }),
+        };
+
+        fetch(API.question, requestOptions)
+            .then((res) => res.json())
+            .then((data) => setQuestions(data));
+    }, []);
+
+    return questions;
+};
 
 function App() {
-    // TODO: implement server functions
+    const questions = useQuestions();
+
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
-    const [questions, setPopulateLocalStorageQuestions] = useLocalStorage(
-        StorageKey.questionBank,
-        []
-    );
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
@@ -34,21 +51,26 @@ function App() {
 
     return (
         <div className="App">
-            <NavBar />
-            <Routes>
-                <Route path={Paths.login} element={<Login />} />
-                <Route path={Paths.home} element={<Home />} />
-                <Route path={Paths.contact} element={<Contact />} />
-                <Route
-                    path={Paths.question}
-                    element={
-                        <div className="mainDisplayFront">
-                            <FlashCard />
-                        </div>
-                    }
-                />
-                <Route path={Paths.questionList} element={<QuestionList />} />
-            </Routes>
+            <MyQuestionContext.Provider value={{ questions }}>
+                <NavBar />
+                <Routes>
+                    <Route path={Paths.login} element={<Login />} />
+                    <Route path={Paths.home} element={<Home />} />
+                    <Route path={Paths.contact} element={<Contact />} />
+                    <Route
+                        path={Paths.question}
+                        element={
+                            <div className="mainDisplayFront">
+                                <FlashCard />
+                            </div>
+                        }
+                    />
+                    <Route
+                        path={Paths.questionList}
+                        element={<QuestionList />}
+                    />
+                </Routes>
+            </MyQuestionContext.Provider>
         </div>
     );
 }
