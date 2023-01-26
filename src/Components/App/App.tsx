@@ -38,7 +38,6 @@ function App() {
     useEffect(() => {
         setQuestions(questionsToPass);
     }, [questionsToPass]);
-    console.log(questions, "questions in app");
 
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
