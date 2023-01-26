@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { Question } from "../store/types";
 
 interface QuestionContext {
@@ -10,3 +10,8 @@ export const MyQuestionContext = createContext<QuestionContext>({
     questions: [],
     setQuestions: (newQuestions: Question[]) => {},
 });
+
+const QuestionDidUpdate = () => {
+    const { questions } = useContext(MyQuestionContext);
+    console.log(questions, "context");
+};

@@ -21,13 +21,10 @@ const AddQuestionForm = (props: any) => {
     const [answers, setAnswers] = useState<string>("");
     const [tags, setTags] = useState<Array<string>>([]);
 
-    // Todo convert to context
     const { questions, setQuestions } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    console.log(questions);
 
     const clearForm = () => {
         setDifficulty(Difficulty.none);
