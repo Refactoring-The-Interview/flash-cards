@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./AddQuestionFormS.scss";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Difficulty, Question, Tags } from "../store/types";
+import { API, Difficulty, Question, Tags } from "../store/types";
 import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
@@ -19,6 +19,7 @@ const AddQuestionForm = (props: any) => {
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
     const [tags, setTags] = useState<Array<string>>([]);
+    const [didUpdate, setDidUpdate] = useState<boolean>(false);
 
     const { questions, setQuestions } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
@@ -32,6 +33,21 @@ const AddQuestionForm = (props: any) => {
         setAnswers("");
         setTags([]);
     };
+
+    useEffect(() => {
+        const requestOptions = {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id: "questions",
+                questions: questions,
+            }),
+        };
+
+        fetch(API.addQuestion, requestOptions).then((res) =>
+            console.log(res.status)
+        );
+    }, [didUpdate]);
 
     return (
         <>
@@ -143,8 +159,10 @@ const AddQuestionForm = (props: any) => {
                                     answer: answer,
                                     answers: answers.split(","),
                                     tags: tags,
+                                    id: (question.length + 1).toString(),
                                 } as Question,
                             ]);
+                            setDidUpdate(!didUpdate);
                             handleClose();
                             clearForm();
                         }}
