@@ -51,7 +51,9 @@ function App() {
 
     return (
         <div className="App">
-            <MyQuestionContext.Provider value={{ questions }}>
+            <MyQuestionContext.Provider
+                value={{ questions, setQuestions(newQuestions) {} }}
+            >
                 <NavBar />
                 <Routes>
                     <Route path={Paths.login} element={<Login />} />
