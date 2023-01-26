@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./QuestionListS.scss";
-import { Question, FilterSetting, Difficulty } from "../store/types";
+import { Question, FilterSetting, Difficulty, Tags } from "../store/types";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCards } from "./QuestionCards/QuestionCards";
 import {
@@ -13,12 +13,12 @@ import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 export const QuestionList = () => {
-    const { questions } = useContext(MyQuestionContext);
+    const { questions, setQuestions } = useContext(MyQuestionContext);
     const [filterSettings, setFilterSettings] = useState<FilterSetting>({
-        type: "Js",
+        type: Tags.js,
         name: "",
         hideCorrect: false,
-        difficulty: Difficulty.none,
+        difficulty: "" as Difficulty,
     });
 
     const [currentQuestions, setCurrentQuestions] =
@@ -26,7 +26,7 @@ export const QuestionList = () => {
 
     useEffect(() => {
         setCurrentQuestions(questions);
-    }, [questions]);
+    }, [questions, questions.length, setQuestions]);
 
     useEffect(() => {
         const { name, type, hideCorrect, difficulty } = filterSettings;
@@ -35,7 +35,7 @@ export const QuestionList = () => {
         filteredQuestions = filteredQuestions.filter(
             (question: Question, index: number) => {
                 return (
-                    isQuestionType(question, type) &&
+                    isQuestionType(question, type as Tags) &&
                     isQuestionName(question, name) &&
                     isQuestionDifficulty(question, difficulty as Difficulty) &&
                     isQuestionHideCorrect(question, !!hideCorrect)
@@ -46,20 +46,20 @@ export const QuestionList = () => {
         setCurrentQuestions(filteredQuestions);
     }, [filterSettings, questions]);
 
-    return (
-        <div className="QuestionList">
-            <AddQuestionForm />
-            <div className="filter-container">
-                <QuestionFilters filterSettings={setFilterSettings} />
-            </div>
+    if (questions.length === 0) {
+        return <h1>loading Questions...</h1>;
+    }
 
-            <MyQuestionContext.Consumer>
-                {(questions) => {
-                    return (
-                        <QuestionCards currentQuestions={currentQuestions} />
-                    );
-                }}
-            </MyQuestionContext.Consumer>
-        </div>
+    return (
+        <MyQuestionContext.Provider value={{ questions, setQuestions }}>
+            <div className="QuestionList">
+                <AddQuestionForm />
+                <div className="filter-container">
+                    <QuestionFilters filterSettings={setFilterSettings} />
+                </div>
+
+                <QuestionCards currentQuestions={currentQuestions} />
+            </div>
+        </MyQuestionContext.Provider>
     );
 };
