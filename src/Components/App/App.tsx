@@ -34,16 +34,19 @@ const useQuestions = () => {
 function App() {
     const questionsToPass = useQuestions();
     const [questions, setQuestions] = useState<Question[]>(questionsToPass);
-
-    useEffect(() => {
-        setQuestions(questionsToPass);
-    }, [questionsToPass]);
-
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
+
+    useEffect(() => {
+        setQuestions(questionsToPass);
+    }, [questionsToPass]);
+
+    // useEffect(() => {
+    //     console.log("change");
+    // }, [questions]);
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
