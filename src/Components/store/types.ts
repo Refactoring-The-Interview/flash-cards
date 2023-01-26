@@ -22,6 +22,12 @@ export enum Difficulty {
     none = "",
 }
 
+export enum Tags {
+    js = "Js",
+    obj = "object",
+    array = "array",
+}
+
 export enum Paths {
     question = "/question/:questionId",
     questionList = "/question-list",

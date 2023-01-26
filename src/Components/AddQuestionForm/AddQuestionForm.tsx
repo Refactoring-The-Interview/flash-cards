@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./AddQuestionFormS.scss";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Difficulty, Question } from "../store/types";
+import { Difficulty, Question, Tags } from "../store/types";
 import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
@@ -118,11 +118,11 @@ const AddQuestionForm = (props: any) => {
                                 id="tagsInput"
                                 multiple
                                 onChange={(e) => {
-                                    setTags([...tags, e.target.value]);
+                                    setTags([...tags, e.target.value, Tags.js]);
                                 }}
                             >
-                                <option>array</option>
-                                <option>object</option>
+                                <option value={Tags.array}>array</option>
+                                <option value={Tags.obj}>object</option>
                             </Form.Select>
                         </FormGroup>
                     </Form>
