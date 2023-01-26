@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { Question } from "../store/types";
 
 export interface QuestionContext {

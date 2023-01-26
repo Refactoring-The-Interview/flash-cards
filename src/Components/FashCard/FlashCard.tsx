@@ -17,6 +17,7 @@ const getQuestions = (
 
 const FlashCard = () => {
     const { questionId } = useParams();
+    // TODO add next question functionality
     const randomQuestion = useRandomQuestion();
     const { questions } = useContext(MyQuestionContext);
 

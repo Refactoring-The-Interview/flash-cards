@@ -3,7 +3,7 @@ export interface Question {
     question: string;
     answer: string;
     answers: string[];
-    tags: string[];
+    tags: Tags[];
     correct: boolean;
     id: string;
 }
