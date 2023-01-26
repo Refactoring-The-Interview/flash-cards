@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/addToDataBase", (req, res) => {
-    dbSet(req.body, (data, error) => {
+    dbSet(req.body.id, req.body.questions, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {

@@ -4,7 +4,6 @@ import { QuestionTags } from "../QuestionTags/QuestionTags";
 import "./QuestionCardsS.scss";
 import { Paths, Question, pathGenerator } from "../../store/types";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 interface Props {
     currentQuestions: Question[];

@@ -44,10 +44,6 @@ function App() {
         setQuestions(questionsToPass);
     }, [questionsToPass]);
 
-    // useEffect(() => {
-    //     console.log("change");
-    // }, [questions]);
-
     useEffect(() => {
         const redirectUserFlashCard = async () => {
             if (userInfo.email.length < 1) {
