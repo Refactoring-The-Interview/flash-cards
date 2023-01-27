@@ -4,8 +4,9 @@ import Modal from "react-bootstrap/Modal";
 import { deleteQuestion } from "../../Apis/Questions/deleteQuestion";
 import { QuestionCards } from "../QuestionList/QuestionCards/QuestionCards";
 import { Question } from "../../Apis/types";
+import { QuestionCard } from "../QuestionList/QuestionCard/QuestionCard";
 
-export const DeleteQuestionButton = () => {
+export const DeleteQuestionButton = ({ question }: any) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -28,6 +29,7 @@ export const DeleteQuestionButton = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Modal.Title>HELLO</Modal.Title>
+                    <QuestionCard question={question} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
@@ -37,9 +39,7 @@ export const DeleteQuestionButton = () => {
                         type="button"
                         variant="danger"
                         onClick={(e) => {
-                            // console.log(currentQuestion); call is working here with data
-                            // first time it loads its undefined here so ts gives issue
-                            // deleteQuestion(currentQuestion as any);
+                            deleteQuestion(question as any);
                             handleClose();
                         }}
                     >
