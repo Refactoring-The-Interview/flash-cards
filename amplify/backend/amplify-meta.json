@@ -11,5 +11,60 @@
       "StackId": "arn:aws:cloudformation:us-east-1:722921029415:stack/amplify-flashcards-dev-180050/f3696400-9c3a-11ed-9d3a-12fb4cecdd85",
       "AmplifyAppId": "d233xv0ggmf7w6"
     }
+  },
+  "function": {
+    "QuestionApi": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2023-01-27T15:33:09.429Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-01-27T15:33:10.099Z",
+      "distZipFilename": "QuestionApi-715a7a48474b52683272-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+        "s3Key": "amplify-builds/QuestionApi-715a7a48474b52683272-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/function/QuestionApi-cloudformation-template.json",
+        "logicalId": "functionQuestionApi"
+      },
+      "lastPushTimeStamp": "2023-01-27T15:35:18.969Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::722921029415:role/flashcardsLambdaRole2576eca9-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:722921029415:function:QuestionApi-dev",
+        "Name": "QuestionApi-dev",
+        "LambdaExecutionRole": "flashcardsLambdaRole2576eca9-dev"
+      },
+      "lastPushDirHash": "eahbI+R7gbmb2KU0/hJTpAPD8I8="
+    }
+  },
+  "api": {
+    "FlashCardsApiGroup": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "QuestionApi",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/api/FlashCardsApiGroup-cloudformation-template.json",
+        "logicalId": "apiFlashCardsApiGroup"
+      },
+      "lastPushTimeStamp": "2023-01-27T15:35:18.969Z",
+      "output": {
+        "ApiName": "FlashCardsApiGroup",
+        "RootUrl": "https://5mm35m4x32.execute-api.us-east-1.amazonaws.com/dev",
+        "ApiId": "5mm35m4x32"
+      },
+      "lastPushDirHash": "PHNPsac7ydCCDH3erQLk9II3xJg="
+    }
   }
 }

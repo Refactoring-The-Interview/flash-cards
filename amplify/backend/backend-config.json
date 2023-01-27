@@ -1,1 +1,75 @@
-{}
+{
+  "api": {
+    "FlashCardsApiGroup": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "QuestionApi"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "QuestionApi": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_QuestionApi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "QuestionApi"
+        }
+      ]
+    },
+    "AMPLIFY_function_QuestionApi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "QuestionApi"
+        }
+      ]
+    },
+    "AMPLIFY_function_flashcardsae71f079_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "flashcardsae71f079"
+        }
+      ]
+    },
+    "AMPLIFY_function_flashcardsae71f079_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "flashcardsae71f079"
+        }
+      ]
+    },
+    "AMPLIFY_function_flashcardsf563054d_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "flashcardsf563054d"
+        }
+      ]
+    },
+    "AMPLIFY_function_flashcardsf563054d_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "flashcardsf563054d"
+        }
+      ]
+    }
+  }
+}

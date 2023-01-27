@@ -112,6 +112,37 @@
             ],
             "correct": true,
             "id": "6"
-        }
+        },
+        {
+            "difficulty": "none",
+            "question": "3",
+            "answer": "goodbye",
+            "answers": [
+                "goodbye",
+                " stop",
+                " poop"
+            ],
+            "tags": [
+                "object",
+                "Js"
+            ],
+            "id": "1"
+        },
+        {
+            "difficulty": "hard",
+            "question": "asdfasdf",
+            "answer": "asdfasdf",
+            "answers": [
+                "asdfasdf"
+            ],
+            "tags": [
+                "Js"
+            ],
+            "id": "8",
+            "correct": false
+        },
+        null,
+        null,
+        null
     ]
 }

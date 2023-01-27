@@ -1,4 +1,4 @@
-const { dbGet, dbSet, dbDelete } = require("./DataBase");
+const { dbGet, dbSetQuestion, dbDelete } = require("./DataBase");
 const express = require("express");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/addToDataBase", (req, res) => {
-    dbSet(req.body.id, req.body.questions, (data, error) => {
+    dbSetQuestion(req.body.question, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {
@@ -26,8 +26,8 @@ app.post("/delete", (req, res) => {
     });
 });
 
-app.post("/question", (req, res) => {
-    dbGet(req.body.id, (data, error) => {
+app.get("/question", (req, res) => {
+    dbGet("questions", (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {

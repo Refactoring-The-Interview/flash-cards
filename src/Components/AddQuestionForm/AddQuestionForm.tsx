@@ -12,16 +12,14 @@ interface Props {
 }
 
 const AddQuestionForm = (props: any) => {
-    const [difficulty, setDifficulty] = useState<Difficulty | Props | string>(
-        Difficulty.none
-    );
+    const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.none);
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");
     const [answers, setAnswers] = useState<string>("");
-    const [tags, setTags] = useState<Array<string>>([]);
+    const [tags, setTags] = useState<Array<Tags>>([]);
     const [didUpdate, setDidUpdate] = useState<boolean>(false);
 
-    const { questions, setQuestions } = useContext(MyQuestionContext);
+    const { addQuestion } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -33,21 +31,6 @@ const AddQuestionForm = (props: any) => {
         setAnswers("");
         setTags([]);
     };
-
-    useEffect(() => {
-        const requestOptions = {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: "questions",
-                questions: questions,
-            }),
-        };
-
-        fetch(API.addQuestion, requestOptions).then((res) =>
-            console.log(res.status)
-        );
-    }, [didUpdate]);
 
     return (
         <>
@@ -69,7 +52,7 @@ const AddQuestionForm = (props: any) => {
                                 className="form-control"
                                 id="difficultyInput"
                                 onChange={(e) => {
-                                    setDifficulty(e.target.value);
+                                    setDifficulty(e.target.value as Difficulty);
                                 }}
                             >
                                 <option value={Difficulty.none}>None</option>
@@ -135,7 +118,10 @@ const AddQuestionForm = (props: any) => {
                                 id="tagsInput"
                                 multiple
                                 onChange={(e) => {
-                                    setTags([...tags, e.target.value]);
+                                    setTags([
+                                        ...tags,
+                                        e.target.value,
+                                    ] as Tags[]);
                                 }}
                             >
                                 <option value={Tags.array}>array</option>
@@ -151,17 +137,15 @@ const AddQuestionForm = (props: any) => {
                     <Button
                         variant="primary"
                         onClick={(e) => {
-                            setQuestions([
-                                ...questions,
-                                {
-                                    difficulty: difficulty,
-                                    question: question,
-                                    answer: answer,
-                                    answers: answers.split(","),
-                                    tags: [...tags, Tags.js],
-                                    id: question.length.toString(),
-                                } as Question,
-                            ]);
+                            addQuestion({
+                                difficulty: difficulty,
+                                question: question,
+                                answer: answer,
+                                answers: answers.split(","),
+                                tags: [...tags, Tags.js],
+                                id: question.length.toString(),
+                                correct: false,
+                            });
                             setDidUpdate(!didUpdate);
                             handleClose();
                             clearForm();

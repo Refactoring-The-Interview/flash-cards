@@ -56,15 +56,13 @@ export const QuestionList = () => {
     }
 
     return (
-        <MyQuestionContext.Provider value={{ questions, setQuestions }}>
-            <div className="QuestionList">
-                <AddQuestionForm />
-                <div className="filter-container">
-                    <QuestionFilters filterSettings={setFilterSettings} />
-                </div>
-
-                <QuestionCards currentQuestions={currentQuestions} />
+        <div className="QuestionList">
+            <AddQuestionForm />
+            <div className="filter-container">
+                <QuestionFilters filterSettings={setFilterSettings} />
             </div>
-        </MyQuestionContext.Provider>
+
+            <QuestionCards currentQuestions={currentQuestions} />
+        </div>
     );
 };
