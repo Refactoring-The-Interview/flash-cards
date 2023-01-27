@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./LoginS.scss";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { questionBank } from "../store/index";
-import { Paths } from "../store/types";
+import { Paths } from "../../Apis/types";
+
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 

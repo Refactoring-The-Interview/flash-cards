@@ -1,8 +1,8 @@
 import { Button, CardGroup } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import "./HomeS.scss";
-import { Paths } from "../store/types";
 import { useNavigate } from "react-router-dom";
+import { Paths } from "../../Apis/types";
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -65,10 +65,6 @@ export const Home = () => {
                 </Card.Body>
 
                 <Card.Footer>
-                    <Card.Link href="/">Alex</Card.Link>
-                    <Card.Link href="https://github.com/SBrandon0432">
-                        Sam
-                    </Card.Link>
                     <Card.Link href="https://github.com/Refactoring-The-Interview/flash-cards">
                         github
                     </Card.Link>

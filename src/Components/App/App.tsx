@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
@@ -6,43 +6,17 @@ import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import { Paths, API, Question } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
-
-const useQuestions = () => {
-    const [questions, setQuestions] = useState<Question[]>([]);
-
-    useEffect(() => {
-        const requestOptions = {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: "questions",
-            }),
-        };
-
-        fetch(API.question, requestOptions)
-            .then((res) => res.json())
-            .then((data) => setQuestions(data));
-    }, []);
-
-    return questions;
-};
+import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
+import { Paths } from "../../Apis/types";
 
 function App() {
-    const questionsToPass = useQuestions();
-    const [questions, setQuestions] = useState<Question[]>(questionsToPass);
     const navigate = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
-
-    useEffect(() => {
-        setQuestions(questionsToPass);
-    }, [questionsToPass]);
 
     useEffect(() => {
         const redirectUserFlashCard = async () => {
@@ -55,7 +29,7 @@ function App() {
 
     return (
         <div className="App">
-            <MyQuestionContext.Provider value={{ questions, setQuestions }}>
+            <MyQuestionProvider>
                 <NavBar />
                 <Routes>
                     <Route path={Paths.login} element={<Login />} />
@@ -74,7 +48,7 @@ function App() {
                         element={<QuestionList />}
                     />
                 </Routes>
-            </MyQuestionContext.Provider>
+            </MyQuestionProvider>
         </div>
     );
 }

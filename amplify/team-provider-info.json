@@ -10,6 +10,26 @@
       "StackName": "amplify-flashcards-dev-180050",
       "StackId": "arn:aws:cloudformation:us-east-1:722921029415:stack/amplify-flashcards-dev-180050/f3696400-9c3a-11ed-9d3a-12fb4cecdd85",
       "AmplifyAppId": "d233xv0ggmf7w6"
+    },
+    "categories": {
+      "function": {
+        "flashcardsf563054d": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/flashcardsf563054d-6f314675457a50795957-build.zip"
+        },
+        "flashcardsae71f079": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/flashcardsae71f079-476639564f7746364f2b-build.zip"
+        },
+        "QuestionApi": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/QuestionApi-715a7a48474b52683272-build.zip"
+        }
+      },
+      "api": {
+        "apiQuestionsBank": {},
+        "FlashCardsApiGroup": {}
+      }
     }
   }
 }

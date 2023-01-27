@@ -2,8 +2,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
 import "./QuestionCardsS.scss";
-import { Paths, Question, pathGenerator } from "../../store/types";
 import { useNavigate } from "react-router-dom";
+import { Paths, Question, pathGenerator } from "../../../Apis/types";
 
 interface Props {
     currentQuestions: Question[];

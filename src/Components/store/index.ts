@@ -1,4 +1,4 @@
-import { Difficulty, Question, Tags } from "./types";
+import { Difficulty, Question, Tags } from "../../Apis/types";
 
 export let questionBank: Question[] = [
     {

@@ -4,8 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { Paths, pathGenerator } from "../store/types";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
+import { Paths, pathGenerator } from "../../Apis/types";
 
 export const NavBar = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {

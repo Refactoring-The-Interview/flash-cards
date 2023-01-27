@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./QuestionListS.scss";
-import { Question, FilterSetting, Difficulty, Tags } from "../store/types";
 import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCards } from "./QuestionCards/QuestionCards";
 import {
@@ -12,6 +11,7 @@ import {
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loading } from "../Loading/Loading";
+import { Difficulty, FilterSetting, Question, Tags } from "../../Apis/types";
 
 export const QuestionList = () => {
     const { questions, setQuestions } = useContext(MyQuestionContext);
@@ -56,15 +56,13 @@ export const QuestionList = () => {
     }
 
     return (
-        <MyQuestionContext.Provider value={{ questions, setQuestions }}>
-            <div className="QuestionList">
-                <AddQuestionForm />
-                <div className="filter-container">
-                    <QuestionFilters filterSettings={setFilterSettings} />
-                </div>
-
-                <QuestionCards currentQuestions={currentQuestions} />
+        <div className="QuestionList">
+            <AddQuestionForm />
+            <div className="filter-container">
+                <QuestionFilters filterSettings={setFilterSettings} />
             </div>
-        </MyQuestionContext.Provider>
+
+            <QuestionCards currentQuestions={currentQuestions} />
+        </div>
     );
 };

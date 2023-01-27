@@ -1,5 +1,5 @@
 {
-  "Description": "Root Stack for AWS Amplify CLI",
+  "Description": "Root Stack for AWS Amplify Console",
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "DeploymentBucketName": {
@@ -149,6 +149,38 @@
         },
         "RoleName": {
           "Ref": "UnauthRoleName"
+        }
+      }
+    },
+    "functionQuestionApi": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/function/QuestionApi-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/QuestionApi-715a7a48474b52683272-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "apiFlashCardsApiGroup": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/api/FlashCardsApiGroup-cloudformation-template.json",
+        "Parameters": {
+          "functionQuestionApiName": {
+            "Fn::GetAtt": [
+              "functionQuestionApi",
+              "Outputs.Name"
+            ]
+          },
+          "functionQuestionApiArn": {
+            "Fn::GetAtt": [
+              "functionQuestionApi",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "dev"
         }
       }
     }
