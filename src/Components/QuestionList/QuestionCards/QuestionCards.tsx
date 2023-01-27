@@ -4,6 +4,7 @@ import { QuestionTags } from "../QuestionTags/QuestionTags";
 import "./QuestionCardsS.scss";
 import { useNavigate } from "react-router-dom";
 import { Paths, Question, pathGenerator } from "../../../Apis/types";
+import { QuestionCard } from "../QuestionCard/QuestionCard";
 
 interface Props {
     currentQuestions: Question[];
@@ -14,9 +15,6 @@ export const QuestionCards = ({ currentQuestions }: Props) => {
     return (
         <div className="QuestionCard">
             {currentQuestions.map((question: Question, index: number) => {
-                let answeredColor = question.correct
-                    ? "outline-success"
-                    : "outline-danger";
                 return (
                     <Button
                         variant="outline-light"
@@ -29,22 +27,7 @@ export const QuestionCards = ({ currentQuestions }: Props) => {
                             );
                         }}
                     >
-                        <Card className="listItem">
-                            <Card.Header>
-                                <Card.Text className="listItem-text">
-                                    {question.answer}
-                                </Card.Text>
-                                <span
-                                    className={`difficulty ${question.difficulty}`}
-                                ></span>
-                            </Card.Header>
-                            <Card.Body>
-                                <Button variant={`${answeredColor}`} disabled>
-                                    Answered
-                                </Button>
-                                <QuestionTags tags={question.tags} />
-                            </Card.Body>
-                        </Card>
+                        <QuestionCard question={question} />
                     </Button>
                 );
             })}

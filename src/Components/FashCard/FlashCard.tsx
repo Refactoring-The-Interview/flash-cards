@@ -8,6 +8,7 @@ import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loader } from "@aws-amplify/ui-react";
 import { Question } from "../../Apis/types";
+import { DeleteQuestionButton } from "../DeleteQuestionButton/DeleteQuestionButtton";
 
 const getQuestions = (
     questions: Question[],
@@ -51,17 +52,7 @@ const FlashCard = () => {
             <ArrayMethods cardQuestion={currentQuestion} />
             <div className="FlashCardFooter">
                 <Card.Footer className="cardFooter">
-                    <Button
-                        type="button"
-                        variant="danger"
-                        onClick={(e) => {
-                            // console.log(currentQuestion); call is working here with data
-                            // first time it loads its undefined here so ts gives issue
-                            deleteQuestion(currentQuestion as any);
-                        }}
-                    >
-                        Delete Question
-                    </Button>
+                    <DeleteQuestionButton />
 
                     <Button
                         type="button"
