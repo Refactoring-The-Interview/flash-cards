@@ -6,10 +6,10 @@ import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import { Paths } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
+import { Paths } from "../../Apis/types";
 
 function App() {
     const navigate = useNavigate();

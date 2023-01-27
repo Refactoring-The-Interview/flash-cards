@@ -3,8 +3,7 @@ import Card from "react-bootstrap/Card";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
 import "./QuestionCardsS.scss";
 import { useNavigate } from "react-router-dom";
-import { Question } from "../../../Apis/types";
-import { Paths, pathGenerator } from "../../store/types";
+import { Paths, Question, pathGenerator } from "../../../Apis/types";
 
 interface Props {
     currentQuestions: Question[];

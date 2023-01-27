@@ -1,6 +1,3 @@
-// move paths here
-export interface dummy {}
-
 export enum API {
     questions = "/questions",
     user = "/user",
@@ -36,3 +33,15 @@ export enum Tags {
     obj = "object",
     array = "array",
 }
+
+export enum Paths {
+    question = "/question/:questionId",
+    questionList = "/question-list",
+    login = "/login",
+    home = "/home",
+    contact = "/contact",
+}
+
+export const pathGenerator = {
+    [Paths.question]: (questionId: string) => `/question/${questionId}`,
+};
