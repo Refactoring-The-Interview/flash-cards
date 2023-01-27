@@ -1,9 +1,3 @@
-export enum API {
-    questions = "/questions",
-    user = "/user",
-    addQuestion = "/addToDataBase",
-}
-
 export interface Question {
     difficulty: Difficulty;
     question: string;
@@ -40,6 +34,18 @@ export enum Paths {
     login = "/login",
     home = "/home",
     contact = "/contact",
+}
+
+export enum API {
+    questions = "/questions",
+    user = "/user",
+    addQuestion = "/addToDataBase",
+}
+
+export enum FetchMethods {
+    post = "post",
+    get = "get",
+    delete = "delete",
 }
 
 export const pathGenerator = {

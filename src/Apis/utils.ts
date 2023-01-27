@@ -1,6 +1,8 @@
+import { FetchMethods } from "./types";
+
 export const get = async (url: string, options?: RequestInit) => {
     const requestOptions = {
-        method: "get",
+        method: FetchMethods.get,
         headers: { "Content-Type": "application/json" },
         ...options,
     };
@@ -10,7 +12,7 @@ export const get = async (url: string, options?: RequestInit) => {
 
 export const post = async (url: string, body: any, options?: RequestInit) => {
     const requestOptions = {
-        method: "post",
+        method: FetchMethods.post,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
         ...options,
