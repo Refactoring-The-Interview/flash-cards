@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
-import { Difficulty, FilterSetting } from "../../store/types";
+import { Difficulty, FilterSetting } from "../../../Apis/types";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;

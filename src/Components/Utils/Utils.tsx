@@ -1,4 +1,4 @@
-import { Difficulty, Question, Tags } from "../store/types";
+import { Difficulty, Question, Tags } from "../../Apis/types";
 
 export const isQuestionType = (question: Question, type: string) => {
     return question.tags.includes(type as Tags);

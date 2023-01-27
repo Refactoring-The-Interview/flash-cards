@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
-import { API, Question } from "../store/types";
+
 import { Button, Card, ListGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { API, Question } from "../../Apis/types";
 
 interface Props {
     cardQuestion: Question;
