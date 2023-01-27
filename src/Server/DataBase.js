@@ -22,8 +22,17 @@ const dbSetQuestion = (value, callback) => {
 };
 
 const dbDelete = (key, callback) => {
-    console.log(key, "key from server delete");
-    // callback(db.delete());
+    const questions = db.get("questions");
+    const newQuestions = questions.filter((questions) => {
+        return questions.id !== key.id;
+    });
+
+    try {
+        db.set("questions", newQuestions);
+    } catch (e) {
+        callback(e);
+    }
+    callback(newQuestions);
 };
 
 module.exports = {
