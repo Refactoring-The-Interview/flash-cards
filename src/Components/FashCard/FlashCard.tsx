@@ -3,11 +3,11 @@ import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
 import { Button, Card, CardGroup } from "react-bootstrap";
-import { Question } from "../store/types";
 import { useParams } from "react-router-dom";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loader } from "@aws-amplify/ui-react";
+import { Question } from "../../Apis/types";
 
 const getQuestions = (
     questions: Question[],

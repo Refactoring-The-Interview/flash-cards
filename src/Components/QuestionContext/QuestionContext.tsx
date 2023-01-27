@@ -1,8 +1,7 @@
 import { ReactNode, createContext } from "react";
-import { Question } from "../store/types";
+import { Question } from "../../Apis/types";
 import { useQuestions } from "./useQuestions";
 
-// move to types file
 export interface QuestionContext {
     questions: Question[];
     setQuestions(newQuestions: Question[]): void;

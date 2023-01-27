@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./AppS.scss";
 import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
@@ -6,7 +6,7 @@ import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
-import { Paths, API, Question } from "../store/types";
+import { Paths } from "../store/types";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
 import { MyQuestionProvider } from "../QuestionContext/QuestionContext";

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getQuestions } from "../../Apis/Questions/getQuestions";
-import { Question } from "../store/types";
+import { Question } from "../../Apis/types";
+
 import { QuestionContext } from "./QuestionContext";
 import { postQuestion } from "../../Apis/Questions/postQuestion";
 

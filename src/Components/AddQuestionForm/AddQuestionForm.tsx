@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import "./AddQuestionFormS.scss";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { API, Difficulty, Question, Tags } from "../store/types";
 import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { Difficulty, Tags } from "../../Apis/types";
 
 interface Props {
     difficulty: Difficulty;

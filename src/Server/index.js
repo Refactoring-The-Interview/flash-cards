@@ -26,7 +26,7 @@ app.post("/delete", (req, res) => {
     });
 });
 
-app.get("/question", (req, res) => {
+app.get("/questions", (req, res) => {
     dbGet("questions", (data, error) => {
         if (error) {
             res.status(400).send(error);

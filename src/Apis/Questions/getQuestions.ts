@@ -1,6 +1,6 @@
-import { API, Question } from "../../Components/store/types";
+import { API, Question } from "../types";
 import { get } from "../utils";
 
 export const getQuestions = (): Promise<Question[]> => {
-    return get(API.question);
+    return get(API.questions);
 };
