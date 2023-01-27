@@ -13,27 +13,12 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
-    const { questions } = useContext(MyQuestionContext);
+    const { addQuestion } = useContext(MyQuestionContext);
 
     useEffect(() => {
         setIsDisabled(false);
         setIsCorrect("");
     }, [question]);
-
-    useEffect(() => {
-        const requestOptions = {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: "questions",
-                questions: questions,
-            }),
-        };
-
-        fetch(API.addQuestion, requestOptions).then((res) =>
-            console.log(res.status)
-        );
-    }, [questions]);
 
     return (
         <div className="ArrayMethods">
