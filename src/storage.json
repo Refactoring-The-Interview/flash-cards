@@ -156,6 +156,38 @@
             ],
             "id": "0",
             "correct": false
+        },
+        {
+            "difficulty": "medium",
+            "question": "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
+            "answer": "Array.flat()",
+            "answers": [
+                "Array.flat()",
+                "Array.flatMap()",
+                "Array.concat()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": true,
+            "id": "5"
+        },
+        {
+            "difficulty": "medium",
+            "question": "What method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.",
+            "answer": "Array.find()",
+            "answers": [
+                "Array.findIndex()",
+                "Array.findLast()",
+                "Array.find()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": true,
+            "id": "2"
         }
     ]
 }

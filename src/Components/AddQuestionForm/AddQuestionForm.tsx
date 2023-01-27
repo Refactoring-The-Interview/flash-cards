@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./AddQuestionFormS.scss";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -6,12 +6,7 @@ import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Difficulty, Tags } from "../../Apis/types";
 
-interface Props {
-    difficulty: Difficulty;
-    setDifficulty(newDifficulty: Difficulty): void;
-}
-
-const AddQuestionForm = (props: any) => {
+const AddQuestionForm = () => {
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.none);
     const [question, setQuestion] = useState<string>("");
     const [answer, setAnswer] = useState<string>("");

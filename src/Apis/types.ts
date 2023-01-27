@@ -40,6 +40,7 @@ export enum API {
     questions = "/questions",
     user = "/user",
     addQuestion = "/addToDataBase",
+    deleteItem = "/deleteItem",
 }
 
 export enum FetchMethods {

@@ -20,7 +20,7 @@ const FlashCard = () => {
     const { questionId } = useParams();
     // TODO add next question functionality
     const randomQuestion = useRandomQuestion();
-    const { questions } = useContext(MyQuestionContext);
+    const { questions, deleteQuestion } = useContext(MyQuestionContext);
 
     // todo convert to state for next question functionality?
     let currentQuestion = getQuestions(questions, questionId);
@@ -51,6 +51,18 @@ const FlashCard = () => {
             <ArrayMethods cardQuestion={currentQuestion} />
             <div className="FlashCardFooter">
                 <Card.Footer className="cardFooter">
+                    <Button
+                        type="button"
+                        variant="danger"
+                        onClick={(e) => {
+                            // console.log(currentQuestion); call is working here with data
+                            // first time it loads its undefined here so ts gives issue
+                            deleteQuestion(currentQuestion as any);
+                        }}
+                    >
+                        Delete Question
+                    </Button>
+
                     <Button
                         type="button"
                         variant="secondary"
