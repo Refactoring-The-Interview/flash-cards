@@ -7,6 +7,7 @@ import { Question } from "../store/types";
 import { useParams } from "react-router-dom";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { Loader } from "@aws-amplify/ui-react";
 
 const getQuestions = (
     questions: Question[],
@@ -24,7 +25,12 @@ const FlashCard = () => {
     // todo convert to state for next question functionality?
     let currentQuestion = getQuestions(questions, questionId);
 
-    if (!currentQuestion) return <h2>Oops, couldn't find questions!</h2>;
+    if (!currentQuestion)
+        return (
+            <h2>
+                <Loader />
+            </h2>
+        );
 
     return (
         <Card>

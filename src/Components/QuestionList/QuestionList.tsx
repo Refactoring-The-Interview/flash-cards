@@ -11,6 +11,7 @@ import {
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { Loading } from "../Loading/Loading";
 
 export const QuestionList = () => {
     const { questions, setQuestions } = useContext(MyQuestionContext);
@@ -47,7 +48,11 @@ export const QuestionList = () => {
     }, [filterSettings, questions]);
 
     if (questions.length === 0) {
-        return <h1>loading Questions...</h1>;
+        return (
+            <h1>
+                <Loading />
+            </h1>
+        );
     }
 
     return (
