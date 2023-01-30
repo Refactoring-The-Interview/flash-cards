@@ -8,6 +8,7 @@ import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loader } from "@aws-amplify/ui-react";
 import { Question } from "../../Apis/types";
+import { DeleteQuestionButton } from "../DeleteQuestionButton/DeleteQuestionButtton";
 
 const getQuestions = (
     questions: Question[],
@@ -21,59 +22,50 @@ const FlashCard = () => {
     // TODO add next question functionality
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const randomQuestion = useRandomQuestion();
-    const { questions, deleteQuestion } = useContext(MyQuestionContext);
+    const { questions } = useContext(MyQuestionContext);
 
     let currentQuestion = getQuestions(questions, questionId);
 
-    if (!currentQuestion)
+    if (!currentQuestion) {
         return (
             <h2>
                 <Loader />
             </h2>
         );
+    } else {
+        return (
+            <Card>
+                <div className="FlashCardHeader">
+                    <Card.Header className="cardHeader">
+                        <div className="FlashCardHeader-timer">
+                            <Timer />
+                        </div>
 
-    return (
-        <Card>
-            <div className="FlashCardHeader">
-                <Card.Header className="cardHeader">
-                    <div className="FlashCardHeader-timer">
-                        <Timer />
-                    </div>
+                        <CardGroup className="FlashCardHeader-buttons">
+                            <Button type="button" variant="secondary">
+                                Submit
+                            </Button>
+                        </CardGroup>
+                    </Card.Header>
+                </div>
 
-                    <CardGroup className="FlashCardHeader-buttons">
-                        <Button type="button" variant="secondary">
-                            Submit
+                <ArrayMethods cardQuestion={currentQuestion} />
+                <div className="FlashCardFooter">
+                    <Card.Footer className="cardFooter">
+                        <DeleteQuestionButton question={currentQuestion} />
+
+                        <Button
+                            type="button"
+                            variant="secondary"
+                            onClick={(e) => {}}
+                        >
+                            Next Question
                         </Button>
-                    </CardGroup>
-                </Card.Header>
-            </div>
-
-            <ArrayMethods cardQuestion={currentQuestion} />
-            <div className="FlashCardFooter">
-                <Card.Footer className="cardFooter">
-                    <Button
-                        type="button"
-                        variant="danger"
-                        onClick={(e) => {
-                            // console.log(currentQuestion); call is working here with data
-                            // first time it loads its undefined here so ts gives issue
-                            deleteQuestion(currentQuestion as any);
-                        }}
-                    >
-                        Delete Question
-                    </Button>
-
-                    <Button
-                        type="button"
-                        variant="secondary"
-                        onClick={(e) => {}}
-                    >
-                        Next Question
-                    </Button>
-                </Card.Footer>
-            </div>
-        </Card>
-    );
+                    </Card.Footer>
+                </div>
+            </Card>
+        );
+    }
 };
 
 export default FlashCard;

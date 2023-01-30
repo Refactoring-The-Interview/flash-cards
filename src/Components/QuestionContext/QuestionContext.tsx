@@ -6,7 +6,7 @@ export interface QuestionContext {
     questions: Question[];
     setQuestions(newQuestions: Question[]): void;
     addQuestion(question: Question): void;
-    deleteQuestion(question: Question): void;
+    deleteQuestion(questionId: string): void;
 }
 
 export const MyQuestionContext = createContext<QuestionContext>({

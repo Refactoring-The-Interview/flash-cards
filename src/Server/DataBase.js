@@ -24,7 +24,7 @@ const dbSetQuestion = (value, callback) => {
 const dbDelete = (key, callback) => {
     const questions = db.get("questions");
     const newQuestions = questions.filter((questions) => {
-        return questions.id !== key.id;
+        return questions.id !== key;
     });
 
     try {

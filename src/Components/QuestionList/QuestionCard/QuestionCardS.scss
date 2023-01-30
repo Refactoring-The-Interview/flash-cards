@@ -1,0 +1,50 @@
+@import "../../../Sass/main.scss";
+
+.QuestionCard {
+    .listItem.card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 20rem;
+
+        .listItem-text {
+            color: black;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: center;
+        }
+
+        .difficulty {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1rem;
+            height: 1rem;
+            border-right: 4rem solid transparent;
+
+            &.none {
+                border-top: 4rem solid $purple;
+            }
+
+            &.easy {
+                border-top: 4rem solid $success;
+            }
+            &.medium {
+                border-top: 4rem solid $warning;
+            }
+
+            &.hard {
+                border-top: 4rem solid $danger;
+            }
+        }
+
+        .badge {
+            margin-right: 0.4rem;
+        }
+    }
+}

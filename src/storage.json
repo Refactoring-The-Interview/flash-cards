@@ -18,38 +18,6 @@
     },
     "questions": [
         {
-            "difficulty": "easy",
-            "question": "What method is used to method create a new array populated with the results of calling a provided function on every element in the calling array.",
-            "answer": "Array.map()",
-            "answers": [
-                "Array.map()",
-                "Array.forEach()",
-                "Array.every()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": true,
-            "id": "1"
-        },
-        {
-            "difficulty": "medium",
-            "question": "What method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.",
-            "answer": "Array.find()",
-            "answers": [
-                "Array.findIndex()",
-                "Array.findLast()",
-                "Array.find()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": false,
-            "id": "2"
-        },
-        {
             "difficulty": "medium",
             "question": "what method executes a provided function once for each array element.",
             "answer": "Array.forEach()",
@@ -114,50 +82,6 @@
             "id": "6"
         },
         {
-            "difficulty": "none",
-            "question": "3",
-            "answer": "goodbye",
-            "answers": [
-                "goodbye",
-                " stop",
-                " poop"
-            ],
-            "tags": [
-                "object",
-                "Js"
-            ],
-            "id": "1"
-        },
-        {
-            "difficulty": "hard",
-            "question": "asdfasdf",
-            "answer": "asdfasdf",
-            "answers": [
-                "asdfasdf"
-            ],
-            "tags": [
-                "Js"
-            ],
-            "id": "8",
-            "correct": false
-        },
-        {
-            "difficulty": "none",
-            "question": "",
-            "answer": "goodbye",
-            "answers": [
-                "goodbye",
-                " stop",
-                " poop"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "id": "0",
-            "correct": false
-        },
-        {
             "difficulty": "medium",
             "question": "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
             "answer": "Array.flat()",
@@ -172,22 +96,6 @@
             ],
             "correct": true,
             "id": "5"
-        },
-        {
-            "difficulty": "medium",
-            "question": "What method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.",
-            "answer": "Array.find()",
-            "answers": [
-                "Array.findIndex()",
-                "Array.findLast()",
-                "Array.find()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": true,
-            "id": "2"
         }
     ]
 }
