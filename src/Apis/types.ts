@@ -9,7 +9,7 @@ export interface Question {
 }
 
 export interface FilterSetting {
-    type: string;
+    type: Tags;
     name: string;
     hideCorrect: boolean;
     difficulty: Difficulty;

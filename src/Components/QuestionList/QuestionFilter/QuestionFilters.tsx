@@ -5,6 +5,7 @@ import "./QuestionFiltersS.scss";
 import { useState } from "react";
 import { Difficulty, FilterSetting, Tags } from "../../../Apis/types";
 import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
+import { TypeSelect } from "./TypeSelect/TypeSelect";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
@@ -18,11 +19,11 @@ const filterSettingsDefault = {
 };
 
 export const QuestionFilters = ({ filterSettings }: Props) => {
-    const [typeSelect, setTypeSelect] = useState<string>("");
+    const [typeSelect, setTypeSelect] = useState<string>(Tags.js);
     const [nameSearch, setNameSearch] = useState<string>("");
-    const [difficulty, setDifficulty] = useState<Difficulty | string>(
-        Difficulty.none
-    );
+    // const [difficulty, setDifficulty] = useState<Difficulty | string>(
+    //     Difficulty.none
+    // );
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
     const [questionFilter, setQuestionFilter] = useState<FilterSetting>(
         filterSettingsDefault
@@ -47,11 +48,13 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                         <Form
                             onSubmit={(e) => {
                                 e.preventDefault();
+                                const { difficulty, type, name, hideCorrect } =
+                                    questionFilter;
                                 filterSettings({
-                                    type: typeSelect,
-                                    name: nameSearch,
+                                    type: type,
+                                    name: name,
                                     hideCorrect: hideCorrect,
-                                    difficulty: difficulty as Difficulty,
+                                    difficulty: difficulty,
                                 });
                             }}
                         >
@@ -65,19 +68,10 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     value={nameSearch}
                                 />
                             </Form.Group>
-                            <Form.Group className="mb-2">
-                                <Form.Select
-                                    className="select-bar"
-                                    aria-label="Default select example"
-                                    onChange={(e) => {
-                                        setTypeSelect(e.target.value);
-                                    }}
-                                >
-                                    <option value="Js">Type</option>
-                                    <option value="array">Array</option>
-                                    <option value="object">Objects</option>
-                                </Form.Select>
-                            </Form.Group>
+                            <TypeSelect
+                                value={questionFilter.type}
+                                setValue={() => {}}
+                            />
 
                             <DifficultySelect
                                 value={questionFilter.difficulty}
