@@ -1,7 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./QuestionCardS.scss";
-import { Question } from "../../../Apis/types";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
 
 export const QuestionCard = ({ question }: any) => {

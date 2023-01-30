@@ -22,7 +22,7 @@ const FlashCard = () => {
     // TODO add next question functionality
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const randomQuestion = useRandomQuestion();
-    const { questions, deleteQuestion } = useContext(MyQuestionContext);
+    const { questions } = useContext(MyQuestionContext);
 
     let currentQuestion = getQuestions(questions, questionId);
 
