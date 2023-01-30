@@ -3,32 +3,23 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
-import { Difficulty, FilterSetting } from "../../../Apis/types";
+import { FilterSetting, filterSettingsDefault } from "../../../Apis/types";
+import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
+import { TypeSelect } from "./TypeSelect/TypeSelect";
+import { SearchBar } from "./SearchBar/SearchBar";
+import { Checkbox } from "./CheckBox/CheckBox";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
 }
 
 export const QuestionFilters = ({ filterSettings }: Props) => {
-    const filterSettingsDefault = {
-        type: "Js",
-        name: "",
-        hideCorrect: false,
-        difficulty: "" as Difficulty,
-    };
-    const [typeSelect, setTypeSelect] = useState<string>("");
-    const [nameSearch, setNameSearch] = useState<string>("");
-    const [difficulty, setDifficulty] = useState<Difficulty | string>(
-        Difficulty.none
+    const [questionFilter, setQuestionFilter] = useState<FilterSetting>(
+        filterSettingsDefault
     );
-    const [hideCorrect, setHideCorrect] = useState<boolean>(false);
 
     const formReset = () => {
-        setTypeSelect("");
-        setNameSearch("");
-        setDifficulty(Difficulty.none);
-        setHideCorrect(false);
-        filterSettings(filterSettingsDefault);
+        setQuestionFilter(filterSettingsDefault);
     };
 
     return (
@@ -40,66 +31,53 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                         <Form
                             onSubmit={(e) => {
                                 e.preventDefault();
+                                const { difficulty, type, name, hideCorrect } =
+                                    questionFilter;
                                 filterSettings({
-                                    type: typeSelect,
-                                    name: nameSearch,
+                                    type: type,
+                                    name: name,
                                     hideCorrect: hideCorrect,
-                                    difficulty: difficulty as Difficulty,
+                                    difficulty: difficulty,
                                 });
                             }}
                         >
-                            <Form.Group className="mb-2">
-                                <Form.Control
-                                    onChange={(e) => {
-                                        setNameSearch(e.target.value);
-                                    }}
-                                    type="search"
-                                    placeholder="Search"
-                                    value={nameSearch}
-                                />
-                            </Form.Group>
-                            <Form.Group className="mb-2">
-                                <Form.Select
-                                    className="select-bar"
-                                    aria-label="Default select example"
-                                    onChange={(e) => {
-                                        setTypeSelect(e.target.value);
-                                    }}
-                                >
-                                    <option value="Js">Type</option>
-                                    <option value="array">Array</option>
-                                    <option value="object">Objects</option>
-                                </Form.Select>
-                            </Form.Group>
+                            <SearchBar
+                                value={questionFilter.name}
+                                setValue={(name) => {
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        name,
+                                    });
+                                }}
+                            />
 
-                            <Form.Group className="mb-2">
-                                <Form.Select
-                                    className="select-bar"
-                                    aria-label="Default select example"
-                                    placeholder="Difficulty"
-                                    onChange={(e) => {
-                                        setDifficulty(e.target.value);
-                                    }}
-                                >
-                                    <option value="">Difficulty</option>
-                                    <option value="easy">Easy</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="hard">Hard</option>
-                                </Form.Select>
-                            </Form.Group>
-
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicCheckbox"
-                            >
-                                <Form.Check
-                                    type="checkbox"
-                                    label="Hide Answered"
-                                    onChange={(e) => {
-                                        setHideCorrect(!hideCorrect);
-                                    }}
-                                />
-                            </Form.Group>
+                            <TypeSelect
+                                value={questionFilter.type}
+                                setValue={(type) => {
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        type,
+                                    });
+                                }}
+                            />
+                            <DifficultySelect
+                                value={questionFilter.difficulty}
+                                setValue={(difficulty) =>
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        difficulty,
+                                    })
+                                }
+                            />
+                            <Checkbox
+                                value={questionFilter.hideCorrect}
+                                setValue={(hideCorrect) => {
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        hideCorrect,
+                                    });
+                                }}
+                            />
 
                             <Form.Group className="buttons">
                                 <Button variant="primary" type="submit">

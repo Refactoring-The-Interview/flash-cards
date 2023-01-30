@@ -9,17 +9,17 @@ export interface Question {
 }
 
 export interface FilterSetting {
-    type: string;
+    type: Tags;
     name: string;
     hideCorrect: boolean;
-    difficulty?: Difficulty;
+    difficulty: Difficulty;
 }
 
 export enum Difficulty {
     easy = "easy",
     medium = "medium",
     hard = "hard",
-    none = "none",
+    none = "",
 }
 
 export enum Tags {
@@ -51,4 +51,11 @@ export enum FetchMethods {
 
 export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
+};
+
+export const filterSettingsDefault = {
+    type: Tags.js,
+    name: "",
+    hideCorrect: false,
+    difficulty: Difficulty.none,
 };

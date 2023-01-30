@@ -5,11 +5,7 @@ import "./QuestionCardsS.scss";
 import { useNavigate } from "react-router-dom";
 import { Paths, Question, pathGenerator } from "../../../Apis/types";
 
-interface Props {
-    currentQuestions: Question[];
-}
-
-export const QuestionCards = ({ currentQuestions }: Props) => {
+export const QuestionCards = ({ currentQuestions }: any) => {
     const navigate = useNavigate();
     return (
         <div className="QuestionCard">
