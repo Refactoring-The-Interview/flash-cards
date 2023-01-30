@@ -9,7 +9,7 @@ interface Props {
     currentQuestions: Question[];
 }
 
-export const QuestionCards = ({ currentQuestions }: Props) => {
+export const QuestionCards = ({ currentQuestions }: any) => {
     const navigate = useNavigate();
     return (
         <div className="QuestionCard">

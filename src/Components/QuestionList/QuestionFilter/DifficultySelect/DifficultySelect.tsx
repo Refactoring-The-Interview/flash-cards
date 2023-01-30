@@ -1,5 +1,5 @@
 import Form from "react-bootstrap/Form";
-import "./QuestionFiltersS.scss";
+import "../QuestionFiltersS.scss";
 
 import { Difficulty } from "../../../../Apis/types";
 
