@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { Paths, pathGenerator } from "../../Apis/types";
+import { LoggedIn } from "./LoggedIn/LoggedIn";
 
 export const NavBar = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -27,7 +28,12 @@ export const NavBar = () => {
                         <Nav className="me-auto">
                             <Nav.Link href={Paths.home}>Home</Nav.Link>
 
-                            {isEmail && (
+                            <LoggedIn
+                                path={randomQuestionPath}
+                                value={userInfo}
+                                setValue={setUserInfo}
+                            />
+                            {/* {isEmail && (
                                 <>
                                     <Nav.Link href={Paths.questionList}>
                                         Question List
@@ -76,7 +82,7 @@ export const NavBar = () => {
                                         </NavDropdown.Item>
                                     </>
                                 )}
-                            </NavDropdown>
+                            </NavDropdown> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
