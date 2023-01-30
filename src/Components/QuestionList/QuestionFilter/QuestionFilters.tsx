@@ -19,11 +19,7 @@ const filterSettingsDefault = {
 };
 
 export const QuestionFilters = ({ filterSettings }: Props) => {
-    const [typeSelect, setTypeSelect] = useState<string>(Tags.js);
     const [nameSearch, setNameSearch] = useState<string>("");
-    // const [difficulty, setDifficulty] = useState<Difficulty | string>(
-    //     Difficulty.none
-    // );
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
     const [questionFilter, setQuestionFilter] = useState<FilterSetting>(
         filterSettingsDefault
@@ -70,7 +66,12 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                             </Form.Group>
                             <TypeSelect
                                 value={questionFilter.type}
-                                setValue={() => {}}
+                                setValue={(type) => {
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        type,
+                                    });
+                                }}
                             />
 
                             <DifficultySelect

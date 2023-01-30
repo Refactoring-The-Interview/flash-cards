@@ -3,7 +3,7 @@ import { Tags } from "../../../../Apis/types";
 
 interface TypeProps {
     value: Tags;
-    setValue(tag: Tags): void;
+    setValue(type: Tags): void;
 }
 
 export const TypeSelect = ({ value, setValue }: TypeProps) => {
@@ -17,9 +17,9 @@ export const TypeSelect = ({ value, setValue }: TypeProps) => {
                     setValue(e.target.value as Tags);
                 }}
             >
-                <option value="Js">Type</option>
-                <option value="array">Array</option>
-                <option value="object">Objects</option>
+                <option value={Tags.js}>Type</option>
+                <option value={Tags.array}>Array</option>
+                <option value={Tags.obj}>Objects</option>
             </Form.Select>
         </Form.Group>
     );
