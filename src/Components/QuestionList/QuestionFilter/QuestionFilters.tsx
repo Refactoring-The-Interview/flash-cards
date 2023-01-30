@@ -26,12 +26,6 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
     );
 
     const formReset = () => {
-        // setTypeSelect("");
-        // setNameSearch("");
-        // setDifficulty(Difficulty.none);
-        // setHideCorrect(false);
-        // filterSettings(filterSettingsDefault);
-
         setQuestionFilter(filterSettingsDefault);
     };
 
@@ -73,7 +67,6 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     });
                                 }}
                             />
-
                             <DifficultySelect
                                 value={questionFilter.difficulty}
                                 setValue={(difficulty) =>

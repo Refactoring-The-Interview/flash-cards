@@ -14,7 +14,12 @@ export const TypeSelect = ({ value, setValue }: TypeProps) => {
                 aria-label="Default select example"
                 value={value}
                 onChange={(e) => {
-                    setValue(e.target.value as Tags);
+                    const value = e.target.value as Tags;
+                    if (Object.values(Tags).includes(value)) {
+                        setValue(value);
+                    } else {
+                        console.error("Non-Type value selected");
+                    }
                 }}
             >
                 <option value={Tags.js}>Type</option>
