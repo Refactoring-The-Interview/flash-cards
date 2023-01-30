@@ -1,4 +1,6 @@
 import Modal from "react-bootstrap/Modal";
+import iconSprite from "../../Assets/sprite.svg";
+import "./DeleteQuestionButtonS.scss";
 import { deleteQuestion } from "../../Apis/Questions/deleteQuestion";
 import { Question } from "../../Apis/types";
 import { QuestionCard } from "../QuestionList/QuestionCard/QuestionCard";
@@ -11,7 +13,7 @@ interface Props {
 export const DeleteQuestionButton = ({ question }: Props) => {
     return (
         <ConfirmButton
-            variant="danger"
+            variant="outline-danger"
             onConfirm={() => {
                 deleteQuestion(question.id);
             }}
@@ -19,11 +21,16 @@ export const DeleteQuestionButton = ({ question }: Props) => {
             modalBody={
                 <>
                     <Modal.Title>Question to delete</Modal.Title>
+
                     <QuestionCard question={question} />
                 </>
             }
         >
-            Delete Question
+            <div className="trash-can">
+                <svg>
+                    <use xlinkHref={`${iconSprite}#icon-trash-can`}></use>
+                </svg>
+            </div>
         </ConfirmButton>
     );
 };

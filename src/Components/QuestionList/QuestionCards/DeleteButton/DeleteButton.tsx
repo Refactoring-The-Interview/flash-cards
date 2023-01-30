@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Button } from "react-bootstrap";
-import { DeleteQuestionButton } from "../../../DeleteQuestionButton/DeleteQuestionButtton";
+import { DeleteQuestionButton } from "../../../DeleteQuestionButton/DeleteQuestionButton";
 import { Question } from "../../../../Apis/types";
+import iconSprite from "../../../../Assets/sprite.svg";
+import "./DeleteButtonS.scss";
 
 interface Props {
     question: Question;
@@ -9,7 +9,7 @@ interface Props {
 
 export const DeleteButton = ({ question }: Props) => {
     return (
-        <div>
+        <div className="DeleteButton">
             <DeleteQuestionButton question={question} />
         </div>
     );

@@ -64,7 +64,6 @@ export const QuestionList = () => {
 
             <QuestionCards
                 currentQuestions={currentQuestions}
-                setShowDelete={setShowDelete}
                 showDelete={showDelete}
             />
         </div>

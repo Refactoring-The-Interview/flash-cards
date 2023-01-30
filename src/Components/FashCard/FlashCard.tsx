@@ -8,7 +8,6 @@ import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loader } from "@aws-amplify/ui-react";
 import { Question } from "../../Apis/types";
-import { DeleteQuestionButton } from "../DeleteQuestionButton/DeleteQuestionButtton";
 
 const getQuestions = (
     questions: Question[],
