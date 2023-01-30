@@ -2,10 +2,11 @@ import "./NavBarS.scss";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { Paths, pathGenerator } from "../../Apis/types";
+import { LoggedIn } from "./LoggedIn/LoggedIn";
+import { LoggedOut } from "./LoggedOut/LoggedOut";
 
 export const NavBar = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -27,56 +28,15 @@ export const NavBar = () => {
                         <Nav className="me-auto">
                             <Nav.Link href={Paths.home}>Home</Nav.Link>
 
+                            {!isEmail && <LoggedOut />}
+
                             {isEmail && (
-                                <>
-                                    <Nav.Link href={Paths.questionList}>
-                                        Question List
-                                    </Nav.Link>
-                                    <Nav.Link href={randomQuestionPath}>
-                                        Random Question
-                                    </Nav.Link>
-                                </>
+                                <LoggedIn
+                                    path={randomQuestionPath}
+                                    value={userInfo}
+                                    setValue={setUserInfo}
+                                />
                             )}
-
-                            <NavDropdown
-                                title={isEmail ? userInfo.email : "Sign Up"}
-                                id="basic-nav-dropdown"
-                            >
-                                {isEmail && (
-                                    <NavDropdown.Item href="#action/3.1">
-                                        Profile
-                                    </NavDropdown.Item>
-                                )}
-                                <NavDropdown.Item href={Paths.contact}>
-                                    Contact
-                                </NavDropdown.Item>
-
-                                {!isEmail && (
-                                    <>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item href={Paths.login}>
-                                            Sign Up
-                                        </NavDropdown.Item>
-                                    </>
-                                )}
-
-                                {isEmail && (
-                                    <>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item
-                                            onClick={() => {
-                                                setUserInfo({
-                                                    email: "",
-                                                    password: "",
-                                                });
-                                            }}
-                                            href={Paths.login}
-                                        >
-                                            Logout
-                                        </NavDropdown.Item>
-                                    </>
-                                )}
-                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

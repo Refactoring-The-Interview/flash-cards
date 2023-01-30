@@ -15,6 +15,11 @@ export interface FilterSetting {
     difficulty: Difficulty;
 }
 
+export interface userInfo {
+    email: string;
+    password: string;
+}
+
 export enum Difficulty {
     easy = "easy",
     medium = "medium",
