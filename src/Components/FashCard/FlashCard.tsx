@@ -52,8 +52,6 @@ const FlashCard = () => {
                 <ArrayMethods cardQuestion={currentQuestion} />
                 <div className="FlashCardFooter">
                     <Card.Footer className="cardFooter">
-                        <DeleteQuestionButton question={currentQuestion} />
-
                         <Button
                             type="button"
                             variant="secondary"

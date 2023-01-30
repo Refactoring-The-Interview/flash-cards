@@ -8,9 +8,13 @@ import {
     pathGenerator,
 } from "../../../Apis/types";
 import { QuestionCard } from "../QuestionCard/QuestionCard";
+import { DeleteQuestionButton } from "../../DeleteQuestionButton/DeleteQuestionButtton";
+import { DeleteButton } from "./DeleteButton/DeleteButton";
 
 interface Props {
     currentQuestions: Question[];
+    showDelete: boolean;
+    setShowDelete(showDelete: boolean): void;
 }
 
 const cardOrder = (difficulty: Difficulty): number => {
@@ -27,7 +31,11 @@ const cardOrder = (difficulty: Difficulty): number => {
     }
 };
 
-export const QuestionCards = ({ currentQuestions }: Props) => {
+export const QuestionCards = ({
+    currentQuestions,
+    showDelete,
+    setShowDelete,
+}: Props) => {
     const navigate = useNavigate();
     return (
         <div className="QuestionCard">
@@ -37,19 +45,24 @@ export const QuestionCards = ({ currentQuestions }: Props) => {
                 )
                 .map((question: Question, index: number) => {
                     return (
-                        <Button
-                            variant="outline-light"
-                            size="lg"
-                            className="listBtn"
-                            key={index}
-                            onClick={(e) => {
-                                navigate(
-                                    pathGenerator[Paths.question](question.id)
-                                );
-                            }}
-                        >
-                            <QuestionCard question={question} />
-                        </Button>
+                        <div>
+                            {showDelete && <DeleteButton question={question} />}
+                            <Button
+                                variant="outline-light"
+                                size="lg"
+                                className="listBtn"
+                                key={index}
+                                onClick={(e) => {
+                                    navigate(
+                                        pathGenerator[Paths.question](
+                                            question.id
+                                        )
+                                    );
+                                }}
+                            >
+                                <QuestionCard question={question} />
+                            </Button>
+                        </div>
                     );
                 })}
         </div>
