@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Difficulty, FilterSetting, Tags } from "../../../Apis/types";
 import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
 import { TypeSelect } from "./TypeSelect/TypeSelect";
+import { SearchBar } from "./SearchBar/SearchBar";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
@@ -19,7 +20,6 @@ const filterSettingsDefault = {
 };
 
 export const QuestionFilters = ({ filterSettings }: Props) => {
-    const [nameSearch, setNameSearch] = useState<string>("");
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
     const [questionFilter, setQuestionFilter] = useState<FilterSetting>(
         filterSettingsDefault
@@ -48,16 +48,16 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                 });
                             }}
                         >
-                            <Form.Group className="mb-2">
-                                <Form.Control
-                                    onChange={(e) => {
-                                        setNameSearch(e.target.value);
-                                    }}
-                                    type="search"
-                                    placeholder="Search"
-                                    value={nameSearch}
-                                />
-                            </Form.Group>
+                            <SearchBar
+                                value={questionFilter.name}
+                                setValue={(name) => {
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        name,
+                                    });
+                                }}
+                            />
+
                             <TypeSelect
                                 value={questionFilter.type}
                                 setValue={(type) => {
