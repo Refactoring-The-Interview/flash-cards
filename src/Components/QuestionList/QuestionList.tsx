@@ -20,7 +20,7 @@ import {
 } from "../../Apis/types";
 
 export const QuestionList = () => {
-    const { questions, setQuestions } = useContext(MyQuestionContext);
+    const { questions } = useContext(MyQuestionContext);
     const [filterSettings, setFilterSettings] = useState<FilterSetting>(
         filterSettingsDefault
     );
