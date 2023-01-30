@@ -19,10 +19,10 @@ const getQuestions = (
 const FlashCard = () => {
     const { questionId } = useParams();
     // TODO add next question functionality
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const randomQuestion = useRandomQuestion();
     const { questions, deleteQuestion } = useContext(MyQuestionContext);
 
-    // todo convert to state for next question functionality?
     let currentQuestion = getQuestions(questions, questionId);
 
     if (!currentQuestion)

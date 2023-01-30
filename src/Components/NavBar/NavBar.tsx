@@ -2,7 +2,6 @@ import "./NavBarS.scss";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { Paths, pathGenerator } from "../../Apis/types";
