@@ -3,7 +3,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
-import { Difficulty, FilterSetting, Tags } from "../../../Apis/types";
+import {
+    Difficulty,
+    FilterSetting,
+    Tags,
+    filterSettingsDefault,
+} from "../../../Apis/types";
 import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
 import { TypeSelect } from "./TypeSelect/TypeSelect";
 import { SearchBar } from "./SearchBar/SearchBar";
@@ -11,14 +16,6 @@ import { SearchBar } from "./SearchBar/SearchBar";
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
 }
-
-const filterSettingsDefault = {
-    type: Tags.js,
-    name: "",
-    hideCorrect: false,
-    difficulty: Difficulty.none,
-};
-
 export const QuestionFilters = ({ filterSettings }: Props) => {
     const [hideCorrect, setHideCorrect] = useState<boolean>(false);
     const [questionFilter, setQuestionFilter] = useState<FilterSetting>(

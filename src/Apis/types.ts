@@ -52,3 +52,10 @@ export enum FetchMethods {
 export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
 };
+
+export const filterSettingsDefault = {
+    type: Tags.js,
+    name: "",
+    hideCorrect: false,
+    difficulty: Difficulty.none,
+};

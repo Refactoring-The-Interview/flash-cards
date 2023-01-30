@@ -11,18 +11,19 @@ import {
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loading } from "../Loading/Loading";
-import { Difficulty, FilterSetting, Question, Tags } from "../../Apis/types";
+import {
+    Difficulty,
+    FilterSetting,
+    Question,
+    Tags,
+    filterSettingsDefault,
+} from "../../Apis/types";
 
 export const QuestionList = () => {
-    console.log("render");
     const { questions, setQuestions } = useContext(MyQuestionContext);
-    // TODO use defaultFilters pulled into types file
-    const [filterSettings, setFilterSettings] = useState<FilterSetting>({
-        type: Tags.js,
-        name: "",
-        hideCorrect: false,
-        difficulty: "" as Difficulty,
-    });
+    const [filterSettings, setFilterSettings] = useState<FilterSetting>(
+        filterSettingsDefault
+    );
 
     const { name, type, hideCorrect, difficulty } = filterSettings;
 
