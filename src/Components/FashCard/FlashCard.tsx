@@ -8,7 +8,6 @@ import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loader } from "@aws-amplify/ui-react";
 import { Question } from "../../Apis/types";
-import { DeleteQuestionButton } from "../DeleteQuestionButton/DeleteQuestionButtton";
 
 const getQuestions = (
     questions: Question[],
@@ -52,8 +51,6 @@ const FlashCard = () => {
                 <ArrayMethods cardQuestion={currentQuestion} />
                 <div className="FlashCardFooter">
                     <Card.Footer className="cardFooter">
-                        <DeleteQuestionButton question={currentQuestion} />
-
                         <Button
                             type="button"
                             variant="secondary"

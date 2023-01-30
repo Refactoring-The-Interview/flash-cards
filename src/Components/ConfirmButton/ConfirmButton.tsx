@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import Button from "react-bootstrap/Button";
-import { ConfirmModal } from "../ConfirmModal/ConfermModal";
+import { ConfirmModal } from "../ConfirmModal/ConfirmModal";
 
 interface ConfirmButtonProps {
     variant: string;

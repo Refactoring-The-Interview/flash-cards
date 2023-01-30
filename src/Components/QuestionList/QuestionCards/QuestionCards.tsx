@@ -11,6 +11,7 @@ import { QuestionCard } from "../QuestionCard/QuestionCard";
 
 interface Props {
     currentQuestions: Question[];
+    showDelete: boolean;
 }
 
 const cardOrder = (difficulty: Difficulty): number => {
@@ -27,7 +28,7 @@ const cardOrder = (difficulty: Difficulty): number => {
     }
 };
 
-export const QuestionCards = ({ currentQuestions }: Props) => {
+export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
     const navigate = useNavigate();
     return (
         <div className="QuestionCard">
@@ -37,19 +38,28 @@ export const QuestionCards = ({ currentQuestions }: Props) => {
                 )
                 .map((question: Question, index: number) => {
                     return (
-                        <Button
-                            variant="outline-light"
-                            size="lg"
-                            className="listBtn"
-                            key={index}
-                            onClick={(e) => {
-                                navigate(
-                                    pathGenerator[Paths.question](question.id)
-                                );
-                            }}
-                        >
-                            <QuestionCard question={question} />
-                        </Button>
+                        <div>
+                            <Button
+                                variant="outline-light"
+                                size="lg"
+                                className="listBtn"
+                                key={index}
+                                onClick={(e) => {
+                                    if (!showDelete) {
+                                        navigate(
+                                            pathGenerator[Paths.question](
+                                                question.id
+                                            )
+                                        );
+                                    }
+                                }}
+                            >
+                                <QuestionCard
+                                    question={question}
+                                    showDelete={showDelete}
+                                />
+                            </Button>
+                        </div>
                     );
                 })}
         </div>

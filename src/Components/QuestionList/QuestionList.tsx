@@ -18,12 +18,14 @@ import {
     Tags,
     filterSettingsDefault,
 } from "../../Apis/types";
+import { Button } from "react-bootstrap";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
     const [filterSettings, setFilterSettings] = useState<FilterSetting>(
         filterSettingsDefault
     );
+    const [showDelete, setShowDelete] = useState<boolean>(false);
 
     const { name, type, hideCorrect, difficulty } = filterSettings;
 
@@ -48,12 +50,24 @@ export const QuestionList = () => {
 
     return (
         <div className="QuestionList">
-            <AddQuestionForm />
+            <div className="QuestionList-buttons">
+                <AddQuestionForm />
+                <Button
+                    onClick={() => {
+                        setShowDelete(!showDelete);
+                    }}
+                >
+                    Edit Questions
+                </Button>
+            </div>
             <div className="filter-container">
                 <QuestionFilters filterSettings={setFilterSettings} />
             </div>
 
-            <QuestionCards currentQuestions={currentQuestions} />
+            <QuestionCards
+                currentQuestions={currentQuestions}
+                showDelete={showDelete}
+            />
         </div>
     );
 };
