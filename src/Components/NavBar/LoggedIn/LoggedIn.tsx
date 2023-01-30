@@ -10,32 +10,28 @@ interface LoggedInProps {
 export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
     return (
         <>
-            <>
-                <Nav.Link href={Paths.questionList}>Question List</Nav.Link>
-                <Nav.Link href={path}>Random Question</Nav.Link>
-            </>
+            <Nav.Link href={Paths.questionList}>Question List</Nav.Link>
+            <Nav.Link href={path}>Random Question</Nav.Link>
 
             <NavDropdown title={value.email} id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                <NavDropdown.Item href="#action">Profile</NavDropdown.Item>
 
                 <NavDropdown.Item href={Paths.contact}>
                     Contact
                 </NavDropdown.Item>
 
-                <>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
-                        onClick={() => {
-                            setValue({
-                                email: "",
-                                password: "",
-                            });
-                        }}
-                        href={Paths.login}
-                    >
-                        Logout
-                    </NavDropdown.Item>
-                </>
+                <NavDropdown.Divider />
+                <NavDropdown.Item
+                    onClick={() => {
+                        setValue({
+                            email: "",
+                            password: "",
+                        });
+                    }}
+                    href={Paths.login}
+                >
+                    Logout
+                </NavDropdown.Item>
             </NavDropdown>
         </>
     );
