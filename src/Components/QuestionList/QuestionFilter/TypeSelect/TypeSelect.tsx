@@ -1,5 +1,6 @@
 import { Form } from "react-bootstrap";
 import { Tags } from "../../../../Apis/types";
+import { ChangeEvent } from "react";
 
 interface TypeProps {
     value: Tags;
@@ -13,8 +14,9 @@ export const TypeSelect = ({ value, setValue }: TypeProps) => {
                 className="select-bar"
                 aria-label="Default select example"
                 value={value}
-                onChange={(e) => {
-                    const value = e.target.value as Tags;
+                onChange={(event: ChangeEvent<HTMLSelectElement>) => {
+                    const value = event.target.value as Tags;
+
                     if (Object.values(Tags).includes(value)) {
                         setValue(value);
                     } else {
