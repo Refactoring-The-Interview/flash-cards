@@ -12,7 +12,7 @@ export interface FilterSetting {
     type: string;
     name: string;
     hideCorrect: boolean;
-    difficulty?: Difficulty;
+    difficulty: Difficulty;
 }
 
 export enum Difficulty {

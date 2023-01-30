@@ -14,7 +14,9 @@ import { Loading } from "../Loading/Loading";
 import { Difficulty, FilterSetting, Question, Tags } from "../../Apis/types";
 
 export const QuestionList = () => {
+    console.log("render");
     const { questions, setQuestions } = useContext(MyQuestionContext);
+    // TODO use defaultFilters pulled into types file
     const [filterSettings, setFilterSettings] = useState<FilterSetting>({
         type: Tags.js,
         name: "",
@@ -22,30 +24,18 @@ export const QuestionList = () => {
         difficulty: "" as Difficulty,
     });
 
-    const [currentQuestions, setCurrentQuestions] =
-        useState<Question[]>(questions);
+    const { name, type, hideCorrect, difficulty } = filterSettings;
 
-    useEffect(() => {
-        setCurrentQuestions(questions);
-    }, [questions, questions.length, setQuestions]);
-
-    useEffect(() => {
-        const { name, type, hideCorrect, difficulty } = filterSettings;
-        let filteredQuestions = questions;
-
-        filteredQuestions = filteredQuestions.filter(
-            (question: Question, index: number) => {
-                return (
-                    isQuestionType(question, type as Tags) &&
-                    isQuestionName(question, name) &&
-                    isQuestionDifficulty(question, difficulty as Difficulty) &&
-                    isQuestionHideCorrect(question, !!hideCorrect)
-                );
-            }
-        );
-
-        setCurrentQuestions(filteredQuestions);
-    }, [filterSettings, questions]);
+    const currentQuestions = questions.filter(
+        (question: Question, index: number) => {
+            return (
+                isQuestionType(question, type as Tags) &&
+                isQuestionName(question, name) &&
+                isQuestionDifficulty(question, difficulty as Difficulty) &&
+                isQuestionHideCorrect(question, !!hideCorrect)
+            );
+        }
+    );
 
     if (questions.length === 0) {
         return (
