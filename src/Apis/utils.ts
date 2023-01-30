@@ -33,5 +33,6 @@ export const deleteItem = async (
         ...options,
     };
 
+    console.log(requestOptions);
     return await fetch(url, requestOptions).then((res) => res.json());
 };

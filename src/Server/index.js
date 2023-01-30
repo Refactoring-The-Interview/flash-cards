@@ -17,7 +17,7 @@ app.post("/addToDataBase", (req, res) => {
 });
 
 app.delete("/deleteItem", (req, res) => {
-    dbDelete(req.body, (data, error) => {
+    dbDelete(req.body.questionId, (data, error) => {
         if (error) {
             res.status(400).send(error);
         } else {

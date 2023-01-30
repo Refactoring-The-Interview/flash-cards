@@ -82,19 +82,6 @@
             "id": "6"
         },
         {
-            "difficulty": "hard",
-            "question": "asdfasdf",
-            "answer": "asdfasdf",
-            "answers": [
-                "asdfasdf"
-            ],
-            "tags": [
-                "Js"
-            ],
-            "id": "8",
-            "correct": false
-        },
-        {
             "difficulty": "medium",
             "question": "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
             "answer": "Array.flat()",

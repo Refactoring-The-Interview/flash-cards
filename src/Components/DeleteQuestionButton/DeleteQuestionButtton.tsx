@@ -1,52 +1,29 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { deleteQuestion } from "../../Apis/Questions/deleteQuestion";
-import { QuestionCards } from "../QuestionList/QuestionCards/QuestionCards";
 import { Question } from "../../Apis/types";
 import { QuestionCard } from "../QuestionList/QuestionCard/QuestionCard";
+import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 
-export const DeleteQuestionButton = ({ question }: any) => {
-    const [show, setShow] = useState(false);
+interface Props {
+    question: Question;
+}
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+export const DeleteQuestionButton = ({ question }: Props) => {
     return (
-        <>
-            <Button variant="danger" onClick={handleShow}>
-                Delete Question
-            </Button>
-
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>Delete Confirmation</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Modal.Title>HELLO</Modal.Title>
+        <ConfirmButton
+            variant="danger"
+            onConfirm={() => {
+                deleteQuestion(question.id);
+            }}
+            modalTitle={"Confirm Delete"}
+            modalBody={
+                <>
+                    <Modal.Title>Question to delete</Modal.Title>
                     <QuestionCard question={question} />
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancel and Close
-                    </Button>
-                    <Button
-                        type="button"
-                        variant="danger"
-                        onClick={(e) => {
-                            deleteQuestion(question as any);
-                            handleClose();
-                        }}
-                    >
-                        Confirm Delete
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        </>
+                </>
+            }
+        >
+            Delete Question
+        </ConfirmButton>
     );
 };

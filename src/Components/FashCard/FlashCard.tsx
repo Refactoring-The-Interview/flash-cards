@@ -26,45 +26,46 @@ const FlashCard = () => {
     // todo convert to state for next question functionality?
     let currentQuestion = getQuestions(questions, questionId);
 
-    if (!currentQuestion)
+    if (!currentQuestion) {
         return (
             <h2>
                 <Loader />
             </h2>
         );
+    } else {
+        return (
+            <Card>
+                <div className="FlashCardHeader">
+                    <Card.Header className="cardHeader">
+                        <div className="FlashCardHeader-timer">
+                            <Timer />
+                        </div>
 
-    return (
-        <Card>
-            <div className="FlashCardHeader">
-                <Card.Header className="cardHeader">
-                    <div className="FlashCardHeader-timer">
-                        <Timer />
-                    </div>
+                        <CardGroup className="FlashCardHeader-buttons">
+                            <Button type="button" variant="secondary">
+                                Submit
+                            </Button>
+                        </CardGroup>
+                    </Card.Header>
+                </div>
 
-                    <CardGroup className="FlashCardHeader-buttons">
-                        <Button type="button" variant="secondary">
-                            Submit
+                <ArrayMethods cardQuestion={currentQuestion} />
+                <div className="FlashCardFooter">
+                    <Card.Footer className="cardFooter">
+                        <DeleteQuestionButton question={currentQuestion} />
+
+                        <Button
+                            type="button"
+                            variant="secondary"
+                            onClick={(e) => {}}
+                        >
+                            Next Question
                         </Button>
-                    </CardGroup>
-                </Card.Header>
-            </div>
-
-            <ArrayMethods cardQuestion={currentQuestion} />
-            <div className="FlashCardFooter">
-                <Card.Footer className="cardFooter">
-                    <DeleteQuestionButton question={currentQuestion} />
-
-                    <Button
-                        type="button"
-                        variant="secondary"
-                        onClick={(e) => {}}
-                    >
-                        Next Question
-                    </Button>
-                </Card.Footer>
-            </div>
-        </Card>
-    );
+                    </Card.Footer>
+                </div>
+            </Card>
+        );
+    }
 };
 
 export default FlashCard;
