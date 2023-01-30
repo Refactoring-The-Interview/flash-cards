@@ -3,21 +3,17 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
 import { useState } from "react";
-import {
-    Difficulty,
-    FilterSetting,
-    Tags,
-    filterSettingsDefault,
-} from "../../../Apis/types";
+import { FilterSetting, filterSettingsDefault } from "../../../Apis/types";
 import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
 import { TypeSelect } from "./TypeSelect/TypeSelect";
 import { SearchBar } from "./SearchBar/SearchBar";
+import { Checkbox } from "./CheckBox/CheckBox";
 
 interface Props {
     filterSettings(filterSettingObject: FilterSetting): void;
 }
+
 export const QuestionFilters = ({ filterSettings }: Props) => {
-    const [hideCorrect, setHideCorrect] = useState<boolean>(false);
     const [questionFilter, setQuestionFilter] = useState<FilterSetting>(
         filterSettingsDefault
     );
@@ -73,19 +69,15 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                                     })
                                 }
                             />
-
-                            <Form.Group
-                                className="mb-3"
-                                controlId="formBasicCheckbox"
-                            >
-                                <Form.Check
-                                    type="checkbox"
-                                    label="Hide Answered"
-                                    onChange={(e) => {
-                                        setHideCorrect(!hideCorrect);
-                                    }}
-                                />
-                            </Form.Group>
+                            <Checkbox
+                                value={questionFilter.hideCorrect}
+                                setValue={(hideCorrect) => {
+                                    setQuestionFilter({
+                                        ...questionFilter,
+                                        hideCorrect,
+                                    });
+                                }}
+                            />
 
                             <Form.Group className="buttons">
                                 <Button variant="primary" type="submit">

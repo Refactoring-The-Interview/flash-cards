@@ -12,7 +12,7 @@ export const Checkbox = ({ value, setValue }: CheckBoxProps) => {
                 type="checkbox"
                 label="Hide Answered"
                 onChange={(e) => {
-                    // setHideCorrect(!hideCorrect);
+                    setValue(!value);
                 }}
             />
         </Form.Group>
