@@ -5,6 +5,11 @@
     flex-direction: column;
     width: 81%;
     height: 80%;
+
+    .QuestionList-buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .list-container {

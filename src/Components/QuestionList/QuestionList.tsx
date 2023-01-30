@@ -50,14 +50,16 @@ export const QuestionList = () => {
 
     return (
         <div className="QuestionList">
-            <AddQuestionForm />
-            <Button
-                onClick={() => {
-                    setShowDelete(!showDelete);
-                }}
-            >
-                Edit Questions
-            </Button>
+            <div className="QuestionList-buttons">
+                <AddQuestionForm />
+                <Button
+                    onClick={() => {
+                        setShowDelete(!showDelete);
+                    }}
+                >
+                    Edit Questions
+                </Button>
+            </div>
             <div className="filter-container">
                 <QuestionFilters filterSettings={setFilterSettings} />
             </div>
