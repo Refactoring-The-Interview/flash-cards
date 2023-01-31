@@ -10,16 +10,16 @@ import { SearchBar } from "./SearchBar/SearchBar";
 import { Checkbox } from "./CheckBox/CheckBox";
 
 interface Props {
-    filterSettings(filterSettingObject: FilterSetting): void;
+    setFilterSettings(filterSettingObject: FilterSetting): void;
+    filterSettings: FilterSetting;
 }
 
-export const QuestionFilters = ({ filterSettings }: Props) => {
-    const [questionFilter, setQuestionFilter] = useState<FilterSetting>(
-        filterSettingsDefault
-    );
-
+export const QuestionFilters = ({
+    filterSettings,
+    setFilterSettings,
+}: Props) => {
     const formReset = () => {
-        setQuestionFilter(filterSettingsDefault);
+        setFilterSettings(filterSettingsDefault);
     };
 
     return (
@@ -32,8 +32,8 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                             onSubmit={(e) => {
                                 e.preventDefault();
                                 const { difficulty, type, name, hideCorrect } =
-                                    questionFilter;
-                                filterSettings({
+                                    filterSettings;
+                                setFilterSettings({
                                     type: type,
                                     name: name,
                                     hideCorrect: hideCorrect,
@@ -42,38 +42,38 @@ export const QuestionFilters = ({ filterSettings }: Props) => {
                             }}
                         >
                             <SearchBar
-                                value={questionFilter.name}
+                                value={filterSettings.name}
                                 setValue={(name) => {
-                                    setQuestionFilter({
-                                        ...questionFilter,
+                                    setFilterSettings({
+                                        ...filterSettings,
                                         name,
                                     });
                                 }}
                             />
 
                             <TypeSelect
-                                value={questionFilter.type}
+                                value={filterSettings.type}
                                 setValue={(type) => {
-                                    setQuestionFilter({
-                                        ...questionFilter,
+                                    setFilterSettings({
+                                        ...filterSettings,
                                         type,
                                     });
                                 }}
                             />
                             <DifficultySelect
-                                value={questionFilter.difficulty}
+                                value={filterSettings.difficulty}
                                 setValue={(difficulty) =>
-                                    setQuestionFilter({
-                                        ...questionFilter,
+                                    setFilterSettings({
+                                        ...filterSettings,
                                         difficulty,
                                     })
                                 }
                             />
                             <Checkbox
-                                value={questionFilter.hideCorrect}
+                                value={filterSettings.hideCorrect}
                                 setValue={(hideCorrect) => {
-                                    setQuestionFilter({
-                                        ...questionFilter,
+                                    setFilterSettings({
+                                        ...filterSettings,
                                         hideCorrect,
                                     });
                                 }}

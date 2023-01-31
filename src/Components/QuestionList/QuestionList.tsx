@@ -61,7 +61,10 @@ export const QuestionList = () => {
                 </Button>
             </div>
             <div className="filter-container">
-                <QuestionFilters filterSettings={setFilterSettings} />
+                <QuestionFilters
+                    filterSettings={filterSettings}
+                    setFilterSettings={setFilterSettings}
+                />
             </div>
 
             <QuestionCards

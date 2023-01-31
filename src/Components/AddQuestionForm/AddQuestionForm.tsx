@@ -4,36 +4,30 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
-import { Difficulty, Tags } from "../../Apis/types";
+import { Difficulty, Question, Tags } from "../../Apis/types";
 import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
 import { QuestionFormInput } from "./QuestionFromInput/QuestionFormInput";
 import { TagsSelect } from "./TagsSelect/TagsSelect";
 import { FormTextArea } from "./FormTextArea/FormTextArea";
+import { QuestionFormAnswers } from "./QuestionFormAnswers/QuesitonFormAnswers";
 
 const AddQuestionForm = () => {
-    const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.none);
-    const [question, setQuestion] = useState<string>("");
-    const [answer, setAnswer] = useState<string>("");
-    const [answers, setAnswers] = useState<string>("");
-    const [tags, setTags] = useState<Array<Tags>>([]);
-    const [didUpdate, setDidUpdate] = useState<boolean>(false);
-
     const { addQuestion } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const DefalutFormInputs = {
+    const DefaultFormInputs: Question = {
         difficulty: Difficulty.none,
+        question: "",
+        answer: "",
+        answers: ["", "", ""],
+        tags: [Tags.js],
+        correct: false,
+        id: "null",
     };
 
-    const clearForm = () => {
-        setDifficulty(Difficulty.none);
-        setQuestion("");
-        setAnswer("");
-        setAnswers("");
-        setTags([]);
-    };
+    const [formInputs, setFormInputs] = useState<Question>(DefaultFormInputs);
 
     return (
         <>
@@ -53,29 +47,56 @@ const AddQuestionForm = () => {
                             </Form.Label>
 
                             <DifficultySelect
-                                value={difficulty}
-                                setValue={setDifficulty}
+                                value={formInputs.difficulty}
+                                setValue={(difficulty) => {
+                                    setFormInputs({
+                                        ...formInputs,
+                                        difficulty,
+                                    });
+                                }}
                             />
                         </FormGroup>
 
                         <FormTextArea
-                            value={question}
-                            setValue={setQuestion}
+                            value={formInputs.question}
+                            setValue={(question) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    question,
+                                });
+                            }}
                             title={"Questions"}
                         />
 
-                        <QuestionFormInput
-                            value={answers}
-                            setValue={setAnswers}
-                            title={"Answers"}
+                        <QuestionFormAnswers
+                            value={formInputs.answers}
+                            setValue={(answers) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    answers,
+                                });
+                            }}
                         />
 
                         <QuestionFormInput
-                            value={answer}
-                            setValue={setAnswer}
+                            value={formInputs.answer}
+                            setValue={(answer) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    answer,
+                                });
+                            }}
                             title={"Correct Answer"}
                         />
-                        <TagsSelect value={tags} setValue={setTags} />
+                        <TagsSelect
+                            value={formInputs.tags}
+                            setValue={(tags) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    tags,
+                                });
+                            }}
+                        />
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -85,18 +106,9 @@ const AddQuestionForm = () => {
                     <Button
                         variant="primary"
                         onClick={(e) => {
-                            addQuestion({
-                                difficulty: difficulty,
-                                question: question,
-                                answer: answer,
-                                answers: answers.split(","),
-                                tags: [...tags, Tags.js],
-                                id: question.length.toString(),
-                                correct: false,
-                            });
-                            setDidUpdate(!didUpdate);
+                            addQuestion(formInputs);
                             handleClose();
-                            clearForm();
+                            setFormInputs(DefaultFormInputs);
                         }}
                     >
                         Save and Close
