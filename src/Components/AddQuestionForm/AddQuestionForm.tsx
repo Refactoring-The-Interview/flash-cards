@@ -4,28 +4,30 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
-import { Difficulty, Tags } from "../../Apis/types";
+import { Difficulty, Question, Tags } from "../../Apis/types";
+import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
+import { QuestionFormInput } from "./QuestionFromInput/QuestionFormInput";
+import { TagsSelect } from "./TagsSelect/TagsSelect";
+import { FormTextArea } from "./FormTextArea/FormTextArea";
+import { QuestionFormAnswers } from "./QuestionFormAnswers/QuesitonFormAnswers";
 
 const AddQuestionForm = () => {
-    const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.none);
-    const [question, setQuestion] = useState<string>("");
-    const [answer, setAnswer] = useState<string>("");
-    const [answers, setAnswers] = useState<string>("");
-    const [tags, setTags] = useState<Array<Tags>>([]);
-    const [didUpdate, setDidUpdate] = useState<boolean>(false);
-
     const { addQuestion } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const clearForm = () => {
-        setDifficulty(Difficulty.none);
-        setQuestion("");
-        setAnswer("");
-        setAnswers("");
-        setTags([]);
+    const DefaultFormInputs: Question = {
+        difficulty: Difficulty.none,
+        question: "",
+        answer: "",
+        answers: ["", "", ""],
+        tags: [Tags.js],
+        correct: false,
+        id: "null",
     };
+
+    const [formInputs, setFormInputs] = useState<Question>(DefaultFormInputs);
 
     return (
         <>
@@ -43,86 +45,58 @@ const AddQuestionForm = () => {
                             <Form.Label htmlFor="difficultyInput">
                                 Difficulty
                             </Form.Label>
-                            <Form.Select
-                                className="form-control"
-                                id="difficultyInput"
-                                onChange={(e) => {
-                                    setDifficulty(e.target.value as Difficulty);
-                                }}
-                            >
-                                <option value={Difficulty.none}>None</option>
 
-                                <option value={Difficulty.easy}>Easy</option>
-                                <option value={Difficulty.medium}>
-                                    Medium
-                                </option>
-                                <option value={Difficulty.hard}>Hard</option>
-                            </Form.Select>
+                            <DifficultySelect
+                                value={formInputs.difficulty}
+                                setValue={(difficulty) => {
+                                    setFormInputs({
+                                        ...formInputs,
+                                        difficulty,
+                                    });
+                                }}
+                            />
                         </FormGroup>
 
-                        <FormGroup className="question">
-                            <Form.Label htmlFor="questionTextArea">
-                                Question
-                            </Form.Label>
+                        <FormTextArea
+                            value={formInputs.question}
+                            setValue={(question) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    question,
+                                });
+                            }}
+                            title={"Questions"}
+                        />
 
-                            <textarea
-                                onChange={(e) => {
-                                    setQuestion(e.target.value);
-                                }}
-                                className="inputArea form-control"
-                                id="questionTextArea"
-                                value={question}
-                                placeholder="Question"
-                            ></textarea>
-                        </FormGroup>
+                        <QuestionFormAnswers
+                            value={formInputs.answers}
+                            setValue={(answers) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    answers,
+                                });
+                            }}
+                        />
 
-                        <FormGroup className="answers">
-                            <Form.Label htmlFor="answersInput">
-                                Answers
-                            </Form.Label>
-                            <input
-                                className="inputArea form-control"
-                                id="answersInput"
-                                onChange={(e) => {
-                                    setAnswers(e.target.value);
-                                }}
-                                value={answers}
-                                placeholder="Answers"
-                            ></input>
-                        </FormGroup>
-
-                        <FormGroup className="answer">
-                            <Form.Label htmlFor="answerTextArea">
-                                Correct Answer
-                            </Form.Label>
-                            <input
-                                onChange={(e) => {
-                                    setAnswer(e.target.value);
-                                }}
-                                className="inputArea form-control"
-                                id="answerTextArea"
-                                value={answer}
-                                placeholder="Correct Answer"
-                            ></input>
-                        </FormGroup>
-
-                        <FormGroup className="tags">
-                            <Form.Label htmlFor="tagsInput">Tags</Form.Label>
-                            <Form.Select
-                                className="inputArea form-control"
-                                id="tagsInput"
-                                multiple
-                                onChange={(e) => {
-                                    setTags([
-                                        ...tags,
-                                        e.target.value,
-                                    ] as Tags[]);
-                                }}
-                            >
-                                <option value={Tags.array}>array</option>
-                                <option value={Tags.obj}>object</option>
-                            </Form.Select>
-                        </FormGroup>
+                        <QuestionFormInput
+                            value={formInputs.answer}
+                            setValue={(answer) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    answer,
+                                });
+                            }}
+                            title={"Correct Answer"}
+                        />
+                        <TagsSelect
+                            value={formInputs.tags}
+                            setValue={(tags) => {
+                                setFormInputs({
+                                    ...formInputs,
+                                    tags,
+                                });
+                            }}
+                        />
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -132,18 +106,9 @@ const AddQuestionForm = () => {
                     <Button
                         variant="primary"
                         onClick={(e) => {
-                            addQuestion({
-                                difficulty: difficulty,
-                                question: question,
-                                answer: answer,
-                                answers: answers.split(","),
-                                tags: [...tags, Tags.js],
-                                id: question.length.toString(),
-                                correct: false,
-                            });
-                            setDidUpdate(!didUpdate);
+                            addQuestion(formInputs);
                             handleClose();
-                            clearForm();
+                            setFormInputs(DefaultFormInputs);
                         }}
                     >
                         Save and Close
