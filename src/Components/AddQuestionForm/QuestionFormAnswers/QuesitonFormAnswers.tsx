@@ -15,17 +15,20 @@ export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
                             <Form.Label>Answer</Form.Label>
                             <input
                                 value={answer}
+                                onFocus={() => {
+                                    if (index === value.length - 1) {
+                                        setValue([...value, ""]);
+                                    }
+                                }}
                                 onChange={(event) => {
                                     const newAnswer = event.target.value;
                                     const newAnswers = [...value];
                                     newAnswers[index] = newAnswer;
                                     setValue(newAnswers);
-                                    if (index === value.length - 1) {
-                                        setValue([...value, ""]);
-                                    }
                                 }}
                             ></input>
                             <Button
+                                variant="outline-danger"
                                 onClick={(e) => {
                                     const removed = value
                                         .slice(0, index)
@@ -36,8 +39,7 @@ export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
                                     setValue([...removed]);
                                 }}
                             >
-                                {" "}
-                                Remove{" "}
+                                X
                             </Button>
                         </div>
                     );
