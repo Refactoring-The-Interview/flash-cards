@@ -6,13 +6,14 @@ import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Difficulty, Question, Tags } from "../../Apis/types";
 import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
-import { QuestionFormInput } from "./QuestionFromInput/QuestionFormInput";
+
 import { TagsSelect } from "./TagsSelect/TagsSelect";
 import { FormTextArea } from "./FormTextArea/FormTextArea";
-import { QuestionFormAnswers } from "./QuestionFormAnswers/QuesitonFormAnswers";
+import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
+import { FormInput } from "./FromInput/FormInput";
 
 const AddQuestionForm = () => {
-    const { addQuestion } = useContext(MyQuestionContext);
+    const { questions, addQuestion } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -24,7 +25,7 @@ const AddQuestionForm = () => {
         answers: ["", "", ""],
         tags: [Tags.js],
         correct: false,
-        id: "null",
+        id: (questions.length + 1).toString(),
     };
 
     const [formInputs, setFormInputs] = useState<Question>(DefaultFormInputs);
@@ -78,7 +79,7 @@ const AddQuestionForm = () => {
                             }}
                         />
 
-                        <QuestionFormInput
+                        <FormInput
                             value={formInputs.answer}
                             setValue={(answer) => {
                                 setFormInputs({

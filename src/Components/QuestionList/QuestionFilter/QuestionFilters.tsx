@@ -2,7 +2,6 @@ import Accordion from "react-bootstrap/Accordion";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
-import { useState } from "react";
 import { FilterSetting, filterSettingsDefault } from "../../../Apis/types";
 import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
 import { TypeSelect } from "./TypeSelect/TypeSelect";

@@ -9,7 +9,7 @@ interface TextAreaProps {
 export const FormTextArea = ({ value, setValue, title }: TextAreaProps) => {
     return (
         <FormGroup>
-            <Form.Label htmlFor="textArea">{title}</Form.Label>
+            <Form.Label htmlFor="textArea">{title} </Form.Label>
 
             <textarea
                 onChange={(e) => {
