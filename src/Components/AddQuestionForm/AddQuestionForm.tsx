@@ -101,6 +101,15 @@ const AddQuestionForm = () => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
+                    <Button
+                        variant="outline-secondary"
+                        onClick={() => {
+                            setFormInputs(DefaultFormInputs);
+                        }}
+                    >
+                        Reset Form
+                    </Button>
+
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
