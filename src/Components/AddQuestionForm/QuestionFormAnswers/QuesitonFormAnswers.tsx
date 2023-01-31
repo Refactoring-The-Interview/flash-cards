@@ -1,5 +1,4 @@
 import { Form } from "react-bootstrap";
-import { useState } from "react";
 
 interface AnswerProps {
     value: string[];
@@ -21,6 +20,10 @@ export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
                                     const newAnswers = [...value];
                                     newAnswers[index] = newAnswer;
                                     setValue(newAnswers);
+
+                                    if (index === value.length - 1) {
+                                        setValue([...value, ""]);
+                                    }
                                 }}
                             ></input>
                         </div>
