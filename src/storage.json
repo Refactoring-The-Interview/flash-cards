@@ -31,58 +31,24 @@
                 "Js"
             ],
             "correct": false,
-            "id": "4"
+            "id": "1"
         },
         {
-            "difficulty": "medium",
-            "question": "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
-            "answer": "Array.flat()",
+            "difficulty": "easy",
+            "question": "hello",
+            "answer": "5",
             "answers": [
-                "Array.flat()",
-                "Array.flatMap()",
-                "Array.concat()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": false,
-            "id": "5"
-        },
-        {
-            "difficulty": "medium",
-            "question": "What method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
-            "answer": "Array.flat()",
-            "answers": [
-                "Array.flat()",
-                "Array.flatMap()",
-                "Array.concat()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": true,
-            "id": "6"
-        },
-        {
-            "difficulty": "hard",
-            "question": "test for bala bala",
-            "answer": "4",
-            "answers": [
-                "1",
-                "2",
+                "e",
                 "3",
-                "4",
+                "5",
                 ""
             ],
             "tags": [
                 "Js",
-                "array",
-                "object"
+                "array"
             ],
             "correct": false,
-            "id": "4"
+            "id": "2"
         }
     ]
 }

@@ -19,9 +19,11 @@ import {
     filterSettingsDefault,
 } from "../../Apis/types";
 import { Button } from "react-bootstrap";
+import { ProgressBars } from "./ProgressBars/ProgressBars";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
+    console.log(questions);
     const [filterSettings, setFilterSettings] = useState<FilterSetting>(
         filterSettingsDefault
     );
@@ -67,10 +69,14 @@ export const QuestionList = () => {
                 />
             </div>
 
-            <QuestionCards
-                currentQuestions={currentQuestions}
-                showDelete={showDelete}
-            />
+            <div>
+                <ProgressBars />
+
+                <QuestionCards
+                    currentQuestions={currentQuestions}
+                    showDelete={showDelete}
+                />
+            </div>
         </div>
     );
 };

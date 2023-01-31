@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
-
 import { Button, Card, ListGroup } from "react-bootstrap";
 import { Question } from "../../Apis/types";
+import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 
 interface Props {
     cardQuestion: Question;
 }
 
-export const ArrayMethods = ({ cardQuestion }: Props | any) => {
+export const ArrayMethods = ({ cardQuestion }: Props) => {
+    const { questions, setQuestions, addQuestion } =
+        useContext(MyQuestionContext);
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
@@ -46,6 +48,7 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
                                             setIsDisabled(true);
                                             if (item === answer) {
                                                 cardQuestion.correct = true;
+                                                // TODO tack correct, do i need to create another api to update a question?
                                                 setIsCorrect("success");
                                             } else {
                                                 setIsCorrect("danger");
