@@ -1,7 +1,5 @@
-import { Button, Form, FormGroup, ToggleButton } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Tags } from "../../../Apis/types";
-import { ChangeEvent, useState } from "react";
-import { FormInput } from "../FromInput/FormInput";
 
 interface TagsProps {
     value: Tags[];
@@ -10,7 +8,7 @@ interface TagsProps {
 
 export const TagsSelect = ({ value, setValue }: TagsProps) => {
     return (
-        <FormGroup className="tags">
+        <Form.Group className="mb-3">
             <Form.Label htmlFor="tagsInput">Tags</Form.Label>
             <Form.Check
                 type="checkbox"
@@ -30,6 +28,6 @@ export const TagsSelect = ({ value, setValue }: TagsProps) => {
                     setValue([...value, selectedValue] as Tags[]);
                 }}
             />
-        </FormGroup>
+        </Form.Group>
     );
 };
