@@ -31,7 +31,6 @@ export const ArrayMethods = ({ cardQuestion }: Props | any) => {
                         horizontal
                     >
                         {answers.map((item: string, index: number) => {
-                            console.log(item);
                             return (
                                 <ListGroup.Item
                                     action
