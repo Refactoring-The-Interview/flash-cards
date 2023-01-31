@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 interface AnswerProps {
     value: string[];
@@ -20,12 +20,25 @@ export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
                                     const newAnswers = [...value];
                                     newAnswers[index] = newAnswer;
                                     setValue(newAnswers);
-
                                     if (index === value.length - 1) {
                                         setValue([...value, ""]);
                                     }
                                 }}
                             ></input>
+                            <Button
+                                onClick={(e) => {
+                                    const removed = value
+                                        .slice(0, index)
+                                        .concat(
+                                            value.slice(index + 1, value.length)
+                                        );
+                                    console.log(removed);
+                                    setValue([...removed]);
+                                }}
+                            >
+                                {" "}
+                                Remove{" "}
+                            </Button>
                         </div>
                     );
                 })}
