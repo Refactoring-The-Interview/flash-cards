@@ -12,7 +12,7 @@ import { FormTextArea } from "./FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "./QuestionFormAnswers/QuesitonFormAnswers";
 
 const AddQuestionForm = () => {
-    const { addQuestion } = useContext(MyQuestionContext);
+    const { questions, addQuestion } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -24,7 +24,7 @@ const AddQuestionForm = () => {
         answers: ["", "", ""],
         tags: [Tags.js],
         correct: false,
-        id: "null",
+        id: (questions.length + 1).toString(),
     };
 
     const [formInputs, setFormInputs] = useState<Question>(DefaultFormInputs);
