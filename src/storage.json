@@ -66,6 +66,39 @@
             ],
             "correct": true,
             "id": "2"
+        },
+        {
+            "difficulty": "",
+            "question": "test",
+            "answer": "2",
+            "answers": [
+                "2",
+                "2",
+                "2",
+                ""
+            ],
+            "tags": [
+                "Js",
+                "object"
+            ],
+            "correct": false,
+            "id": "4"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": true,
+            "id": "1"
         }
     ]
 }

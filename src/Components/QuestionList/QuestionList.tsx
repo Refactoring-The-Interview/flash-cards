@@ -23,7 +23,6 @@ import { ProgressBars } from "./ProgressBars/ProgressBars";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
-    console.log(questions);
     const [filterSettings, setFilterSettings] = useState<FilterSetting>(
         filterSettingsDefault
     );

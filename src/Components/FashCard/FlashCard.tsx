@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import Timer from "../Timer/Timer";
 import "./FlashCardS.scss";
@@ -18,11 +18,11 @@ const getQuestions = (
 
 const FlashCard = () => {
     const { questionId } = useParams();
+    const [didUpdate, setDidUpdate] = useState<boolean>(false);
     // TODO add next question functionality
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const randomQuestion = useRandomQuestion();
     const { questions } = useContext(MyQuestionContext);
-
     let currentQuestion = getQuestions(questions, questionId);
 
     if (!currentQuestion) {
@@ -48,13 +48,16 @@ const FlashCard = () => {
                     </Card.Header>
                 </div>
 
-                <ArrayMethods cardQuestion={currentQuestion} />
+                <ArrayMethods cardQuestion={randomQuestion} />
                 <div className="FlashCardFooter">
                     <Card.Footer className="cardFooter">
                         <Button
                             type="button"
                             variant="secondary"
-                            onClick={(e) => {}}
+                            onClick={(e) => {
+                                currentQuestion = randomQuestion;
+                                setDidUpdate(!didUpdate);
+                            }}
                         >
                             Next Question
                         </Button>
