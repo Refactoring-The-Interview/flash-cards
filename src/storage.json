@@ -64,6 +64,25 @@
             ],
             "correct": true,
             "id": "6"
+        },
+        {
+            "difficulty": "hard",
+            "question": "test for bala bala",
+            "answer": "4",
+            "answers": [
+                "1",
+                "2",
+                "3",
+                "4",
+                ""
+            ],
+            "tags": [
+                "Js",
+                "array",
+                "object"
+            ],
+            "correct": false,
+            "id": "4"
         }
     ]
 }

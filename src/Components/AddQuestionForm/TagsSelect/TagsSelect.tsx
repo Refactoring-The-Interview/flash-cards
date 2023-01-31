@@ -1,6 +1,7 @@
-import { Form, FormGroup } from "react-bootstrap";
+import { Button, Form, FormGroup, ToggleButton } from "react-bootstrap";
 import { Tags } from "../../../Apis/types";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
+import { FormInput } from "../FromInput/FormInput";
 
 interface TagsProps {
     value: Tags[];
@@ -11,18 +12,24 @@ export const TagsSelect = ({ value, setValue }: TagsProps) => {
     return (
         <FormGroup className="tags">
             <Form.Label htmlFor="tagsInput">Tags</Form.Label>
-            <Form.Select
-                className="inputArea form-control"
-                id="tagsInput"
-                multiple
-                onChange={(event: ChangeEvent<HTMLSelectElement>) => {
+            <Form.Check
+                type="checkbox"
+                value={Tags.array}
+                label="Array"
+                onChange={(event) => {
                     const selectedValue = event.target.value;
                     setValue([...value, selectedValue] as Tags[]);
                 }}
-            >
-                <option value={Tags.array}>array</option>
-                <option value={Tags.obj}>object</option>
-            </Form.Select>
+            />
+            <Form.Check
+                type="checkbox"
+                value={Tags.obj}
+                label="Object"
+                onChange={(event) => {
+                    const selectedValue = event.target.value;
+                    setValue([...value, selectedValue] as Tags[]);
+                }}
+            />
         </FormGroup>
     );
 };
