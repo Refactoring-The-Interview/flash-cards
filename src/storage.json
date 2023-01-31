@@ -49,6 +49,23 @@
             ],
             "correct": false,
             "id": "2"
+        },
+        {
+            "difficulty": "easy",
+            "question": "hello",
+            "answer": "5",
+            "answers": [
+                "e",
+                "3",
+                "5",
+                ""
+            ],
+            "tags": [
+                "Js",
+                "array"
+            ],
+            "correct": true,
+            "id": "2"
         }
     ]
 }
