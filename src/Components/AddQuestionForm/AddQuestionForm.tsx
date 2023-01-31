@@ -5,6 +5,10 @@ import Modal from "react-bootstrap/Modal";
 import { Form, FormGroup } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Difficulty, Tags } from "../../Apis/types";
+import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
+import { QuestionFormInput } from "./QuestionFromInput/QuestionFormInput";
+import { TagsSelect } from "./TagsSelect/TagsSelect";
+import { FormTextArea } from "./FormTextArea/FormTextArea";
 
 const AddQuestionForm = () => {
     const [difficulty, setDifficulty] = useState<Difficulty>(Difficulty.none);
@@ -18,6 +22,10 @@ const AddQuestionForm = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const DefalutFormInputs = {
+        difficulty: Difficulty.none,
+    };
 
     const clearForm = () => {
         setDifficulty(Difficulty.none);
@@ -43,86 +51,31 @@ const AddQuestionForm = () => {
                             <Form.Label htmlFor="difficultyInput">
                                 Difficulty
                             </Form.Label>
-                            <Form.Select
-                                className="form-control"
-                                id="difficultyInput"
-                                onChange={(e) => {
-                                    setDifficulty(e.target.value as Difficulty);
-                                }}
-                            >
-                                <option value={Difficulty.none}>None</option>
 
-                                <option value={Difficulty.easy}>Easy</option>
-                                <option value={Difficulty.medium}>
-                                    Medium
-                                </option>
-                                <option value={Difficulty.hard}>Hard</option>
-                            </Form.Select>
+                            <DifficultySelect
+                                value={difficulty}
+                                setValue={setDifficulty}
+                            />
                         </FormGroup>
 
-                        <FormGroup className="question">
-                            <Form.Label htmlFor="questionTextArea">
-                                Question
-                            </Form.Label>
+                        <FormTextArea
+                            value={question}
+                            setValue={setQuestion}
+                            title={"Questions"}
+                        />
 
-                            <textarea
-                                onChange={(e) => {
-                                    setQuestion(e.target.value);
-                                }}
-                                className="inputArea form-control"
-                                id="questionTextArea"
-                                value={question}
-                                placeholder="Question"
-                            ></textarea>
-                        </FormGroup>
+                        <QuestionFormInput
+                            value={answers}
+                            setValue={setAnswers}
+                            title={"Answers"}
+                        />
 
-                        <FormGroup className="answers">
-                            <Form.Label htmlFor="answersInput">
-                                Answers
-                            </Form.Label>
-                            <input
-                                className="inputArea form-control"
-                                id="answersInput"
-                                onChange={(e) => {
-                                    setAnswers(e.target.value);
-                                }}
-                                value={answers}
-                                placeholder="Answers"
-                            ></input>
-                        </FormGroup>
-
-                        <FormGroup className="answer">
-                            <Form.Label htmlFor="answerTextArea">
-                                Correct Answer
-                            </Form.Label>
-                            <input
-                                onChange={(e) => {
-                                    setAnswer(e.target.value);
-                                }}
-                                className="inputArea form-control"
-                                id="answerTextArea"
-                                value={answer}
-                                placeholder="Correct Answer"
-                            ></input>
-                        </FormGroup>
-
-                        <FormGroup className="tags">
-                            <Form.Label htmlFor="tagsInput">Tags</Form.Label>
-                            <Form.Select
-                                className="inputArea form-control"
-                                id="tagsInput"
-                                multiple
-                                onChange={(e) => {
-                                    setTags([
-                                        ...tags,
-                                        e.target.value,
-                                    ] as Tags[]);
-                                }}
-                            >
-                                <option value={Tags.array}>array</option>
-                                <option value={Tags.obj}>object</option>
-                            </Form.Select>
-                        </FormGroup>
+                        <QuestionFormInput
+                            value={answer}
+                            setValue={setAnswer}
+                            title={"Correct Answer"}
+                        />
+                        <TagsSelect value={tags} setValue={setTags} />
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
