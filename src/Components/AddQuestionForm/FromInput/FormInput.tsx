@@ -7,7 +7,7 @@ interface FormProps {
     title: string;
 }
 
-export const QuestionFormInput = ({ value, setValue, title }: FormProps) => {
+export const FormInput = ({ value, setValue, title }: FormProps) => {
     return (
         <FormGroup>
             <Form.Label htmlFor="formInput">{title}</Form.Label>

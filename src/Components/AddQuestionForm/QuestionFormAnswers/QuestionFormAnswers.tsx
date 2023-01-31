@@ -30,13 +30,12 @@ export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
                             <Button
                                 variant="outline-danger"
                                 onClick={(e) => {
-                                    const removed = value
+                                    const removedAnswerField = value
                                         .slice(0, index)
                                         .concat(
                                             value.slice(index + 1, value.length)
                                         );
-                                    console.log(removed);
-                                    setValue([...removed]);
+                                    setValue([...removedAnswerField]);
                                 }}
                             >
                                 X
