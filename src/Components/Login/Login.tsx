@@ -73,7 +73,10 @@ export const Login = () => {
                 variant="success"
                 onClick={() => {
                     setPopulateLocalStorageQuestions(questionBank);
-                    setUserInfo({ email: "guest", password: "guestPassword" });
+                    setUserInfo({
+                        email: "guest",
+                        password: "guestPassword",
+                    });
                 }}
             >
                 Continue as Guest

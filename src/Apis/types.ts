@@ -18,6 +18,7 @@ export interface FilterSetting {
 export interface userInfo {
     email: string;
     password: string;
+    img?: any;
 }
 
 export enum Difficulty {
@@ -39,6 +40,7 @@ export enum Paths {
     login = "/login",
     home = "/home",
     contact = "/contact",
+    profile = "/profile",
 }
 
 export enum API {
