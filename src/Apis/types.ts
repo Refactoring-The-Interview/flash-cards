@@ -39,6 +39,7 @@ export enum Paths {
     login = "/login",
     home = "/home",
     contact = "/contact",
+    profile = "/profile",
 }
 
 export enum API {
