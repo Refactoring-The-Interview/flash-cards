@@ -18,6 +18,7 @@ export interface FilterSetting {
 export interface userInfo {
     email: string;
     password: string;
+    img?: any;
 }
 
 export enum Difficulty {
