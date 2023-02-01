@@ -1,9 +1,11 @@
-import { Button, Card, Figure, Modal } from "react-bootstrap";
+import { Button, Card, CardGroup, Figure, Modal } from "react-bootstrap";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { UserInfoEditForm } from "./UserInfoEditForm/UserInfoEditForm";
 import { useState } from "react";
 import { userInfo } from "../../Apis/types";
+import { ProgressBars } from "../QuestionList/ProgressBars/ProgressBars";
+import duck from "../../Assets/IMGS/Mallard2.jpeg";
 
 export const Profile = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
@@ -21,10 +23,12 @@ export const Profile = () => {
                         width={171}
                         height={180}
                         alt="171x180"
-                        src="holder.js/171x180"
+                        src={duck}
                     />
                 </Figure>
                 <Card.Body>
+                    <ProgressBars />
+
                     <Card.Text>Email: {userInfo.email}</Card.Text>
 
                     <Card.Text>Password: {userInfo.password}</Card.Text>
