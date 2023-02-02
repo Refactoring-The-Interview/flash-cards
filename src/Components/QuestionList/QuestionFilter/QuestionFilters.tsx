@@ -1,97 +1,42 @@
-import Accordion from "react-bootstrap/Accordion";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import "./QuestionFiltersS.scss";
+import { Accordion, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FilterSetting, filterSettingsDefault } from "../../../Apis/types";
-import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
-import { TypeSelect } from "./TypeSelect/TypeSelect";
-import { SearchBar } from "./SearchBar/SearchBar";
-import { Checkbox } from "./CheckBox/CheckBox";
+import { FilterForm } from "./FilterFrom/FilterForm";
+import "./QuestionFiltersS.scss";
 
 interface Props {
-    setFilterSettings(filterSettingObject: FilterSetting): void;
     filterSettings: FilterSetting;
+    setFilterSettings(filterSetting: FilterSetting): void;
 }
 
 export const QuestionFilters = ({
     filterSettings,
     setFilterSettings,
 }: Props) => {
-    const formReset = () => {
-        setFilterSettings(filterSettingsDefault);
-    };
-
     return (
         <div className="QuestionFilters">
-            <Accordion defaultActiveKey="0">
+            <Accordion>
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header>Filters</Accordion.Header>
+                    <Accordion.Header>
+                        <h5>Filter Settings</h5>
+                    </Accordion.Header>
                     <Accordion.Body>
-                        <Form
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                const { difficulty, type, name, hideCorrect } =
-                                    filterSettings;
-                                setFilterSettings({
-                                    type: type,
-                                    name: name,
-                                    hideCorrect: hideCorrect,
-                                    difficulty: difficulty,
-                                });
-                            }}
+                        <FilterForm
+                            filterSettings={filterSettings}
+                            setFilterSettings={setFilterSettings}
+                        />
+
+                        <OverlayTrigger
+                            placement="right"
+                            overlay={<Tooltip>Reset to Default inputs</Tooltip>}
                         >
-                            <SearchBar
-                                value={filterSettings.name}
-                                setValue={(name) => {
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        name,
-                                    });
+                            <Button
+                                onClick={() => {
+                                    setFilterSettings(filterSettingsDefault);
                                 }}
-                            />
-
-                            <TypeSelect
-                                value={filterSettings.type}
-                                setValue={(type) => {
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        type,
-                                    });
-                                }}
-                            />
-                            <DifficultySelect
-                                value={filterSettings.difficulty}
-                                setValue={(difficulty) =>
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        difficulty,
-                                    })
-                                }
-                            />
-                            <Checkbox
-                                value={filterSettings.hideCorrect}
-                                setValue={(hideCorrect) => {
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        hideCorrect,
-                                    });
-                                }}
-                            />
-
-                            <Form.Group className="buttons">
-                                <Button variant="primary" type="submit">
-                                    filter
-                                </Button>
-
-                                <Button
-                                    variant="primary"
-                                    type="button"
-                                    onClick={formReset}
-                                >
-                                    Reset
-                                </Button>
-                            </Form.Group>
-                        </Form>
+                            >
+                                Reset
+                            </Button>
+                        </OverlayTrigger>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
