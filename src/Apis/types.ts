@@ -9,7 +9,7 @@ export interface Question {
 }
 
 export interface FilterSetting {
-    type: Tags;
+    type: Tags | undefined;
     name: string;
     hideCorrect: boolean;
     difficulty: Difficulty;
@@ -60,8 +60,8 @@ export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
 };
 
-export const filterSettingsDefault = {
-    type: Tags.js,
+export const filterSettingsDefault: FilterSetting = {
+    type: undefined,
     name: "",
     hideCorrect: false,
     difficulty: Difficulty.none,
