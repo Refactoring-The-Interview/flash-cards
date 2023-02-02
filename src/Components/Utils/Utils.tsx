@@ -1,4 +1,4 @@
-import { Difficulty, Question, Tags } from "../../Apis/types";
+import { Difficulty, FilterSetting, Question, Tags } from "../../Apis/types";
 
 export const isQuestionType = (question: Question, type: Tags | undefined) => {
     return !type || question.tags.includes(type);
@@ -23,20 +23,20 @@ export const isQuestionHideCorrect = (
     }
 };
 
-export const updateData = (
-    updatedQuestion: Question,
-    setQuestions: any,
-    questions: Question[]
-) => {
-    questions.forEach((currentQuestion: Question, index: number) => {
-        const { answer, question } = currentQuestion;
+interface Props {
+    questions: Question[];
+    filterOptions: FilterSetting;
+}
 
-        if (
-            answer === updatedQuestion.answer &&
-            question === updatedQuestion.question
-        ) {
-            questions[index] = updatedQuestion;
-            setQuestions(questions);
-        }
+export const filterQuestions = ({ questions, filterOptions }: Props) => {
+    const { name, type, hideCorrect, difficulty } = filterOptions;
+
+    return questions.filter((question: Question, index: number) => {
+        return (
+            isQuestionType(question, type) &&
+            isQuestionName(question, name) &&
+            isQuestionDifficulty(question, difficulty) &&
+            !!isQuestionHideCorrect(question, hideCorrect)
+        );
     });
 };
