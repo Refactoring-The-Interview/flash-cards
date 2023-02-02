@@ -1,7 +1,7 @@
 import { Difficulty, Question, Tags } from "../../Apis/types";
 
-export const isQuestionType = (question: Question, type: Tags) => {
-    return question.tags.includes(type as Tags);
+export const isQuestionType = (question: Question, type: Tags | undefined) => {
+    return !type || question.tags.includes(type);
 };
 export const isQuestionName = (question: Question, name: string) => {
     return question.answer.toLowerCase().includes(name.toLocaleLowerCase());

@@ -3,8 +3,8 @@ import { Tags } from "../../../../Apis/types";
 import { ChangeEvent } from "react";
 
 interface TypeProps {
-    value: Tags;
-    setValue(type: Tags): void;
+    value: Tags | undefined;
+    setValue(type: Tags | undefined): void;
 }
 
 export const TypeSelect = ({ value, setValue }: TypeProps) => {
