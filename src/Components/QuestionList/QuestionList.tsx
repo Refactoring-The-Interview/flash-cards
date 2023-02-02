@@ -7,6 +7,7 @@ import {
     isQuestionHideCorrect,
     isQuestionType,
     isQuestionName,
+    filterQuestions,
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
@@ -20,6 +21,7 @@ import {
 } from "../../Apis/types";
 import { Button } from "react-bootstrap";
 import { ProgressBars } from "./ProgressBars/ProgressBars";
+import { EditOptions } from "./EditOptions/EditOptions";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
@@ -27,19 +29,7 @@ export const QuestionList = () => {
         filterSettingsDefault
     );
     const [showDelete, setShowDelete] = useState<boolean>(false);
-
-    const { name, type, hideCorrect, difficulty } = filterSettings;
-
-    const currentQuestions = questions.filter(
-        (question: Question, index: number) => {
-            return (
-                isQuestionType(question, type as Tags) &&
-                isQuestionName(question, name) &&
-                isQuestionDifficulty(question, difficulty as Difficulty) &&
-                isQuestionHideCorrect(question, !!hideCorrect)
-            );
-        }
-    );
+    const currentQuestions = filterQuestions(questions, filterSettings);
 
     if (questions.length === 0) {
         return (
@@ -51,31 +41,16 @@ export const QuestionList = () => {
 
     return (
         <div className="QuestionList">
-            <div className="QuestionList-buttons">
-                <AddQuestionForm />
-                <Button
-                    onClick={() => {
-                        setShowDelete(!showDelete);
-                    }}
-                >
-                    Edit Questions
-                </Button>
-            </div>
-            <div className="filter-container">
-                <QuestionFilters
-                    filterSettings={filterSettings}
-                    setFilterSettings={setFilterSettings}
-                />
-            </div>
-
-            <div>
-                <ProgressBars />
-
-                <QuestionCards
-                    currentQuestions={currentQuestions}
-                    showDelete={showDelete}
-                />
-            </div>
+            <EditOptions
+                filterSettings={filterSettings}
+                setFilterSettings={setFilterSettings}
+                setShowDelete={setShowDelete}
+                showDelete={showDelete}
+            />
+            <QuestionCards
+                currentQuestions={currentQuestions}
+                showDelete={showDelete}
+            />
         </div>
     );
 };
