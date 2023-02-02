@@ -3,7 +3,11 @@ import { ProgressBar } from "react-bootstrap";
 import { MyQuestionContext } from "../../QuestionContext/QuestionContext";
 import { Question } from "../../../Apis/types";
 
-export const ProgressBars = () => {
+interface Props {
+    title: string;
+}
+
+export const ProgressBars = ({ title }: Props) => {
     const { questions } = useContext(MyQuestionContext);
 
     const correct = questions.filter((question: Question, index: number) => {
@@ -14,7 +18,7 @@ export const ProgressBars = () => {
     const correctPercent = totalQuestions - correct;
     return (
         <>
-            Questions Progress Bar
+            {title}
             <ProgressBar
                 animated
                 variant="success"

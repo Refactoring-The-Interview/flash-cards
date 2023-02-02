@@ -23,7 +23,6 @@ export const QuestionSort = ({ questions }: SortProps) => {
     });
 
     if (sortedQuestions.length === 0) return <Loading />;
-    console.log(sortedQuestions);
     return (
         <ListGroup>
             {sortedQuestions.map((questions: Question[], index: number) => {

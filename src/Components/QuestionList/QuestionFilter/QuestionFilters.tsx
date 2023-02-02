@@ -11,11 +11,15 @@ import { Checkbox } from "./CheckBox/CheckBox";
 interface Props {
     setFilterSettings(filterSettingObject: FilterSetting): void;
     filterSettings: FilterSetting;
+    sort: boolean;
+    setSort(sort: boolean): void;
 }
 
 export const QuestionFilters = ({
     filterSettings,
     setFilterSettings,
+    sort,
+    setSort,
 }: Props) => {
     const formReset = () => {
         setFilterSettings(filterSettingsDefault);
@@ -79,8 +83,12 @@ export const QuestionFilters = ({
                             />
 
                             <Form.Group className="buttons">
-                                <Button variant="primary" type="submit">
-                                    filter
+                                <Button
+                                    onClick={() => {
+                                        setSort(!sort);
+                                    }}
+                                >
+                                    Sort By type
                                 </Button>
 
                                 <Button

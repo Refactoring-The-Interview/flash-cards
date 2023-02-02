@@ -7,6 +7,7 @@ import {
     isQuestionHideCorrect,
     isQuestionType,
     isQuestionName,
+    filterQuestions,
 } from "../Utils/Utils";
 import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
@@ -25,11 +26,15 @@ import { QuestionSort } from "./QuestionSort/QuestionSort";
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
     const [editQuestionsList, setEditQuestionsList] = useState<boolean>(false);
+    const [sort, setSort] = useState<boolean>(false);
+
+    let currentQuestions = filterQuestions(questions, filterSettingsDefault);
 
     if (questions.length === 0) return <Loading />;
 
     return (
         <div className="QuestionList">
+            <h1>Question List</h1>
             <Card>
                 <Card.Header>
                     <AddQuestionForm />
@@ -41,12 +46,20 @@ export const QuestionList = () => {
                             throw new Error("Function not implemented.");
                         }}
                         filterSettings={filterSettingsDefault}
+                        sort={sort}
+                        setSort={setSort}
                     />
-                    <ProgressBars />
+                    <ProgressBars title={""} />
                 </Card.Header>
 
                 <Card.Body>
-                    <QuestionSort questions={questions} />
+                    {sort && <QuestionSort questions={questions} />}
+                    {!sort && (
+                        <QuestionCards
+                            currentQuestions={questions}
+                            showDelete={false}
+                        />
+                    )}
                 </Card.Body>
             </Card>
         </div>

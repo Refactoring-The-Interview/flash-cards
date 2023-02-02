@@ -27,7 +27,9 @@ export const Profile = () => {
                     />
                 </Figure>
                 <Card.Body>
-                    <ProgressBars />
+                    <ProgressBars
+                        title={`${userInfo.email}'s question progress`}
+                    />
 
                     <Card.Text>Email: {userInfo.email}</Card.Text>
 
