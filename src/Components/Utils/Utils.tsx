@@ -24,8 +24,8 @@ export const isQuestionHideCorrect = (
 };
 
 export const filterQuestions = (
-    filterSettings: FilterSetting,
-    questions: Question[]
+    questions: Question[],
+    filterSettings: FilterSetting
 ) => {
     const { type, name, hideCorrect, difficulty } = filterSettings;
     let filteredQuestions = questions.filter(
