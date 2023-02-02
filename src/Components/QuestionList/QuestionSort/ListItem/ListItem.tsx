@@ -6,15 +6,19 @@ import { QuestionCards } from "../../QuestionCards/QuestionCards";
 interface ListProps {
     questions: Question[];
     type: string;
+    showDelete: boolean;
 }
 
-export const ListItem = ({ questions, type }: ListProps) => {
+export const ListItem = ({ questions, type, showDelete }: ListProps) => {
     return (
         <ListGroup.Item>
             <h3 className="ListItem-title">
                 <Badge bg="primary">{type}</Badge>
             </h3>
-            <QuestionCards currentQuestions={questions} showDelete={false} />
+            <QuestionCards
+                currentQuestions={questions}
+                showDelete={showDelete}
+            />
         </ListGroup.Item>
     );
 };

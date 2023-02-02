@@ -10,10 +10,12 @@ import { FilterSetting, filterSettingsDefault } from "../../Apis/types";
 import { Badge, Button, Card } from "react-bootstrap";
 import { ProgressBars } from "./ProgressBars/ProgressBars";
 import { QuestionSort } from "./QuestionSort/QuestionSort";
+import { EditOptions } from "./EditOptions/EditOptions";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
     const [sort, setSort] = useState<boolean>(false);
+    const [showDelete, setShowDelete] = useState<boolean>(false);
     const [filterOptions, setFilterOptions] = useState<FilterSetting>(
         filterSettingsDefault
     );
@@ -30,7 +32,10 @@ export const QuestionList = () => {
             </h1>
             <Card>
                 <Card.Header>
-                    <AddQuestionForm />
+                    <EditOptions
+                        showDelete={showDelete}
+                        setShowDelete={setShowDelete}
+                    />
 
                     <QuestionFilters
                         setFilterSettings={setFilterOptions}
@@ -42,11 +47,16 @@ export const QuestionList = () => {
                 </Card.Header>
 
                 <Card.Body>
-                    {sort && <QuestionSort questions={currentQuestions} />}
+                    {sort && (
+                        <QuestionSort
+                            questions={currentQuestions}
+                            showDelete={showDelete}
+                        />
+                    )}
                     {!sort && (
                         <QuestionCards
                             currentQuestions={currentQuestions}
-                            showDelete={false}
+                            showDelete={showDelete}
                         />
                     )}
                 </Card.Body>

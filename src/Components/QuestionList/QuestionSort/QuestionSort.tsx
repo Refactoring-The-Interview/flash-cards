@@ -1,16 +1,14 @@
 import { ListGroup } from "react-bootstrap";
 import { Question, Tags } from "../../../Apis/types";
-import { QuestionCards } from "../QuestionCards/QuestionCards";
 import { ListItem } from "./ListItem/ListItem";
-import { useEffect, useState } from "react";
 import { Loading } from "../../Loading/Loading";
 
 interface SortProps {
     questions: Question[];
-    SortArray?: string[];
+    showDelete: boolean;
 }
 
-export const QuestionSort = ({ questions }: SortProps) => {
+export const QuestionSort = ({ questions, showDelete }: SortProps) => {
     const types = Object.values(Tags).filter((item) => item !== "Js");
     let sortedQuestions: Question[][] = [];
 
@@ -26,7 +24,13 @@ export const QuestionSort = ({ questions }: SortProps) => {
     return (
         <ListGroup>
             {sortedQuestions.map((questions: Question[], index: number) => {
-                return <ListItem questions={questions} type={types[index]} />;
+                return (
+                    <ListItem
+                        questions={questions}
+                        type={types[index]}
+                        showDelete={showDelete}
+                    />
+                );
             })}
         </ListGroup>
     );
