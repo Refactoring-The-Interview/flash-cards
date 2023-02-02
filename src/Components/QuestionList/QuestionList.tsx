@@ -18,64 +18,37 @@ import {
     Tags,
     filterSettingsDefault,
 } from "../../Apis/types";
-import { Button } from "react-bootstrap";
+import { Button, Card, ListGroup } from "react-bootstrap";
 import { ProgressBars } from "./ProgressBars/ProgressBars";
+import { QuestionSort } from "./QuestionSort/QuestionSort";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
-    const [filterSettings, setFilterSettings] = useState<FilterSetting>(
-        filterSettingsDefault
-    );
-    const [showDelete, setShowDelete] = useState<boolean>(false);
+    const [editQuestionsList, setEditQuestionsList] = useState<boolean>(false);
 
-    const { name, type, hideCorrect, difficulty } = filterSettings;
-
-    const currentQuestions = questions.filter(
-        (question: Question, index: number) => {
-            return (
-                isQuestionType(question, type as Tags) &&
-                isQuestionName(question, name) &&
-                isQuestionDifficulty(question, difficulty as Difficulty) &&
-                isQuestionHideCorrect(question, !!hideCorrect)
-            );
-        }
-    );
-
-    if (questions.length === 0) {
-        return (
-            <h1>
-                <Loading />
-            </h1>
-        );
-    }
+    if (questions.length === 0) return <Loading />;
 
     return (
         <div className="QuestionList">
-            <div className="QuestionList-buttons">
-                <AddQuestionForm />
-                <Button
-                    onClick={() => {
-                        setShowDelete(!showDelete);
-                    }}
-                >
-                    Edit Questions
-                </Button>
-            </div>
-            <div className="filter-container">
-                <QuestionFilters
-                    filterSettings={filterSettings}
-                    setFilterSettings={setFilterSettings}
-                />
-            </div>
+            <Card>
+                <Card.Header>
+                    <AddQuestionForm />
 
-            <div>
-                <ProgressBars />
+                    <QuestionFilters
+                        setFilterSettings={function (
+                            filterSettingObject: FilterSetting
+                        ): void {
+                            throw new Error("Function not implemented.");
+                        }}
+                        filterSettings={filterSettingsDefault}
+                    />
+                    <ProgressBars />
+                </Card.Header>
 
-                <QuestionCards
-                    currentQuestions={currentQuestions}
-                    showDelete={showDelete}
-                />
-            </div>
+                <Card.Body>
+                    <QuestionSort questions={questions} />
+                </Card.Body>
+            </Card>
         </div>
     );
 };

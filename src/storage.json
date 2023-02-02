@@ -119,6 +119,40 @@
             ],
             "correct": false,
             "id": "6"
+        },
+        {
+            "difficulty": "medium",
+            "question": "123",
+            "answer": "1",
+            "answers": [
+                "111",
+                "1",
+                "222",
+                ""
+            ],
+            "tags": [
+                "Js",
+                "object"
+            ],
+            "correct": false,
+            "id": "7"
+        },
+        {
+            "difficulty": "medium",
+            "question": "3",
+            "answer": "3",
+            "answers": [
+                "3",
+                "3",
+                "3",
+                ""
+            ],
+            "tags": [
+                "Js",
+                "object"
+            ],
+            "correct": false,
+            "id": "8"
         }
     ]
 }
