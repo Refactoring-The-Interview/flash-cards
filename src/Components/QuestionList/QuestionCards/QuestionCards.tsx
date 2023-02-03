@@ -14,54 +14,40 @@ interface Props {
     showDelete: boolean;
 }
 
-const cardOrder = (difficulty: Difficulty): number => {
-    switch (difficulty) {
-        case Difficulty.easy:
-            return 0;
-        case Difficulty.medium:
-            return 1;
-        case Difficulty.hard:
-            return 2;
-        case Difficulty.none:
-        default:
-            return 3;
-    }
-};
-
 export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
     const navigate = useNavigate();
+    const Difficulties = Object.values(Difficulty);
+    let sortedCurrentQuestions = [] as Question[];
+
+    Difficulties.forEach((difficulty) => {
+        currentQuestions.map((question: Question, index: number) => {
+            if (question.difficulty === difficulty) {
+                sortedCurrentQuestions.push(question);
+            }
+        });
+    });
+
+    currentQuestions = sortedCurrentQuestions;
+
     return (
         <div className="QuestionCard">
-            {currentQuestions
-                .sort(
-                    (a, b) => cardOrder(a.difficulty) - cardOrder(b.difficulty)
-                )
-                .map((question: Question, index: number) => {
-                    return (
-                        <div>
-                            <Button
-                                variant="outline-light"
-                                size="lg"
-                                className="listBtn"
-                                key={index}
-                                onClick={(e) => {
-                                    if (!showDelete) {
-                                        navigate(
-                                            pathGenerator[Paths.question](
-                                                question.id
-                                            )
-                                        );
-                                    }
-                                }}
-                            >
-                                <QuestionCard
-                                    question={question}
-                                    showDelete={showDelete}
-                                />
-                            </Button>
-                        </div>
-                    );
-                })}
+            {currentQuestions.map((question: Question, index: number) => {
+                const path = pathGenerator[Paths.question](question.id);
+                return (
+                    <Button
+                        variant="light"
+                        className="listBtn"
+                        onClick={(e) => {
+                            navigate(path);
+                        }}
+                    >
+                        <QuestionCard
+                            question={question}
+                            showDelete={showDelete}
+                        />
+                    </Button>
+                );
+            })}
         </div>
     );
 };

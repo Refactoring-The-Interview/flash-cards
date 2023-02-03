@@ -119,6 +119,23 @@
             ],
             "correct": false,
             "id": "6"
+        },
+        {
+            "difficulty": "hard",
+            "question": "3",
+            "answer": "3",
+            "answers": [
+                "3",
+                "3",
+                "3",
+                ""
+            ],
+            "tags": [
+                "Js",
+                "array"
+            ],
+            "correct": false,
+            "id": "7"
         }
     ]
 }
