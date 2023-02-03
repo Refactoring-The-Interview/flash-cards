@@ -1,19 +1,22 @@
-import { Badge } from "react-bootstrap";
+import { Badge, CardGroup, FormGroup } from "react-bootstrap";
 import { Tags } from "../../../Apis/types";
 
-export const QuestionTags = ({ tags }: { tags: Tags[] }) => {
+interface TagProps {
+    tags: Tags[];
+}
+
+export const QuestionTags = ({ tags }: TagProps) => {
+    tags.sort().reverse();
+
     return (
-        <div>
-            {tags.map((tag) => (
-                <div>tag: {tag},</div>
-            ))}
-            {tags.map((tag: string, index: number) => {
+        <CardGroup>
+            {tags.map((tag: Tags, index: number) => {
                 return (
-                    <Badge bg="dark" key={index}>
-                        {tag?.toLocaleUpperCase()}
+                    <Badge pill bg="dark">
+                        {tag}
                     </Badge>
                 );
             })}
-        </div>
+        </CardGroup>
     );
 };
