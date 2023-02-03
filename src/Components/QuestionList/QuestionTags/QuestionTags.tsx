@@ -1,18 +1,17 @@
 import { Badge } from "react-bootstrap";
 import { Tags } from "../../../Apis/types";
 
-export const QuestionTags = ({ tags }: { tags: Tags[] }) => {
+interface QuestionTagsProps {
+    tags: Tags[];
+}
+
+export const QuestionTags = ({ tags }: QuestionTagsProps) => {
+    tags.sort();
+
     return (
         <div>
-            {tags.map((tag) => (
-                <div>tag: {tag},</div>
-            ))}
-            {tags.map((tag: string, index: number) => {
-                return (
-                    <Badge bg="dark" key={index}>
-                        {tag?.toLocaleUpperCase()}
-                    </Badge>
-                );
+            {tags.map((tag: Tags) => {
+                return <Badge bg="warning">{tag}</Badge>;
             })}
         </div>
     );
