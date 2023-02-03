@@ -12,7 +12,11 @@ import { FormTextArea } from "./FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
 import { FormInput } from "./FromInput/FormInput";
 
-const AddQuestionForm = () => {
+interface Props {
+    variantButton: string;
+}
+
+const AddQuestionForm = ({ variantButton }: Props) => {
     const { questions, addQuestion } = useContext(MyQuestionContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -32,7 +36,7 @@ const AddQuestionForm = () => {
 
     return (
         <>
-            <Button onClick={handleShow} variant="secondary">
+            <Button onClick={handleShow} variant={variantButton}>
                 Add Question
             </Button>
 
