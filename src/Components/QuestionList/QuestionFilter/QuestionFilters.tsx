@@ -79,10 +79,6 @@ export const QuestionFilters = ({
                             />
 
                             <Form.Group className="buttons">
-                                <Button variant="primary" type="submit">
-                                    filter
-                                </Button>
-
                                 <Button
                                     variant="primary"
                                     type="button"

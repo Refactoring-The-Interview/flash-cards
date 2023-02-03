@@ -1,5 +1,8 @@
 import Form from "react-bootstrap/Form";
 import "../QuestionFiltersS.scss";
+import React, { useState } from "react";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
 
 import { Difficulty } from "../../../../Apis/types";
 
@@ -9,27 +12,38 @@ interface DifficultyProps {
 }
 
 export const DifficultySelect = ({ value, setValue }: DifficultyProps) => {
+    const [radioValue, setRadioValue] = useState("1");
+
+    const Difficulties = Object.values(Difficulty);
+    Difficulties.splice(Difficulties.length - 1, 1);
+
     return (
         <Form.Group className="mb-2">
-            <Form.Select
-                className="select-bar"
-                aria-label="Default select example"
-                placeholder="Difficulty"
-                value={value}
-                onChange={(e) => {
-                    const value = e.target.value as Difficulty;
-                    if (Object.values(Difficulty).includes(value)) {
-                        setValue(value);
-                    } else {
-                        console.error("Non-difficulty value selected");
-                    }
-                }}
-            >
-                <option value={Difficulty.none}>Difficulty</option>
-                <option value={Difficulty.easy}>Easy</option>
-                <option value={Difficulty.medium}>Medium</option>
-                <option value={Difficulty.hard}>Hard</option>
-            </Form.Select>
+            <ButtonGroup>
+                {Difficulties.map((difficulty, idx) => (
+                    <ToggleButton
+                        key={idx}
+                        id={`radio-${idx}`}
+                        type="radio"
+                        variant="outline-primary"
+                        name="radio"
+                        value={difficulty}
+                        checked={radioValue === difficulty}
+                        onChange={(e) => {
+                            const value = e.target.value as Difficulty;
+                            if (Object.values(Difficulty).includes(value)) {
+                                setValue(value);
+                            } else {
+                                console.error("Non-difficulty value selected");
+                            }
+
+                            setRadioValue(e.currentTarget.value);
+                        }}
+                    >
+                        {difficulty}
+                    </ToggleButton>
+                ))}
+            </ButtonGroup>
         </Form.Group>
     );
 };

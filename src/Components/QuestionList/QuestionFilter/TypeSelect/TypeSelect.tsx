@@ -1,6 +1,6 @@
-import { Form } from "react-bootstrap";
+import { ButtonGroup, Form, ToggleButton } from "react-bootstrap";
 import { Tags } from "../../../../Apis/types";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface TypeProps {
     value: Tags | undefined;
@@ -8,26 +8,38 @@ interface TypeProps {
 }
 
 export const TypeSelect = ({ value, setValue }: TypeProps) => {
+    const [radioValue, setRadioValue] = useState("1");
+
+    const tags = Object.values(Tags);
+
     return (
         <Form.Group className="mb-2">
-            <Form.Select
-                className="select-bar"
-                aria-label="Default select example"
-                value={value}
-                onChange={(event: ChangeEvent<HTMLSelectElement>) => {
-                    const value = event.target.value as Tags;
+            <ButtonGroup>
+                {tags.map((tag, idx) => (
+                    <ToggleButton
+                        key={idx}
+                        id={`radio-${idx}`}
+                        type="radio"
+                        variant="outline-primary"
+                        name="radio"
+                        value={tag}
+                        checked={radioValue === tag}
+                        onChange={(e) => {
+                            const value = e.target.value as Tags;
 
-                    if (Object.values(Tags).includes(value)) {
-                        setValue(value);
-                    } else {
-                        console.error("Non-Type value selected");
-                    }
-                }}
-            >
-                <option value={Tags.js}>Type</option>
-                <option value={Tags.array}>Array</option>
-                <option value={Tags.obj}>Objects</option>
-            </Form.Select>
+                            if (Object.values(Tags).includes(value)) {
+                                setValue(value);
+                            } else {
+                                console.error("Non-Type value selected");
+                            }
+
+                            setRadioValue(e.currentTarget.value);
+                        }}
+                    >
+                        {tag}
+                    </ToggleButton>
+                ))}
+            </ButtonGroup>
         </Form.Group>
     );
 };
