@@ -47,7 +47,9 @@ export const QuestionCards = ({ questions, showDelete }: Props) => {
                         variant="light"
                         className="listBtn"
                         onClick={() => {
-                            navigate(path);
+                            if (!showDelete) {
+                                navigate(path);
+                            }
                         }}
                     >
                         {deleteBtn}
