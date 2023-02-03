@@ -40,3 +40,21 @@ export const filterQuestions = ({ questions, filterOptions }: Props) => {
         );
     });
 };
+
+interface SortKey {
+    easy: number;
+    medium: number;
+    hard: number;
+    "": number;
+}
+
+interface SortProps {
+    questions: Question[];
+    sortKey: SortKey;
+}
+
+export const SortQuestions = ({ questions, sortKey }: SortProps) => {
+    return questions.sort((a, b) => {
+        return sortKey[a.difficulty] - sortKey[b.difficulty];
+    });
+};

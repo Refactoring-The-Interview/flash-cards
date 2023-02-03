@@ -1,67 +1,47 @@
-import Button from "react-bootstrap/Button";
-import "./QuestionCardsS.scss";
-import { useNavigate } from "react-router-dom";
-import {
-    Difficulty,
-    Paths,
-    Question,
-    pathGenerator,
-} from "../../../Apis/types";
+import { Button } from "react-bootstrap";
+import { Paths, Question, pathGenerator } from "../../../Apis/types";
 import { QuestionCard } from "../QuestionCard/QuestionCard";
+import { SortQuestions } from "../../Utils/Utils";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
-    currentQuestions: Question[];
+    questions: Question[];
     showDelete: boolean;
 }
 
-const cardOrder = (difficulty: Difficulty): number => {
-    switch (difficulty) {
-        case Difficulty.easy:
-            return 0;
-        case Difficulty.medium:
-            return 1;
-        case Difficulty.hard:
-            return 2;
-        case Difficulty.none:
-        default:
-            return 3;
-    }
-};
-
-export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
+export const QuestionCards = ({ questions, showDelete }: Props) => {
     const navigate = useNavigate();
+
+    const sortKey = {
+        easy: 0,
+        medium: 1,
+        hard: 2,
+        "": 3,
+    };
+
+    questions = SortQuestions({ questions, sortKey });
+
     return (
         <div className="QuestionCard">
-            {currentQuestions
-                .sort(
-                    (a, b) => cardOrder(a.difficulty) - cardOrder(b.difficulty)
-                )
-                .map((question: Question, index: number) => {
-                    return (
-                        <div>
-                            <Button
-                                variant="outline-light"
-                                size="lg"
-                                className="listBtn"
-                                key={index}
-                                onClick={(e) => {
-                                    if (!showDelete) {
-                                        navigate(
-                                            pathGenerator[Paths.question](
-                                                question.id
-                                            )
-                                        );
-                                    }
-                                }}
-                            >
-                                <QuestionCard
-                                    question={question}
-                                    showDelete={showDelete}
-                                />
-                            </Button>
-                        </div>
-                    );
-                })}
+            {questions.map((question: Question, index: number) => {
+                const path = pathGenerator[Paths.question](question.id);
+                return (
+                    <Button
+                        variant="light"
+                        className="listBtn"
+                        onClick={() => {
+                            if (!showDelete) {
+                                navigate(path);
+                            }
+                        }}
+                    >
+                        <QuestionCard
+                            question={question}
+                            showDelete={showDelete}
+                        />
+                    </Button>
+                );
+            })}
         </div>
     );
 };
