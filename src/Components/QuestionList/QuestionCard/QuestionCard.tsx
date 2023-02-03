@@ -1,9 +1,8 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import "./QuestionCardS.scss";
-import { QuestionTags } from "../QuestionTags/QuestionTags";
-import { DeleteButton } from "../QuestionCards/DeleteButton/DeleteButton";
+import { Card } from "react-bootstrap";
 import { Question } from "../../../Apis/types";
+import { QuestionTags } from "../QuestionTags/QuestionTags";
+import { IsCorrectBadge } from "./IsCorrectBadge/IsCorrectBadge";
+import "./QuestionCardS.scss";
 
 interface CardProps {
     question: Question;
@@ -11,22 +10,17 @@ interface CardProps {
 }
 
 export const QuestionCard = ({ question, showDelete }: CardProps) => {
-    const { answer, difficulty, tags, correct } = question;
-
-    let answeredColor = correct ? "outline-success" : "outline-danger";
+    const { answer, correct, tags, difficulty } = question;
 
     return (
         <div className="QuestionCard">
             <Card className="listItem">
                 <Card.Header>
-                    {showDelete && <DeleteButton question={question} />}
                     <Card.Text className="listItem-text">{answer}</Card.Text>
-                    <span className={`difficulty ${difficulty}`}></span>
+                    <div className={`difficulty ${difficulty}`}></div>
                 </Card.Header>
                 <Card.Body>
-                    <Button variant={`${answeredColor}`} disabled>
-                        Answered
-                    </Button>
+                    <IsCorrectBadge correct={correct} />
                     <QuestionTags tags={tags} />
                 </Card.Body>
             </Card>
