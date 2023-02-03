@@ -1,33 +1,23 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import "./QuestionCardS.scss";
-import { QuestionTags } from "../QuestionTags/QuestionTags";
-import { DeleteButton } from "../QuestionCards/DeleteButton/DeleteButton";
+import { Card } from "react-bootstrap";
 import { Question } from "../../../Apis/types";
+import "./QuestionCardS.scss";
+import { CardBody } from "./CardBody/CardBody";
+import { CardHeader } from "./CardHeader/CardHeader";
 
-interface CardProps {
+interface QuestionCardProps {
     question: Question;
     showDelete?: boolean;
 }
 
-export const QuestionCard = ({ question, showDelete }: CardProps) => {
-    const { answer, difficulty, tags, correct } = question;
-
-    let answeredColor = correct ? "outline-success" : "outline-danger";
-
+export const QuestionCard = ({ question, showDelete }: QuestionCardProps) => {
     return (
         <div className="QuestionCard">
-            <Card className="listItem">
+            <Card className="istItem">
                 <Card.Header>
-                    {showDelete && <DeleteButton question={question} />}
-                    <Card.Text className="listItem-text">{answer}</Card.Text>
-                    <span className={`difficulty ${difficulty}`}></span>
+                    <CardHeader question={question} />
                 </Card.Header>
                 <Card.Body>
-                    <Button variant={`${answeredColor}`} disabled>
-                        Answered
-                    </Button>
-                    <QuestionTags tags={tags} />
+                    <CardBody question={question} />
                 </Card.Body>
             </Card>
         </div>
