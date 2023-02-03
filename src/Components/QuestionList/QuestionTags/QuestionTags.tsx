@@ -1,19 +1,21 @@
-import { Badge } from "react-bootstrap";
+import { Badge, Button, ListGroup } from "react-bootstrap";
 import { Tags } from "../../../Apis/types";
 
-export const QuestionTags = ({ tags }: { tags: Tags[] }) => {
+interface QuestionTagsProps {
+    tags: Tags[];
+}
+
+export const QuestionTags = ({ tags }: QuestionTagsProps) => {
     return (
-        <div>
-            {tags.map((tag) => (
-                <div>tag: {tag},</div>
-            ))}
-            {tags.map((tag: string, index: number) => {
+        <ListGroup>
+            <h5 style={{ color: "black" }}>Tags:</h5>
+            {tags.map((tag: Tags, index: number) => {
                 return (
-                    <Badge bg="dark" key={index}>
-                        {tag?.toLocaleUpperCase()}
-                    </Badge>
+                    <ListGroup.Item>
+                        <Badge>{tag}</Badge>
+                    </ListGroup.Item>
                 );
             })}
-        </div>
+        </ListGroup>
     );
 };

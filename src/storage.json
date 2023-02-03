@@ -99,26 +99,6 @@
             ],
             "correct": true,
             "id": "1"
-        },
-        {
-            "difficulty": "",
-            "question": "asdfasdfasdfa",
-            "answer": "a",
-            "answers": [
-                "a",
-                "a",
-                "a",
-                ""
-            ],
-            "tags": [
-                null,
-                "Js",
-                null,
-                "array",
-                null
-            ],
-            "correct": false,
-            "id": "6"
         }
     ]
 }

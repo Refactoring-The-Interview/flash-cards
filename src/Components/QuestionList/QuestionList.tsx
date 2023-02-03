@@ -23,13 +23,7 @@ export const QuestionList = () => {
 
     const [showDelete, setShowDelete] = useState<boolean>(false);
 
-    const [currentQuestion, setCurrentQuestions] = useState<Question[]>(
-        filterQuestions({ questions, filterOptions })
-    );
-
-    useEffect(() => {
-        setCurrentQuestions(filterQuestions({ questions, filterOptions }));
-    }, [filterOptions]);
+    let currentQuestion = filterQuestions({ questions, filterOptions });
 
     if (questions.length === 0) {
         return (
