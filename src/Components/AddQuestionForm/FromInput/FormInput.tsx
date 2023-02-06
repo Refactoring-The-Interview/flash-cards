@@ -5,9 +5,10 @@ interface FormProps {
     value: string;
     setValue(value: string): void;
     title: string;
+    type?: string;
 }
 
-export const FormInput = ({ value, setValue, title }: FormProps) => {
+export const FormInput = ({ value, setValue, title, type }: FormProps) => {
     return (
         <FormGroup>
             <Form.Label htmlFor="formInput">{title}</Form.Label>
@@ -20,6 +21,7 @@ export const FormInput = ({ value, setValue, title }: FormProps) => {
                 }}
                 value={value}
                 placeholder={title}
+                type={type}
             ></input>
         </FormGroup>
     );

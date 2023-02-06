@@ -7,6 +7,7 @@ import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
 import { TypeSelect } from "./TypeSelect/TypeSelect";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Checkbox } from "./CheckBox/CheckBox";
+import { Card, CardGroup, FormGroup } from "react-bootstrap";
 
 interface Props {
     setFilterSettings(filterSettingObject: FilterSetting): void;
@@ -23,78 +24,76 @@ export const QuestionFilters = ({
 
     return (
         <div className="QuestionFilters">
-            <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>Filters</Accordion.Header>
-                    <Accordion.Body>
-                        <Form
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                const { difficulty, type, name, hideCorrect } =
-                                    filterSettings;
+            <Card className="mb-1 text-muted">
+                <Card.Body>
+                    <Form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            const { difficulty, type, name, hideCorrect } =
+                                filterSettings;
+                            setFilterSettings({
+                                type: type,
+                                name: name,
+                                hideCorrect: hideCorrect,
+                                difficulty: difficulty,
+                            });
+                        }}
+                    >
+                        <FormGroup></FormGroup>
+                        <SearchBar
+                            value={filterSettings.name}
+                            setValue={(name) => {
                                 setFilterSettings({
-                                    type: type,
-                                    name: name,
-                                    hideCorrect: hideCorrect,
-                                    difficulty: difficulty,
+                                    ...filterSettings,
+                                    name,
                                 });
                             }}
-                        >
-                            <SearchBar
-                                value={filterSettings.name}
-                                setValue={(name) => {
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        name,
-                                    });
-                                }}
-                            />
+                        />
 
-                            <TypeSelect
-                                value={filterSettings.type}
-                                setValue={(type) => {
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        type,
-                                    });
-                                }}
-                            />
-                            <DifficultySelect
-                                value={filterSettings.difficulty}
-                                setValue={(difficulty) =>
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        difficulty,
-                                    })
-                                }
-                            />
-                            <Checkbox
-                                value={filterSettings.hideCorrect}
-                                setValue={(hideCorrect) => {
-                                    setFilterSettings({
-                                        ...filterSettings,
-                                        hideCorrect,
-                                    });
-                                }}
-                            />
+                        <TypeSelect
+                            value={filterSettings.type}
+                            setValue={(type) => {
+                                setFilterSettings({
+                                    ...filterSettings,
+                                    type,
+                                });
+                            }}
+                        />
+                        <DifficultySelect
+                            value={filterSettings.difficulty}
+                            setValue={(difficulty) =>
+                                setFilterSettings({
+                                    ...filterSettings,
+                                    difficulty,
+                                })
+                            }
+                        />
+                        <Checkbox
+                            value={filterSettings.hideCorrect}
+                            setValue={(hideCorrect) => {
+                                setFilterSettings({
+                                    ...filterSettings,
+                                    hideCorrect,
+                                });
+                            }}
+                        />
 
-                            <Form.Group className="buttons">
-                                <Button variant="primary" type="submit">
-                                    filter
-                                </Button>
+                        <Form.Group className="buttons">
+                            <Button variant="primary" type="submit">
+                                filter
+                            </Button>
 
-                                <Button
-                                    variant="primary"
-                                    type="button"
-                                    onClick={formReset}
-                                >
-                                    Reset
-                                </Button>
-                            </Form.Group>
-                        </Form>
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
+                            <Button
+                                variant="primary"
+                                type="button"
+                                onClick={formReset}
+                            >
+                                Reset
+                            </Button>
+                        </Form.Group>
+                    </Form>
+                </Card.Body>
+            </Card>
         </div>
     );
 };
