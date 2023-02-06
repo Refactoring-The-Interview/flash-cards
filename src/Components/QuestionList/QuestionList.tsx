@@ -1,18 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./QuestionListS.scss";
-import { QuestionFilters } from "./QuestionFilter/QuestionFilters";
 import { QuestionCards } from "./QuestionCards/QuestionCards";
 import { filterQuestions } from "../Utils/Utils";
-import AddQuestionForm from "../AddQuestionForm/AddQuestionForm";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loading } from "../Loading/Loading";
-import {
-    FilterSetting,
-    Question,
-    filterSettingsDefault,
-} from "../../Apis/types";
-import { Button } from "react-bootstrap";
-import { ProgressBars } from "./ProgressBars/ProgressBars";
+import { FilterSetting, filterSettingsDefault } from "../../Apis/types";
 import { OffCanvas } from "./OffCanvas/OffCanvas";
 
 export const QuestionList = () => {
@@ -23,13 +15,7 @@ export const QuestionList = () => {
 
     const [showDelete, setShowDelete] = useState<boolean>(false);
 
-    const [currentQuestion, setCurrentQuestions] = useState<Question[]>(
-        filterQuestions({ questions, filterOptions })
-    );
-
-    useEffect(() => {
-        setCurrentQuestions(filterQuestions({ questions, filterOptions }));
-    }, [filterOptions]);
+    let currentQuestion = filterQuestions({ questions, filterOptions });
 
     if (questions.length === 0) {
         return (
