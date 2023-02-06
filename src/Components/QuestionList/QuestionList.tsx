@@ -30,8 +30,8 @@ export const QuestionList = () => {
             <OffCanvas
                 setFilterSettings={setFilterOptions}
                 filterSettings={filterOptions}
-                showDelete={showDelete}
-                setShowDelete={setShowDelete}
+                value={showDelete}
+                setValue={setShowDelete}
             />
             <QuestionCards
                 currentQuestions={currentQuestion}

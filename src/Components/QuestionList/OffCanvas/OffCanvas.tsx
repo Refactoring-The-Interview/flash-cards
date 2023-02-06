@@ -1,24 +1,23 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import { FilterSetting } from "../../../Apis/types";
-import { QuestionFilters } from "../QuestionFilter/QuestionFilters";
+import { useState } from "react";
+import { Badge, Button, Offcanvas } from "react-bootstrap";
 import AddQuestionForm from "../../AddQuestionForm/AddQuestionForm";
+import { QuestionFilters } from "../QuestionFilter/QuestionFilters";
+import { FilterSetting } from "../../../Apis/types";
 
 interface Props {
-    setFilterSettings(filterSetting: FilterSetting): void;
+    value: boolean;
+    setValue(value: boolean): void;
     filterSettings: FilterSetting;
-    showDelete: boolean;
-    setShowDelete(showDelete: boolean): void;
+    setFilterSettings(filterSettings: FilterSetting): void;
 }
 
 export const OffCanvas = ({
-    setFilterSettings,
+    value,
+    setValue,
     filterSettings,
-    showDelete,
-    setShowDelete,
+    setFilterSettings,
 }: Props) => {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState<boolean>(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -26,29 +25,28 @@ export const OffCanvas = ({
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Options
+                Show Options
             </Button>
 
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>
-                        <h1>Options</h1>
-                    </Offcanvas.Title>
+                    <h1>
+                        <Badge>Options</Badge>
+                    </h1>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <QuestionFilters
                         setFilterSettings={setFilterSettings}
                         filterSettings={filterSettings}
                     />
-                    <AddQuestionForm variantButton={"primary"} />
+                    <AddQuestionForm variantButton={"outline-primary"} />
                     <Button
-                        variant="danger"
+                        variant="outline-danger"
                         onClick={() => {
-                            setShowDelete(!showDelete);
-                            handleClose();
+                            setValue(!value);
                         }}
                     >
-                        {showDelete ? "exit Delete Mode" : "Delete Mode"}
+                        Delete Question Mode
                     </Button>
                 </Offcanvas.Body>
             </Offcanvas>
