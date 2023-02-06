@@ -41,6 +41,7 @@ export enum Paths {
     home = "/home",
     contact = "/contact",
     profile = "/profile",
+    loading = "/loading",
 }
 
 export enum API {

@@ -1,9 +1,20 @@
-import Spinner from "react-bootstrap/Spinner";
+import { Badge, Spinner } from "react-bootstrap";
 
-export const Loading = () => {
+interface Props {
+    message?: string;
+}
+
+export const Loading = ({ message }: Props) => {
     return (
-        <Spinner animation="border" role="status" variant="primary" size="sm">
-            <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <>
+            <h1>
+                <Badge>
+                    {message ? message : "Loading your page!"}
+                    <Spinner animation="border" variant="warning">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </Badge>
+            </h1>
+        </>
     );
 };
