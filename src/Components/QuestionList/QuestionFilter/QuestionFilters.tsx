@@ -1,4 +1,3 @@
-import Accordion from "react-bootstrap/Accordion";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./QuestionFiltersS.scss";
@@ -7,7 +6,7 @@ import { DifficultySelect } from "./DifficultySelect/DifficultySelect";
 import { TypeSelect } from "./TypeSelect/TypeSelect";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Checkbox } from "./CheckBox/CheckBox";
-import { Card, CardGroup, FormGroup } from "react-bootstrap";
+import { Card, FormGroup } from "react-bootstrap";
 
 interface Props {
     setFilterSettings(filterSettingObject: FilterSetting): void;
@@ -39,7 +38,6 @@ export const QuestionFilters = ({
                             });
                         }}
                     >
-                        <FormGroup></FormGroup>
                         <SearchBar
                             value={filterSettings.name}
                             setValue={(name) => {

@@ -1,136 +1,96 @@
-import React, { useContext, useState } from "react";
-import "./AddQuestionFormS.scss";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { Form, FormGroup } from "react-bootstrap";
+import { useContext, useState } from "react";
+import { Form } from "react-bootstrap";
+import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
+import { FormInput } from "./FromInput/FormInput";
+import { Difficulty, Question } from "../../Apis/types";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
-import { Difficulty, Question, Tags } from "../../Apis/types";
-import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
-
-import { TagsSelect } from "./TagsSelect/TagsSelect";
 import { FormTextArea } from "./FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
-import { FormInput } from "./FromInput/FormInput";
+import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
+import { TagsSelect } from "./TagsSelect/TagsSelect";
 
 interface Props {
     variantButton: string;
 }
 
-const AddQuestionForm = ({ variantButton }: Props) => {
+export const AddQuestionForm = ({ variantButton }: Props) => {
     const { questions, addQuestion } = useContext(MyQuestionContext);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const DefaultFormInputs: Question = {
+    const questionDefaults: Question = {
         difficulty: Difficulty.none,
         question: "",
         answer: "",
         answers: ["", "", ""],
-        tags: [Tags.js],
+        tags: [],
         correct: false,
-        id: (questions.length + 1).toString(),
+        id: questions.length.toString(),
     };
 
-    const [formInputs, setFormInputs] = useState<Question>(DefaultFormInputs);
-
+    const [newQuestion, setNewQuestion] = useState<Question>(questionDefaults);
+    const { question, answer, answers, tags, difficulty } = newQuestion;
     return (
         <>
-            <Button onClick={handleShow} variant={variantButton}>
-                Add Question
-            </Button>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Question Addition From</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form className="Form">
-                        <FormGroup className="difficulty form-group">
-                            <Form.Label htmlFor="difficultyInput">
-                                Difficulty
-                            </Form.Label>
-
-                            <DifficultySelect
-                                value={formInputs.difficulty}
-                                setValue={(difficulty) => {
-                                    setFormInputs({
-                                        ...formInputs,
-                                        difficulty,
-                                    });
-                                }}
-                            />
-                        </FormGroup>
-
+            <ConfirmButton
+                variant={"primary"}
+                onConfirm={() => {
+                    addQuestion(newQuestion);
+                }}
+                children={<>Add Question</>}
+                modalTitle={"Add Question Form"}
+                modalBody={
+                    <Form>
+                        <DifficultySelect
+                            value={difficulty}
+                            title={"Difficulty"}
+                            setValue={(difficulty) => {
+                                setNewQuestion({
+                                    ...newQuestion,
+                                    difficulty,
+                                });
+                            }}
+                        />
                         <FormTextArea
-                            value={formInputs.question}
+                            value={question}
                             setValue={(question) => {
-                                setFormInputs({
-                                    ...formInputs,
+                                setNewQuestion({
+                                    ...newQuestion,
                                     question,
                                 });
                             }}
-                            title={"Questions"}
-                        />
+                            title={"Question"}
+                        ></FormTextArea>
 
                         <QuestionFormAnswers
-                            value={formInputs.answers}
+                            value={answers}
                             setValue={(answers) => {
-                                setFormInputs({
-                                    ...formInputs,
+                                setNewQuestion({
+                                    ...newQuestion,
                                     answers,
                                 });
                             }}
                         />
-
                         <FormInput
-                            value={formInputs.answer}
+                            value={answer}
                             setValue={(answer) => {
-                                setFormInputs({
-                                    ...formInputs,
+                                setNewQuestion({
+                                    ...newQuestion,
                                     answer,
                                 });
                             }}
                             title={"Correct Answer"}
-                        />
+                        ></FormInput>
+
                         <TagsSelect
-                            value={formInputs.tags}
+                            value={tags}
                             setValue={(tags) => {
-                                setFormInputs({
-                                    ...formInputs,
+                                setNewQuestion({
+                                    ...newQuestion,
                                     tags,
                                 });
                             }}
                         />
                     </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button
-                        variant="outline-secondary"
-                        onClick={() => {
-                            setFormInputs(DefaultFormInputs);
-                        }}
-                    >
-                        Reset Form
-                    </Button>
-
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button
-                        variant="primary"
-                        onClick={(e) => {
-                            addQuestion(formInputs);
-                            handleClose();
-                            setFormInputs(DefaultFormInputs);
-                        }}
-                    >
-                        Save and Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+                }
+            ></ConfirmButton>
         </>
     );
 };
-
-export default AddQuestionForm;
