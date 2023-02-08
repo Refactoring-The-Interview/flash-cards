@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { FormInput } from "./FromInput/FormInput";
-import { Difficulty, Question, Tags } from "../../Apis/types";
+import { Difficulty, Question } from "../../Apis/types";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { FormTextArea } from "./FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
