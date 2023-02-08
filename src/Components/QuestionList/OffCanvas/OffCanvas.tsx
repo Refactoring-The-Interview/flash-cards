@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FilterSetting } from "../../../Apis/types";
 import { QuestionFilters } from "../QuestionFilter/QuestionFilters";
-import AddQuestionForm from "../../AddQuestionForm/AddQuestionForm";
+import { AddQuestionForm } from "../../AddQuestionForm/AddQuestionForm";
 
 interface Props {
     setFilterSettings(filterSetting: FilterSetting): void;
