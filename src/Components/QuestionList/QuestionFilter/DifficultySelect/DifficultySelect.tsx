@@ -6,11 +6,17 @@ import { Difficulty } from "../../../../Apis/types";
 interface DifficultyProps {
     value: Difficulty;
     setValue(difficulty: Difficulty): void;
+    title?: string;
 }
 
-export const DifficultySelect = ({ value, setValue }: DifficultyProps) => {
+export const DifficultySelect = ({
+    value,
+    setValue,
+    title,
+}: DifficultyProps) => {
     return (
         <Form.Group className="mb-2">
+            <Form.Label>{title}</Form.Label>
             <Form.Select
                 className="select-bar"
                 aria-label="Default select example"

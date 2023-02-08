@@ -2,42 +2,92 @@ import { useContext, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { FormInput } from "./FromInput/FormInput";
-import { Difficulty, Question } from "../../Apis/types";
+import { Difficulty, Question, Tags } from "../../Apis/types";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { FormTextArea } from "./FormTextArea/FormTextArea";
+import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
+import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
+import { TagsSelect } from "./TagsSelect/TagsSelect";
 
 interface Props {
     variantButton: string;
 }
 
 export const AddQuestionForm = ({ variantButton }: Props) => {
-    const { questions } = useContext(MyQuestionContext);
-    const newQuestion = useState<Question>({
+    const { questions, addQuestion } = useContext(MyQuestionContext);
+    const questionDefaults: Question = {
         difficulty: Difficulty.none,
         question: "",
         answer: "",
-        answers: [],
+        answers: ["", "", ""],
         tags: [],
         correct: false,
         id: questions.length.toString(),
-    });
+    };
 
+    const [newQuestion, setNewQuestion] = useState<Question>(questionDefaults);
+    const { question, answer, answers, tags, difficulty } = newQuestion;
     return (
         <>
             <ConfirmButton
-                variant={"danger"}
-                onConfirm={function (): void {
-                    throw new Error("Function not implemented.");
+                variant={"primary"}
+                onConfirm={() => {
+                    addQuestion(newQuestion);
                 }}
                 children={<>Add Question</>}
+                modalTitle={"Add Question Form"}
                 modalBody={
                     <Form>
-                        <FormInput
-                            value={""}
-                            setValue={function (value: string): void {
-                                throw new Error("Function not implemented.");
+                        <DifficultySelect
+                            value={difficulty}
+                            title={"Difficulty"}
+                            setValue={(difficulty) => {
+                                setNewQuestion({
+                                    ...newQuestion,
+                                    difficulty,
+                                });
                             }}
-                            title={""}
+                        />
+                        <FormTextArea
+                            value={question}
+                            setValue={(question) => {
+                                setNewQuestion({
+                                    ...newQuestion,
+                                    question,
+                                });
+                            }}
+                            title={"Question"}
+                        ></FormTextArea>
+
+                        <QuestionFormAnswers
+                            value={answers}
+                            setValue={(answers) => {
+                                setNewQuestion({
+                                    ...newQuestion,
+                                    answers,
+                                });
+                            }}
+                        />
+                        <FormInput
+                            value={answer}
+                            setValue={(answer) => {
+                                setNewQuestion({
+                                    ...newQuestion,
+                                    answer,
+                                });
+                            }}
+                            title={"Correct Answer"}
                         ></FormInput>
+
+                        <TagsSelect
+                            value={tags}
+                            setValue={(tags) => {
+                                setNewQuestion({
+                                    ...newQuestion,
+                                    tags,
+                                });
+                            }}
+                        />
                     </Form>
                 }
             ></ConfirmButton>
