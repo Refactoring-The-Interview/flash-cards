@@ -1,4 +1,4 @@
-import { Button, Card, CardGroup, Figure, Modal } from "react-bootstrap";
+import { Card, Figure, Modal } from "react-bootstrap";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { UserInfoEditForm } from "./UserInfoEditForm/UserInfoEditForm";
