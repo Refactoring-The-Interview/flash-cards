@@ -4,7 +4,7 @@ import FlashCard from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, NavigateFunction } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
@@ -13,7 +13,7 @@ import { Paths } from "../../Apis/types";
 import { Profile } from "../Profile/Profile";
 
 function App() {
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
     const [userInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
