@@ -3,7 +3,7 @@ import { useRouteError } from "react-router-dom";
 interface Props {
     statusText: string;
     message: string;
-    error: void | string;
+    error: undefined | string;
 }
 
 export default function ErrorPage() {

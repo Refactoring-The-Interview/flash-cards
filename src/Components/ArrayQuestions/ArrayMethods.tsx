@@ -9,8 +9,7 @@ interface Props {
 }
 
 export const ArrayMethods = ({ cardQuestion }: Props) => {
-    const { questions, setQuestions, addQuestion } =
-        useContext(MyQuestionContext);
+    const { addQuestion } = useContext(MyQuestionContext);
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;

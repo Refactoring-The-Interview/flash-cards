@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import "./QuestionCardsS.scss";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import {
     Difficulty,
     Paths,
@@ -29,7 +29,7 @@ const cardOrder = (difficulty: Difficulty): number => {
 };
 
 export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
     return (
         <div className="QuestionCard">
             {currentQuestions

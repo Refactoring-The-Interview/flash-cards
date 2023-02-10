@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
 import "./TimerS.scss";
 
-const Timer = (expiryTimestamp: any) => {
+interface TimerProps {
+    expiryTimeStamp?: number;
+}
+
+const Timer = (expiryTimestamp: TimerProps) => {
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 300);
+    const timerStamp = +expiryTimestamp < 0 ? +expiryTimestamp : 300;
+    time.setSeconds(time.getSeconds() + timerStamp);
 
     const { seconds, minutes, start, pause } = useTimer({
         expiryTimestamp: time,

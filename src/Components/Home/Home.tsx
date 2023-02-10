@@ -1,11 +1,11 @@
 import { Button, CardGroup } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import "./HomeS.scss";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Paths } from "../../Apis/types";
 
 export const Home = () => {
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
 
     return (
         <div className="Home">
