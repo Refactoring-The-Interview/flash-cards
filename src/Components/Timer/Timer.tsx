@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
 import "./TimerS.scss";
+import { Button } from "react-bootstrap";
 
 interface TimerProps {
     expiryTimeStamp?: number;
 }
 
 const Timer = (expiryTimestamp: TimerProps) => {
+
+
     const time = new Date();
     const timerStamp = +expiryTimestamp < 0 ? +expiryTimestamp : 300;
     time.setSeconds(time.getSeconds() + timerStamp);
@@ -16,38 +19,32 @@ const Timer = (expiryTimestamp: TimerProps) => {
         autoStart: true,
     });
 
-    const [isPause, setIsPause] = useState(false);
+    const [isPause, setIsPause] = useState<boolean>(false);
+    const buttonTextPause = isPause ? "Start" : "Pause";
+    const buttonVariantPause = isPause ? "outline-success" : "outline-danger";
 
     return (
-        <div className="timer">
-            <div className="timer__display">
-                <span>{minutes}</span>:<span>{seconds}</span>
+        <>
+            <div>
+                <span>
+                    {minutes}:{seconds}
+                </span>
             </div>
-            {!isPause && (
-                <button
-                    type="button"
-                    className="btn timer__btn btn-outline-danger"
-                    onClick={() => {
-                        pause();
-                        setIsPause(true);
-                    }}
-                >
-                    Pause
-                </button>
-            )}
-            {isPause && (
-                <button
-                    type="button"
-                    className="btn timer__btn btn-outline-success"
-                    onClick={() => {
+
+            <Button
+                variant={buttonVariantPause}
+                onClick={() => {
+                    if (isPause) {
                         start();
-                        setIsPause(false);
-                    }}
-                >
-                    Start
-                </button>
-            )}
-        </div>
+                    } else {
+                        pause();
+                    }
+                    setIsPause(!isPause);
+                }}
+            >
+                {buttonTextPause}
+            </Button>
+        </>
     );
 };
 
