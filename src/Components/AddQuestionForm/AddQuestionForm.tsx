@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { FormInput } from "./FromInput/FormInput";
-import { Difficulty, Question, useNewQuestionDefault } from "../../Apis/types";
+import { Question, useNewQuestionDefault } from "../../Apis/types";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { FormTextArea } from "./FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
