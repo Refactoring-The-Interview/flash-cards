@@ -29,7 +29,7 @@
         },
         {
             "difficulty": "medium",
-            "question": "Whatmethod shallow copies part of an array to another location in the same array and returns it without modifying its length.",
+            "question": "What method shallow copies part of an array to another location in the same array and returns it without modifying its length.",
             "answer": "Array.copyWithin()",
             "answers": [
                 "Array.concat()",
