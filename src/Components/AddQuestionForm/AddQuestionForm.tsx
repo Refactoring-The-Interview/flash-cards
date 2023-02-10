@@ -34,7 +34,6 @@ export const AddQuestionForm = ({ variantButton }: Props) => {
                 onConfirm={() => {
                     addQuestion(newQuestion);
                 }}
-                children={<>Add Question</>}
                 modalTitle={"Add Question Form"}
                 modalBody={
                     <Form>
@@ -90,7 +89,9 @@ export const AddQuestionForm = ({ variantButton }: Props) => {
                         />
                     </Form>
                 }
-            ></ConfirmButton>
+            >
+                Add Question
+            </ConfirmButton>
         </>
     );
 };
