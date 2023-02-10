@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { MyQuestionContext } from "../Components/QuestionContext/QuestionContext";
+
 export interface Question {
     difficulty: Difficulty;
     question: string;
@@ -65,4 +68,19 @@ export const filterSettingsDefault: FilterSetting = {
     name: "",
     hideCorrect: false,
     difficulty: Difficulty.none,
+};
+
+export const useNewQuestionDefault = () => {
+    const { questions } = useContext(MyQuestionContext);
+    const questionDefaults: Question = {
+        difficulty: Difficulty.none,
+        question: "",
+        answer: "",
+        answers: ["", "", ""],
+        tags: [],
+        correct: false,
+        id: (questions.length + 1).toString(),
+    };
+
+    return questionDefaults;
 };

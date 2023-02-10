@@ -4,15 +4,8 @@
         "difficulty": "medium",
         "question": "what method executes a provided function once for each array element.",
         "answer": "Array.forEach()",
-        "answers": [
-            "Array.map()",
-            "Array.forEach()",
-            "Array.every()"
-        ],
-        "tags": [
-            "array",
-            "Js"
-        ],
+        "answers": ["Array.map()", "Array.forEach()", "Array.every()"],
+        "tags": ["array", "Js"],
         "correct": false,
         "id": "3"
     },
@@ -21,138 +14,10 @@
             "difficulty": "medium",
             "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
             "answer": "Array.some()",
-            "answers": [
-                "Array.some()",
-                "Array.filter",
-                "Array.forEach()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
+            "answers": ["Array.some()", "Array.filter", "Array.forEach()"],
+            "tags": ["array", "Js"],
             "correct": false,
             "id": "1"
-        },
-        {
-            "difficulty": "easy",
-            "question": "hello",
-            "answer": "5",
-            "answers": [
-                "e",
-                "3",
-                "5",
-                ""
-            ],
-            "tags": [
-                "Js",
-                "array"
-            ],
-            "correct": false,
-            "id": "2"
-        },
-        {
-            "difficulty": "easy",
-            "question": "hello",
-            "answer": "5",
-            "answers": [
-                "e",
-                "3",
-                "5",
-                ""
-            ],
-            "tags": [
-                "Js",
-                "array"
-            ],
-            "correct": true,
-            "id": "2"
-        },
-        {
-            "difficulty": "",
-            "question": "test",
-            "answer": "2",
-            "answers": [
-                "2",
-                "2",
-                "2",
-                ""
-            ],
-            "tags": [
-                "Js",
-                "object"
-            ],
-            "correct": false,
-            "id": "4"
-        },
-        {
-            "difficulty": "medium",
-            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
-            "answer": "Array.some()",
-            "answers": [
-                "Array.some()",
-                "Array.filter",
-                "Array.forEach()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": true,
-            "id": "1"
-        },
-        {
-            "difficulty": "",
-            "question": "asdfasdfasdfa",
-            "answer": "a",
-            "answers": [
-                "a",
-                "a",
-                "a",
-                ""
-            ],
-            "tags": [
-                null,
-                "Js",
-                null,
-                "array",
-                null
-            ],
-            "correct": false,
-            "id": "6"
-        },
-        {
-            "difficulty": "hard",
-            "question": "test add",
-            "answer": "3",
-            "answers": [
-                "33",
-                "33",
-                "33",
-                "3",
-                ""
-            ],
-            "tags": [
-                "object"
-            ],
-            "correct": false,
-            "id": "6"
-        },
-        {
-            "difficulty": "easy",
-            "question": "hello",
-            "answer": "5",
-            "answers": [
-                "e",
-                "3",
-                "5",
-                ""
-            ],
-            "tags": [
-                "Js",
-                "array"
-            ],
-            "correct": true,
-            "id": "2"
         }
     ]
 }
