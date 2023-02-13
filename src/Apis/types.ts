@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { MyQuestionContext } from "../Components/QuestionContext/QuestionContext";
+
 export interface Question {
     difficulty: Difficulty;
     question: string;
@@ -41,6 +44,7 @@ export enum Paths {
     home = "/home",
     contact = "/contact",
     profile = "/profile",
+    questionEdit = "/questionEdit/:questionId",
 }
 
 export enum API {
@@ -60,9 +64,20 @@ export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
 };
 
+export const editQuestionPath = {
+    [Paths.questionEdit]: (questionId: string) => `/questionEdit/${questionId}`,
+};
+
 export const filterSettingsDefault: FilterSetting = {
     type: undefined,
     name: "",
     hideCorrect: false,
     difficulty: Difficulty.none,
+};
+
+export const getQuestions = (
+    questions: Question[],
+    questionId: string | undefined
+): Question | undefined => {
+    return questions?.find(({ id }) => id === questionId);
 };
