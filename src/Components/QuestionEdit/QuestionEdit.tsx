@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {
     Badge,
     Button,
@@ -12,7 +12,6 @@ import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Paths, Question } from "../../Apis/types";
 import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFormBody";
 import { Loading } from "../Loading/Loading";
-import { ListFormat } from "typescript";
 
 export const QuestionEdit = () => {
     const { questionId } = useParams();
