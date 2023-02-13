@@ -2,23 +2,49 @@ import { Table } from "react-bootstrap";
 import { MyQuestionContext } from "../../../QuestionContext/QuestionContext";
 import { useContext } from "react";
 import { Question, Tags } from "../../../../Apis/types";
+import { Loading } from "../../../Loading/Loading";
+import { TableListItems } from "./TableListItems/TableListItems";
+import { TableListTitle } from "./TableListTitle/TableListTitle";
 
 const filerByType = (tag: Tags, questions: Question[]) => {
-    return questions.filter(({ tags }) => {
-        return tags.includes(Tags[tag]);
+    const test = questions.filter(({ tags }) => {
+        return tags.includes(tag);
     });
+
+    return test;
 };
 
 export const QuestionListTable = () => {
     const { questions } = useContext(MyQuestionContext);
+    const types = Object.values(Tags);
+    let questionTypesFiltered: Question[][] = [];
 
-    const types = Object.keys(Tags);
-    let questionTypesFiltered: any = [];
     types.forEach((tag) =>
-        questionTypesFiltered.push(filerByType(tag, questions))
+        questionTypesFiltered.push(filerByType(tag as Tags, questions))
     );
 
-    console.log(questionTypesFiltered);
+    if (questionTypesFiltered.length === 0) return <Loading />;
 
-    return <Table></Table>;
+    return (
+        <Table striped bordered hover>
+            <thead>
+                {types.map((tag) => {
+                    return (
+                        <tr>
+                            <TableListTitle title={tag} />
+                        </tr>
+                    );
+                })}
+            </thead>
+            <thead>
+                {questionTypesFiltered.map((questions) => {
+                    return (
+                        <tr>
+                            <TableListItems questions={questions} />
+                        </tr>
+                    );
+                })}
+            </thead>
+        </Table>
+    );
 };

@@ -5,5 +5,19 @@ interface Props {
 }
 
 export const TableListItems = ({ questions }: Props) => {
-    return <div>hello</div>;
+    return (
+        <>
+            {questions.map((currentQuestion) => {
+                const { question, answer, tags } = currentQuestion;
+                return (
+                    <td>
+                        <div>
+                            <span>Difficulty color</span>
+                        </div>
+                        <div>{answer}</div>
+                    </td>
+                );
+            })}
+        </>
+    );
 };
