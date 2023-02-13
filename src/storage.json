@@ -1,14 +1,4 @@
 {
-    "1": "hello world",
-    "3": {
-        "difficulty": "medium",
-        "question": "what method executes a provided function once for each array element.",
-        "answer": "Array.forEach()",
-        "answers": ["Array.map()", "Array.forEach()", "Array.every()"],
-        "tags": ["array", "Js"],
-        "correct": false,
-        "id": "3"
-    },
     "questions": [
         {
             "difficulty": "medium",
@@ -18,6 +8,117 @@
             "tags": ["array", "Js"],
             "correct": false,
             "id": "1"
+        },
+        {
+            "difficulty": "easy",
+            "question": "What method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.",
+            "answer": "Array.at()",
+            "answers": ["Array.find()", "Array.at()", "Array.values()"],
+            "tags": ["array"],
+            "correct": false,
+            "id": "2"
+        },
+        {
+            "difficulty": "easy",
+            "question": "What method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.",
+            "answer": "Array.concat()",
+            "answers": ["Array.concat()", "Array.reduce()", "Array.merge()"],
+            "tags": ["array"],
+            "correct": false,
+            "id": "3"
+        },
+        {
+            "difficulty": "medium",
+            "question": "What method shallow copies part of an array to another location in the same array and returns it without modifying its length.",
+            "answer": "Array.copyWithin()",
+            "answers": [
+                "Array.concat()",
+                "Array.copyWithin()",
+                "Array.merge()"
+            ],
+            "tags": ["array"],
+            "correct": false,
+            "id": "4"
+        },
+        {
+            "difficulty": "hard",
+            "question": "What method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
+            "answer": "Array.entries()",
+            "answers": ["Array.entires()", "Array.every()", "Array.values()"],
+            "tags": ["array"],
+            "correct": false,
+            "id": "5"
+        },
+        {
+            "difficulty": "medium",
+            "question": "What method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.",
+            "answer": "Array.every()",
+            "answers": ["Array.every()", "Array.forEach()", "Array.map()"],
+            "tags": ["array"],
+            "correct": false,
+            "id": "6"
+        },
+        {
+            "difficulty": "medium",
+            "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
+            "answer": "Array.filter",
+            "answers": ["Array.filter()", "Array.reduce()", "Array.forEach()"],
+            "tags": ["array"],
+            "correct": false,
+            "id": "7"
+        },
+        {
+            "difficulty": "easy",
+            "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
+            "answer": "Array.filter()",
+            "answers": ["Array.filter()", "Array.some()", "Array.reduce()"],
+            "tags": ["array"],
+            "correct": false,
+            "id": "8"
+        },
+        {
+            "difficulty": "medium",
+            "question": "What method iterates the array in reverse order and returns the value of the first element that satisfies the provided testing function. If no elements satisfy the testing function, undefined is returned.",
+            "answer": "Arrray.findLast()",
+            "answers": [
+                "Array.findLast()",
+                "Array.findLastIndex()",
+                "Array.find()"
+            ],
+            "tags": ["array"],
+            "correct": false,
+            "id": "9"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": ["Array.some()", "Array.filter", "Array.forEach()"],
+            "tags": ["array", "Js", "object"],
+            "correct": false,
+            "id": "10"
+        },
+        {
+            "difficulty": "easy",
+            "question": " What static method returns an array of a given object's own enumerable string-keyed property names.",
+            "answer": "Object.keys()",
+            "answers": ["Object.keys()", "Object.values()", "Object.hasOwn()"],
+            "tags": ["object"],
+            "correct": false,
+            "id": "11"
+        },
+        {
+            "difficulty": "hard",
+            "question": "What static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable. A frozen object can no longer be changed: new properties cannot be added, existing properties cannot be removed, their enumerability, configurability, write ability, or value cannot be changed, and the object's prototype cannot be re-assigned. freeze() returns the same object that was passed in.",
+            "answer": "Object.freeze()",
+            "answers": [
+                "Object.freeze()",
+                "Object.create()",
+                "Object.isFrozen"
+            ],
+            "tags": ["object"],
+            "correct": true,
+            "id": "10"
         }
     ]
 }

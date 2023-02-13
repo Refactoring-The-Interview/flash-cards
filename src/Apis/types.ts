@@ -44,6 +44,7 @@ export enum Paths {
     home = "/home",
     contact = "/contact",
     profile = "/profile",
+    questionEdit = "/questionEdit/:questionId",
 }
 
 export enum API {
@@ -61,6 +62,10 @@ export enum FetchMethods {
 
 export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
+};
+
+export const editQuestionPath = {
+    [Paths.questionEdit]: (questionId: string) => `/questionEdit/${questionId}`,
 };
 
 export const filterSettingsDefault: FilterSetting = {
@@ -83,4 +88,11 @@ export const useNewQuestionDefault = () => {
     };
 
     return questionDefaults;
+};
+
+export const getQuestions = (
+    questions: Question[],
+    questionId: string | undefined
+): Question | undefined => {
+    return questions?.find(({ id }) => id === questionId);
 };
