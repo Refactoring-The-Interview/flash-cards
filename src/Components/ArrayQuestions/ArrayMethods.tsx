@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const ArrayMethods = ({ cardQuestion }: Props) => {
-    const { addQuestion } = useContext(MyQuestionContext);
+    const { setQuestions, questions } = useContext(MyQuestionContext);
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     const { question, answer, answers } = cardQuestion;
@@ -48,7 +48,10 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                             if (item === answer) {
                                                 cardQuestion.correct = true;
                                                 // TODO tack correct, do i need to create another api to update a question? do with alex for work and data flow.
-                                                addQuestion(cardQuestion);
+                                                setQuestions([
+                                                    ...questions,
+                                                    cardQuestion,
+                                                ]);
                                                 setIsCorrect("success");
                                             } else {
                                                 setIsCorrect("danger");
