@@ -9,6 +9,7 @@ import { FormTextArea } from "../AddQuestionForm/FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "../AddQuestionForm/QuestionFormAnswers/QuestionFormAnswers";
 import { FormInput } from "../AddQuestionForm/FromInput/FormInput";
 import { TagsSelect } from "../AddQuestionForm/TagsSelect/TagsSelect";
+import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFormBody";
 
 export const QuestionEdit = () => {
     const { questionId } = useParams();
@@ -33,56 +34,18 @@ export const QuestionEdit = () => {
             <FormLabel>
                 <h1>Question Edit</h1>
             </FormLabel>
-            <DifficultySelect
-                value={questionEditValues.difficulty}
-                setValue={(difficulty) => {
-                    setQuestionEditValues({
-                        ...questionEditValues,
-                        difficulty,
-                    });
-                }}
-                title="Difficulty"
-            />
-            <FormTextArea
-                value={questionEditValues.question}
-                setValue={(question) => {
-                    setQuestionEditValues({
-                        ...questionEditValues,
-                        question,
-                    });
-                }}
-                title={"Question"}
-            />
-            <QuestionFormAnswers
-                value={questionEditValues.answers}
-                setValue={(answers) => {
-                    setQuestionEditValues({
-                        ...questionEditValues,
-                        answers,
-                    });
-                }}
+            <QuestionFormBody
+                value={questionEditValues}
+                setValue={setQuestionEditValues}
             />
 
-            <FormInput
-                value={questionEditValues.answer}
-                setValue={(answer) => {
-                    setQuestionEditValues({
-                        ...questionEditValues,
-                        answer,
-                    });
+            <Button
+                onClick={() => {
+                    navigate(Paths.questionList);
                 }}
-                title={"Correct Answer"}
-            />
-            <TagsSelect
-                value={questionEditValues.tags}
-                setValue={(tags) => {
-                    setQuestionEditValues({
-                        ...questionEditValues,
-                        tags,
-                    });
-                }}
-            />
-
+            >
+                Cancel
+            </Button>
             <Button type="submit">Save Changes</Button>
         </Form>
     );
