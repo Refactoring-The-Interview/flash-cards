@@ -1,14 +1,15 @@
 import Button from "react-bootstrap/Button";
 import "./QuestionCardsS.scss";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+
 import {
     Difficulty,
     Paths,
     Question,
     editQuestionPath,
     pathGenerator,
-} from "../../../Apis/types";
-import { QuestionCard } from "../QuestionCard/QuestionCard";
+} from "../../../../Apis/types";
+import { QuestionCard } from "../../QuestionCard/QuestionCard";
 
 interface Props {
     currentQuestions: Question[];

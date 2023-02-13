@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
 import "./QuestionListS.scss";
-import { QuestionCards } from "./QuestionCards/QuestionCards";
+
 import { filterQuestions } from "../Utils/Utils";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loading } from "../Loading/Loading";
 import { FilterSetting, filterSettingsDefault } from "../../Apis/types";
 import { OffCanvas } from "./OffCanvas/OffCanvas";
+import { ListGroup } from "react-bootstrap";
+import { QuestionCards } from "./QuestionViewTypes/QuestionCards/QuestionCards";
+import { QuestionListTable } from "./QuestionViewTypes/QuestionListTable/QuestionListTable";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
@@ -33,10 +36,12 @@ export const QuestionList = () => {
                 showDelete={showDelete}
                 setShowDelete={setShowDelete}
             />
-            <QuestionCards
+
+            {/* <QuestionCards
                 currentQuestions={currentQuestion}
                 showDelete={showDelete}
-            />
+            /> */}
+            <QuestionListTable />
         </div>
     );
 };
