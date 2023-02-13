@@ -1,19 +1,17 @@
 @import "../../Sass/main.scss";
 
-// .QuestionList {
-//     display: flex;
-//     flex-direction: column;
-//     width: 81%;
-//     height: 80%;
+.QuestionList {
+    display: flex;
+    flex-direction: column;
 
-//     .QuestionList-buttons {
-//         display: flex;
-//         justify-content: flex-end;
-//     }
-// }
+    .QuestionList-buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
 
-// .list-container {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-// }
+.list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

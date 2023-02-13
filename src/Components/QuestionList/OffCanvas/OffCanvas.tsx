@@ -4,12 +4,15 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { FilterSetting } from "../../../Apis/types";
 import { QuestionFilters } from "../QuestionFilter/QuestionFilters";
 import { AddQuestionForm } from "../../AddQuestionForm/AddQuestionForm";
+import { Badge } from "react-bootstrap";
+import { ViewSelect } from "../QuestionViewTypes/ViewSelect/ViewSelect";
 
 interface Props {
     setFilterSettings(filterSetting: FilterSetting): void;
     filterSettings: FilterSetting;
     showDelete: boolean;
     setShowDelete(showDelete: boolean): void;
+    setViewOptions(value: number): void;
 }
 
 export const OffCanvas = ({
@@ -17,6 +20,7 @@ export const OffCanvas = ({
     filterSettings,
     showDelete,
     setShowDelete,
+    setViewOptions,
 }: Props) => {
     const [show, setShow] = useState(false);
 
@@ -36,6 +40,11 @@ export const OffCanvas = ({
                     </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
+                    <Badge>
+                        <h4>ViewSelect</h4>
+                        <ViewSelect setValue={setViewOptions} />
+                    </Badge>
+
                     <QuestionFilters
                         setFilterSettings={setFilterSettings}
                         filterSettings={filterSettings}

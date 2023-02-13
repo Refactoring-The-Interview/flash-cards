@@ -1,3 +1,4 @@
+import { Badge } from "react-bootstrap";
 import { Question } from "../../../../../Apis/types";
 
 interface Props {
@@ -8,13 +9,16 @@ export const TableListItems = ({ questions }: Props) => {
     return (
         <>
             {questions.map((currentQuestion) => {
-                const { question, answer, tags } = currentQuestion;
+                const { answer, difficulty } = currentQuestion;
                 return (
                     <td>
+                        <Badge pill bg="danger">
+                            <span>{difficulty}</span>
+                        </Badge>
+
                         <div>
-                            <span>Difficulty color</span>
+                            <h5>{answer}</h5>
                         </div>
-                        <div>{answer}</div>
                     </td>
                 );
             })}

@@ -5,13 +5,12 @@ import { Question, Tags } from "../../../../Apis/types";
 import { Loading } from "../../../Loading/Loading";
 import { TableListItems } from "./TableListItems/TableListItems";
 import { TableListTitle } from "./TableListTitle/TableListTitle";
+import "./QuestionListTableS.scss";
 
 const filerByType = (tag: Tags, questions: Question[]) => {
-    const test = questions.filter(({ tags }) => {
+    return questions.filter(({ tags }) => {
         return tags.includes(tag);
     });
-
-    return test;
 };
 
 export const QuestionListTable = () => {
@@ -26,8 +25,8 @@ export const QuestionListTable = () => {
     if (questionTypesFiltered.length === 0) return <Loading />;
 
     return (
-        <Table striped bordered hover>
-            <thead>
+        <Table striped bordered hover className="QuestionListTable">
+            <thead className="TableTitle">
                 {types.map((tag) => {
                     return (
                         <tr>
@@ -36,7 +35,7 @@ export const QuestionListTable = () => {
                     );
                 })}
             </thead>
-            <thead>
+            <tbody className="TableListItems">
                 {questionTypesFiltered.map((questions) => {
                     return (
                         <tr>
@@ -44,7 +43,7 @@ export const QuestionListTable = () => {
                         </tr>
                     );
                 })}
-            </thead>
+            </tbody>
         </Table>
     );
 };

@@ -1,0 +1,14 @@
+.QuestionListTable {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10rem;
+
+    .TableTitle {
+        display: flex;
+        flex-direction: row;
+    }
+    .TableListItems {
+        display: flex;
+        flex-direction: column;
+    }
+}
