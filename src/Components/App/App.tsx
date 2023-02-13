@@ -11,6 +11,7 @@ import { Contact } from "../Contact/Contact";
 import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
 import { Paths } from "../../Apis/types";
 import { Profile } from "../Profile/Profile";
+import { QuestionEdit } from "../QuestionEdit/QuestionEdit";
 
 function App() {
     const navigate: NavigateFunction = useNavigate();
@@ -33,6 +34,10 @@ function App() {
             <MyQuestionProvider>
                 <NavBar />
                 <Routes>
+                    <Route
+                        path={Paths.questionEdit}
+                        element={<QuestionEdit />}
+                    />
                     <Route path={Paths.profile} element={<Profile />} />
                     <Route path={Paths.login} element={<Login />} />
                     <Route path={Paths.home} element={<Home />} />

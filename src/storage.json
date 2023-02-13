@@ -35,54 +35,129 @@
         },
         {
             "difficulty": "easy",
-            "question": "hello",
-            "answer": "5",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
             "answers": [
-                "e",
-                "3",
-                "5",
-                ""
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
             ],
             "tags": [
                 "Js",
+                "object",
                 "array"
             ],
             "correct": false,
-            "id": "2"
+            "id": "1"
         },
         {
             "difficulty": "easy",
-            "question": "hello",
-            "answer": "5",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
             "answers": [
-                "e",
-                "3",
-                "5",
-                ""
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
             ],
             "tags": [
                 "Js",
+                "object",
                 "array"
             ],
-            "correct": true,
-            "id": "2"
+            "correct": false,
+            "id": "1"
         },
         {
-            "difficulty": "",
-            "question": "test",
-            "answer": "2",
+            "difficulty": "easy",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
             "answers": [
-                "2",
-                "2",
-                "2",
-                ""
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
             ],
             "tags": [
                 "Js",
-                "object"
+                "object",
+                "array"
             ],
             "correct": false,
-            "id": "4"
+            "id": "1"
+        },
+        {
+            "difficulty": "easy",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
+            ],
+            "tags": [
+                "Js",
+                "object",
+                "array"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "easy",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
+            ],
+            "tags": [
+                "Js",
+                "object",
+                "array"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "easy",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
+            ],
+            "tags": [
+                "Js",
+                "object",
+                "array"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "easy",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "batman()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()",
+                "batman"
+            ],
+            "tags": [
+                "Js",
+                "object",
+                "array"
+            ],
+            "correct": false,
+            "id": "1"
         },
         {
             "difficulty": "medium",
@@ -97,62 +172,282 @@
                 "array",
                 "Js"
             ],
-            "correct": true,
+            "correct": false,
             "id": "1"
         },
         {
-            "difficulty": "",
-            "question": "asdfasdfasdfa",
-            "answer": "a",
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
             "answers": [
-                "a",
-                "a",
-                "a",
-                ""
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
             ],
             "tags": [
-                null,
-                "Js",
-                null,
                 "array",
-                null
+                "Js"
             ],
             "correct": false,
-            "id": "6"
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
         },
         {
             "difficulty": "hard",
-            "question": "test add",
-            "answer": "3",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
             "answers": [
-                "33",
-                "33",
-                "33",
-                "3",
-                ""
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
             ],
             "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "hard",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": false,
+            "id": "1"
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js",
                 "object"
             ],
             "correct": false,
-            "id": "6"
+            "id": "1"
         },
         {
-            "difficulty": "easy",
-            "question": "hello",
-            "answer": "5",
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
             "answers": [
-                "e",
-                "3",
-                "5",
-                ""
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
             ],
             "tags": [
+                "array",
                 "Js",
-                "array"
+                "object"
             ],
-            "correct": true,
-            "id": "2"
+            "correct": false,
+            "id": "1"
         }
     ]
 }

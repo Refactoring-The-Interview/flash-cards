@@ -5,6 +5,7 @@ import {
     Difficulty,
     Paths,
     Question,
+    editQuestionPath,
     pathGenerator,
 } from "../../../Apis/types";
 import { QuestionCard } from "../QuestionCard/QuestionCard";
@@ -39,6 +40,19 @@ export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
                 .map((question: Question, index: number) => {
                     return (
                         <div>
+                            <Button
+                                onClick={() => {
+                                    navigate(
+                                        editQuestionPath[Paths.questionEdit](
+                                            question.id
+                                        )
+                                    );
+                                }}
+                            >
+                                {" "}
+                                Edit{" "}
+                            </Button>
+
                             <Button
                                 variant="outline-light"
                                 size="lg"
