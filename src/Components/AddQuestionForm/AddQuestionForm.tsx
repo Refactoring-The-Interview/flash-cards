@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { FormInput } from "./FromInput/FormInput";
-import { Difficulty, Question } from "../../Apis/types";
+import { Question, useNewQuestionDefault } from "../../Apis/types";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { FormTextArea } from "./FormTextArea/FormTextArea";
 import { QuestionFormAnswers } from "./QuestionFormAnswers/QuestionFormAnswers";
@@ -15,17 +15,13 @@ interface Props {
 
 export const AddQuestionForm = ({ variantButton }: Props) => {
     const { questions, addQuestion } = useContext(MyQuestionContext);
-    const questionDefaults: Question = {
-        difficulty: Difficulty.none,
-        question: "",
-        answer: "",
-        answers: ["", "", ""],
-        tags: [],
-        correct: false,
-        id: questions.length.toString(),
-    };
-
+    let questionDefaults = useNewQuestionDefault();
     const [newQuestion, setNewQuestion] = useState<Question>(questionDefaults);
+
+    useEffect(() => {
+        setNewQuestion(questionDefaults);
+    }, [questions, addQuestion, questionDefaults]);
+
     const { question, answer, answers, tags, difficulty } = newQuestion;
     return (
         <>

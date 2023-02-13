@@ -75,6 +75,21 @@ export const filterSettingsDefault: FilterSetting = {
     difficulty: Difficulty.none,
 };
 
+export const useNewQuestionDefault = () => {
+    const { questions } = useContext(MyQuestionContext);
+    const questionDefaults: Question = {
+        difficulty: Difficulty.none,
+        question: "",
+        answer: "",
+        answers: ["", "", ""],
+        tags: [],
+        correct: false,
+        id: (questions.length + 1).toString(),
+    };
+
+    return questionDefaults;
+};
+
 export const getQuestions = (
     questions: Question[],
     questionId: string | undefined
