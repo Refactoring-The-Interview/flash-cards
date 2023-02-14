@@ -4,11 +4,6 @@ import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Paths, Question } from "../../Apis/types";
 import { Button, FormLabel } from "react-bootstrap";
 import { Loading } from "../Loading/Loading";
-import { DifficultySelect } from "../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
-import { FormTextArea } from "../AddQuestionForm/FormTextArea/FormTextArea";
-import { QuestionFormAnswers } from "../AddQuestionForm/QuestionFormAnswers/QuestionFormAnswers";
-import { FormInput } from "../AddQuestionForm/FromInput/FormInput";
-import { TagsSelect } from "../AddQuestionForm/TagsSelect/TagsSelect";
 import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFormBody";
 
 export const QuestionEdit = () => {

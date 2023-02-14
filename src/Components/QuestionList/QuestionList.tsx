@@ -1,21 +1,35 @@
 import React, { useContext, useState } from "react";
 import "./QuestionListS.scss";
-import { QuestionCards } from "./QuestionCards/QuestionCards";
 import { filterQuestions } from "../Utils/Utils";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { Loading } from "../Loading/Loading";
 import { FilterSetting, filterSettingsDefault } from "../../Apis/types";
 import { OffCanvas } from "./OffCanvas/OffCanvas";
+import { QuestionCards } from "./QuestionViewTypes/QuestionCards/QuestionCards";
+import { QuestionListTable } from "./QuestionViewTypes/QuestionListTable/QuestionListTable";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
     const [filterOptions, setFilterOptions] = useState<FilterSetting>(
         filterSettingsDefault
     );
-
     const [showDelete, setShowDelete] = useState<boolean>(false);
-
+    const [viewOptions, setViewOptions] = useState<number>(1);
     let currentQuestion = filterQuestions({ questions, filterOptions });
+
+    const currentView = (viewOptions: number) => {
+        switch (viewOptions) {
+            case 1:
+                return (
+                    <QuestionCards
+                        currentQuestions={currentQuestion}
+                        showDelete={showDelete}
+                    />
+                );
+            case 2:
+                return <QuestionListTable />;
+        }
+    };
 
     if (questions.length === 0) {
         return (
@@ -32,11 +46,10 @@ export const QuestionList = () => {
                 filterSettings={filterOptions}
                 showDelete={showDelete}
                 setShowDelete={setShowDelete}
+                setViewOptions={setViewOptions}
             />
-            <QuestionCards
-                currentQuestions={currentQuestion}
-                showDelete={showDelete}
-            />
+
+            {currentView(viewOptions)}
         </div>
     );
 };

@@ -2,8 +2,9 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./QuestionCardS.scss";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
-import { DeleteButton } from "../QuestionCards/DeleteButton/DeleteButton";
+
 import { Question } from "../../../Apis/types";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
 
 interface CardProps {
     question: Question;

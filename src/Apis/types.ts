@@ -32,7 +32,7 @@ export enum Difficulty {
 }
 
 export enum Tags {
-    js = "Js",
+    js = "js",
     obj = "object",
     array = "array",
 }
