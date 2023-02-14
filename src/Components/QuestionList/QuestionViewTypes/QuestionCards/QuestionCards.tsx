@@ -50,8 +50,7 @@ export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
                                     );
                                 }}
                             >
-                                {" "}
-                                Edit{" "}
+                                Edit
                             </Button>
 
                             <Button
