@@ -28,7 +28,7 @@ const dbUpdateQuestion = (value, callback) => {
     } catch (e) {
         callback(e);
     }
-    return updatedQuestions;
+    callback(updatedQuestions);
 };
 
 const dbDelete = (key, callback) => {

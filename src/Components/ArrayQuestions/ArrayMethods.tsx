@@ -48,7 +48,6 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                             setIsDisabled(true);
                                             if (item === answer) {
                                                 cardQuestion.correct = true;
-                                                // TODO tack correct, do i need to create another api to update a question? do with alex for work and data flow.
                                                 setQuestions([
                                                     ...questions,
                                                     cardQuestion,
