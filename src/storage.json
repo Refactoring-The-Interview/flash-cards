@@ -13,7 +13,7 @@
                 "array",
                 "Js"
             ],
-            "correct": true,
+            "correct": false,
             "id": "1"
         },
         {
@@ -43,7 +43,7 @@
             "tags": [
                 "array"
             ],
-            "correct": true,
+            "correct": false,
             "id": "3"
         },
         {
@@ -88,13 +88,13 @@
             "tags": [
                 "array"
             ],
-            "correct": false,
+            "correct": true,
             "id": "6"
         },
         {
             "difficulty": "medium",
             "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
-            "answer": "Array.filter",
+            "answer": "Array.filter()",
             "answers": [
                 "Array.filter()",
                 "Array.reduce()",
@@ -165,7 +165,7 @@
             "tags": [
                 "object"
             ],
-            "correct": true,
+            "correct": false,
             "id": "11"
         },
         {
@@ -180,7 +180,7 @@
             "tags": [
                 "object"
             ],
-            "correct": true,
+            "correct": false,
             "id": "12"
         }
     ]
