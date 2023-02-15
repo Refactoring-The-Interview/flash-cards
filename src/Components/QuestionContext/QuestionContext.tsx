@@ -7,6 +7,7 @@ export interface QuestionContext {
     setQuestions(newQuestions: Question[]): void;
     addQuestion(question: Question): void;
     deleteQuestion(questionId: string): void;
+    updateQuestion(questions: Question[]): void;
 }
 
 export const MyQuestionContext = createContext<QuestionContext>({
@@ -14,6 +15,7 @@ export const MyQuestionContext = createContext<QuestionContext>({
     setQuestions: () => {},
     addQuestion: () => {},
     deleteQuestion: () => {},
+    updateQuestion: () => {},
 });
 
 interface Props {
@@ -21,12 +23,23 @@ interface Props {
 }
 
 export const MyQuestionProvider = ({ children }: Props) => {
-    const { questions, setQuestions, addQuestion, deleteQuestion } =
-        useQuestions();
+    const {
+        questions,
+        setQuestions,
+        addQuestion,
+        deleteQuestion,
+        updateQuestion,
+    } = useQuestions();
 
     return (
         <MyQuestionContext.Provider
-            value={{ questions, setQuestions, addQuestion, deleteQuestion }}
+            value={{
+                questions,
+                setQuestions,
+                addQuestion,
+                deleteQuestion,
+                updateQuestion,
+            }}
         >
             {children}
         </MyQuestionContext.Provider>
