@@ -96,3 +96,8 @@ export const getQuestions = (
 ): Question | undefined => {
     return questions?.find(({ id }) => id === questionId);
 };
+
+export const guestUserInfo = {
+    email: "GuestUser@FlashCards.com",
+    password: "GuestPass",
+};

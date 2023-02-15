@@ -1,66 +1,71 @@
-import { Badge, Button, Card, Figure, Form, FormGroup } from "react-bootstrap";
+import { Badge, Button, Card, Figure } from "react-bootstrap";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import duck from "../../Assets/IMGS/Mallard2.jpeg";
-import { UserInfoEditForm } from "./UserInfoEditForm/UserInfoEditForm";
-import { userInfo } from "../../Apis/types";
-import { useSearchParams } from "react-router-dom";
+import { guestUserInfo, userInfo } from "../../Apis/types";
 import { useState } from "react";
+import { UserInfoEditForm } from "./UserInfoEditForm/UserInfoEditForm";
 
 export const Profile = () => {
+    const [show, setShow] = useState<boolean>(false);
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
-    const [newUserInfo, setNewUserInfo] = useState<userInfo>(userInfo);
-    const [showEdit, setShowEdit] = useState<boolean>(false);
-
+    const [guestInfo, setGuestInfo] = useState<userInfo>(userInfo);
     const { email, password } = userInfo;
 
-    const logout = () =>
-        setUserInfo({
-            email: "",
-            password: "",
-        });
-
     return (
-        <>
-            <Card>
-                <Card.Header>
-                    <Figure>
-                        <Figure.Image src={duck} width={171} height={180} />
-                    </Figure>
+        <Card>
+            <Card.Header>
+                <Figure>
+                    <Figure.Image src={duck} width={180} height={180} />
+                </Figure>
+                <Card.Text>
                     <Badge>
-                        <h2>{email}</h2>
+                        <h3>{email}</h3>
                     </Badge>
-                </Card.Header>
+                </Card.Text>
+            </Card.Header>
 
-                <Card.Body>
-                    <Card.Text>Email: {email}</Card.Text>
-                    <Card.Text>Password: {password}</Card.Text>
-                </Card.Body>
+            <Card.Body>
+                <Card.Text>
+                    <Badge bg="secondary">
+                        <h6> User Email</h6>
+                    </Badge>
+                    : {email}
+                </Card.Text>
 
-                {showEdit && (
-                    <UserInfoEditForm
-                        newUserInfo={newUserInfo}
-                        setNewUserInfo={setNewUserInfo}
-                    />
-                )}
+                <Card.Text>
+                    <Badge bg="secondary">
+                        <h6>Password:</h6>
+                    </Badge>
+                    : {password}
+                </Card.Text>
+            </Card.Body>
 
-                <Card.Footer>
-                    <Button variant="outline-primary" onClick={logout}>
-                        Logout
-                    </Button>
-                    <Button
-                        variant="outline-primary"
-                        onClick={() => {
-                            setShowEdit(!showEdit);
-                            setUserInfo(newUserInfo);
-                        }}
-                    >
-                        {showEdit ? "Save" : "Edit User"}
-                    </Button>
-                </Card.Footer>
-            </Card>
-        </>
+            {show && (
+                <UserInfoEditForm
+                    newUserInfo={guestInfo}
+                    setNewUserInfo={setGuestInfo}
+                />
+            )}
+
+            <Card.Footer>
+                <Button
+                    variant="outline-primary"
+                    onChange={() => {
+                        setUserInfo(guestUserInfo);
+                    }}
+                >
+                    Logout
+                </Button>{" "}
+                <Button
+                    variant="outline-primary"
+                    onClick={() => setShow(!show)}
+                >
+                    {show ? "Save" : "Edit User"}
+                </Button>
+            </Card.Footer>
+        </Card>
     );
 };
