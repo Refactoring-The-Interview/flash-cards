@@ -13,7 +13,7 @@
                 "array",
                 "Js"
             ],
-            "correct": true,
+            "correct": false,
             "id": "1"
         },
         {
@@ -43,7 +43,7 @@
             "tags": [
                 "array"
             ],
-            "correct": true,
+            "correct": false,
             "id": "3"
         },
         {
@@ -94,7 +94,7 @@
         {
             "difficulty": "medium",
             "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
-            "answer": "Array.filter",
+            "answer": "Array.filter()",
             "answers": [
                 "Array.filter()",
                 "Array.reduce()",
@@ -133,7 +133,7 @@
             "tags": [
                 "array"
             ],
-            "correct": true,
+            "correct": false,
             "id": "9"
         },
         {
@@ -150,7 +150,7 @@
                 "Js",
                 "object"
             ],
-            "correct": true,
+            "correct": false,
             "id": "10"
         },
         {
@@ -165,7 +165,7 @@
             "tags": [
                 "object"
             ],
-            "correct": true,
+            "correct": false,
             "id": "11"
         },
         {
@@ -180,53 +180,8 @@
             "tags": [
                 "object"
             ],
-            "correct": true,
+            "correct": false,
             "id": "12"
-        },
-        {
-            "difficulty": "easy",
-            "question": "What method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.",
-            "answer": "Array.concat()",
-            "answers": [
-                "Array.concat()",
-                "Array.reduce()",
-                "Array.merge()"
-            ],
-            "tags": [
-                "array"
-            ],
-            "correct": true,
-            "id": "3"
-        },
-        {
-            "difficulty": "hard",
-            "question": "What static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable. A frozen object can no longer be changed: new properties cannot be added, existing properties cannot be removed, their enumerability, configurability, write ability, or value cannot be changed, and the object's prototype cannot be re-assigned. freeze() returns the same object that was passed in.",
-            "answer": "Object.freeze()",
-            "answers": [
-                "Object.freeze()",
-                "Object.create()",
-                "Object.isFrozen"
-            ],
-            "tags": [
-                "object"
-            ],
-            "correct": true,
-            "id": "12"
-        },
-        {
-            "difficulty": "easy",
-            "question": "What method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.",
-            "answer": "Array.concat()",
-            "answers": [
-                "Array.concat()",
-                "Array.reduce()",
-                "Array.merge()"
-            ],
-            "tags": [
-                "array"
-            ],
-            "correct": true,
-            "id": "3"
         }
     ]
 }

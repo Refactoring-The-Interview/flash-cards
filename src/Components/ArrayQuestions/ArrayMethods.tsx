@@ -48,10 +48,6 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                             setIsDisabled(true);
                                             if (item === answer) {
                                                 cardQuestion.correct = true;
-                                                setQuestions([
-                                                    ...questions,
-                                                    cardQuestion,
-                                                ]);
                                                 updateQuestion(questions);
                                                 setIsCorrect("success");
                                             } else {
