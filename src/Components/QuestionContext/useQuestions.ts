@@ -5,6 +5,7 @@ import { Question } from "../../Apis/types";
 import { QuestionContext } from "./QuestionContext";
 import { postQuestion } from "../../Apis/Questions/postQuestion";
 import { deleteQuestion } from "../../Apis/Questions/deleteQuestion";
+import { updateQuestion } from "../../Apis/Questions/updateQuestion";
 
 export const useQuestions = (): QuestionContext => {
     const [questions, setQuestions] = useState<Question[]>([]);
@@ -17,5 +18,11 @@ export const useQuestions = (): QuestionContext => {
         return await postQuestion(question).then((data) => setQuestions(data));
     };
 
-    return { questions, setQuestions, addQuestion, deleteQuestion };
+    return {
+        questions,
+        setQuestions,
+        addQuestion,
+        deleteQuestion,
+        updateQuestion,
+    };
 };

@@ -21,6 +21,16 @@ const dbSetQuestion = (value, callback) => {
     callback(newQuestions);
 };
 
+const dbUpdateQuestion = (value, callback) => {
+    const updatedQuestions = value;
+    try {
+        db.set("questions", updatedQuestions);
+    } catch (e) {
+        callback(e);
+    }
+    return updatedQuestions;
+};
+
 const dbDelete = (key, callback) => {
     const questions = db.get("questions");
     const newQuestions = questions.filter((questions) => {
@@ -40,4 +50,5 @@ module.exports = {
     dbSet,
     dbDelete,
     dbSetQuestion,
+    dbUpdateQuestion,
 };
