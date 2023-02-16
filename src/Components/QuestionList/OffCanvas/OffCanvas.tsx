@@ -44,12 +44,11 @@ export const OffCanvas = ({
                         <h4>ViewSelect</h4>
                         <ViewSelect setValue={setViewOptions} />
                     </Badge>
-
                     <QuestionFilters
                         setFilterSettings={setFilterSettings}
                         filterSettings={filterSettings}
                     />
-                    <AddQuestionForm variantButton={"primary"} />
+                    <AddQuestionForm variantButton={"primary"} />{" "}
                     <Button
                         variant="danger"
                         onClick={() => {

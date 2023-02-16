@@ -1,11 +1,9 @@
 @import "../../../../Sass/main.scss";
 
-.listBtn {
-    margin: 1rem;
-}
-
 .QuestionCard {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
 }
