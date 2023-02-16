@@ -10,7 +10,7 @@ export const TableListItems = ({ questions }: Props) => {
     const navigate = useNavigate();
 
     return (
-        <>
+        <tr>
             {questions.map((currentQuestion) => {
                 const { answer, difficulty, id } = currentQuestion;
                 return (
@@ -29,6 +29,6 @@ export const TableListItems = ({ questions }: Props) => {
                     </td>
                 );
             })}
-        </>
+        </tr>
     );
 };
