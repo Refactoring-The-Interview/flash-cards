@@ -61,6 +61,12 @@ export enum FetchMethods {
     delete = "delete",
 }
 
+export enum ViewStyles {
+    CARDS = 1,
+    TABLE = 2,
+    SMALLCARDS = 3,
+}
+
 export const pathGenerator = {
     [Paths.question]: (questionId: string) => `/question/${questionId}`,
 };
@@ -101,4 +107,18 @@ export const getQuestions = (
 export const guestUserInfo = {
     email: "GuestUser@FlashCards.com",
     password: "GuestPass",
+};
+
+export const cardOrder = (difficulty: Difficulty): number => {
+    switch (difficulty) {
+        case Difficulty.easy:
+            return 0;
+        case Difficulty.medium:
+            return 1;
+        case Difficulty.hard:
+            return 2;
+        case Difficulty.none:
+        default:
+            return 3;
+    }
 };

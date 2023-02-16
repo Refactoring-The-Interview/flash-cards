@@ -14,7 +14,7 @@ interface CardProps {
 export const QuestionCard = ({ question, showDelete }: CardProps) => {
     const { answer, difficulty, tags, correct } = question;
 
-    let answeredColor = correct ? "outline-success" : "outline-danger";
+    const answeredColor = correct ? "outline-success" : "outline-danger";
 
     return (
         <div className="QuestionCard">
