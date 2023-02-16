@@ -1,47 +1,32 @@
-import { Table } from "react-bootstrap";
-import { MyQuestionContext } from "../../../QuestionContext/QuestionContext";
 import { useContext } from "react";
+import { MyQuestionContext } from "../../../QuestionContext/QuestionContext";
+import { useParams } from "react-router-dom";
 import { Question, Tags } from "../../../../Apis/types";
-import { Loading } from "../../../Loading/Loading";
-import { TableListItems } from "./TableListItems/TableListItems";
+import { Table } from "react-bootstrap";
 import { TableListTitle } from "./TableListTitle/TableListTitle";
-import "./QuestionListTableS.scss";
-
-const filerByType = (tag: Tags, questions: Question[]) => {
-    return questions.filter(({ tags }) => {
-        return tags.includes(tag);
-    });
-};
+import { TableListItems } from "./TableListItems/TableListItems";
 
 export const QuestionListTable = () => {
     const { questions } = useContext(MyQuestionContext);
-    const types = Object.values(Tags);
-    let questionTypesFiltered: Question[][] = [];
-
-    types.forEach((tag) =>
-        questionTypesFiltered.push(filerByType(tag as Tags, questions))
-    );
-
-    if (questionTypesFiltered.length === 0) return <Loading />;
+    const { questionId } = useParams();
+    const questionsByTags: Question[][] = [];
+    const tags = Object.values(Tags);
+    tags.forEach((tag) => {
+        const arr = questions.filter(({ tags }) => {
+            return tags.includes(tag);
+        });
+        questionsByTags.push(arr);
+    });
 
     return (
-        <Table striped bordered hover className="QuestionListTable">
-            <thead className="TableTitle">
-                {types.map((tag) => {
-                    return (
-                        <tr>
-                            <TableListTitle title={tag} />
-                        </tr>
-                    );
-                })}
+        <Table striped bordered>
+            <thead>
+                <TableListTitle titles={tags} />
             </thead>
-            <tbody className="TableListItems">
-                {questionTypesFiltered.map((questions) => {
-                    return (
-                        <tr>
-                            <TableListItems questions={questions} />
-                        </tr>
-                    );
+
+            <tbody>
+                {questionsByTags.map((questions: Question[]) => {
+                    return <TableListItems questions={questions} />;
                 })}
             </tbody>
         </Table>

@@ -1,13 +1,19 @@
 import { Tags } from "../../../../../Apis/types";
 
 interface Props {
-    title: Tags;
+    titles: Tags[];
 }
 
-export const TableListTitle = ({ title }: Props) => {
+export const TableListTitle = ({ titles }: Props) => {
     return (
-        <th>
-            <h4>{title}</h4>
-        </th>
+        <tr>
+            {titles.map((title) => {
+                return (
+                    <th>
+                        <h6>{title}</h6>
+                    </th>
+                );
+            })}
+        </tr>
     );
 };
