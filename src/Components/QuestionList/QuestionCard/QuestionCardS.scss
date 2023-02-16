@@ -6,8 +6,12 @@
         flex-direction: column;
         justify-content: flex-start;
         width: 20rem;
+        align-content: space-between;
 
         .listItem-text {
+            display: flex;
+            justify-content: center;
+            align-content: center;
             color: black;
         }
 

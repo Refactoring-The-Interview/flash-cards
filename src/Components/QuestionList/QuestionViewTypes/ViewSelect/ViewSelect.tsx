@@ -1,10 +1,13 @@
 import { Form } from "react-bootstrap";
+import { ViewStyles } from "../../../../Apis/types";
 
 interface Props {
     setValue(value: number): void;
 }
 
 export const ViewSelect = ({ setValue }: Props) => {
+    const viewOptions = Object.values(ViewStyles);
+
     return (
         <Form.Select
             onChange={(e) => {
@@ -12,9 +15,9 @@ export const ViewSelect = ({ setValue }: Props) => {
                 setValue(view);
             }}
         >
-            <option value={1}>Cards</option>
-            <option value={2}>Table</option>
-            <option value={3}>Small cards</option>
+            <option value={ViewStyles.CARDS}>Cards</option>
+            <option value={ViewStyles.TABLE}>Table</option>
+            <option value={ViewStyles.SMALLCARDS}>Small cards</option>
         </Form.Select>
     );
 };

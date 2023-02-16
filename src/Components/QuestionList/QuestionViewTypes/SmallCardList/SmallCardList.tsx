@@ -2,7 +2,6 @@ import { ListGroup } from "react-bootstrap";
 import { Question } from "../../../../Apis/types";
 import { cardOrder } from "../../../../Apis/types";
 import { SmallCard } from "./SmallCard/SmallCard";
-import "./SmallCardListS.scss";
 
 interface Props {
     currentQuestions: Question[];
