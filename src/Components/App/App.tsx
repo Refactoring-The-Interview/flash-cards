@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./AppS.scss";
-import FlashCard from "../FashCard/FlashCard";
+import { FlashCard } from "../FashCard/FlashCard";
 import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { Login } from "../Login/Login";
 import { QuestionList } from "../QuestionList/QuestionList";

@@ -1,71 +1,41 @@
 import { useContext, useState } from "react";
-import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
-import Timer from "../Timer/Timer";
-import "./FlashCardS.scss";
-import { Button, Card, CardGroup } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import { useRandomQuestion } from "../Utils/useRandomQuestion";
+import { Card, Button } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
-import { Loader } from "@aws-amplify/ui-react";
-import { Question } from "../../Apis/types";
+import { useParams } from "react-router-dom";
+import { Question, getQuestions } from "../../Apis/types";
+import Timer from "../Timer/Timer";
+import { Loading } from "../Loading/Loading";
+import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 
-const getQuestions = (
-    questions: Question[],
-    questionId: string | undefined
-): Question | undefined => {
-    return questions?.find(({ id }) => id === questionId);
-};
-
-const FlashCard = () => {
-    const { questionId } = useParams();
-    const [didUpdate, setDidUpdate] = useState<boolean>(false);
-    // TODO add next question functionality
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const randomQuestion = useRandomQuestion();
+export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
-    let currentQuestion = getQuestions(questions, questionId);
+    const { questionId } = useParams();
+    const randomId = Math.floor(
+        Math.random() * questions.length + 1
+    ).toString();
+    const [randomQuestion, setRandomQuestion] = useState<Question | undefined>(
+        getQuestions(questions, questionId)
+    );
 
-    if (!currentQuestion) {
-        return (
-            <h2>
-                <Loader />
-            </h2>
-        );
-    } else {
-        return (
-            <Card>
-                <div className="FlashCardHeader">
-                    <Card.Header className="cardHeader">
-                        <div className="FlashCardHeader-timer">
-                            <Timer />
-                        </div>
+    if (!randomQuestion) return <Loading />;
 
-                        <CardGroup className="FlashCardHeader-buttons">
-                            <Button type="button" variant="secondary">
-                                Submit
-                            </Button>
-                        </CardGroup>
-                    </Card.Header>
-                </div>
+    return (
+        <Card>
+            <Card.Header>
+                <Timer />
+            </Card.Header>
 
-                <ArrayMethods cardQuestion={randomQuestion} />
-                <div className="FlashCardFooter">
-                    <Card.Footer className="cardFooter">
-                        <Button
-                            type="button"
-                            variant="secondary"
-                            onClick={(e) => {
-                                currentQuestion = randomQuestion;
-                                setDidUpdate(!didUpdate);
-                            }}
-                        >
-                            Next Question
-                        </Button>
-                    </Card.Footer>
-                </div>
-            </Card>
-        );
-    }
+            <ArrayMethods cardQuestion={randomQuestion} />
+
+            <Card.Footer>
+                <Button
+                    onClick={() => {
+                        setRandomQuestion(getQuestions(questions, randomId));
+                    }}
+                >
+                    Next Question
+                </Button>
+            </Card.Footer>
+        </Card>
+    );
 };
-
-export default FlashCard;
