@@ -1,6 +1,5 @@
 import { ListGroup } from "react-bootstrap";
-import { Question } from "../../../../Apis/types";
-import { cardOrder } from "../../../../Apis/types";
+import { cardOrder, Question } from "../../../../Apis/types";
 import { SmallCard } from "./SmallCard/SmallCard";
 
 interface Props {

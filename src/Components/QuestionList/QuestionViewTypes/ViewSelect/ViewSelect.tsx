@@ -6,8 +6,6 @@ interface Props {
 }
 
 export const ViewSelect = ({ setValue }: Props) => {
-    const viewOptions = Object.values(ViewStyles);
-
     return (
         <Form.Select
             onChange={(e) => {
