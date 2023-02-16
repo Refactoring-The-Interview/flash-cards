@@ -1,11 +1,10 @@
 import Button from "react-bootstrap/Button";
 import "./QuestionCardsS.scss";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-
 import {
-    Difficulty,
     Paths,
     Question,
+    cardOrder,
     editQuestionPath,
     pathGenerator,
 } from "../../../../Apis/types";
@@ -15,20 +14,6 @@ interface Props {
     currentQuestions: Question[];
     showDelete: boolean;
 }
-
-const cardOrder = (difficulty: Difficulty): number => {
-    switch (difficulty) {
-        case Difficulty.easy:
-            return 0;
-        case Difficulty.medium:
-            return 1;
-        case Difficulty.hard:
-            return 2;
-        case Difficulty.none:
-        default:
-            return 3;
-    }
-};
 
 export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
     const navigate: NavigateFunction = useNavigate();

@@ -5,6 +5,7 @@ import { deleteQuestion } from "../../Apis/Questions/deleteQuestion";
 import { Question } from "../../Apis/types";
 import { QuestionCard } from "../QuestionList/QuestionCard/QuestionCard";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
+import { Button } from "react-bootstrap";
 
 interface Props {
     question: Question;
@@ -26,11 +27,7 @@ export const DeleteQuestionButton = ({ question }: Props) => {
                 </>
             }
         >
-            <div className="trash-can">
-                <svg>
-                    <use xlinkHref={`${iconSprite}#icon-trash-can`}></use>
-                </svg>
-            </div>
+            Delete
         </ConfirmButton>
     );
 };

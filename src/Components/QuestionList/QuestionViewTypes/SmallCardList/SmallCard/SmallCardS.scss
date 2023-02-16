@@ -1,0 +1,29 @@
+@import "../../../../../Sass/main.scss";
+
+.SmallCard {
+    .difficulty {
+        position: absolute;
+        height: 100%;
+        width: 4px;
+
+        &.easy {
+            background-color: $success;
+        }
+        &.medium {
+            background-color: $warning;
+        }
+        &.hard {
+            background-color: $danger;
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: "row";
+        justify-content: space-between;
+        align-items: center;
+    }
+    .card-text {
+        margin: 0;
+    }
+}
