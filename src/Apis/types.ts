@@ -45,6 +45,7 @@ export enum Paths {
     contact = "/contact",
     profile = "/profile",
     questionEdit = "/questionEdit/:questionId",
+    REVERSEQUESTIONLIST = "/REVERSEQUESTIONLIST",
 }
 
 export enum API {
