@@ -1,16 +1,8 @@
-import { Difficulty, Question } from "../../Apis/types";
+import { Question } from "../../Apis/types";
 
 interface Props {
     questions: Question[];
 }
-
-export const SortArrayReverseAlphabetical = ({ questions }: Props) => {
-    return questions.sort((a: Question, b: Question) => {
-        if (a.answer > b.answer) return -1;
-        if (a.answer < b.answer) return 1;
-        return 0;
-    });
-};
 
 export const EveryOther = ({ questions }: Props) => {
     let result = questions.sort((a: Question, b: Question) => {
@@ -30,7 +22,3 @@ export const EveryOther = ({ questions }: Props) => {
 
     return evens;
 };
-
-// [d,|c,b,a]
-// [d,|b,a,c]
-// [d,b,|c.a]
