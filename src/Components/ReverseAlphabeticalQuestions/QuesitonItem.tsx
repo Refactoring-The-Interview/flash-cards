@@ -10,8 +10,8 @@ export const QuestionItem = ({ currentQuestion }: Props) => {
     const { answer, question, answers } = currentQuestion;
     return (
         <div className="QuestionItem">
-            <div>{question}</div>
-            <Answers answer={answer} answers={answers} />
+            <div>{answer}</div>
+            {/* <Answers answer={answer} answers={answers} /> */}
         </div>
     );
 };
