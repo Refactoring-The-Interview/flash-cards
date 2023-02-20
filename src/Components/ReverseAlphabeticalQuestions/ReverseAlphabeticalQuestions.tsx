@@ -30,8 +30,8 @@ export const ReverseAlphabeticalQuestion = () => {
     const alphabeticalSorted = EveryOther({ questions });
 
     const test = questions.sort((a: Question, b: Question) => {
-        if (a.answer > b.answer) return -1;
-        if (a.answer < b.answer) return 1;
+        if (a.question > b.question) return -1;
+        if (a.question < b.question) return 1;
         return 0;
     });
 
