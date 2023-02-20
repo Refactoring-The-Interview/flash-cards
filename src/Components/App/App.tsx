@@ -12,6 +12,8 @@ import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
 import { Paths } from "../../Apis/types";
 import { Profile } from "../Profile/Profile";
 import { QuestionEdit } from "../QuestionEdit/QuestionEdit";
+import { DiagnosticCategory } from "typescript";
+import { DisplayReverseQuestions } from "../DisplayReveresQuestions/DisplayReverseQuestions";
 
 function App() {
     const navigate: NavigateFunction = useNavigate();
@@ -34,6 +36,10 @@ function App() {
             <MyQuestionProvider>
                 <NavBar />
                 <Routes>
+                    <Route
+                        path={Paths.DisplayReverseQuestions}
+                        element={<DisplayReverseQuestions />}
+                    />
                     <Route
                         path={Paths.questionEdit}
                         element={<QuestionEdit />}
