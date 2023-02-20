@@ -22,7 +22,6 @@ import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { EveryOther } from "./utils";
 import { QuestionItem } from "./QuesitonItem";
 import "./ReverseAlphabeticalQuestionS.scss";
-import { Question } from "../../Apis/types";
 
 export const ReverseAlphabeticalQuestion = () => {
     const { questions } = useContext(MyQuestionContext);
