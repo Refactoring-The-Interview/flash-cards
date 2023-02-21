@@ -1,0 +1,16 @@
+.QuestionList {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .QuestionList-Item {
+        margin: 0 1rem;
+        border: 2px solid black;
+        background-color: lightgray;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        width: 20rem;
+    }
+}
