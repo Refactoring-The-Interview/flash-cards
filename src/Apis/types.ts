@@ -45,6 +45,7 @@ export enum Paths {
     contact = "/contact",
     profile = "/profile",
     questionEdit = "/questionEdit/:questionId",
+    RandomQuestionList = "/RandomQuestionList",
 }
 
 export enum API {

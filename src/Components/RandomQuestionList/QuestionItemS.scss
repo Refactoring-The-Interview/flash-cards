@@ -1,0 +1,19 @@
+.QuestionItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    width: 50rem;
+    border: 2px solid black;
+    background-color: lightgray;
+    padding: 1rem;
+
+    .QuestionItem-Question {
+        margin-bottom: 1rem;
+    }
+
+    .QuestionItem-randomAnswer {
+        text-transform: uppercase;
+    }
+}
