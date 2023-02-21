@@ -1,4 +1,3 @@
-import { workerData } from "worker_threads";
 import { Question } from "../../Apis/types";
 
 interface Props {
@@ -18,41 +17,13 @@ export const sortReverseOrderAndReverseString = ({ questions }: Props) => {
         if (a.question > b.question) return 1;
         return 0;
     });
+    let newOrder = reversedOrder;
 
-    reversedOrder.forEach(
-        ({ question }) => (question = reverseWords(question))
-    );
+    let newStrings = newOrder.map(({ question }) => reverseWords(question));
 
-    // reversedOrder.map(({ question }) => {
-    //     let sentence = question.split(" ");
-    //     sentence
-    //         .map((word) => {
-    //             word = word.split("").reverse().join("");
-    //             return word;
-    //         })
-    //         .join(" ");
-    //     console.log(sentence, "sentence");
-    //     return sentence;
-    // });
+    newStrings.forEach((newQuestion, index) => {
+        newOrder[index].question = newQuestion;
+    });
 
-    // reversedOrder.forEach(({ question }) => {
-    //     let words = question.split(" ");
-    //     let sentence;
-    //     words.forEach((word) => {
-    //         return word.split("").reverse().join("");
-    //     });
-
-    //     console.log(sentence);
-    //     question = words.join(" ");
-    // });
-
-    // reversedOrder.forEach(({ question }) => {
-    //     question.split(" ").forEach((word) => {
-    //         word.split("").reverse().join("");
-    //     });
-    // });
-
-    console.log(reversedOrder, "reversedOrder");
-
-    return reversedOrder;
+    return newOrder;
 };
