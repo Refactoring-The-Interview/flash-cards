@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { useParams } from "react-router-dom";
-import { Question, getQuestions } from "../../Apis/types";
+import { getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
 import { Loading } from "../Loading/Loading";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
@@ -10,12 +10,13 @@ import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
     const { questionId } = useParams();
+    const randomId = () =>
+        Math.floor(Math.random() * questions.length).toString();
+    let randomQuestion = getQuestions(questions, questionId);
 
-    const [randomQuestion, setRandomQuestion] = useState<Question | undefined>(
-        getQuestions(questions, questionId)
-    );
-
-    if (!randomQuestion) return <Loading />;
+    if (!randomQuestion) {
+        return <Loading />;
+    }
 
     return (
         <Card>
@@ -28,10 +29,7 @@ export const FlashCard = () => {
             <Card.Footer>
                 <Button
                     onClick={() => {
-                        const randomId = Math.floor(
-                            Math.random() * questions.length + 1
-                        ).toString();
-                        setRandomQuestion(getQuestions(questions, randomId));
+                        randomQuestion = getQuestions(questions, randomId());
                     }}
                 >
                     Next Question

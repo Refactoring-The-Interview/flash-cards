@@ -16,7 +16,7 @@ export const QuestionCards = ({ currentQuestions, showDelete }: Props) => {
                 )
                 .map((question: Question, index: number) => {
                     return (
-                        <div>
+                        <div key={index}>
                             <QuestionCard
                                 question={question}
                                 showDelete={showDelete}
