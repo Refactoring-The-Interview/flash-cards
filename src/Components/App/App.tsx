@@ -12,6 +12,7 @@ import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
 import { Paths } from "../../Apis/types";
 import { Profile } from "../Profile/Profile";
 import { QuestionEdit } from "../QuestionEdit/QuestionEdit";
+import { QuestionListReversedStrings } from "../QuestionListReversedStrings/QuestionListReversedStrings";
 
 function App() {
     const navigate: NavigateFunction = useNavigate();
@@ -34,6 +35,10 @@ function App() {
             <MyQuestionProvider>
                 <NavBar />
                 <Routes>
+                    <Route
+                        path={Paths.QuestionListReversedStrings}
+                        element={<QuestionListReversedStrings />}
+                    />
                     <Route
                         path={Paths.questionEdit}
                         element={<QuestionEdit />}
