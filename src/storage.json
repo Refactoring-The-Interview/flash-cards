@@ -13,7 +13,7 @@
                 "array",
                 "Js"
             ],
-            "correct": false,
+            "correct": true,
             "id": "1"
         },
         {
@@ -58,7 +58,7 @@
             "tags": [
                 "array"
             ],
-            "correct": false,
+            "correct": true,
             "id": "4"
         },
         {
@@ -103,7 +103,7 @@
             "tags": [
                 "array"
             ],
-            "correct": false,
+            "correct": true,
             "id": "7"
         },
         {
@@ -118,7 +118,7 @@
             "tags": [
                 "array"
             ],
-            "correct": false,
+            "correct": true,
             "id": "8"
         },
         {
@@ -150,7 +150,7 @@
                 "Js",
                 "object"
             ],
-            "correct": false,
+            "correct": true,
             "id": "10"
         },
         {
@@ -180,7 +180,7 @@
             "tags": [
                 "object"
             ],
-            "correct": false,
+            "correct": true,
             "id": "12"
         }
     ]

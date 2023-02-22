@@ -1,6 +1,8 @@
 import { Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { Paths, userInfo } from "../../../Apis/types";
+import { Paths, pathGenerator, userInfo } from "../../../Apis/types";
 import duck from "../../../Assets/IMGS/Mallard2.jpeg";
+import { useContext } from "react";
+import { MyQuestionContext } from "../../QuestionContext/QuestionContext";
 
 interface LoggedInProps {
     path: string;
@@ -9,10 +11,17 @@ interface LoggedInProps {
 }
 
 export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
+    const { questions } = useContext(MyQuestionContext);
+    const randomId = Math.floor(
+        Math.random() * questions.length + 1
+    ).toString();
+
     return (
         <>
             <Nav.Link href={Paths.questionList}>Question List</Nav.Link>
-            <Nav.Link href={path}>Random Question</Nav.Link>
+            <Nav.Link href={pathGenerator[Paths.question](randomId)}>
+                Random Question
+            </Nav.Link>
 
             <NavDropdown
                 title={
