@@ -12,7 +12,7 @@ export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
                 {value.map((answer: string, index: number) => {
                     return (
                         <div>
-                            <Form.Label>Answer</Form.Label>
+                            <Form.Label>Answer: </Form.Label>
                             <input
                                 value={answer}
                                 onFocus={() => {
