@@ -35,3 +35,16 @@ export const deleteItem = async (
 
     return await fetch(url, requestOptions).then((res) => res.json());
 };
+
+interface newAnswersValidationProps {
+    answers: string[];
+}
+
+export const newAnswersValidation = ({
+    answers,
+}: newAnswersValidationProps) => {
+    let validatedAnswers = answers;
+    return validatedAnswers.filter((answer: string) => {
+        return !(answer.length < 1);
+    });
+};

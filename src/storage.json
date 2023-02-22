@@ -182,6 +182,115 @@
             ],
             "correct": true,
             "id": "12"
+        },
+        {
+            "difficulty": "hard",
+            "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
+            "answer": "Array.filter()",
+            "answers": [
+                "Array.filter()",
+                "Array.some()",
+                "Array.reduce()",
+                "ww",
+                "e",
+                "",
+                "batman",
+                ""
+            ],
+            "tags": [
+                "array"
+            ],
+            "correct": true,
+            "id": "8"
+        },
+        {
+            "difficulty": "hard",
+            "question": "test",
+            "answer": "test",
+            "answers": [
+                "cvxx",
+                "cv",
+                "cc",
+                "c",
+                "",
+                "cc",
+                ""
+            ],
+            "tags": [
+                "array",
+                "object"
+            ],
+            "correct": false,
+            "id": "14"
+        },
+        {
+            "difficulty": "hard",
+            "question": "",
+            "answer": "gg",
+            "answers": [
+                "sd",
+                "dd",
+                "dd",
+                "d",
+                "",
+                "ddd",
+                "",
+                "ffg",
+                ""
+            ],
+            "tags": [],
+            "correct": false,
+            "id": "15"
+        },
+        {
+            "difficulty": "hard",
+            "question": "",
+            "answer": "",
+            "answers": [
+                "2",
+                "",
+                "2",
+                "2",
+                ""
+            ],
+            "tags": [
+                "object"
+            ],
+            "correct": false,
+            "id": "16"
+        },
+        {
+            "difficulty": "",
+            "question": "",
+            "answer": "334",
+            "answers": [
+                "3",
+                "",
+                "",
+                ""
+            ],
+            "tags": [
+                "array"
+            ],
+            "correct": false,
+            "id": "17"
+        },
+        {
+            "difficulty": "",
+            "question": "",
+            "answer": "terst",
+            "answers": [
+                "",
+                "",
+                "",
+                "3",
+                ""
+            ],
+            "tags": [
+                "object"
+            ],
+            "correct": false,
+            "id": "18"
         }
     ]
 }

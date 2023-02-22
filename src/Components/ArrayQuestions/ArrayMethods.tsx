@@ -3,6 +3,7 @@ import "./ArrayMethodsS.scss";
 import { Button, Card, ListGroup } from "react-bootstrap";
 import { Question } from "../../Apis/types";
 import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { newAnswersValidation } from "../../Apis/utils";
 
 interface Props {
     cardQuestion: Question;
@@ -12,7 +13,8 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
     const { questions, updateQuestion } = useContext(MyQuestionContext);
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
-    const { question, answer, answers } = cardQuestion;
+    let { question, answer, answers } = cardQuestion;
+    answers = newAnswersValidation({ answers });
 
     useEffect(() => {
         setIsDisabled(false);
