@@ -11,7 +11,5 @@ export const QuestionListReversedStrings = () => {
         setNewQuestions(reverseStringsOddLength({ questions }));
     }, [questions]);
 
-    console.log(newQuestions);
-
     return <>hello</>;
 };

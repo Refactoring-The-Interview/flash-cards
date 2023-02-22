@@ -4,7 +4,7 @@ interface Props {
     questions: Question[];
 }
 
-const test = (string: string) => {
+const reverseOddWordsInSentence = (string: string) => {
     let newString = string.split(" ");
     return newString
         .map((word) => {
@@ -20,7 +20,9 @@ export const reverseStringsOddLength = ({ questions }: Props) => {
     let reverseStringQuestionsOdd = questions;
 
     const result = reverseStringQuestionsOdd.map((question) => {
-        return (question.question = test(question.question));
+        return (question.question = reverseOddWordsInSentence(
+            question.question
+        ));
     });
 
     result.forEach((question, index) => {
