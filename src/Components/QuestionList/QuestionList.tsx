@@ -27,10 +27,8 @@ export const QuestionList = () => {
                         showDelete={showDelete}
                     />
                 );
-            case 2:
-                return <QuestionListTable />;
 
-            case 3:
+            case 2:
                 return (
                     <SmallCardList
                         currentQuestions={currentQuestion}

@@ -12,9 +12,10 @@ import { DeleteButton } from "../../../DeleteButton/DeleteButton";
 
 interface Props {
     question: Question;
+    showDelete: boolean;
 }
 
-export const SmallCard = ({ question }: Props) => {
+export const SmallCard = ({ question, showDelete }: Props) => {
     const { answer, difficulty, correct, id, tags } = question;
     const isCorrect = correct ? "success" : "danger";
     const navigate = useNavigate();
@@ -48,9 +49,11 @@ export const SmallCard = ({ question }: Props) => {
                 <Card.Body className="card-body">
                     <Card.Text
                         className="card-text"
-                        onClick={() =>
-                            navigate(pathGenerator[Paths.question](id))
-                        }
+                        onClick={() => {
+                            if (!showDelete) {
+                                navigate(pathGenerator[Paths.question](id));
+                            }
+                        }}
                     >
                         {answer}
                     </Card.Text>

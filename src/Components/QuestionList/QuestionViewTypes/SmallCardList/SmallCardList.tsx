@@ -17,7 +17,10 @@ export const SmallCardList = ({ currentQuestions, showDelete }: Props) => {
                 .map((question) => {
                     return (
                         <ListGroup.Item>
-                            <SmallCard question={question} />
+                            <SmallCard
+                                question={question}
+                                showDelete={showDelete}
+                            />
                         </ListGroup.Item>
                     );
                 })}
