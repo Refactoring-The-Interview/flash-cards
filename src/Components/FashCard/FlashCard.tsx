@@ -10,9 +10,7 @@ import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
     const { questionId } = useParams();
-    const randomId = Math.floor(
-        Math.random() * questions.length + 1
-    ).toString();
+
     const [randomQuestion, setRandomQuestion] = useState<Question | undefined>(
         getQuestions(questions, questionId)
     );
@@ -30,6 +28,9 @@ export const FlashCard = () => {
             <Card.Footer>
                 <Button
                     onClick={() => {
+                        const randomId = Math.floor(
+                            Math.random() * questions.length + 1
+                        ).toString();
                         setRandomQuestion(getQuestions(questions, randomId));
                     }}
                 >

@@ -1,6 +1,8 @@
 import { Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Paths, userInfo } from "../../../Apis/types";
 import duck from "../../../Assets/IMGS/Mallard2.jpeg";
+import { useContext } from "react";
+import { MyQuestionContext } from "../../QuestionContext/QuestionContext";
 
 interface LoggedInProps {
     path: string;
@@ -12,7 +14,7 @@ export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
     return (
         <>
             <Nav.Link href={Paths.questionList}>Question List</Nav.Link>
-            <Nav.Link href={path}>Random Question</Nav.Link>
+            <Nav.Link href={Paths.question}>Random Question</Nav.Link>
 
             <NavDropdown
                 title={
