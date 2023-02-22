@@ -14,7 +14,6 @@ export const ViewSelect = ({ setValue }: Props) => {
             }}
         >
             <option value={ViewStyles.CARDS}>Cards</option>
-            <option value={ViewStyles.TABLE}>Table</option>
             <option value={ViewStyles.SMALLCARDS}>Small cards</option>
         </Form.Select>
     );

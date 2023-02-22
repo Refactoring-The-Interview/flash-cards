@@ -28,7 +28,9 @@ export const QuestionCard = ({ question, showDelete }: CardProps) => {
             <Card className="listItem">
                 <Card.Header
                     onClick={() => {
-                        navigate(pathGenerator[Paths.question](id));
+                        if (!showDelete) {
+                            navigate(pathGenerator[Paths.question](id));
+                        }
                     }}
                 >
                     {showDelete && <DeleteButton question={question} />}

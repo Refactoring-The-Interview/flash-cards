@@ -63,8 +63,9 @@ export enum FetchMethods {
 
 export enum ViewStyles {
     CARDS = 1,
-    TABLE = 2,
-    SMALLCARDS = 3,
+    // THIS IS LEFT IN AS A PATH B/C THE COMPONENT WILL BE REFACTORED TO WORK BUT FOR NOW DISABLED
+    TABLE = "2NULL",
+    SMALLCARDS = 2,
 }
 
 export const pathGenerator = {
