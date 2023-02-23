@@ -12,6 +12,7 @@ import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
 import { Paths } from "../../Apis/types";
 import { Profile } from "../Profile/Profile";
 import { QuestionEdit } from "../QuestionEdit/QuestionEdit";
+import { NewFormSelf } from "../NewFormSelf/NewForm";
 
 function App() {
     const navigate: NavigateFunction = useNavigate();
@@ -34,6 +35,7 @@ function App() {
             <MyQuestionProvider>
                 <NavBar />
                 <Routes>
+                    <Route path={Paths.newForm} element={<NewFormSelf />} />
                     <Route
                         path={Paths.questionEdit}
                         element={<QuestionEdit />}
