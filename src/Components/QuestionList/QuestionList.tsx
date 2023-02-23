@@ -6,8 +6,8 @@ import { Loading } from "../Loading/Loading";
 import { FilterSetting, filterSettingsDefault } from "../../Apis/types";
 import { OffCanvas } from "./OffCanvas/OffCanvas";
 import { QuestionCards } from "./QuestionViewTypes/QuestionCards/QuestionCards";
-import { QuestionListTable } from "./QuestionViewTypes/QuestionListTable/QuestionListTable";
 import { SmallCardList } from "./QuestionViewTypes/SmallCardList/SmallCardList";
+import { QuestionCardsWithImage } from "./QuestionViewTypes/QuestionCardWithImage/QuestionCardsWithImage";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
@@ -31,6 +31,13 @@ export const QuestionList = () => {
             case 2:
                 return (
                     <SmallCardList
+                        currentQuestions={currentQuestion}
+                        showDelete={showDelete}
+                    />
+                );
+            case 3:
+                return (
+                    <QuestionCardsWithImage
                         currentQuestions={currentQuestion}
                         showDelete={showDelete}
                     />

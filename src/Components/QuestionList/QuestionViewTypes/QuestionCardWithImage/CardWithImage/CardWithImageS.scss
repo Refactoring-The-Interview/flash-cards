@@ -1,0 +1,19 @@
+@import "../../../../../Sass/main.scss";
+
+.CardWithImage {
+    box-shadow: 7px 6px 3px 0px $gray-400;
+    margin-right: 1rem;
+    margin-top: 1rem;
+
+    .difficulty {
+        &.easy {
+            background-color: $success;
+        }
+        &.medium {
+            background-color: $warning;
+        }
+        &.hard {
+            background-color: $danger;
+        }
+    }
+}
