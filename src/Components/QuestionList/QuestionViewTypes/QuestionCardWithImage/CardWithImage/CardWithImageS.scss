@@ -5,6 +5,16 @@
     margin-right: 1rem;
     margin-top: 1rem;
 
+    .CardWithImage-deleteButton {
+        display: flex;
+    }
+
+    .CardWithImage-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     .difficulty {
         &.easy {
             background-color: $success;
