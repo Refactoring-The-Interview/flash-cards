@@ -11,6 +11,7 @@ import {
 } from "../../../Apis/types";
 import { DeleteButton } from "../DeleteButton/DeleteButton";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { EditButton } from "../EditButton/EditButton";
 
 interface CardProps {
     question: Question;
@@ -42,14 +43,7 @@ export const QuestionCard = ({ question, showDelete }: CardProps) => {
                         Answered
                     </Button>
                     <QuestionTags tags={tags} />
-                    <Button
-                        variant="outline-secondary"
-                        onClick={() => {
-                            navigate(editQuestionPath[Paths.questionEdit](id));
-                        }}
-                    >
-                        ✎
-                    </Button>
+                    <EditButton id={id} />
                 </Card.Body>
             </Card>
         </div>
