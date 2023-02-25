@@ -133,16 +133,12 @@
             "style": 0
         },
         {
-            "difficulty": "hard",
-            "question": "What static method freezes an object. Freezing an object prevents extensions and makes existing properties non-writable and non-configurable. A frozen object can no longer be changed: new properties cannot be added, existing properties cannot be removed, their enumerability, configurability, write ability, or value cannot be changed, and the object's prototype cannot be re-assigned. freeze() returns the same object that was passed in.",
-            "answer": "Object.freeze()",
-            "answers": [
-                "Object.freeze()",
-                "Object.create()",
-                "Object.isFrozen"
-            ],
-            "tags": ["object"],
-            "correct": true,
+            "difficulty": "easy",
+            "question": "void",
+            "answer": "hello",
+            "answers": [],
+            "tags": ["array, object"],
+            "correct": false,
             "id": "13",
             "style": 1
         }

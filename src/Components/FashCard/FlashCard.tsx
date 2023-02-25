@@ -6,21 +6,17 @@ import { Loading } from "../Loading/Loading";
 import { MyQuestionContext } from "../Context/QuestionContext";
 import { MultipleChoiceStyle } from "./FlashCardQuestions/MultipleChoiceStyle/MultipleChoiceStyle";
 import { CodeBlockStyle } from "./FlashCardQuestions/CodeBlockStyle/CodeBlockStyle";
+import { useParams } from "react-router-dom";
 
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
-
+    const { questionId } = useParams();
     const randomId = () => {
         return Math.floor(Math.random() * questions.length).toString();
     };
-
     const [randomQuestion, setRandomQuestion] = useState<Question | void>(
-        questions[0]
+        getQuestions(questions, questionId)
     );
-
-    useEffect(() => {
-        setRandomQuestion(getQuestions(questions, randomId()));
-    }, [questions]);
 
     if (!randomQuestion) {
         return <Loading />;
@@ -28,6 +24,7 @@ export const FlashCard = () => {
 
     const { style } = randomQuestion;
 
+    console.log(style);
     return (
         <Card>
             <Card.Header>
