@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MyQuestionContext } from "../Components/QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../Components/Context/QuestionContext";
 
 export interface Question {
     difficulty: Difficulty;

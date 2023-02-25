@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./ArrayMethodsS.scss";
 import { Button, Card, ListGroup } from "react-bootstrap";
 import { Question } from "../../Apis/types";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../Context/QuestionContext";
 import { newAnswersValidation } from "../../Apis/utils";
 
 interface Props {

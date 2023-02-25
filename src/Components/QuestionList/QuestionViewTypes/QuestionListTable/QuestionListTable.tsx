@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { MyQuestionContext } from "../../../QuestionContext/QuestionContext";
+
 import { Question, Tags } from "../../../../Apis/types";
 import { Table } from "react-bootstrap";
 import { TableListTitle } from "./TableListTitle/TableListTitle";
 import { TableListItems } from "./TableListItems/TableListItems";
+import { MyQuestionContext } from "../../../Context/QuestionContext";
 
 export const QuestionListTable = () => {
     const { questions } = useContext(MyQuestionContext);

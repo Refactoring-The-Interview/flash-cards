@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../Context/QuestionContext";
 import { Paths, Question } from "../../Apis/types";
 import { Button, FormLabel } from "react-bootstrap";
 import { Loading } from "../Loading/Loading";

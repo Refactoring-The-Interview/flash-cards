@@ -8,7 +8,7 @@ import { Routes, Route, useNavigate, NavigateFunction } from "react-router-dom";
 import { NavBar } from "../NavBar/NavBar";
 import { Home } from "../Home/Home";
 import { Contact } from "../Contact/Contact";
-import { MyQuestionProvider } from "../QuestionContext/QuestionContext";
+import { MyQuestionProvider } from "../Context/QuestionContext";
 import { Paths } from "../../Apis/types";
 import { Profile } from "../Profile/Profile";
 import { QuestionEdit } from "../QuestionEdit/QuestionEdit";

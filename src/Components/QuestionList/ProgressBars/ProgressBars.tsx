@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ProgressBar } from "react-bootstrap";
-import { MyQuestionContext } from "../../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../../Context/QuestionContext";
 import { Question } from "../../../Apis/types";
 
 export const ProgressBars = () => {

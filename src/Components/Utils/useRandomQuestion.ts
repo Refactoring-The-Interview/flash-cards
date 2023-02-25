@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../Context/QuestionContext";
 
 export const useRandomQuestion = () => {
     const { questions } = useContext(MyQuestionContext);

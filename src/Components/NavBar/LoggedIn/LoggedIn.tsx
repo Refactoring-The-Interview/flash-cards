@@ -2,7 +2,7 @@ import { Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Paths, pathGenerator, userInfo } from "../../../Apis/types";
 import duck from "../../../Assets/IMGS/Mallard2.jpeg";
 import { useContext } from "react";
-import { MyQuestionContext } from "../../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../../Context/QuestionContext";
 
 interface LoggedInProps {
     path: string;

@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import "./QuestionListS.scss";
 import { filterQuestions } from "../Utils/Utils";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+
 import { Loading } from "../Loading/Loading";
 import { FilterSetting, filterSettingsDefault } from "../../Apis/types";
 import { OffCanvas } from "./OffCanvas/OffCanvas";
 import { QuestionCards } from "./QuestionViewTypes/QuestionCards/QuestionCards";
 import { SmallCardList } from "./QuestionViewTypes/SmallCardList/SmallCardList";
 import { QuestionCardsWithImage } from "./QuestionViewTypes/QuestionCardWithImage/QuestionCardsWithImage";
+import { MyQuestionContext } from "../Context/QuestionContext";
 
 export const QuestionList = () => {
     const { questions } = useContext(MyQuestionContext);
