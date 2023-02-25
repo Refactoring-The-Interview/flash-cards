@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Form } from "react-bootstrap";
 import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
 import { Question, useNewQuestionDefault } from "../../Apis/types";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
+import { MyQuestionContext } from "../Context/QuestionContext";
 import { QuestionFormBody } from "./QuestionFormBody/QuestionFormBody";
 
 interface Props {

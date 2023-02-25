@@ -1,29 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { FilterSetting } from "../../../Apis/types";
 import { QuestionFilters } from "../QuestionFilter/QuestionFilters";
 import { AddQuestionForm } from "../../AddQuestionForm/AddQuestionForm";
 import { Badge } from "react-bootstrap";
 import { ViewSelect } from "../QuestionViewTypes/ViewSelect/ViewSelect";
+import { QuestionListContext } from "../../Context/QuestionListContext";
 
 interface Props {
-    setFilterSettings(filterSetting: FilterSetting): void;
-    filterSettings: FilterSetting;
-    showDelete: boolean;
-    setShowDelete(showDelete: boolean): void;
-    setViewOptions(value: number): void;
+    setViewOptions(view: number): void;
 }
 
-export const OffCanvas = ({
-    setFilterSettings,
-    filterSettings,
-    showDelete,
-    setShowDelete,
-    setViewOptions,
-}: Props) => {
-    const [show, setShow] = useState(false);
+export const OffCanvas = ({ setViewOptions }: Props) => {
+    const { filterOptions, setFilterOptions, showDelete, setShowDelete } =
+        useContext(QuestionListContext);
 
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -45,8 +37,8 @@ export const OffCanvas = ({
                         <ViewSelect setValue={setViewOptions} />
                     </Badge>
                     <QuestionFilters
-                        setFilterSettings={setFilterSettings}
-                        filterSettings={filterSettings}
+                        setFilterSettings={setFilterOptions}
+                        filterSettings={filterOptions}
                     />
                     <AddQuestionForm variantButton={"primary"} />{" "}
                     <Button

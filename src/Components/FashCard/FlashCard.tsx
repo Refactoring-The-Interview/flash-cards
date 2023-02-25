@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
-import { MyQuestionContext } from "../QuestionContext/QuestionContext";
 import { useParams } from "react-router-dom";
 import { getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
 import { Loading } from "../Loading/Loading";
 import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
+import { MyQuestionContext } from "../Context/QuestionContext";
 
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);

@@ -1,28 +1,26 @@
-import { Question, cardOrder } from "../../../../Apis/types";
+import { useContext } from "react";
+import { cardOrder } from "../../../../Apis/types";
+import { QuestionListContext } from "../../../Context/QuestionListContext";
 import { CardWithImage } from "./CardWithImage/CardWithImage";
 import "./QuestionCardsWithImageS.scss";
 
-interface Props {
-    currentQuestions: Question[];
-    showDelete: boolean;
-}
+export const QuestionCardsWithImage = () => {
+    const { currentQuestions, showDelete } = useContext(QuestionListContext);
 
-export const QuestionCardsWithImage = ({
-    currentQuestions,
-    showDelete,
-}: Props) => {
     return (
         <div className="QuestionCardsWithImage">
             {currentQuestions
                 .sort((a, b) => {
                     return cardOrder(a.difficulty) - cardOrder(b.difficulty);
                 })
-                .map((question) => {
+                .map((question, index) => {
                     return (
-                        <CardWithImage
-                            currentQuestion={question}
-                            showDelete={showDelete}
-                        />
+                        <div key={index}>
+                            <CardWithImage
+                                currentQuestion={question}
+                                showDelete={showDelete}
+                            />
+                        </div>
                     );
                 })}
         </div>
