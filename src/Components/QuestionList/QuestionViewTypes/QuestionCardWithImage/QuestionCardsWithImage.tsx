@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Question, cardOrder } from "../../../../Apis/types";
+import { cardOrder } from "../../../../Apis/types";
 import { QuestionListContext } from "../../../Context/QuestionListContext";
 import { CardWithImage } from "./CardWithImage/CardWithImage";
 import "./QuestionCardsWithImageS.scss";

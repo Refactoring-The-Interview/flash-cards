@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./QuestionListS.scss";
-import { Loading } from "../Loading/Loading";
 import { OffCanvas } from "./OffCanvas/OffCanvas";
 import { QuestionCards } from "./QuestionViewTypes/QuestionCards/QuestionCards";
 import { SmallCardList } from "./QuestionViewTypes/SmallCardList/SmallCardList";

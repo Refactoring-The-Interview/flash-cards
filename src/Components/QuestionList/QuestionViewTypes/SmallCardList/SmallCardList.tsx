@@ -1,5 +1,5 @@
 import { ListGroup } from "react-bootstrap";
-import { cardOrder, Question } from "../../../../Apis/types";
+import { cardOrder } from "../../../../Apis/types";
 import { SmallCard } from "./SmallCard/SmallCard";
 import { useContext } from "react";
 import { QuestionListContext } from "../../../Context/QuestionListContext";

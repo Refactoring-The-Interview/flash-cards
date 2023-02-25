@@ -4,11 +4,6 @@ import { QuestionCard } from "../../QuestionCard/QuestionCard";
 import { useContext } from "react";
 import { QuestionListContext } from "../../../Context/QuestionListContext";
 
-// interface Props {
-//     currentQuestions: Question[];
-//     showDelete: boolean;
-// }
-
 export const QuestionCards = () => {
     const { currentQuestions, showDelete } = useContext(QuestionListContext);
 

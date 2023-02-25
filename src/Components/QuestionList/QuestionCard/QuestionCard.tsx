@@ -3,12 +3,7 @@ import Card from "react-bootstrap/Card";
 import "./QuestionCardS.scss";
 import { QuestionTags } from "../QuestionTags/QuestionTags";
 
-import {
-    Paths,
-    Question,
-    editQuestionPath,
-    pathGenerator,
-} from "../../../Apis/types";
+import { Paths, Question, pathGenerator } from "../../../Apis/types";
 import { DeleteButton } from "../DeleteButton/DeleteButton";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { EditButton } from "../EditButton/EditButton";
