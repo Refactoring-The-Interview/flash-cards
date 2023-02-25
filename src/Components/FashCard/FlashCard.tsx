@@ -1,22 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import { getQuestions } from "../../Apis/types";
+import { Question, getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
 import { Loading } from "../Loading/Loading";
 import { MyQuestionContext } from "../Context/QuestionContext";
 import { MultipleChoiceStyle } from "./FlashCardQuestions/MultipleChoiceStyle/MultipleChoiceStyle";
+import { CodeBlockStyle } from "./FlashCardQuestions/CodeBlockStyle/CodeBlockStyle";
 
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
-    const { questionId } = useParams();
-    const randomId = () =>
-        Math.floor(Math.random() * questions.length).toString();
-    let randomQuestion = getQuestions(questions, questionId);
+
+    const randomId = () => {
+        return Math.floor(Math.random() * questions.length).toString();
+    };
+
+    const [randomQuestion, setRandomQuestion] = useState<Question | void>(
+        questions[0]
+    );
+
+    useEffect(() => {
+        setRandomQuestion(getQuestions(questions, randomId()));
+    }, [questions]);
 
     if (!randomQuestion) {
         return <Loading />;
     }
+
+    const { style } = randomQuestion;
 
     return (
         <Card>
@@ -24,12 +34,16 @@ export const FlashCard = () => {
                 <Timer />
             </Card.Header>
 
-            <MultipleChoiceStyle cardQuestion={randomQuestion} />
+            {style === 0 ? (
+                <MultipleChoiceStyle cardQuestion={randomQuestion} />
+            ) : (
+                <CodeBlockStyle cardQuestion={randomQuestion} />
+            )}
 
             <Card.Footer>
                 <Button
                     onClick={() => {
-                        randomQuestion = getQuestions(questions, randomId());
+                        setRandomQuestion(getQuestions(questions, randomId()));
                     }}
                 >
                     Next Question

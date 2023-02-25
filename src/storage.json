@@ -4,8 +4,15 @@
             "difficulty": "medium",
             "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
             "answer": "Array.some()",
-            "answers": ["Array.some()", "Array.filter", "Array.forEach()"],
-            "tags": ["array", "Js"],
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
             "correct": true,
             "id": "1",
             "style": 0
@@ -14,8 +21,14 @@
             "difficulty": "easy",
             "question": "What method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.",
             "answer": "Array.at()",
-            "answers": ["Array.find()", "Array.at()", "Array.values()"],
-            "tags": ["array"],
+            "answers": [
+                "Array.find()",
+                "Array.at()",
+                "Array.values()"
+            ],
+            "tags": [
+                "array"
+            ],
             "correct": true,
             "id": "2",
             "style": 0
@@ -24,8 +37,14 @@
             "difficulty": "easy",
             "question": "What method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.",
             "answer": "Array.concat()",
-            "answers": ["Array.concat()", "Array.reduce()", "Array.merge()"],
-            "tags": ["array"],
+            "answers": [
+                "Array.concat()",
+                "Array.reduce()",
+                "Array.merge()"
+            ],
+            "tags": [
+                "array"
+            ],
             "correct": true,
             "id": "3",
             "style": 0
@@ -39,7 +58,9 @@
                 "Array.copyWithin()",
                 "Array.merge()"
             ],
-            "tags": ["array"],
+            "tags": [
+                "array"
+            ],
             "correct": true,
             "id": "4",
             "style": 0
@@ -48,8 +69,14 @@
             "difficulty": "hard",
             "question": "What method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
             "answer": "Array.entries()",
-            "answers": ["Array.entires()", "Array.every()", "Array.values()"],
-            "tags": ["array"],
+            "answers": [
+                "Array.entires()",
+                "Array.every()",
+                "Array.values()"
+            ],
+            "tags": [
+                "array"
+            ],
             "correct": false,
             "id": "5",
             "style": 0
@@ -58,8 +85,14 @@
             "difficulty": "medium",
             "question": "What method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.",
             "answer": "Array.every()",
-            "answers": ["Array.every()", "Array.forEach()", "Array.map()"],
-            "tags": ["array"],
+            "answers": [
+                "Array.every()",
+                "Array.forEach()",
+                "Array.map()"
+            ],
+            "tags": [
+                "array"
+            ],
             "correct": true,
             "id": "6",
             "style": 0
@@ -68,8 +101,14 @@
             "difficulty": "medium",
             "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
             "answer": "Array.filter()",
-            "answers": ["Array.filter()", "Array.reduce()", "Array.forEach()"],
-            "tags": ["array"],
+            "answers": [
+                "Array.filter()",
+                "Array.reduce()",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array"
+            ],
             "correct": true,
             "id": "7",
             "style": 0
@@ -78,8 +117,14 @@
             "difficulty": "easy",
             "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
             "answer": "Array.filter()",
-            "answers": ["Array.filter()", "Array.some()", "Array.reduce()"],
-            "tags": ["array"],
+            "answers": [
+                "Array.filter()",
+                "Array.some()",
+                "Array.reduce()"
+            ],
+            "tags": [
+                "array"
+            ],
             "correct": true,
             "id": "8",
             "style": 0
@@ -93,8 +138,10 @@
                 "Array.findLastIndex()",
                 "Array.find()"
             ],
-            "tags": ["array"],
-            "correct": false,
+            "tags": [
+                "array"
+            ],
+            "correct": true,
             "id": "9",
             "style": 0
         },
@@ -102,8 +149,16 @@
             "difficulty": "medium",
             "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
             "answer": "Array.some()",
-            "answers": ["Array.some()", "Array.filter", "Array.forEach()"],
-            "tags": ["array", "Js", "object"],
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js",
+                "object"
+            ],
             "correct": true,
             "id": "10",
             "style": 0
@@ -112,8 +167,14 @@
             "difficulty": "easy",
             "question": " What static method returns an array of a given object's own enumerable string-keyed property names.",
             "answer": "Object.keys()",
-            "answers": ["Object.keys()", "Object.values()", "Object.hasOwn()"],
-            "tags": ["object"],
+            "answers": [
+                "Object.keys()",
+                "Object.values()",
+                "Object.hasOwn()"
+            ],
+            "tags": [
+                "object"
+            ],
             "correct": true,
             "id": "11",
             "style": 0
@@ -127,7 +188,9 @@
                 "Object.create()",
                 "Object.isFrozen"
             ],
-            "tags": ["object"],
+            "tags": [
+                "object"
+            ],
             "correct": true,
             "id": "12",
             "style": 0

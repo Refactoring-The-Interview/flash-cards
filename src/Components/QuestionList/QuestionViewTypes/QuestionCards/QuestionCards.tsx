@@ -7,8 +7,6 @@ import { QuestionListContext } from "../../../Context/QuestionListContext";
 export const QuestionCards = () => {
     const { currentQuestions, showDelete } = useContext(QuestionListContext);
 
-    console.log(showDelete, "delete state from context");
-
     return (
         <div className="QuestionCard">
             {currentQuestions
