@@ -1,13 +1,12 @@
 import { ListGroup } from "react-bootstrap";
 import { cardOrder, Question } from "../../../../Apis/types";
 import { SmallCard } from "./SmallCard/SmallCard";
+import { useContext } from "react";
+import { QuestionListContext } from "../../../Context/QuestionListContext";
 
-interface Props {
-    currentQuestions: Question[];
-    showDelete: boolean;
-}
+export const SmallCardList = () => {
+    const { currentQuestions, showDelete } = useContext(QuestionListContext);
 
-export const SmallCardList = ({ currentQuestions, showDelete }: Props) => {
     return (
         <ListGroup className="SmallCardList">
             {currentQuestions
