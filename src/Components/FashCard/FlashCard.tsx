@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
 import { Loading } from "../Loading/Loading";
-import { ArrayMethods } from "../ArrayQuestions/ArrayMethods";
 import { MyQuestionContext } from "../Context/QuestionContext";
+import { MultipleChoiceStyle } from "./FlashCardQuestions/MultipleChoiceStyle/MultipleChoiceStyle";
 
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
@@ -24,7 +24,7 @@ export const FlashCard = () => {
                 <Timer />
             </Card.Header>
 
-            <ArrayMethods cardQuestion={randomQuestion} />
+            <MultipleChoiceStyle cardQuestion={randomQuestion} />
 
             <Card.Footer>
                 <Button
