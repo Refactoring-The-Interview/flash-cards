@@ -1,4 +1,4 @@
-import { Difficulty, Question, Tags } from "../../Apis/types";
+import { Difficulty, FlashCardStyle, Question, Tags } from "../../Apis/types";
 
 export let questionBank: Question[] = [
     {
@@ -10,6 +10,7 @@ export let questionBank: Question[] = [
         tags: [Tags.array, Tags.js],
         correct: true,
         id: "1",
+        style: FlashCardStyle.MultipleChoice,
     },
     {
         difficulty: Difficulty.medium,
@@ -20,6 +21,7 @@ export let questionBank: Question[] = [
         tags: [Tags.array, Tags.js],
         correct: false,
         id: "2",
+        style: FlashCardStyle.MultipleChoice,
     },
     {
         difficulty: Difficulty.medium,
@@ -30,6 +32,7 @@ export let questionBank: Question[] = [
         tags: [Tags.array, Tags.js],
         correct: false,
         id: "3",
+        style: FlashCardStyle.MultipleChoice,
     },
     {
         difficulty: Difficulty.medium,
@@ -40,6 +43,7 @@ export let questionBank: Question[] = [
         tags: [Tags.array, Tags.js],
         correct: false,
         id: "4",
+        style: FlashCardStyle.MultipleChoice,
     },
     {
         difficulty: Difficulty.medium,
@@ -50,6 +54,7 @@ export let questionBank: Question[] = [
         tags: [Tags.array, Tags.js],
         correct: false,
         id: "5",
+        style: FlashCardStyle.MultipleChoice,
     },
 
     {
@@ -60,5 +65,6 @@ export let questionBank: Question[] = [
         tags: [Tags.obj, Tags.js],
         correct: false,
         id: "6",
+        style: FlashCardStyle.MultipleChoice,
     },
 ];

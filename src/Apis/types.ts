@@ -9,6 +9,7 @@ export interface Question {
     tags: Tags[];
     correct: boolean;
     id: string;
+    style: FlashCardStyle;
 }
 
 export interface FilterSetting {
@@ -22,6 +23,11 @@ export interface userInfo {
     email: string;
     password: string;
     img?: any;
+}
+
+export enum FlashCardStyle {
+    MultipleChoice = 0,
+    CodeBlock = 1,
 }
 
 export enum Difficulty {
@@ -92,6 +98,7 @@ export const useNewQuestionDefault = () => {
         tags: [],
         correct: false,
         id: (questions.length + 1).toString(),
+        style: FlashCardStyle.MultipleChoice,
     };
 
     return questionDefaults;
