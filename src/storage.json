@@ -1,23 +1,6 @@
 {
     "questions": [
         {
-            "difficulty": "medium",
-            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
-            "answer": "Array.some()",
-            "answers": [
-                "Array.some()",
-                "Array.filter",
-                "Array.forEach()"
-            ],
-            "tags": [
-                "array",
-                "Js"
-            ],
-            "correct": true,
-            "id": "1",
-            "style": 0
-        },
-        {
             "difficulty": "easy",
             "question": "What method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.",
             "answer": "Array.at()",
@@ -50,6 +33,83 @@
             "style": 0
         },
         {
+            "difficulty": "easy",
+            "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
+            "answer": "Array.filter()",
+            "answers": [
+                "Array.filter()",
+                "Array.some()",
+                "Array.reduce()"
+            ],
+            "tags": [
+                "array"
+            ],
+            "correct": true,
+            "id": "8",
+            "style": 0
+        },
+        {
+            "difficulty": "easy",
+            "question": " What static method returns an array of a given object's own enumerable string-keyed property names.",
+            "answer": "Object.keys()",
+            "answers": [
+                "Object.keys()",
+                "Object.values()",
+                "Object.hasOwn()"
+            ],
+            "tags": [
+                "object"
+            ],
+            "correct": true,
+            "id": "11",
+            "style": 0
+        },
+        {
+            "difficulty": "easy",
+            "answer": "isPrime",
+            "question": "const array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      //Return An Array of Only Prime Numbers \n}",
+            "answers": [
+                "//This is A solution to the question.\nconst array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      for (let = 2; num > i; i++) {\n         if (num % i === 0) {\n      return false;\n         }\n     }\n    return num > 1;\n  }\n console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]"
+            ],
+            "tags": [
+                "array"
+            ],
+            "correct": false,
+            "id": "13",
+            "style": 1
+        },
+        {
+            "difficulty": "easy",
+            "answer": "multiplyEach",
+            "question": "const array = [1, 4, 9, 16];\n function multiplyEach(array) {\n      //use Array.map() to return an array of numbers all multiplied by 2 \n}",
+            "answers": [
+                "//This is A solution to the question.\nconst array = [1, 4, 9, 16];\n function multiplyEach(array) {\n  return array.map(x => x * 2)     \n}"
+            ],
+            "tags": [
+                "array"
+            ],
+            "correct": false,
+            "id": "14",
+            "style": 1
+        },
+        {
+            "difficulty": "medium",
+            "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
+            "answer": "Array.some()",
+            "answers": [
+                "Array.some()",
+                "Array.filter",
+                "Array.forEach()"
+            ],
+            "tags": [
+                "array",
+                "Js"
+            ],
+            "correct": true,
+            "id": "1",
+            "style": 0
+        },
+        {
             "difficulty": "medium",
             "question": "What method shallow copies part of an array to another location in the same array and returns it without modifying its length.",
             "answer": "Array.copyWithin()",
@@ -63,22 +123,6 @@
             ],
             "correct": true,
             "id": "4",
-            "style": 0
-        },
-        {
-            "difficulty": "hard",
-            "question": "What method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
-            "answer": "Array.entries()",
-            "answers": [
-                "Array.entires()",
-                "Array.every()",
-                "Array.values()"
-            ],
-            "tags": [
-                "array"
-            ],
-            "correct": false,
-            "id": "5",
             "style": 0
         },
         {
@@ -111,22 +155,6 @@
             ],
             "correct": true,
             "id": "7",
-            "style": 0
-        },
-        {
-            "difficulty": "easy",
-            "question": "What method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
-            "answer": "Array.filter()",
-            "answers": [
-                "Array.filter()",
-                "Array.some()",
-                "Array.reduce()"
-            ],
-            "tags": [
-                "array"
-            ],
-            "correct": true,
-            "id": "8",
             "style": 0
         },
         {
@@ -164,19 +192,33 @@
             "style": 0
         },
         {
-            "difficulty": "easy",
-            "question": " What static method returns an array of a given object's own enumerable string-keyed property names.",
-            "answer": "Object.keys()",
+            "difficulty": "medium",
+            "answer": "reverseString",
+            "question": "const reverseString = () => { \n const = 'Hello'\n   //Return a string reversed so Hello => olleH \n } ",
             "answers": [
-                "Object.keys()",
-                "Object.values()",
-                "Object.hasOwn()"
+                "const reverseString = () => { \n const string = 'Hello'\n  return string.split('').reverse().join('') \n } "
             ],
             "tags": [
-                "object"
+                "array"
             ],
-            "correct": true,
-            "id": "11",
+            "correct": false,
+            "id": "15",
+            "style": 1
+        },
+        {
+            "difficulty": "hard",
+            "question": "What method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
+            "answer": "Array.entries()",
+            "answers": [
+                "Array.entires()",
+                "Array.every()",
+                "Array.values()"
+            ],
+            "tags": [
+                "array"
+            ],
+            "correct": false,
+            "id": "5",
             "style": 0
         },
         {
@@ -196,45 +238,17 @@
             "style": 0
         },
         {
-            "difficulty": "easy",
-            "answer": "isPrime",
-            "question": "const array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      //Return An Array of Only Prime Numbers \n}",
+            "difficulty": "hard",
+            "question": "const emailValidation = (email) => {\n  // given an email string validate that the email has 3 chars before the @ symbol and a \".\" symbol after the @.\n\n}",
+            "answer": "emailValidation",
             "answers": [
-                "//This is A solution to the question.\nconst array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      for (let = 2; num > i; i++) {\n         if (num % i === 0) {\n      return false;\n         }\n     }\n    return num > 1;\n  }\n console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]"
+                "const emailValidation = (email) => {\n  const atSymbol = email.indexOf('@');\n  const dotSymbol = email.indexOf('.') > atSymbol\n\n  return atSymbol > 3 && dotSymbo\n}"
             ],
             "tags": [
                 "array"
             ],
             "correct": false,
-            "id": "13",
-            "style": 1
-        },
-        {
-            "difficulty": "easy",
-            "answer": "multiplyEach",
-            "question": "const array = [1, 4, 9, 16];\n function multiplyEach(array) {\n      //use Array.map() to return an array of numbers all multiplied by 2 \n}",
-            "answers": [
-                "//This is A solution to the question.\nconst array = [1, 4, 9, 16];\n function multiplyEach(array) {\n  return array.map(x => x * 2)     \n}"
-            ],
-            "tags": [
-                "array"
-            ],
-            "correct": false,
-            "id": "14",
-            "style": 1
-        },
-        {
-            "difficulty": "medium",
-            "answer": "reverseString",
-            "question": "const reverseString = () => { \n const = 'Hello'\n   //Return a string reversed so Hello => olleH \n } ",
-            "answers": [
-                "const reverseString = () => { \n const string = 'Hello'\n  return string.split('').reverse().join('') \n } "
-            ],
-            "tags": [
-                "array"
-            ],
-            "correct": false,
-            "id": "15",
+            "id": "16",
             "style": 1
         }
     ]

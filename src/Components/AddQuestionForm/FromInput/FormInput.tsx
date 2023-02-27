@@ -13,6 +13,7 @@ export const FormInput = ({ value, setValue, title, type }: FormProps) => {
         <FormGroup>
             <Form.Label htmlFor="formInput">{title}</Form.Label>
             <input
+                required={true}
                 className="inputArea form-control"
                 id="formInput"
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
