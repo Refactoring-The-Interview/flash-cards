@@ -3,6 +3,7 @@ import { DifficultySelect } from "../../QuestionList/QuestionFilter/DifficultySe
 import { FormTextArea } from "../FormTextArea/FormTextArea";
 import { FormInput } from "../FromInput/FormInput";
 import { QuestionFormAnswers } from "../QuestionFormAnswers/QuestionFormAnswers";
+import { StyleSelect } from "../StyleSelect/StyleSelect";
 import { TagsSelect } from "../TagsSelect/TagsSelect";
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 }
 
 export const QuestionFormBody = ({ value, setValue }: Props) => {
-    const { difficulty, question, answers, answer, tags } = value;
+    const { difficulty, question, answers, answer, tags, style } = value;
     return (
         <div>
             <DifficultySelect
@@ -61,6 +62,16 @@ export const QuestionFormBody = ({ value, setValue }: Props) => {
                     setValue({
                         ...value,
                         tags,
+                    });
+                }}
+            />
+
+            <StyleSelect
+                value={style}
+                setValue={(style) => {
+                    setValue({
+                        ...value,
+                        style,
                     });
                 }}
             />

@@ -47,7 +47,7 @@ export const FlashCard = () => {
                     }}
                 >
                     Next Question
-                </Button>
+                </Button>{" "}
                 {style === 1 && (
                     <Button
                         variant="outline-primary"
