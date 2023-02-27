@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { MyQuestionContext } from "../Context/QuestionContext";
 import { Paths, Question } from "../../Apis/types";
@@ -8,7 +8,7 @@ import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFo
 
 export const QuestionEdit = () => {
     const { questionId } = useParams();
-    const { questions, addQuestion } = useContext(MyQuestionContext);
+    const { questions, updateQuestion } = useContext(MyQuestionContext);
     const navigate = useNavigate();
     const [questionEditValues, setQuestionEditValues] = useState<
         Question | undefined
@@ -22,7 +22,7 @@ export const QuestionEdit = () => {
         <Form
             onSubmit={(e) => {
                 e.preventDefault();
-                addQuestion(questionEditValues);
+
                 navigate(Paths.questionList);
             }}
         >

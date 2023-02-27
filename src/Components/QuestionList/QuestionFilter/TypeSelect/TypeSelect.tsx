@@ -27,6 +27,7 @@ export const TypeSelect = ({ value, setValue }: TypeProps) => {
                 <option value={Tags.js}>Type</option>
                 <option value={Tags.array}>Array</option>
                 <option value={Tags.obj}>Objects</option>
+                <option value={Tags.codeblock}>Code Challenges</option>
             </Form.Select>
         </Form.Group>
     );

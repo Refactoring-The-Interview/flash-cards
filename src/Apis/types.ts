@@ -42,6 +42,7 @@ export enum Tags {
     js = "js",
     obj = "object",
     array = "array",
+    codeblock = "codeblock",
 }
 
 export enum Paths {
