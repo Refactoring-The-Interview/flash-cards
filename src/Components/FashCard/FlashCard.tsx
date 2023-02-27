@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Question, getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
@@ -17,6 +17,7 @@ export const FlashCard = () => {
     const [randomQuestion, setRandomQuestion] = useState<Question | void>(
         getQuestions(questions, questionId)
     );
+    const [showSolution, setShowSolution] = useState<boolean>(false);
 
     if (!randomQuestion) {
         return <Loading />;
@@ -24,7 +25,6 @@ export const FlashCard = () => {
 
     const { style } = randomQuestion;
 
-    console.log(style);
     return (
         <Card>
             <Card.Header>
@@ -34,7 +34,10 @@ export const FlashCard = () => {
             {style === 0 ? (
                 <MultipleChoiceStyle cardQuestion={randomQuestion} />
             ) : (
-                <CodeBlockStyle cardQuestion={randomQuestion} />
+                <CodeBlockStyle
+                    cardQuestion={randomQuestion}
+                    showSolution={showSolution}
+                />
             )}
 
             <Card.Footer>
@@ -44,7 +47,16 @@ export const FlashCard = () => {
                     }}
                 >
                     Next Question
-                </Button>
+                </Button>{" "}
+                {style === 1 && (
+                    <Button
+                        variant="outline-primary"
+                        onClick={() => setShowSolution(!showSolution)}
+                    >
+                        {" "}
+                        Show A Solution
+                    </Button>
+                )}
             </Card.Footer>
         </Card>
     );

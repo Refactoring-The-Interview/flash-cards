@@ -5,7 +5,7 @@ interface AnswerProps {
     setValue(value: string[]): void;
 }
 
-export const QuestionFormAnswers = ({ value, setValue }: AnswerProps) => {
+export const MultipleChoiceAnswers = ({ value, setValue }: AnswerProps) => {
     return (
         <>
             <Form.Group>
