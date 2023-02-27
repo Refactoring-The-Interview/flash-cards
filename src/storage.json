@@ -134,12 +134,38 @@
         },
         {
             "difficulty": "easy",
-            "question": "`const array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\\n function isPrime(num) {\\n for (let = 2; num > i; i++) {\\n  if (num % i === 0) {\\n return false;\\n }\\n }\\n  return num > 1;\\n }\\n console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]`",
-            "answer": "TEST",
-            "answers": [],
-            "tags": ["array, object"],
+            "answer": "isPrime",
+            "question": "const array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      //Return An Array of Only Prime Numbers \n}",
+            "answers": [
+                "//This is A solution to the question.\nconst array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      for (let = 2; num > i; i++) {\n         if (num % i === 0) {\n      return false;\n         }\n     }\n    return num > 1;\n  }\n console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]"
+            ],
+            "tags": ["array"],
             "correct": false,
             "id": "13",
+            "style": 1
+        },
+        {
+            "difficulty": "easy",
+            "answer": "multiplyEach",
+            "question": "const array = [1, 4, 9, 16];\n function multiplyEach(array) {\n      //use Array.map() to return an array of numbers all multiplied by 2 \n}",
+            "answers": [
+                "//This is A solution to the question.\nconst array = [1, 4, 9, 16];\n function multiplyEach(array) {\n  return array.map(x => x * 2)     \n}"
+            ],
+            "tags": ["array"],
+            "correct": false,
+            "id": "14",
+            "style": 1
+        },
+        {
+            "difficulty": "medium",
+            "answer": "reverseString",
+            "question": "const reverseString = () => { \n const = 'Hello'\n   //Return a string reversed so Hello => olleH \n } ",
+            "answers": [
+                "const reverseString = () => { \n const string = 'Hello'\n  return string.split('').reverse().join('') \n } "
+            ],
+            "tags": ["array"],
+            "correct": false,
+            "id": "15",
             "style": 1
         }
     ]

@@ -10,6 +10,7 @@ export interface Question {
     correct: boolean;
     id: string;
     style: FlashCardStyle;
+    code?: string;
 }
 
 export interface FilterSetting {
