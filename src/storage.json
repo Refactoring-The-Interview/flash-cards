@@ -134,8 +134,8 @@
         },
         {
             "difficulty": "easy",
-            "question": "void",
-            "answer": "hello",
+            "question": "`const array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\\n function isPrime(num) {\\n for (let = 2; num > i; i++) {\\n  if (num % i === 0) {\\n return false;\\n }\\n }\\n  return num > 1;\\n }\\n console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]`",
+            "answer": "TEST",
             "answers": [],
             "tags": ["array, object"],
             "correct": false,
