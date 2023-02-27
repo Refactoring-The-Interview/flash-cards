@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Question } from "../../../../Apis/types";
-import CodeEditor from "@uiw/react-textarea-code-editor";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { CodeIDE } from "../../../CodeIDE/CodeIDE";
 
 interface Props {
     cardQuestion: Question;
@@ -15,22 +15,15 @@ export const CodeBlockStyle = ({ cardQuestion, showSolution }: Props) => {
 
     useEffect(() => {
         setCodeBlock(currentCode);
-    }, [showSolution]);
+    }, [currentCode, showSolution]);
 
     return (
         <Card.Text>
             <div className="w-tc-editor-var">
-                <CodeEditor
+                <CodeIDE
                     value={codeBlock}
-                    data-color-mode="dark"
-                    language="js"
-                    placeholder="Please enter JS code."
-                    onChange={(evn) => setCodeBlock(evn.target.value)}
-                    padding={15}
-                    style={{
-                        fontSize: 12,
-                        fontFamily:
-                            "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+                    setValue={(userInput) => {
+                        setCodeBlock(userInput);
                     }}
                 />
             </div>

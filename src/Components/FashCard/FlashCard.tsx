@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Question, getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
