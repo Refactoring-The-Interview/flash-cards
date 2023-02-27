@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { MyQuestionContext } from "../Context/QuestionContext";
 import { Paths, Question } from "../../Apis/types";
 import { Button, FormLabel } from "react-bootstrap";
 import { Loading } from "../Loading/Loading";
 import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFormBody";
+import { useQuestionList } from "../Context/useQuestionList";
 
 export const QuestionEdit = () => {
     const { questionId } = useParams();
@@ -22,7 +23,16 @@ export const QuestionEdit = () => {
         <Form
             onSubmit={(e) => {
                 e.preventDefault();
+                let questionIndex;
+                let findIndex = questions?.find(({ id }, index) => {
+                    if (id === questionId) questionIndex = index;
+                })?.id;
 
+                if (questionIndex !== undefined) {
+                    questions[questionIndex] = questionEditValues;
+
+                    updateQuestion(questions);
+                }
                 navigate(Paths.questionList);
             }}
         >
