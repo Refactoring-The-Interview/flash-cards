@@ -1,6 +1,7 @@
 import { Question } from "../../../../Apis/types";
 import { DifficultySelect } from "../../../QuestionList/QuestionFilter/DifficultySelect/DifficultySelect";
 import { FormTextArea } from "../../FormTextArea/FormTextArea";
+import { FormInput } from "../../FromInput/FormInput";
 import { CodeBlockAnswers } from "../../QuestionFormAnswers/CodeBlockAnswers/CodeBlockAnswers";
 import { TagsSelect } from "../../TagsSelect/TagsSelect";
 
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export const CodeBlockForm = ({ value, setValue }: Props) => {
-    const { difficulty, question, answers, tags, style } = value;
+    const { difficulty, question, answers, tags, style, answer } = value;
 
     return (
         <div>
@@ -24,6 +25,17 @@ export const CodeBlockForm = ({ value, setValue }: Props) => {
                     });
                 }}
             />
+            <FormInput
+                value={answer}
+                setValue={(answer) => {
+                    setValue({
+                        ...value,
+                        answer,
+                    });
+                }}
+                title={"Question Title"}
+            ></FormInput>
+
             <FormTextArea
                 value={question}
                 setValue={(question) => {
