@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const CodeBlockAnswers = ({ value, setValue }: Props) => {
-    const [codeBlock, setCodeBlock] = useState<string>("");
+    const [codeBlock, setCodeBlock] = useState<string>(value[0]);
     return (
         <FormGroup
             onChange={() => {
