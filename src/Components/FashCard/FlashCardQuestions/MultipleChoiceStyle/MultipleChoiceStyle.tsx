@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./ArrayMethodsS.scss";
+import "./MultipleChoiceStyle.scss";
 import { Button, Card, ListGroup } from "react-bootstrap";
-import { Question } from "../../Apis/types";
-import { MyQuestionContext } from "../Context/QuestionContext";
-import { newAnswersValidation } from "../../Apis/utils";
+import { newAnswersValidation } from "../../../../Apis/utils";
+import { Question } from "../../../../Apis/types";
+import { updateQuestion } from "../../../../Apis/Questions/updateQuestion";
+import { MyQuestionContext } from "../../../Context/QuestionContext";
 
 interface Props {
     cardQuestion: Question;
 }
 
-export const ArrayMethods = ({ cardQuestion }: Props) => {
-    const { questions, updateQuestion } = useContext(MyQuestionContext);
+export const MultipleChoiceStyle = ({ cardQuestion }: Props) => {
+    const { questions } = useContext(MyQuestionContext);
     const [isCorrect, setIsCorrect] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(false);
     let { question, answer, answers } = cardQuestion;
@@ -22,15 +23,15 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
     }, [question]);
 
     return (
-        <div className="ArrayMethods">
-            <Card className="ArrayMethods-card">
-                <Card.Title className="ArrayMethods-description">
+        <div className="MultipleChoiceStyle">
+            <Card className="MultipleChoiceStyle-card">
+                <Card.Title className="MultipleChoiceStyle-description">
                     {question}
                 </Card.Title>
 
                 <Card.Body>
                     <ListGroup
-                        className={`${isCorrect} ArrayMethods-Answers `}
+                        className={`${isCorrect} MultipleChoiceStyle-Answers `}
                         horizontal
                     >
                         {answers.map((item: string, index: number) => {
@@ -38,7 +39,7 @@ export const ArrayMethods = ({ cardQuestion }: Props) => {
                                 <ListGroup.Item
                                     action
                                     variant="light"
-                                    className="ArrayMethods-list-button"
+                                    className="MultipleChoiceStyle-list-button"
                                     key={index}
                                 >
                                     <Button

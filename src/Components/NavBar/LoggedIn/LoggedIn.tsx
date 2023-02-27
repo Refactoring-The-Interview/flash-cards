@@ -12,9 +12,7 @@ interface LoggedInProps {
 
 export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
     const { questions } = useContext(MyQuestionContext);
-    const randomId = Math.floor(
-        Math.random() * questions.length + 1
-    ).toString();
+    const randomId = Math.floor(Math.random() * questions.length).toString();
 
     return (
         <>

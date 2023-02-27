@@ -1,7 +1,7 @@
-@import "../../Sass/main.scss";
+@import ".../../../../../../Sass/main.scss";
 
-.ArrayMethods {
-    .ArrayMethods-card.card {
+.MultipleChoiceStyle {
+    .MultipleChoiceStyle-card.card {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -14,13 +14,13 @@
             align-items: flex-end;
         }
 
-        .ArrayMethods-description {
+        .MultipleChoiceStyle-description {
             display: flex;
             flex-wrap: wrap;
             padding: 1rem;
         }
 
-        .ArrayMethods-Answers {
+        .MultipleChoiceStyle-Answers {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -37,7 +37,7 @@
             }
         }
     }
-    .ArrayMethods-list-button {
+    .MultipleChoiceStyle-list-button {
         display: flex;
         justify-content: center;
     }
