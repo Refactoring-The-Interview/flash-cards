@@ -72,7 +72,8 @@
                 "//This is A solution to the question.\nconst array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];\n function isPrime(num) {\n      for (let = 2; num > i; i++) {\n         if (num % i === 0) {\n      return false;\n         }\n     }\n    return num > 1;\n  }\n console.log(array.filter(isPrime)); // [2, 3, 5, 7, 11, 13]"
             ],
             "tags": [
-                "array"
+                "array",
+                "codeblock"
             ],
             "correct": false,
             "id": "13",
@@ -86,7 +87,8 @@
                 "//This is A solution to the question.\nconst array = [1, 4, 9, 16];\n function multiplyEach(array) {\n  return array.map(x => x * 2)     \n}"
             ],
             "tags": [
-                "array"
+                "array",
+                "codeblock"
             ],
             "correct": false,
             "id": "14",
@@ -185,7 +187,7 @@
             "tags": [
                 "array",
                 "Js",
-                "object"
+                "codeblock"
             ],
             "correct": true,
             "id": "10",
@@ -199,7 +201,8 @@
                 "const reverseString = () => { \n const string = 'Hello'\n  return string.split('').reverse().join('') \n } "
             ],
             "tags": [
-                "array"
+                "array",
+                "codeblock"
             ],
             "correct": false,
             "id": "15",
@@ -245,7 +248,8 @@
                 "const emailValidation = (email) => {\n  const atSymbol = email.indexOf('@');\n  const dotSymbol = email.indexOf('.') > atSymbol\n\n  return atSymbol > 3 && dotSymbo\n}"
             ],
             "tags": [
-                "array"
+                "array",
+                "codeblock"
             ],
             "correct": false,
             "id": "16",
