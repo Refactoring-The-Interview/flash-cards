@@ -1,0 +1,15 @@
+.Contact.list-group {
+    display: flex;
+    width: 80%;
+    height: 80%;
+
+    .resume-container {
+        display: flex;
+        align-items: stretch;
+        height: 90%;
+    }
+    .resume {
+        display: flex;
+        width: -webkit-fill-available;
+    }
+}
