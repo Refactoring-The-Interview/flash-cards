@@ -13,7 +13,6 @@ interface LoggedInProps {
 export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
     const { questions } = useContext(MyQuestionContext);
 
-    console.log(path);
     return (
         <>
             <Nav.Link href={Paths.questionList}>Question List</Nav.Link>
