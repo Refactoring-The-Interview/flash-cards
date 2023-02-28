@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Question, getQuestions } from "../../Apis/types";
 import Timer from "../Timer/Timer";
@@ -14,9 +14,15 @@ export const FlashCard = () => {
     const randomId = () => {
         return Math.floor(Math.random() * questions.length).toString();
     };
+
     const [randomQuestion, setRandomQuestion] = useState<Question | void>(
         getQuestions(questions, questionId)
     );
+
+    useEffect(() => {
+        setRandomQuestion(getQuestions(questions, questionId));
+    }, [questionId, questions]);
+
     const [showSolution, setShowSolution] = useState<boolean>(false);
 
     if (!randomQuestion) {

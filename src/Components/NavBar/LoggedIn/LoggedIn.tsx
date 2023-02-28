@@ -12,14 +12,12 @@ interface LoggedInProps {
 
 export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
     const { questions } = useContext(MyQuestionContext);
-    const randomId = Math.floor(Math.random() * questions.length).toString();
 
+    console.log(path);
     return (
         <>
             <Nav.Link href={Paths.questionList}>Question List</Nav.Link>
-            <Nav.Link href={pathGenerator[Paths.question](randomId)}>
-                Random Question
-            </Nav.Link>
+            <Nav.Link href={path}>Random Question</Nav.Link>
 
             <NavDropdown
                 title={
