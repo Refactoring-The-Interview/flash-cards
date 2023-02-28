@@ -52,6 +52,7 @@ export enum Paths {
     contact = "/contact",
     profile = "/profile",
     questionEdit = "/questionEdit/:questionId",
+    userdataform = "/userdataform",
 }
 
 export enum API {
