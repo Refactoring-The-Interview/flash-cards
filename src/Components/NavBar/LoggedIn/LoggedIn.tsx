@@ -1,8 +1,6 @@
 import { Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { Paths, pathGenerator, userInfo } from "../../../Apis/types";
+import { Paths, userInfo } from "../../../Apis/types";
 import duck from "../../../Assets/IMGS/Mallard2.jpeg";
-import { useContext } from "react";
-import { MyQuestionContext } from "../../Context/QuestionContext";
 
 interface LoggedInProps {
     path: string;
@@ -11,8 +9,6 @@ interface LoggedInProps {
 }
 
 export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
-    const { questions } = useContext(MyQuestionContext);
-
     return (
         <>
             <Nav.Link href={Paths.questionList}>Question List</Nav.Link>

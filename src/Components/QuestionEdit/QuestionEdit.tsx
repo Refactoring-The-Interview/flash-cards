@@ -5,7 +5,6 @@ import { Paths, Question } from "../../Apis/types";
 import { Button, FormLabel } from "react-bootstrap";
 import { Loading } from "../Loading/Loading";
 import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFormBody";
-import { useQuestionList } from "../Context/useQuestionList";
 
 export const QuestionEdit = () => {
     const { questionId } = useParams();
