@@ -34,7 +34,7 @@ export const FlashCard = () => {
     return (
         <Card>
             <Card.Header>
-                <Timer />
+                <Timer currentQuestion={randomQuestion} />
             </Card.Header>
 
             {style === 0 ? (
