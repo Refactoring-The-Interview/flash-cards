@@ -1,0 +1,26 @@
+.IsValidSubsequence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .IsValidSubsequence-title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IsValidSubsequence-result {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        .correct {
+            text-transform: uppercase;
+            color: Green;
+        }
+
+        .incorrect {
+            text-transform: lowercase;
+            color: red;
+        }
+    }
+}
