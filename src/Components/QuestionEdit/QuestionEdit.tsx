@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import { Form, useNavigate, useParams } from "react-router-dom";
-import { MyQuestionContext } from "../Context/QuestionContext";
-import { Paths, Question } from "../../Apis/types";
 import { Button, FormLabel } from "react-bootstrap";
-import { Loading } from "../Loading/Loading";
+import { Form, useNavigate, useParams } from "react-router-dom";
+import { Paths, Question } from "../../Apis/types";
 import { QuestionFormBody } from "../AddQuestionForm/QuestionFormBody/QuestionFormBody";
+import { MyQuestionContext } from "../Context/QuestionContext";
+import { Loading } from "../Loading/Loading";
 
 export const QuestionEdit = () => {
     const { questionId } = useParams();
