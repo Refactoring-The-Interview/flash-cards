@@ -1,9 +1,9 @@
 import Modal from "react-bootstrap/Modal";
 import "./DeleteQuestionButtonS.scss";
-import { deleteQuestion } from "../../Apis/Questions/deleteQuestion";
-import { Question } from "../../Apis/types";
-import { QuestionCard } from "../QuestionList/QuestionCard/QuestionCard";
-import { ConfirmButton } from "../ConfirmButton/ConfirmButton";
+import { deleteQuestion } from "../../../Apis/Questions/deleteQuestion";
+import { Question } from "../../../Apis/types";
+import { QuestionCard } from "../../QuestionList/QuestionCard/QuestionCard";
+import { ConfirmButton } from "../../ConfirmButton/ConfirmButton";
 
 interface Props {
     question: Question;

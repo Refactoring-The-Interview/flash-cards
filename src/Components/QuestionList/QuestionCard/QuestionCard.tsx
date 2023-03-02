@@ -20,27 +20,25 @@ export const QuestionCard = ({ question, showDelete }: CardProps) => {
     const navigate: NavigateFunction = useNavigate();
 
     return (
-        <div className="QuestionCard">
-            <Card className="listItem">
-                <Card.Header
-                    onClick={() => {
-                        if (!showDelete) {
-                            navigate(pathGenerator[Paths.question](id));
-                        }
-                    }}
-                >
-                    {showDelete && <DeleteButton question={question} />}
-                    <Card.Text className="listItem-text">{answer}</Card.Text>
-                    <span className={`difficulty ${difficulty}`}></span>
-                </Card.Header>
-                <Card.Body>
-                    <Button variant={`${answeredColor}`} disabled>
-                        Answered
-                    </Button>
-                    <QuestionTags tags={tags} />
-                    <EditButton id={id} />
-                </Card.Body>
-            </Card>
-        </div>
+        <Card className="listItem">
+            <Card.Header
+                onClick={() => {
+                    if (!showDelete) {
+                        navigate(pathGenerator[Paths.question](id));
+                    }
+                }}
+            >
+                {showDelete && <DeleteButton question={question} />}
+                <Card.Text className="listItem-text">{answer}</Card.Text>
+                <span className={`difficulty ${difficulty}`}></span>
+            </Card.Header>
+            <Card.Body>
+                <Button variant={`${answeredColor}`} disabled>
+                    Answered
+                </Button>
+                <QuestionTags tags={tags} />
+                <EditButton id={id} />
+            </Card.Body>
+        </Card>
     );
 };

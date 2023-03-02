@@ -1,5 +1,6 @@
 import { Question } from "../../../Apis/types";
-import { DeleteQuestionButton } from "../../DeleteQuestionButton/DeleteQuestionButton";
+import { DeleteQuestionButton } from "../DeleteQuestionButton/DeleteQuestionButton";
+
 import "./DeleteButtonS.scss";
 
 interface Props {
