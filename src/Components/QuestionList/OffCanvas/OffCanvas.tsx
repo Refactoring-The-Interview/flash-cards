@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { QuestionFilters } from "../QuestionFilter/QuestionFilters";
 import { AddQuestionForm } from "../../AddQuestionForm/AddQuestionForm";
-import { Badge } from "react-bootstrap";
+import { Badge, ButtonGroup } from "react-bootstrap";
 import { ViewSelect } from "../QuestionViewTypes/ViewSelect/ViewSelect";
 import { QuestionListContext } from "../../Context/QuestionListContext";
 import "./OffCanvasS.scss";
@@ -21,7 +21,7 @@ export const OffCanvas = ({ setViewOptions }: Props) => {
     const handleShow = () => setShow(true);
 
     return (
-        <div className="OffCanvas">
+        <div className="OffCanvas-container">
             <Button
                 variant="primary"
                 onClick={handleShow}
@@ -30,13 +30,13 @@ export const OffCanvas = ({ setViewOptions }: Props) => {
                 Options
             </Button>
 
-            <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas show={show} onHide={handleClose} className="OffCanvas">
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                         <h1>Options</h1>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
+                <Offcanvas.Body className="OffCanvas-sideMenu">
                     <Badge>
                         <h4>ViewSelect</h4>
                         <ViewSelect setValue={setViewOptions} />
@@ -45,16 +45,19 @@ export const OffCanvas = ({ setViewOptions }: Props) => {
                         setFilterSettings={setFilterOptions}
                         filterSettings={filterOptions}
                     />
-                    <AddQuestionForm variantButton={"primary"} />{" "}
-                    <Button
-                        variant="danger"
-                        onClick={() => {
-                            setShowDelete(!showDelete);
-                            handleClose();
-                        }}
-                    >
-                        {showDelete ? "exit Delete Mode" : "Delete Mode"}
-                    </Button>
+
+                    <ButtonGroup>
+                        <AddQuestionForm variantButton={"primary"} />{" "}
+                        <Button
+                            variant="danger"
+                            onClick={() => {
+                                setShowDelete(!showDelete);
+                                handleClose();
+                            }}
+                        >
+                            {showDelete ? "exit Delete Mode" : "Delete Mode"}
+                        </Button>
+                    </ButtonGroup>
                 </Offcanvas.Body>
             </Offcanvas>
         </div>
