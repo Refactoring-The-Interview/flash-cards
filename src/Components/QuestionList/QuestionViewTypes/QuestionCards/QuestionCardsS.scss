@@ -1,9 +1,15 @@
 @import "../../../../Sass/main.scss";
 
-.QuestionCard {
+.QuestionCards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    justify-self: center;
     align-content: space-between;
+    align-items: center;
+
+    .QuestionCard {
+        margin: 0.5rem 1rem;
+    }
 }

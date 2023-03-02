@@ -1,0 +1,15 @@
+@import "../../../../Sass/main.scss";
+
+.SmallCardList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: stretch;
+    height: 40rem;
+
+    .SmallCardList-item {
+        border: 2px solid $primary;
+    }
+}

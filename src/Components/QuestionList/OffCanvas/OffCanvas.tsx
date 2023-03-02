@@ -6,6 +6,7 @@ import { AddQuestionForm } from "../../AddQuestionForm/AddQuestionForm";
 import { Badge } from "react-bootstrap";
 import { ViewSelect } from "../QuestionViewTypes/ViewSelect/ViewSelect";
 import { QuestionListContext } from "../../Context/QuestionListContext";
+import "./OffCanvasS.scss";
 
 interface Props {
     setViewOptions(view: number): void;
@@ -20,8 +21,12 @@ export const OffCanvas = ({ setViewOptions }: Props) => {
     const handleShow = () => setShow(true);
 
     return (
-        <>
-            <Button variant="primary" onClick={handleShow}>
+        <div className="OffCanvas">
+            <Button
+                variant="primary"
+                onClick={handleShow}
+                className="OffCanvas-button"
+            >
                 Options
             </Button>
 
@@ -52,6 +57,6 @@ export const OffCanvas = ({ setViewOptions }: Props) => {
                     </Button>
                 </Offcanvas.Body>
             </Offcanvas>
-        </>
+        </div>
     );
 };
