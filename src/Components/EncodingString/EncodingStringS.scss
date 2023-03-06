@@ -1,0 +1,20 @@
+.EncodingString {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 50rem;
+
+    .EncodingString-description {
+        font-size: 1.2rem;
+    }
+
+    .EncodingString-encoded {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .EncodingString-string {
+        color: green;
+    }
+}
