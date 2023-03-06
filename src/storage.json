@@ -95,6 +95,21 @@
             "style": 1
         },
         {
+            "difficulty": "easy",
+            "question": "// use array.findIndex()to find the index where the element is greater than 13\nconst array = [5, 12, 8, 130, 44];\n\n\n// expected result 3",
+            "answer": "Find Index",
+            "answers": [
+                "const array = [5, 12, 8, 130, 44];\n\nconst isLargeNumber = (element) => element > 13;\n\narray.findIndex(isLargeNumber));\n// Expected output: 3\n"
+            ],
+            "tags": [
+                "array",
+                "codeblock"
+            ],
+            "correct": false,
+            "id": "17",
+            "style": 1
+        },
+        {
             "difficulty": "medium",
             "question": " What method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.",
             "answer": "Array.some()",
@@ -209,6 +224,21 @@
             "style": 1
         },
         {
+            "difficulty": "medium",
+            "question": "// use array.slice() to filter out the number 4 out of the array.\nlet array = [1,4,2,3,4,12,15,0,NaN,'hello',4]\n\n// expected result [1,2,3,,12,15,0,NaN,'hello']",
+            "answer": "Filter using Slice",
+            "answers": [
+                "let array = [1,4,2,3,4,12,15,0,NaN,'hello',4]\n\n\n  for (let i = 0; i < array.length; i+=1) {\n    if (array[i] === 4) {\n      array = [...array.slice(0, i), ...array.slice(i+1, array.length)]\n    }\n  }\n \nconsole.log(array)\n  // expected [ 1, 2, 3, 12, 15, 0, NaN, 'hello' ]"
+            ],
+            "tags": [
+                "codeblock",
+                "array"
+            ],
+            "correct": false,
+            "id": "18",
+            "style": 1
+        },
+        {
             "difficulty": "hard",
             "question": "What method returns a new Array Iterator object that contains the key/value pairs for each index in the array.",
             "answer": "Array.entries()",
@@ -253,6 +283,21 @@
             ],
             "correct": false,
             "id": "16",
+            "style": 1
+        },
+        {
+            "difficulty": "hard",
+            "question": "A phrase is a palindrome if, after converting all uppercase letters into \nlowercase letters and removing all non-alphanumeric characters, \nit reads the same forward and backward. Alphanumeric characters include letters and numbers.\n\nGiven a string s, return true if it is a palindrome, or false otherwise.\n\n \n\nExample 1:\n\nInput: s = \"A man, a plan, a canal: Panama\"\nOutput: true\nExplanation: \"amanaplanacanalpanama\" is a palindrome.",
+            "answer": "isPalindrome",
+            "answers": [
+                "function isPalindrome(string) {\n  let right = string.length-1;\n  let left = 0;\n\n   \n\n  while (left < right) {\n    if (string[left] !== string[right]) return false\n\n    right -=1;\n    left +=1;\n\n  }\n\n\n  return true;\n}"
+            ],
+            "tags": [
+                "codeblock",
+                "array"
+            ],
+            "correct": false,
+            "id": "19",
             "style": 1
         }
     ]
