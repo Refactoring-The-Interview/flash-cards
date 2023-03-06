@@ -1,11 +1,11 @@
 import { Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { Paths, Question, pathGenerator } from "../../../../../Apis/types";
 import jsImage from "../../../../../Assets/1627664298-javascript.jpg";
+import { DeleteButton } from "../../../DeleteButton/DeleteButton";
+import { EditButton } from "../../../EditButton/EditButton";
 import { QuestionTags } from "../../../QuestionTags/QuestionTags";
 import "./CardWithImageS.scss";
-import { EditButton } from "../../../EditButton/EditButton";
-import { useNavigate } from "react-router-dom";
-import { DeleteButton } from "../../../DeleteButton/DeleteButton";
 
 interface Props {
     currentQuestion: Question;
@@ -17,15 +17,14 @@ export const CardWithImage = ({ currentQuestion, showDelete }: Props) => {
     const navigate = useNavigate();
 
     return (
-        <Card
-            className={`CardWithImage`}
-            onClick={(e) => {
-                if (!showDelete) {
-                    navigate(pathGenerator[Paths.question](id));
-                }
-            }}
-        >
-            <Card.Header>
+        <Card className={`CardWithImage`}>
+            <Card.Header
+                onClick={() => {
+                    if (!showDelete) {
+                        navigate(pathGenerator[Paths.question](id));
+                    }
+                }}
+            >
                 <Card.Img src={jsImage} width={70} height={70} />
             </Card.Header>
 
