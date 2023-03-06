@@ -53,6 +53,7 @@ export enum Paths {
     contact = "/contact",
     profile = "/profile",
     questionEdit = "/questionEdit/:questionId",
+    encode = "/encode",
 }
 
 export enum API {
