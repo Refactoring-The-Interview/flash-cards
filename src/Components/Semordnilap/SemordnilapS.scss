@@ -1,0 +1,12 @@
+.Semordnilap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50rem;
+
+    .Semordnilap-from {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+}
