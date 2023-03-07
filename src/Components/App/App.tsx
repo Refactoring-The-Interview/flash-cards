@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import "./AppS.scss";
-import { FlashCard } from "../FashCard/FlashCard";
-import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
-import { Login } from "../Login/Login";
-import { QuestionList } from "../QuestionList/QuestionList";
-import { Routes, Route, useNavigate, NavigateFunction } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBar";
-import { Home } from "../Home/Home";
+import { useEffect } from "react";
+import { NavigateFunction, Route, Routes, useNavigate } from "react-router-dom";
+import { Paths } from "../../Apis/types";
 import { Contact } from "../Contact/Contact";
 import { MyQuestionProvider } from "../Context/QuestionContext";
-import { Paths } from "../../Apis/types";
+import { FlashCard } from "../FashCard/FlashCard";
+import { Home } from "../Home/Home";
+import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
+import { Login } from "../Login/Login";
+import { NavBar } from "../NavBar/NavBar";
 import { Profile } from "../Profile/Profile";
 import { QuestionEdit } from "../QuestionEdit/QuestionEdit";
+import { QuestionList } from "../QuestionList/QuestionList";
+import { ZeroSumSubarray } from "../ZeroSumSubarray/ZeroSumSubarray";
+import "./AppS.scss";
 
 function App() {
     const navigate: NavigateFunction = useNavigate();
@@ -34,6 +35,10 @@ function App() {
             <MyQuestionProvider>
                 <NavBar />
                 <Routes>
+                    <Route
+                        path={Paths.ZeroSumSubarray}
+                        element={<ZeroSumSubarray />}
+                    />
                     <Route
                         path={Paths.questionEdit}
                         element={<QuestionEdit />}
