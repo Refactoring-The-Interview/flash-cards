@@ -1,7 +1,7 @@
-import { ProgressBar } from "react-bootstrap";
 import "./ProfileS.scss";
 import { MainCard } from "./UserProfileCards/MainCard/MainCard";
 import { MemberShipCard } from "./UserProfileCards/MemberShipCard/MemberShipCard";
+import { ProgressCard } from "./UserProfileCards/ProgressCard/ProgressCard";
 
 export const Profile = () => {
     return (
@@ -10,7 +10,7 @@ export const Profile = () => {
                 <MainCard />
             </div>
             <div className="SideCards">
-                <ProgressBar />
+                <ProgressCard />
                 <MemberShipCard />
             </div>
         </div>

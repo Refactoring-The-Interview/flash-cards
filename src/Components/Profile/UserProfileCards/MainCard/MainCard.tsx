@@ -11,6 +11,7 @@ export const MainCard = () => {
         email: "",
         password: "",
     });
+
     const { email, password } = userInfo;
     const today = new Date();
     const lastSeen = today.toLocaleDateString("en-US");

@@ -1,23 +1,35 @@
 import { useContext } from "react";
 import { ProgressBar } from "react-bootstrap";
+import { Difficulty, Question } from "../../../Apis/types";
 import { MyQuestionContext } from "../../Context/QuestionContext";
-import { Question } from "../../../Apis/types";
 
-export const ProgressBars = () => {
+interface Props {
+    difficulty: Difficulty;
+    variant: string;
+}
+
+export const ProgressBars = ({ difficulty, variant }: Props) => {
     const { questions } = useContext(MyQuestionContext);
+    let byDifficulty = questions;
 
-    const correct = questions.filter((question: Question, index: number) => {
+    if (difficulty !== Difficulty.none) {
+        byDifficulty = questions.filter((question: Question, index: number) => {
+            return question.difficulty === difficulty;
+        });
+    }
+    const correct = byDifficulty.filter((question: Question, index: number) => {
         return question.correct !== true;
     }).length;
+    console.log(correct);
 
-    const totalQuestions = questions.length;
+    const totalQuestions = byDifficulty.length;
     const correctPercent = totalQuestions - correct;
+
     return (
         <>
-            Questions Progress Bar
             <ProgressBar
                 animated
-                variant="success"
+                variant={variant}
                 now={correctPercent}
                 max={totalQuestions}
                 label={`${correctPercent}/${totalQuestions}`}
