@@ -20,7 +20,6 @@ export const ProgressBars = ({ difficulty, variant }: Props) => {
     const correct = byDifficulty.filter((question: Question, index: number) => {
         return question.correct !== true;
     }).length;
-    console.log(correct);
 
     const totalQuestions = byDifficulty.length;
     const correctPercent = totalQuestions - correct;

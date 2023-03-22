@@ -1,41 +1,15 @@
-import { Card, ListGroup } from "react-bootstrap";
-import { Difficulty } from "../../../../Apis/types";
-import { ProgressBars } from "../../../QuestionList/ProgressBars/ProgressBars";
+import { Card } from "react-bootstrap";
+import { ProgressBarList } from "./ProgressBarList/ProgressBarList";
+import "./ProgressCardS.scss";
 
 export const ProgressCard = () => {
     return (
-        <Card>
+        <Card className="ProgressCard">
+            <Card.Header>
+                <Card.Title>Question Progress</Card.Title>
+            </Card.Header>
             <Card.Body>
-                <ListGroup>
-                    <ListGroup.Item>
-                        Over All Progress:
-                        <ProgressBars
-                            difficulty={Difficulty.none}
-                            variant={"primary"}
-                        />
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                        Easy:
-                        <ProgressBars
-                            difficulty={Difficulty.easy}
-                            variant={"success"}
-                        />
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                        Medium:
-                        <ProgressBars
-                            difficulty={Difficulty.medium}
-                            variant={"warning"}
-                        />
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                        Hard:
-                        <ProgressBars
-                            difficulty={Difficulty.hard}
-                            variant={"danger"}
-                        />
-                    </ListGroup.Item>
-                </ListGroup>
+                <ProgressBarList />
             </Card.Body>
         </Card>
     );
