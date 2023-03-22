@@ -1,0 +1,9 @@
+.Profile {
+    display: flex;
+    flex-direction: row;
+
+    .SideCards {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,21 @@
+.MainCard {
+    .MainCard-nameAndLastSeen {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+    }
+
+    .MainCard-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .MainCard-editUser {
+        display: flex;
+        justify-content: center;
+    }
+}
