@@ -32,10 +32,17 @@ export enum FlashCardStyle {
 }
 
 export enum Difficulty {
+    none = "",
     easy = "easy",
     medium = "medium",
     hard = "hard",
-    none = "",
+}
+
+export enum DifficultyColor {
+    none = "primary",
+    easy = "success",
+    medium = "warning",
+    hard = "danger",
 }
 
 export enum Tags {

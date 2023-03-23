@@ -1,0 +1,15 @@
+.Profile {
+    display: flex;
+    flex-direction: row;
+
+    .MainCard {
+        margin-right: 0.5rem;
+    }
+
+    .SideCards {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+}
