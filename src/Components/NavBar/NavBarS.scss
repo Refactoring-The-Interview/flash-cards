@@ -1,5 +1,4 @@
-.NavBar {
-    .container {
-        flex-direction: row;
-    }
+.Container-NavBar {
+    display: flex;
+    align-items: baseline;
 }
