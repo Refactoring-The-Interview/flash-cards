@@ -1,16 +1,20 @@
-import { Button, Card, CardGroup, ListGroup } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Card, CardGroup } from "react-bootstrap";
 import duck from "../../../../Assets/IMGS/Mallard2.jpeg";
 import {
     StorageKey,
     useLocalStorage,
 } from "../../../LocalStorage/LocalStorage";
+import { MainCardEditUserInfo } from "./MainCardEditUserInfo/MainCardEditUserInfo";
 import "./MainCardS.scss";
+import { MainCardUserInfo } from "./MainCardUserInfo/MainCardUserInfo";
 
 export const MainCard = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {
         email: "",
         password: "",
     });
+    const [edit, setEdit] = useState<boolean>(false);
 
     const { email, password } = userInfo;
     const today = new Date();
@@ -28,18 +32,23 @@ export const MainCard = () => {
                     </Card.Subtitle>
                 </CardGroup>
 
-                <ListGroup variant="flush">
-                    <ListGroup.Item></ListGroup.Item>
-                    <ListGroup.Item>
-                        <h5>{email}</h5>
-                    </ListGroup.Item>
+                {!edit ? (
+                    <MainCardUserInfo email={email} password={password} />
+                ) : (
+                    <MainCardEditUserInfo
+                        value={userInfo}
+                        setValue={setUserInfo}
+                    />
+                )}
 
-                    <ListGroup.Item>
-                        <h5>{password}</h5>
-                    </ListGroup.Item>
-                </ListGroup>
-
-                <Button className="MainCard-editUser">Edit User</Button>
+                <Button
+                    className="MainCard-editUser"
+                    onClick={(e) => {
+                        setEdit(!edit);
+                    }}
+                >
+                    {!edit ? "Edit User" : "Save"}
+                </Button>
             </Card.Body>
         </Card>
     );
