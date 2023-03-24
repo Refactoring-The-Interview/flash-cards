@@ -3,7 +3,6 @@
 .Home {
     .about {
         display: flex;
-        flex-direction: column;
     }
     .title {
         display: flex;
@@ -17,9 +16,13 @@
         flex-grow: 1;
         text-decoration: underline;
     }
-    .Home-join {
+    .Home-body {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        flex-direction: row;
+        width: 40rem;
+    }
+    .Home-textBlocks {
+        display: flex;
+        flex-direction: column;
     }
 }

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useTimer } from "react-timer-hook";
-import "./TimerS.scss";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { useTimer } from "react-timer-hook";
 import { Question } from "../../Apis/types";
+import "./TimerS.scss";
 
 interface TimerProps {
     expiryTimeStamp?: number;
@@ -28,14 +28,15 @@ const Timer = (expiryTimestamp: TimerProps, currentQuestion: TimerProps) => {
     const buttonVariantPause = isPause ? "outline-success" : "outline-danger";
 
     return (
-        <>
+        <div className="Timer">
             <div>
-                <span>
+                <h4 className="Time">
                     {minutes}:{seconds}
-                </span>
+                </h4>
             </div>
 
             <Button
+                className="Timer-stop"
                 variant={buttonVariantPause}
                 onClick={() => {
                     if (isPause) {
@@ -48,7 +49,7 @@ const Timer = (expiryTimestamp: TimerProps, currentQuestion: TimerProps) => {
             >
                 {buttonTextPause}
             </Button>
-        </>
+        </div>
     );
 };
 

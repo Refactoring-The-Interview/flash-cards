@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
-import { Question, getQuestions } from "../../Apis/types";
-import Timer from "../Timer/Timer";
-import { Loading } from "../Loading/Loading";
-import { MyQuestionContext } from "../Context/QuestionContext";
-import { MultipleChoiceStyle } from "./FlashCardQuestions/MultipleChoiceStyle/MultipleChoiceStyle";
-import { CodeBlockStyle } from "./FlashCardQuestions/CodeBlockStyle/CodeBlockStyle";
+import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { Question, getQuestions } from "../../Apis/types";
+import { MyQuestionContext } from "../Context/QuestionContext";
+import { Loading } from "../Loading/Loading";
+import Timer from "../Timer/Timer";
+import { CodeBlockStyle } from "./FlashCardQuestions/CodeBlockStyle/CodeBlockStyle";
+import { MultipleChoiceStyle } from "./FlashCardQuestions/MultipleChoiceStyle/MultipleChoiceStyle";
+import "./FlashCardS.scss";
 
 export const FlashCard = () => {
     const { questions } = useContext(MyQuestionContext);
@@ -32,8 +33,8 @@ export const FlashCard = () => {
     const { style } = randomQuestion;
 
     return (
-        <Card>
-            <Card.Header>
+        <Card className="FlashCard">
+            <Card.Header className="FlashCardTimer">
                 <Timer currentQuestion={randomQuestion} />
             </Card.Header>
 
