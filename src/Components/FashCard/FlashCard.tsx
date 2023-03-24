@@ -61,7 +61,7 @@ export const FlashCard = () => {
                         onClick={() => setShowSolution(!showSolution)}
                     >
                         {" "}
-                        Show A Solution
+                        {!showSolution ? "Show A Solution" : "Hide Solution"}
                     </Button>
                 )}
             </Card.Footer>
