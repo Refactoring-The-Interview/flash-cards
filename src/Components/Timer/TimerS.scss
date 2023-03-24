@@ -1,40 +1,17 @@
 @import "../../Sass/main.scss";
 
-.timer {
+.Timer {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    transition: all 0.2s;
+    padding: 0.5rem 0;
 
-    &__display {
-        font-size: 2rem;
-        font-weight: 500;
-        cursor: default;
-    }
-    &__icon-stopwatch {
-        fill: $color-primary-blue-light;
-        z-index: 2;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        padding-bottom: 0.4rem;
-        margin-right: 0.6rem;
-    }
-
-    &__btn {
+    .Timer-stop {
         margin-left: 1rem;
-        display: flex;
-        align-items: center;
-        padding: 0 1.5rem;
+    }
 
-        &:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 1rem 6rem rgba($color: #000000, $alpha: 0.4);
-        }
-
-        &:active {
-            transform: translateY(0) scale(1);
-            box-shadow: 0 1rem 6rem rgba(#000, 0);
-        }
+    .Time {
+        margin: 0;
     }
 }
