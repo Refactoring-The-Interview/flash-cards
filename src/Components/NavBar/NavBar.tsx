@@ -6,7 +6,6 @@ import { StorageKey, useLocalStorage } from "../LocalStorage/LocalStorage";
 import { useRandomQuestion } from "../Utils/useRandomQuestion";
 import { LoggedIn } from "./LoggedIn/LoggedIn";
 import { LoggedOut } from "./LoggedOut/LoggedOut";
-import "./NavBarS.scss";
 
 export const NavBar = () => {
     const [userInfo, setUserInfo] = useLocalStorage(StorageKey.userInfo, {

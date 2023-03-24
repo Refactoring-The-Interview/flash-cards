@@ -1,6 +1,7 @@
 import { Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Paths, userInfo } from "../../../Apis/types";
 import duck from "../../../Assets/IMGS/Mallard2.jpeg";
+import "./LoggedInS.scss";
 
 interface LoggedInProps {
     path: string;
@@ -17,7 +18,7 @@ export const LoggedIn = ({ path, value, setValue }: LoggedInProps) => {
             <NavDropdown
                 title={
                     <Navbar.Brand>
-                        <img src={duck} alt="profile" width="30" height="30" />
+                        <img src={duck} alt="profile" className="userImage" />
                     </Navbar.Brand>
                 }
                 id="basic-nav-dropdown"
