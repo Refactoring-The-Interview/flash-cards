@@ -29,6 +29,9 @@
       "api": {
         "apiQuestionsBank": {},
         "FlashCardsApiGroup": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

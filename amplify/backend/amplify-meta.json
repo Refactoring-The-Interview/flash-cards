@@ -29,7 +29,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/function/QuestionApi-cloudformation-template.json",
         "logicalId": "functionQuestionApi"
       },
-      "lastPushTimeStamp": "2023-01-27T15:35:18.969Z",
+      "lastPushTimeStamp": "2023-04-15T06:08:34.020Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::722921029415:role/flashcardsLambdaRole2576eca9-dev",
         "Region": "us-east-1",
@@ -58,13 +58,31 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/api/FlashCardsApiGroup-cloudformation-template.json",
         "logicalId": "apiFlashCardsApiGroup"
       },
-      "lastPushTimeStamp": "2023-01-27T15:35:18.969Z",
+      "lastPushTimeStamp": "2023-04-15T06:08:34.021Z",
       "output": {
         "ApiName": "FlashCardsApiGroup",
         "RootUrl": "https://5mm35m4x32.execute-api.us-east-1.amazonaws.com/dev",
         "ApiId": "5mm35m4x32"
       },
       "lastPushDirHash": "PHNPsac7ydCCDH3erQLk9II3xJg="
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/hosting/template.json",
+        "logicalId": "hostingS3AndCloudFront"
+      },
+      "lastPushTimeStamp": "2023-04-15T06:08:34.301Z",
+      "output": {
+        "S3BucketSecureURL": "https://flashcards-20230415020702-hostingbucket-dev.s3.amazonaws.com",
+        "WebsiteURL": "http://flashcards-20230415020702-hostingbucket-dev.s3-website-us-east-1.amazonaws.com",
+        "Region": "us-east-1",
+        "HostingBucketName": "flashcards-20230415020702-hostingbucket-dev"
+      },
+      "lastPushDirHash": "eUposz/mQR4WaMFOTMLap+JzcNM="
     }
   }
 }
