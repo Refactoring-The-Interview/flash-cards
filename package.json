@@ -68,5 +68,8 @@
         "@types/react-router-dom": "^5.3.3",
         "husky": "^8.0.3",
         "lint-staged": "^13.1.0"
-    }
+    },
+    "nohoist": [
+        "**/babel-preset-react-app/@babel/runtime"
+    ]
 }
