@@ -24,6 +24,10 @@
         "QuestionApi": {
           "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
           "s3Key": "amplify-builds/QuestionApi-715a7a48474b52683272-build.zip"
+        },
+        "questionLamdaFunc": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/questionLamdaFunc-30556f6d776d6e573171-build.zip"
         }
       },
       "api": {
@@ -32,6 +36,9 @@
       },
       "hosting": {
         "S3AndCloudFront": {}
+      },
+      "storage": {
+        "questionsTable": {}
       }
     }
   }

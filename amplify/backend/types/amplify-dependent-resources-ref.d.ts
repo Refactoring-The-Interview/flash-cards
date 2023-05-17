@@ -14,6 +14,13 @@ export type AmplifyDependentResourcesAttributes = {
             Name: "string";
             Region: "string";
         };
+        questionLamdaFunc: {
+            Arn: "string";
+            LambdaExecutionRole: "string";
+            LambdaExecutionRoleArn: "string";
+            Name: "string";
+            Region: "string";
+        };
     };
     hosting: {
         S3AndCloudFront: {
@@ -21,6 +28,16 @@ export type AmplifyDependentResourcesAttributes = {
             Region: "string";
             S3BucketSecureURL: "string";
             WebsiteURL: "string";
+        };
+    };
+    storage: {
+        questionsTable: {
+            Arn: "string";
+            Name: "string";
+            PartitionKeyName: "string";
+            PartitionKeyType: "string";
+            Region: "string";
+            StreamArn: "string";
         };
     };
 };

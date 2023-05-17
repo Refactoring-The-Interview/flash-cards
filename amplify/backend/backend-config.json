@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "QuestionApi"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "questionLamdaFunc"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -18,6 +26,25 @@
   "function": {
     "QuestionApi": {
       "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "questionLamdaFunc": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "questionsTable"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
@@ -76,6 +103,28 @@
           "resourceName": "flashcardsf563054d"
         }
       ]
+    },
+    "AMPLIFY_function_questionLamdaFunc_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "questionLamdaFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_questionLamdaFunc_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "questionLamdaFunc"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "questionsTable": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

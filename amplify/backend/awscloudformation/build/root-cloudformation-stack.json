@@ -152,17 +152,6 @@
         }
       }
     },
-    "functionQuestionApi": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/function/QuestionApi-cloudformation-template.json",
-        "Parameters": {
-          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
-          "s3Key": "amplify-builds/QuestionApi-715a7a48474b52683272-build.zip",
-          "env": "dev"
-        }
-      }
-    },
     "apiFlashCardsApiGroup": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
@@ -180,6 +169,52 @@
               "Outputs.Arn"
             ]
           },
+          "functionquestionLamdaFuncName": {
+            "Fn::GetAtt": [
+              "functionquestionLamdaFunc",
+              "Outputs.Name"
+            ]
+          },
+          "functionquestionLamdaFuncArn": {
+            "Fn::GetAtt": [
+              "functionquestionLamdaFunc",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "dev"
+        }
+      }
+    },
+    "functionQuestionApi": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/function/QuestionApi-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/QuestionApi-715a7a48474b52683272-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "functionquestionLamdaFunc": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/function/questionLamdaFunc-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-flashcards-dev-180050-deployment",
+          "s3Key": "amplify-builds/questionLamdaFunc-30556f6d776d6e573171-build.zip",
+          "storagequestionsTableName": {
+            "Fn::GetAtt": [
+              "storagequestionsTable",
+              "Outputs.Name"
+            ]
+          },
+          "storagequestionsTableArn": {
+            "Fn::GetAtt": [
+              "storagequestionsTable",
+              "Outputs.Arn"
+            ]
+          },
           "env": "dev"
         }
       }
@@ -190,6 +225,18 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/hosting/template.json",
         "Parameters": {
           "bucketName": "flashcards-20230415020702-hostingbucket",
+          "env": "dev"
+        }
+      }
+    },
+    "storagequestionsTable": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-flashcards-dev-180050-deployment/amplify-cfn-templates/storage/questionsTable-cloudformation-template.json",
+        "Parameters": {
+          "tableName": "questionsTable2",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S",
           "env": "dev"
         }
       }
