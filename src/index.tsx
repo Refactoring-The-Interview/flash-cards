@@ -5,9 +5,6 @@ import App from "./Components/App/App";
 import "./Sass/main.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/Errors/ErrorPage";
-import { Amplify } from "aws-amplify";
-import awsExports from "./aws-exports";
-Amplify.configure(awsExports);
 
 interface Props {
     path: string;
