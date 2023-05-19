@@ -5,6 +5,7 @@ const {
     dbUpdateQuestion,
 } = require("./DataBase");
 const express = require("express");
+var path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -12,6 +13,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const { createProxyMiddleware } = require("http-proxy-middleware");
 app.use(createProxyMiddleware("/api/**", { target: "http://localhost:5000" }));
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("build"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "build", "index.html"));
+    });
+}
 
 app.post("/addToDataBase", (req, res) => {
     dbSetQuestion(req.body.question, (data, error) => {

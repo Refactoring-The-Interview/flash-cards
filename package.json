@@ -40,7 +40,8 @@
         "eject": "react-scripts eject",
         "prepare": "husky install",
         "env": " yarn && yarn start",
-        "server": "cd src && node Server/index.js"
+        "server": "cd src && node Server/index.js",
+        "heroku-postbuild": "yarn --prefix client && yarn run build --prefix client"
     },
     "proxy": "http://localhost:3001",
     "engines": {
