@@ -28,6 +28,7 @@
         "react-scripts": "5.0.1",
         "react-timer-hook": "^3.0.5",
         "sass": "^1.56.1",
+        "serve": "^14.2.0",
         "simple-json-db": "^2.0.0",
         "sort-by": "^1.2.0",
         "typescript": "^4.9.3",
@@ -41,7 +42,7 @@
         "prepare": "husky install",
         "env": " yarn && yarn start",
         "server": "cd src && node Server/index.js",
-        "heroku-postbuild": "cd src && node Server/index.js"
+        "heroku-postbuild": "cd src && nodemon Server/index.js"
     },
     "proxy": "http://localhost:3001",
     "engines": {

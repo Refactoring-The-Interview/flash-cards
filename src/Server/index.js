@@ -7,12 +7,12 @@ const {
 const express = require("express");
 var path = require("path");
 const bodyParser = require("body-parser");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const { createProxyMiddleware } = require("http-proxy-middleware");
-app.use(createProxyMiddleware("/api/**", { target: "http://localhost:5000" }));
+app.use(createProxyMiddleware("/api/**", { target: "http://localhost:3000" }));
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("build"));
