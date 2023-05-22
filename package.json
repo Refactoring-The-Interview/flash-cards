@@ -42,7 +42,7 @@
         "prepare": "husky install",
         "env": " yarn && yarn start",
         "server": "cd src && nodemon Server/index.js",
-        "web": "cd src && nodemon Server/index.js"
+        "web": "cd src && node Server/index.js"
     },
     "proxy": "http://localhost:3001",
     "engines": {
