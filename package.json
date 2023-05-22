@@ -35,14 +35,13 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "dev": "react-scripts start",
+        "start": "serve -s build",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
-        "prepare": "husky install",
-        "env": " yarn && yarn start",
-        "server": "cd src && nodemon Server/index.js",
-        "web": "cd src && node Server/index.js"
+        "web": "cd src && node Server/index.js",
+        "heroku-postbuild": "npm run build"
     },
     "proxy": "http://localhost:3001",
     "engines": {

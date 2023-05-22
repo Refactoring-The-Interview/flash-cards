@@ -7,7 +7,7 @@ const {
 const express = require("express");
 var path = require("path");
 const bodyParser = require("body-parser");
-const PORT = process.env.NODE_ENV || 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -20,6 +20,10 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, "build", "index.html"));
     });
 }
+
+app.get("/", (req, res) => {
+    res.status(200).send("Hello server is running").end();
+});
 
 app.post("/addToDataBase", (req, res) => {
     dbSetQuestion(req.body.question, (data, error) => {
@@ -74,3 +78,12 @@ app.post("/user", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });
+
+// old package scrips, saving incase needed
+        // "start": "react-scripts start",
+        // "build": "react-scripts build",
+        // "test": "react-scripts test",
+        // "eject": "react-scripts eject",
+        // "prepare": "husky install",
+        // "env": " yarn && yarn start",
+        // "server": "cd src && nodemon Server/index.js",
