@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const { createProxyMiddleware } = require("http-proxy-middleware");
-app.use(createProxyMiddleware("/api/**", { target: "http://localhost:17883" }));
+app.use(createProxyMiddleware("/api/**", { target: "http://localhost:5000" }));
 
 console.log("in the sever! hello");
 
