@@ -41,7 +41,7 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "heroku-postbuild": "yarn run build",
-        "web": "cd src && nodemon Server/index.js"
+        "web": "cd src && node Server/index.js"
     },
     "proxy": "http://localhost:8080",
     "engines": {
