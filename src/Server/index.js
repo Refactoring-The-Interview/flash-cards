@@ -89,3 +89,11 @@ app.listen(PORT, () => {
 // "prepare": "husky install",
 // "env": " yarn && yarn start",
 // "server": "cd src && nodemon Server/index.js",
+
+// server built, now tesiting a sever
+// "dev": "react-scripts start",
+// "start": "serve -s build",
+// "build": "react-scripts build",
+// "test": "react-scripts test --env=jsdom",
+// "eject": "react-scripts eject",
+// "heroku-postbuild": "yarn run build",

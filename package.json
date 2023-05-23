@@ -35,13 +35,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "dev": "react-scripts start",
-        "start": "serve -s build",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "web": "cd src && node Server/index.js",
-        "heroku-postbuild": "npm run build"
+        "web": "cd src && node Server/index.js"
     },
     "proxy": "http://localhost:3001",
     "engines": {
