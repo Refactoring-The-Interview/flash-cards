@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 const { createProxyMiddleware } = require("http-proxy-middleware");
 app.use(createProxyMiddleware("/api/**", { target: "http://localhost:5000" }));
 
+console.log("in the sever! hello");
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("build"));
     app.get("*", (req, res) => {
@@ -80,10 +82,10 @@ app.listen(PORT, () => {
 });
 
 // old package scrips, saving incase needed
-        // "start": "react-scripts start",
-        // "build": "react-scripts build",
-        // "test": "react-scripts test",
-        // "eject": "react-scripts eject",
-        // "prepare": "husky install",
-        // "env": " yarn && yarn start",
-        // "server": "cd src && nodemon Server/index.js",
+// "start": "react-scripts start",
+// "build": "react-scripts build",
+// "test": "react-scripts test",
+// "eject": "react-scripts eject",
+// "prepare": "husky install",
+// "env": " yarn && yarn start",
+// "server": "cd src && nodemon Server/index.js",
