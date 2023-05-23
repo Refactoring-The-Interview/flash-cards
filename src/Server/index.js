@@ -5,6 +5,7 @@ const {
     dbUpdateQuestion,
 } = require("./DataBase");
 const express = require("express");
+const nocache = require("nocache");
 var path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
@@ -13,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const { createProxyMiddleware } = require("http-proxy-middleware");
 app.use(createProxyMiddleware("/api/**", { target: "http://localhost:5000" }));
-
-console.log("in the sever! hello");
+app.use(nocache());
+console.log("&&&&&&&&&&&&in the sever! hello&&&&&&&&&&&");
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("build"));
