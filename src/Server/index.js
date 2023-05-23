@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const { createProxyMiddleware } = require("http-proxy-middleware");
-app.use(createProxyMiddleware("/api/**", { target: "http://localhost:5000" }));
+app.use(createProxyMiddleware("/api/**", { target: "http://localhost:17883" }));
 
 console.log("in the sever! hello");
 
@@ -89,7 +89,6 @@ app.listen(PORT, () => {
 // "prepare": "husky install",
 // "env": " yarn && yarn start",
 // "server": "cd src && nodemon Server/index.js",
-<<<<<<< Updated upstream
 
 // server built, now tesiting a sever
 // "dev": "react-scripts start",
@@ -98,5 +97,3 @@ app.listen(PORT, () => {
 // "test": "react-scripts test --env=jsdom",
 // "eject": "react-scripts eject",
 // "heroku-postbuild": "yarn run build",
-=======
->>>>>>> Stashed changes
