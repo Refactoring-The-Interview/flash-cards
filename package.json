@@ -35,6 +35,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
+        "start": "yarn web",
         "web": "cd src && node Server/index.js"
     },
     "proxy": "http://localhost:3001",
