@@ -89,6 +89,7 @@ app.listen(PORT, () => {
 // "prepare": "husky install",
 // "env": " yarn && yarn start",
 // "server": "cd src && nodemon Server/index.js",
+<<<<<<< Updated upstream
 
 // server built, now tesiting a sever
 // "dev": "react-scripts start",
@@ -97,3 +98,5 @@ app.listen(PORT, () => {
 // "test": "react-scripts test --env=jsdom",
 // "eject": "react-scripts eject",
 // "heroku-postbuild": "yarn run build",
+=======
+>>>>>>> Stashed changes
