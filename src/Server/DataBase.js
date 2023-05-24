@@ -1,5 +1,5 @@
 const JSONdb = require("simple-json-db");
-const db = new JSONdb("./storage.json");
+const db = new JSONdb("./build/storage.json");
 
 const dbGet = (key, callback) => {
     callback(db.get(key));
