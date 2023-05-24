@@ -1,8 +1,8 @@
-import { post } from "../utils";
-import { API, Question } from "../types";
+import { Question } from "../types";
+import { storage } from "./storage";
 
 export const postQuestion = (question: Question): Promise<Question[]> => {
-    return post(API.addQuestion, {
-        question,
-    });
+    return new Promise((resolve) =>
+        setTimeout(() => resolve(storage.addQuestion(question)))
+    );
 };
