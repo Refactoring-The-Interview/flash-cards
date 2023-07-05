@@ -60,6 +60,7 @@ export enum Paths {
     contact = "/contact",
     profile = "/profile",
     questionEdit = "/questionEdit/:questionId",
+    Semordnilap = "/Semordnilap",
 }
 
 export enum API {

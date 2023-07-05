@@ -1,0 +1,15 @@
+.SemordnilapPairings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    border: 2px solid black;
+    background-color: lightgray;
+
+    .SemordnilapPairings-words {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 10rem;
+    }
+}
